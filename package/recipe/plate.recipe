@@ -1,0 +1,66 @@
+# recipe file
+
+[name]
+plate
+
+[package]
+mozplugger 
+gnome-mplayer
+transmission-gtk
+gpicview
+leafpad
+
+[action]
+
+# download firefox.tgz
+
+if [ ! -e skeleton/archive/firefox* ]; then wget http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-trunk/firefox-3.6a1pre.en-US.linux-i686.tar.bz2 -P skeleton/archive/; fi; 
+tar jxf skeleton/archive/firefox* -C $MKXPUD_TARGET/usr/share/
+# checkout plate 
+
+[binary]
+
+/usr/bin/gpicview
+/usr/bin/leafpad
+## FIXME: mime file
+/usr/bin/transmission
+
+/usr/bin/mozplugger-controller
+/usr/bin/mozplugger-helper
+/usr/bin/m4
+
+/usr/bin/gnome-mplayer
+/usr/bin/mplayer
+
+[data]
+
+/usr/share/mplayer
+
+## FIXME
+/usr/share/icons/gnome/index.theme
+/usr/share/icons/gnome/22x22/status/audio-volume-high.png
+
+/usr/lib/firefox/plugins/mozplugger.so
+
+[config]
+
+/etc/mozpluggerrc
+/etc/bootchart-lite
+/etc/pulse
+
+[overwrite]
+
+/usr/share/themes/Human/cursor.theme
+/usr/share/icons/default/index.theme
+/usr/bin/firefox
+/sbin/hotplug-x
+/init
+/sbin/session
+# /usr/local/bin/allstartfromhere.sh
+# /usr/sbin/bootchart-lite
+
+## FIXME rename
+#/usr/share/firefox/plugins/mozplugger.so
+
+/usr/local/bin/jswrapper
+/usr/share/plate

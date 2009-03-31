@@ -1,0 +1,38 @@
+# recipe file
+
+[name]
+wireless-tools
+
+[package]
+wpasupplicant
+wireless-tools
+
+[binary]
+/sbin/iwconfig
+/sbin/iwevent
+/sbin/iwgetid
+/sbin/iwlist
+/sbin/iwpriv
+/sbin/iwspy
+
+/sbin/wpa_action
+/sbin/wpa_cli
+/sbin/wpa_supplicant
+
+/usr/bin/wpa_passphrase
+
+[data]
+
+/lib/libnss_dns.so.2
+/lib/libnss_files.so.2
+
+[config]
+
+[overwrite]
+
+/var/run/network
+/var/lib/dhcp3
+
+# FIXME
+# /usr/local/bin/get_ssid
+# /usr/local/bin/get_wifi

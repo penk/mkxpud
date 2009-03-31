@@ -1,0 +1,43 @@
+#!/bin/bash
+# mkxpud - binary level image build system 
+# for xPUD project <http://xpud.org>
+# Copyright (c) 2009 by Ping-Hsun Chen <penkia@gmail.com>
+
+export LC_ALL=C
+[ -f tools/function.sh ] && . tools/function.sh 
+
+if [ -z $1 ]; then
+	usage
+else
+
+	if [ ! -z $2 ] && [ -f "config/$2.cookbook" ]; then export MKXPUD_CODENAME=$2
+	else export MKXPUD_CODENAME='default'; fi
+	
+	case $1 in
+		all)
+			setup $MKXPUD_CODENAME	
+			echo "[mkxpud] Project Name: $MKXPUD_NAME"
+			install && strip 
+			post
+			# Kernel
+			image $MKXPUD_CODENAME
+			echo "[mkxpud] $MKXPUD_CODENAME Done"
+			;;
+		clean)
+			sudo rm -rf working/$MKXPUD_CODENAME
+			;;
+		image)
+			image $MKXPUD_CODENAME
+			;;
+		test)
+			sudo qemu -kernel deploy/bzImage -initrd deploy/$MKXPUD_CODENAME/rootfs.cpio -hda /dev/zero -m 512 &
+			;;
+		help|usage)
+			usage
+			;;
+		*)
+			echo "[mkxpud] $1: not yet implemented"
+			;;
+	esac 
+fi
+

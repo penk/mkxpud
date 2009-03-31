@@ -1,0 +1,47 @@
+# recipe file
+
+[name]
+network
+
+[package]
+dhcp3-client
+wvdial
+ppp
+pppoeconf
+net-tools
+
+[binary]
+
+/sbin/dhclient
+/sbin/dhclient-script
+/sbin/dhclient3
+
+/usr/bin/poff
+/usr/bin/pon
+/usr/bin/wvdial
+
+/usr/sbin/pppconfig
+/usr/sbin/pppd
+/usr/sbin/pppdump
+/usr/sbin/pppoe-discovery
+/usr/sbin/pppoeconf
+/usr/sbin/pppstats
+
+[data]
+/etc/dhcp3
+/etc/ppp
+/etc/resolv.conf
+/usr/lib/pppd
+
+[config]
+
+/etc/wvdial.conf
+
+[overwrite]
+
+/var/run/network
+/var/lib/dhcp3
+
+# FIXME
+# /usr/local/bin/netdaemon
+# /usr/local/bin/auto-reconnect.pl

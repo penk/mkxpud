@@ -1,0 +1,26 @@
+# recipe file
+
+[name]
+sound
+
+[package]
+alsa-base
+alsa-utils
+
+[binary]
+/usr/bin/alsamixer
+/usr/bin/amixer
+/usr/bin/aplay
+
+[data]
+
+## FIXME
+#/usr/lib/libaudio.so.2
+
+/usr/share/alsa
+/usr/share/alsa-base
+/usr/lib/alsa-lib
+
+[config]
+/etc/asound.conf
+/config/usr/share/alsa/alsa.conf

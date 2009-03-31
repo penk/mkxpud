@@ -1,0 +1,248 @@
+body {
+	background: #2E598D;
+	font-family: dejavu sans;
+}
+
+img {
+	border: 0;
+}
+
+p {
+	text-indent: 25px;
+}
+
+h2 {
+	font-size: large;
+	line-height: 50%;
+}
+
+#padding {
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	width: auto;
+	height: auto;
+	background: 0;
+	border: 10px #2E598D solid;
+	overflow: hidden;
+}
+
+#panel {
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: auto;
+	width: 110px;
+	height: auto;
+	background: 0;
+	font-size: 120%;
+	font-weight: bold;
+	z-index: 2;
+}
+
+#panel div {
+	position: relative;
+	top: 0px;
+	bottom: auto;
+	left: 0px;
+	right: auto;
+	width: 100%;
+	height: 115px;
+	background: #2E598D;
+	color: #FFFFFF;
+	-moz-border-radius: 12px;
+}
+
+#panel div table {
+	width: 100%;
+	height: 100%;
+	opacity: 0.6;
+	text-align: center;
+}
+
+#panel div table:hover {
+	opacity: 1.0;
+	cursor: pointer;
+}
+/*block of under_cover*/
+#panel div div {
+	position: absolute;
+	top: -15px;
+	bottom: auto;
+	left: 75px;
+	right: auto;
+	width: 145px;
+	height: 160px;
+	background: #FFFFFF;
+	display: none;
+	z-index: -1;
+}
+
+#panel div div.under_cover {
+	display: block;
+}
+
+#panel div.selected {
+	background: #FFFFFF;
+	color: #000000;
+}
+
+#panel div.programs_running {
+	background: #1F3B5E;
+	color: #000000;
+}
+
+#panel div.selected table {
+	opacity: 1.0;
+}
+
+#panel div#slot {
+	background: #2E598D;
+}
+
+#content {
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 110px;
+	right: 0px;
+	width: auto;/*set by set_panel_width() on load*/
+	height: auto;
+	background: #FFFFFF;
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	-moz-border-radius: 12px;
+	overflow: auto;
+	z-index: 3;
+}
+
+#content a {
+	color: black;
+	text-decoration: none;
+}
+
+#content iframe {
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+
+#menu {
+	position: relative;
+	overflow: hidden;
+	height: 0px;
+}
+
+#menu.show {
+	height: 100%;
+}
+
+#programs {
+	position: relative;
+	overflow: hidden;
+	height: 0px;
+}
+
+#programs.show {
+	height: 100%;
+}
+
+#programs div {
+	height: 0px;
+}
+
+/*should be unique*/
+#programs div.show {
+	height: 100%;
+}
+
+.soft_background {
+	width: 100%;
+	height: auto;
+	background: #FFE7AE;
+	font-size: small;
+	-moz-border-radius: 12px;
+	border-spacing: 10px;
+}
+
+.soft_background tr td {
+	width: 33%;
+}
+
+.soft_background table {
+	width: auto;
+	-moz-border-radius: 12px;
+	background: 0;
+}
+
+.soft_background table:hover {
+	background: #FFFFFF;
+}
+
+.soft_background table td{
+	width: 100%;
+}
+
+.soft_background table td.image {
+	width: 65px;
+}
+
+.soft_background table div.notify_hide {
+	display: none;
+}
+
+.soft_background table div.notify_resume {
+	position: relative;
+	top: -16px;
+	bottom: auto;
+	left: 0px;
+	right: auto;
+	width: 0px;
+	height: 0px;
+	display: block;
+	overflow: visible;
+}
+
+.soft_background table div.notify_resume div {
+	position: relative;
+	top: auto;
+	bottom: auto;
+	left: auto;
+	right: auto;
+	width: 16px;
+	height: 16px;
+	background: url(image/info.png) no-repeat;
+}
+
+.green {
+	background: #E0FFE0;
+}
+
+.orange {
+	background: #FFE7AE;
+}
+
+.soft_background td {
+	width: auto;
+}
+
+#close_button {
+	position: absolute;
+	top: 15px;
+	bottom: auto;
+	left: auto;
+	right: 2px;
+	width: 16px;
+	height: 16px;
+	background: url(image/cancel.png) no-repeat;
+	z-index: 4;
+}
+
+#close_button:hover {
+	cursor: pointer;
+}

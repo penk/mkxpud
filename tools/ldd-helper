@@ -1,0 +1,10 @@
+#!/usr/bin/env perl
+# ldd-helper - ldd output extractor 
+# for xPUD project <http://xpud.org>
+# Copyright (c) 2009 by Ping-Hsun Chen <penkia@gmail.com>
+
+for (`ldd $ARGV[0]`) {
+
+print $1, "\n" if /(\/.*) \(/;
+
+}

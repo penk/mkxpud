@@ -1,0 +1,34 @@
+#!/usr/bin/env perl
+# parser - configuration parser 
+# for xPUD project <http://xpud.org>
+# Copyright (c) 2009 by Ping-Hsun Chen <penkia@gmail.com>
+
+# Usage: parser <file> <section>
+
+if ($ARGV[0] && $ARGV[1]) {
+open(CONFIG, $ARGV[0]) or die "$!\n";
+while(<CONFIG>) {
+	chomp;
+	next if /^(\s+|#)/;
+	next unless length;
+	if (/\[(\S*)\]/) { $section = $1; }	
+	elsif (/=/) { ($key, $value) = /(.*?)\s*=\s*"(.*)"/; 
+	#$section{$key} = $value; 
+	print qq{$key="$value"\n} if $section eq $ARGV[1]; } 
+	else { #$section{$_} = 1; 
+	print "$_\n" if $section eq $ARGV[1]; } 
+}
+close(CONFIG);
+} else { print "Usage: parser <file> <section>\n"; }
+
+__DATA__
+
+# comment
+[section]
+
+var1="value"
+var2="another value"
+
+[another section]
+line1
+line2
