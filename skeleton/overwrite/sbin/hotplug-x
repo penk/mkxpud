@@ -12,9 +12,9 @@ add() {
 			mknod /dev/$DEV b $MAJOR $MINOR
 			mkdir -p /media/$DEV
 			mount /dev/$DEV /media/$DEV
-			if [ `echo $DEV | wc -c` == 5 ]; then
-			/usr/bin/firefox file:///media/$DEV/ &
-			fi
+			#if [ `echo $DEV | wc -c` == 5 ]; then
+			#/usr/bin/firefox file:///media/$DEV/ &
+			#fi
 			;;
 		*)
 			mknod /dev/$DEV c $MAJOR $MINOR

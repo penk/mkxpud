@@ -142,6 +142,9 @@
   <keybind key="C-Q">
     <action name="NextWindow"/>
   </keybind>
+  <keybind key="C-S-w">
+    <action name="NextWindow"/>
+  </keybind>
 
 </keyboard>
 

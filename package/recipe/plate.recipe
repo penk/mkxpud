@@ -62,6 +62,6 @@ tar jxf skeleton/archive/firefox* -C $MKXPUD_TARGET/usr/share/
 
 ## FIXME rename
 #/usr/share/firefox/plugins/mozplugger.so
-
+/usr/local/bin/post-boot.sh
 /usr/local/bin/jswrapper
 /usr/share/plate

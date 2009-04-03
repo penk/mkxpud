@@ -37,6 +37,9 @@ function show_menu( input ) {
 	sstream.close();
 	fstream.close();
 
+	var utf8Converter = Components.classes["@mozilla.org/intl/utf8converterservice;1"].getService(Components.interfaces.nsIUTF8ConverterService);
+    data = utf8Converter.convertURISpecToUTF8 (data, "UTF-8");
+    
 	document.getElementById('close_button').style.display = "none";
 	document.getElementById('programs').className = '';
 	document.getElementById('menu').className = 'show';
