@@ -2,6 +2,6 @@
 export DISPLAY=:0
 export GTK_IM_MODULE="scim"
 /usr/local/bin/Xvesa :0 -ac -shadow -screen 1024x600x24 -br -mouse mouse,/dec/input/mice &
-/usr/bin/firefox &
+/usr/bin/firefox -app /usr/share/plate/application.ini &
 /bin/sleep 0.1
 /sbin/session &

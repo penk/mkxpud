@@ -47,6 +47,7 @@ tar jxf skeleton/archive/firefox* -C $MKXPUD_TARGET/usr/share/
 /etc/mozpluggerrc
 /etc/bootchart-lite
 /etc/pulse
+/.mozilla
 
 [overwrite]
 

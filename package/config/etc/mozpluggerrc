@@ -109,6 +109,9 @@ plate/pud3:pud3:xPUD wrapper file
 plate/pud4:pud4:xPUD wrapper file
         repeat noisy swallow(leafpad): leafpad
 
+plate/pud5:pud5:xPUD wrapper file
+	repeat noisy swallow(Minefield): firefox 
+
 ###################
 ### Video       ###
 ###################
