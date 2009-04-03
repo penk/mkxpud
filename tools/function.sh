@@ -23,7 +23,8 @@ function setup {
 	eval export `./tools/parser $MKXPUD_CONFIG config`
 
 	## FIXME: alias cp='cp -rfpL --remove-destination'
-	cp -rfpL --remove-destination skeleton/rootfs/ working/$MKXPUD_CODENAME/rootfs
+	#cp -rfpL --remove-destination skeleton/rootfs/ working/$MKXPUD_CODENAME/rootfs
+	tar zxf skeleton/rootfs.tgz -C working/$MKXPUD_CODENAME/
 	export MKXPUD_TARGET=working/$MKXPUD_CODENAME/rootfs
 	echo "[mkxpud] Project Target: $MKXPUD_TARGET"
 
