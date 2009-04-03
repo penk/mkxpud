@@ -23,4 +23,4 @@ alsa-utils
 
 [config]
 /etc/asound.conf
-/config/usr/share/alsa/alsa.conf
+/usr/share/alsa/alsa.conf
