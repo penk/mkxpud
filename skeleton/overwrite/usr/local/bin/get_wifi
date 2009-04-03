@@ -1,0 +1,46 @@
+#!/usr/bin/perl
+# NIC, Encrypt type, Address, Password
+
+$nic = $ARGV[0];
+
+system "touch /tmp/netstat.tmp";
+system "echo 1 > /tmp/netattempt";
+
+# NONE 
+if ($ARGV[1] eq 'wifi-none') {
+system "iwconfig $nic ap $ARGV[2] key off";
+}
+
+# WEP
+if ($ARGV[1] eq 'wifi-wep') {
+
+my $c = `echo $ARGV[2] | wc -c`;
+if ($c == 6 || $c == 14) {
+my $passwd = $1 if $ARGV[2] =~ /^"(.*)"$/;
+system qq{iwconfig $nic ap $ARGV[2] key "s:$passwd"};
+} else {
+system qq{iwconfig $nic ap $ARGV[2] key $ARGV[3]};
+}
+
+}
+
+# WPA
+if ($ARGV[1] eq 'wifi-wpa') {
+
+my $ssid = '"'.$1.'"' if `grep $ARGV[2] /tmp/wifi.opt` =~ />"(.*)"</;
+
+system "wpa_passphrase $ssid $ARGV[3] > /tmp/wifi.conf";
+system "wpa_supplicant -Dwext -i$nic -c/tmp/wifi.conf &";
+
+}
+
+# HIDDEN
+if ($ARGV[0] eq 'wifi-hidden') {
+
+system "ifconfig $nic down";
+system "iwconfig $nic ap $ARGV[2] key $ARGV[3]";
+system "ifconfig $nic up";
+
+}
+
+system "dhclient $nic; rm -f /tmp/netstat.tmp";

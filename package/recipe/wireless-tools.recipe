@@ -34,5 +34,5 @@ wireless-tools
 /var/lib/dhcp3
 
 # FIXME
-# /usr/local/bin/get_ssid
-# /usr/local/bin/get_wifi
+/usr/local/bin/get_ssid
+/usr/local/bin/get_wifi

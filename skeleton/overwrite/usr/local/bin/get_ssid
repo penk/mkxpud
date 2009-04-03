@@ -1,0 +1,41 @@
+#!/usr/bin/perl
+
+$scan_result = `iwlist scan`;
+$b = -1;
+
+for (split(/Cell/,$scan_result)) {
+
+$dev = "<option>$1</option>" if /(\w+)\s+Scan completed :/;
+
+$class = "";
+
+$class = 'wifi-none' if /key:off/;
+$class = 'wifi-wep' if /WEP/;
+$class = 'wifi-wpa' if /WPA/;
+
+$addr = $1 if /Address: (.*)/;
+$essid = $1 if /ESSID:(.*)/;
+
+if ($essid eq '""') {
+$class = 'wifi-hidden'; 
+$essid = $addr;
+}
+
+$class = 'wifi-wep' if $class eq "";
+
+if ($class ne 'wifi-none') {
+$a .= qq{<option value='$addr' class='$class' onclick='check_enc($b)' style="background: url('lock.png') 95% 100% no-repeat; padding-right: 10px;">$essid</option>\n} if $addr ne "";
+} else {
+$a .=qq{<option value='$addr' class='$class' onclick='check_enc($b)'>$essid</option>\n} if $addr ne "";
+}
+
+$b++;
+
+}
+
+print $a;
+
+open(DEV, ">/tmp/wifi.dev");
+print DEV $dev;
+open(OPT, ">/tmp/wifi.opt");
+print OPT $a;
