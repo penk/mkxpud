@@ -71,6 +71,7 @@ sudo tar zxf kernel/module/2.6.28-modules.tgz -C $MKXPUD_TARGET/;
 /usr/lib/linux-boot-probes
 /usr/lib/os-probes
 /usr/lib/pango
+/usr/lib/grub
 
 /lib/udev/usb_device_name
 /lib/udev/vol_id
