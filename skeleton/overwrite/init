@@ -6,14 +6,16 @@ export GTK_IM_MODULE="scim"
 	/bin/mount -t sysfs none /sys -onodev,noexec,nosuid
 	/bin/mount -t proc none /proc -onodev,noexec,nosuid
 
-
-#	for x in $(cat /proc/cmdline); do
-#		case $x in
-#			screen=*)
-#				screen=${x#screen=}
-#			;;
-#		esac
-#	done 
+	for x in $(cat /proc/cmdline); do
+		case $x in
+			screen=*)
+				SCREEN=${x#screen=}
+			;;
+			lang=*)
+				export LANG=${x#lang=}
+			;;
+		esac
+	done 
 
 	/usr/sbin/915resolution 32 1024 600 24
 	/usr/sbin/915resolution -l > /tmp/915
@@ -25,7 +27,7 @@ export GTK_IM_MODULE="scim"
 	/usr/local/bin/Xvesa :0 -ac -shadow -screen $RES -br -mouse mouse,/dev/input/mice &
 	/bin/sleep 0.1
 	TIME=`/bin/cat /proc/uptime | /bin/cut -d' ' -f 1` 
-	/bin/sed -e s/xPUD.*9/"xPUD 0.8.9<br \/>Boot time: $TIME sec"/g /usr/share/plate/chrome/content/template/home.html.bak > /usr/share/plate/chrome/content/template/home.html 
+	/bin/sed -e s/xPUD.*9/"xPUD 0.8.9<br \/>Boot time - $TIME sec"/g /usr/share/plate/chrome/content/template/home.html.bak > /usr/share/plate/chrome/content/template/home.html 
 	/usr/bin/firefox -app /usr/share/plate/application.ini &
 	/sbin/session &
 	/bin/sh

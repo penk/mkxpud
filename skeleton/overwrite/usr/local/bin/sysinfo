@@ -1,0 +1,39 @@
+#!/usr/bin/perl
+
+open (F, ">/tmp/sysinfo");
+
+print F "Date: ", `LC_ALL=C date +%a\\ %I:%M\\ %p`, "<br />\n";
+
+if (`ifconfig|grep "inet addr"`) { $netstat = "Online"; } 
+elsif ( -e "/tmp/netstat.tmp" && `ps | grep dhclient`) { 
+$netstat = "Connecting"; } else { $netstat = "Offline"; } 
+
+print F "Network: $netstat <br />\n";
+
+$info = `cat /proc/acpi/battery/*/state`;
+ 
+if ( $info ne '' ) {
+
+	print F "Battery: ";
+	if ($info =~ /discharging/) {
+	$r = $1 if $info =~ /present rate:\s+(\d+)\s/;
+	$c = $1 if $info =~ /remaining capacity:\s+(\d+)\s/;
+	$h = sprintf "%d", $c/$r;
+	$m = sprintf "%.2d", 60*$c/$r-$h*60;
+	print F "$h:$m remaining";
+	} else {
+	print F "Charging";
+	}
+	
+	$status = '';
+	for (`cat /sys/bus/acpi/drivers/battery/*/power_supply/*/uevent`) {
+	$full = $1 if /CHARGE_FULL=(.*)$/;
+	$now = $1 if /CHARGE_NOW=(.*)$/;
+	$status = 'Charging - ' if /SUPPLY_STATUS=Charging/;
+	}
+
+	if ($full) {
+	printf F " (%s%.2d%) <br />\n", $status, $now / $full * 100;
+	} 
+
+}
