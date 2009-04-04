@@ -6,16 +6,16 @@ export GTK_IM_MODULE="scim"
 	/bin/mount -t sysfs none /sys -onodev,noexec,nosuid
 	/bin/mount -t proc none /proc -onodev,noexec,nosuid
 
-	for x in $(cat /proc/cmdline); do
-		case $x in
-			screen=*)
-				SCREEN=${x#screen=}
-			;;
-			lang=*)
-				export LANG=${x#lang=}
-			;;
-		esac
-	done 
+#	for x in $(cat /proc/cmdline); do
+#		case $x in
+#			screen=*)
+#				export SCREEN=${x#screen=}
+#			;;
+#			lang=*)
+#				export LANG=${x#lang=}
+#			;;
+#		esac
+#	done 
 
 	/usr/sbin/915resolution 32 1024 600 24
 	/usr/sbin/915resolution -l > /tmp/915
