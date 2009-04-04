@@ -1,0 +1,42 @@
+# mkxpud project config
+
+[config]
+# short project description
+MKXPUD_NAME="xPUD v0.8.9"
+# you can skip the apt-get install by setting this to `true'
+MKXPUD_SKIP_APT="true"
+# specified the Linux kernel version to be used
+KERNEL="2.6.28"
+
+[kernel]
+# kernel modules to be included into rootfs
+ath_pci
+uvcvideo
+
+[recipe]
+# packages and files to be included into rootfs
+core-utils
+x11
+sound
+network
+wireless-tools
+artwork
+scim-chewing
+plate
+
+[overwrite]
+# files to be overwritten
+/etc/passwd
+/etc/group
+
+[obfuscate]
+# files to be compressed with `upx' or `shc'
+/usr/bin/Xvesa
+/usr/bin/perl
+/bin/bash
+/bin/busybox
+/bin/mount
+/usr/bin/mplayer
+
+[remove]
+# files to be removed after rootfs extraction
