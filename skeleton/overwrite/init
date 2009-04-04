@@ -27,6 +27,7 @@ export GTK_IM_MODULE="scim"
 
 	if [ -z $LANG ]; then export LANG=en; fi
 	ln -s /usr/share/plate/chrome/content/index.$LANG.html /usr/share/plate/chrome/content/index.html
+	ln -s /usr/share/plate/chrome/content/template.$LANG /usr/share/plate/chrome/content/template
 	/usr/local/bin/Xvesa :0 -ac -shadow -screen $RES -br -mouse mouse,/dev/input/mice &
 	/bin/sleep 0.1
 	TIME=`/bin/cat /proc/uptime | /bin/cut -d' ' -f 1` 
