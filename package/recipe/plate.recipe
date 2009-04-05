@@ -39,6 +39,7 @@ tar jxf skeleton/archive/firefox* -C $MKXPUD_TARGET/usr/share/
 ## FIXME
 /usr/share/icons/gnome/index.theme
 /usr/share/icons/gnome/22x22/status/audio-volume-high.png
+/etc/fonts
 
 /usr/lib/firefox/plugins/mozplugger.so
 
