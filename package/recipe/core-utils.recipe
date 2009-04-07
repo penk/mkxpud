@@ -92,6 +92,7 @@ sudo tar zxf kernel/module/default-module-2.6.28.tgz -C $MKXPUD_TARGET/;
 [config]
 
 /etc/fstab
+/etc/hostname
 #/etc/modules
 #/etc/passwd
 #/etc/group
