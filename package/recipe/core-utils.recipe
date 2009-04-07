@@ -27,7 +27,7 @@ module-init-tools
 sudo tar zxf skeleton/archive/dev.tgz -C $MKXPUD_TARGET/;
 
 # FIXME: modules
-sudo tar zxf kernel/module/2.6.28-modules.tgz -C $MKXPUD_TARGET/;
+sudo tar zxf kernel/module/default-module-2.6.28.tgz -C $MKXPUD_TARGET/;
 
 #---------------------------
 
