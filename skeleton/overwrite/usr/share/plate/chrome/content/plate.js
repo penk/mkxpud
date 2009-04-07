@@ -1,3 +1,36 @@
+function update_sysinfo() {
+
+update_div('sysinfo', '/tmp/sysinfo');
+setTimeout('update_sysinfo()', 10000);
+system('/usr/local/bin/sysinfo');
+
+}
+
+function update_div(id, path) {
+	netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
+	var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
+	file.initWithPath(path);
+
+	var data = "";
+	var fstream = Components.classes["@mozilla.org/network/file-input-stream;1"].createInstance(Components.interfaces.nsIFileInputStream);
+	var sstream = Components.classes["@mozilla.org/scriptableinputstream;1"].createInstance(Components.interfaces.nsIScriptableInputStream);
+	fstream.init(file, -1, 0, 0);
+	sstream.init(fstream); 
+
+	var str = sstream.read(4096);
+	while (str.length > 0) {
+		data += str;
+		str = sstream.read(4096);
+	}
+
+	sstream.close();
+	fstream.close();
+
+	var utf8Converter = Components.classes["@mozilla.org/intl/utf8converterservice;1"].getService(Components.interfaces.nsIUTF8ConverterService);
+    data = utf8Converter.convertURISpecToUTF8 (data, "UTF-8");
+
+	document.getElementById(id).innerHTML = data;
+}
 
 function select_tab( this_tab ) {
 	if( this_tab.className == '' ) {
@@ -146,4 +179,27 @@ function sleep(milliseconds) {
 function confirm_off() {
 	tmp = window.confirm('Do you want to shutdown?'); 
 	if (tmp) system('poweroff -f');
+}
+
+var vis=1;
+function cover() {  
+
+	if(vis) {
+		vis=0;
+		$('cover').style.display='block';
+		$('popup').style.display='block';
+	} 
+	else {   
+		vis=1;
+		$('cover').style.display='none'; 
+		$('popup').style.display='none';
+	}
+
+}
+
+function popup(path) {
+
+cover(); 
+update_div('popup', '/usr/share/plate/chrome/content/template/'+path+'.html');
+
 }

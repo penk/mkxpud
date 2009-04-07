@@ -25,7 +25,7 @@
 	<table class="soft_background orange">
 	<tr>
 		<td>
-		<a href="#" onclick="confirm_off();" onfocus = "this.blur()">
+		<a href="#" onclick="popup('shutdown');" onfocus = "this.blur()">
 			<table><tr><td class="image">
 					<img src="image/logout.png" />
 			</td><td>
