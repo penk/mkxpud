@@ -12,6 +12,11 @@ net-tools
 
 [binary]
 
+/sbin/iptables
+/sbin/iptables-save
+/sbin/iptables-restore
+/sbin/iptables-xml
+
 /sbin/dhclient
 /sbin/dhclient-script
 /sbin/dhclient3
@@ -32,6 +37,7 @@ net-tools
 /etc/ppp
 /etc/resolv.conf
 /usr/lib/pppd
+/lib/iptables
 
 [config]
 
