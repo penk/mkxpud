@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>Escritorio basado en web</title>
+<script>
+function system(input) {
+netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
+var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
+file.initWithPath("/usr/local/bin/jswrapper");
+var process = Components.classes["@mozilla.org/process/util;1"].createInstance(Components.interfaces.nsIProcess);
+process.init(file);
+var args = [input];
+process.run(false, args, 1);
+
+}
+
+function update() {
+
+sleep(50);
+
+netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
+var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
+file.initWithPath("/tmp/jswrapper.log");
+
+var data = "";
+document.getElementById('info').innerHTML = "";
+var fstream = Components.classes["@mozilla.org/network/file-input-stream;1"].createInstance(Components.interfaces.nsIFileInputStream);
+var sstream = Components.classes["@mozilla.org/scriptableinputstream;1"].createInstance(Components.interfaces.nsIScriptableInputStream);
+fstream.init(file, -1, 0, 0);
+sstream.init(fstream); 
+
+var str = sstream.read(4096);
+while (str.length > 0) {
+  data += str;
+  str = sstream.read(4096);
+}
+
+sstream.close();
+fstream.close();
+
+document.getElementById('info').innerHTML = data;
+}
+
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
+
+</script>
+
+</head>
+<body style="margin: 20px auto; width: 760px;">
+
+<h1 style="margin-bottom: 50px;">Bienvenido a LXDE</h1>
+
+
+<p>
+Escribe una URL: 
+</p>
+
+
+<input type="text" id="cmd" size="35" value="http://" />
+<input type="button" value="Go!" onclick="window.location.href=document.getElementById('cmd').value"/>
+
+
+<!--
+<p>
+Type a command to execute: 
+</p>
+
+<input type="text" id="cmd" size="35" />
+<input type="button" value="Execute" onclick="system(document.getElementById('cmd').value); update();"/>
+<pre id="info" style="border: 1px black solid; padding: 5px; background: #E6E6E6; color: black; width: 70%;">
+
+-->
+
+
+
+
+</pre>
+</body>
+
+</html> 

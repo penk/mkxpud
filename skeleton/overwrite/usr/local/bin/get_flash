@@ -1,0 +1,14 @@
+#!/bin/bash -e
+# done by probono 
+# http://klik.atekon.de/wiki/index.php/CustomizeXPUDLive
+
+DESTINATION="/usr/share/firefox/plugins/libflashplayer.so"
+
+# Download and install Flash plugin
+wget "http://fpdownload.macromedia.com/get/flashplayer/current/install_flash_player_10_linux.tar.gz"
+ls | grep flash 
+zcat install_flash_player_10_linux.tar.gz | \
+tar x  install_flash_player_10_linux/libflashplayer.so \
+-O > "$DESTINATION"
+rm install_flash_player_10_linux.tar.gz
+

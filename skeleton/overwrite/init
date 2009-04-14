@@ -5,6 +5,7 @@ export GTK_IM_MODULE="scim"
 
 	/bin/mount -t sysfs none /sys -onodev,noexec,nosuid
 	/bin/mount -t proc none /proc -onodev,noexec,nosuid
+	ln -s /proc/mounts /etc/mtab
 
 	/usr/sbin/915resolution 32 1024 600 24
 	/usr/sbin/915resolution -l > /tmp/915
@@ -20,14 +21,24 @@ export GTK_IM_MODULE="scim"
 				export RES=${x#screen=}
 			;;
 			lang=*)
-				export LANG=${x#lang=}
+				export UILANG=${x#lang=}
+			;;
+			kmap=*)
+				export KEYMAP=${x#kmap=}
 			;;
 		esac
 	done 
+	
+	# plate locale
+	PLATE=/usr/share/plate/chrome/content
+	if [ ! -z $UILANG ] && [ -e $PLATE/template.$UILANG ]; then 
+		ln -s $PLATE/index.$UILANG.html $PLATE/index.html
+		ln -s $PLATE/template.$UILANG $PLATE/template
+	else
+		ln -s $PLATE/index.en.html $PLATE/index.html
+		ln -s $PLATE/template.en $PLATE/template
+	fi
 
-	if [ -z $LANG ]; then export LANG=en; fi
-	ln -s /usr/share/plate/chrome/content/index.$LANG.html /usr/share/plate/chrome/content/index.html
-	ln -s /usr/share/plate/chrome/content/template.$LANG /usr/share/plate/chrome/content/template
 	/usr/local/bin/Xvesa :0 -ac -shadow -screen $RES -br -mouse mouse,/dev/input/mice &
 	/bin/sleep 0.1
 	TIME=`/bin/cat /proc/uptime | /bin/cut -d' ' -f 1` 

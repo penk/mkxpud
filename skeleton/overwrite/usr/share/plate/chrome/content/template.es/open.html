@@ -1,0 +1,36 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../style.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=big5" />
+<style>
+a { color: black; 
+text-decoration: none; }
+
+a:hover { text-decoration: none; }
+</style>
+<script type="text/javascript" src="../plate.js" ></script>
+</head>
+<body style="margin-left: 10%; background: white; ">
+
+<iframe id="filebrowser" frameborder="0" scrolling="auto" src="file:///mnt" style="position: relative; top: 20px; left: 20px; height: 78%; width: 94%;">
+</iframe>
+
+<table style="width:80%; position: relative; bottom: 5px;">
+<tr>
+<td style="width: 25%;">
+<a href="#" onclick="$('filebrowser').src ='file:///mnt'"><div class="task">
+<img src="../image/folder_documents.png" width="64px" />
+<p><strong>Vista de lista</strong><br />Explorar archivos en modo lista</p>
+</div></a>
+</td>
+<td style="width: 25%;">
+<a href="#" onclick="system('/root/plate/utils/geniconview.pl /'); sleep(50); $('filebrowser').src ='iconview.html'"><div class="task">
+<img src="../image/folder_images.png" width="64px" />
+<p><strong>Vista de iconos</strong><br />Efecto estilo CoverFlow</p>
+</div></a>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

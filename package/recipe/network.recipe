@@ -48,7 +48,7 @@ iptables
 
 /var/run/network
 /var/lib/dhcp3
+/usr/local/bin/netdaemon
 
 # FIXME
-# /usr/local/bin/netdaemon
 # /usr/local/bin/auto-reconnect.pl
