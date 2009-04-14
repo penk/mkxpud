@@ -21,13 +21,8 @@ for channel in Master Front; do
 	/usr/bin/amixer set $channel 80%
 done
 
-# keymap
-if [ ! -z $KEYMAP ] && [ -e /usr/local/share/keymap/$KEYMAP.kmap ]; then 
-	loadkmap < /usr/local/share/keymap/$KEYMAP.kmap
-fi
-
-# execute customize script 
-[ -e /sbin/customize.sh ] && . /sbin/customize.sh 
+# post hook
+find /etc/post-boot.d/ -type f -exec {} \;  
 
 # start hotplug script
 /bin/cp /sbin/hotplug-x /sbin/hotplug

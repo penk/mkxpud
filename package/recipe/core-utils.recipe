@@ -106,3 +106,4 @@ sudo tar zxf kernel/module/default-module-2.6.28.tgz -C $MKXPUD_TARGET/;
 /var/lib/os-prober
 /bin/sh
 /bin/busybox
+/usr/local/share/keymap
