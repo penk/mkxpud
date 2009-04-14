@@ -105,7 +105,20 @@ function post {
 
 }
 
-# kernel 
+function Kernel {
+
+	echo "[mkxpud] Adding kernel modules"
+	
+	for MOD in `./tools/parser $MKXPUD_CONFIG module`; do
+		for M in `./tools/module-helper $MOD`; do
+		[ -d $MKXPUD_TARGET/`dirname $M` ] || mkdir -p $MKXPUD_TARGET/`dirname $M` 
+		cp -rfpL --remove-destination $M $MKXPUD_TARGET/$M
+		done
+	done
+
+	depmod -b $MKXPUD_TARGET $MKXPUD_KERNEL
+
+}
 
 function image {
 

@@ -2,15 +2,34 @@
 
 [config]
 # short project description
-MKXPUD_NAME="xPUD v0.9"
+MKXPUD_NAME="xPUD default image"
 # you can skip the apt-get install by setting this to `true'
 MKXPUD_SKIP_APT="false"
 # specified the Linux kernel version to be used
-KERNEL="2.6.28"
+MKXPUD_KERNEL="2.6.28"
+MKXPUD_MOD_PATH="/lib/modules/2.6.28"
 
-[kernel]
+[module]
 # kernel modules to be included into rootfs
+ata_piix
+
+atl1
+atl2
+
 ath_pci
+iwl3945
+ath5k
+ath9k
+
+r8180
+rt2860sta
+
+wl
+
+e1000e
+ne2k-pci
+
+usbserial
 uvcvideo
 
 [recipe]
