@@ -58,6 +58,7 @@ tar jxf skeleton/archive/firefox* -C $MKXPUD_TARGET/usr/share/
 /sbin/hotplug-x
 /init
 /sbin/session
+/usr/local/bin/get_flash
 # /usr/local/bin/allstartfromhere.sh
 # /usr/sbin/bootchart-lite
 
