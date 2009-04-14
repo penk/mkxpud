@@ -13,16 +13,14 @@ MKXPUD_MOD_PATH="/lib/modules/2.6.28"
 # kernel modules to be included into rootfs
 ata_piix
 atl1 atl2
-ath_pci
 iwl3945
-ath5k
-ath9k
-r8180
+ath_pci ath5k ath9k
+r8180 
 rt2860sta
-wl
+wl 
 michael_mic
-e1000e
-ne2k-pci
+e1000e ne2k-pci
+pcnet32
 usbserial
 uvcvideo
 
