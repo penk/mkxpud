@@ -29,6 +29,11 @@ export GTK_IM_MODULE="scim"
 		esac
 	done 
 
+	# keymap
+	if [ ! -z $KEYMAP ] && [ -e /usr/local/share/keymap/$KEYMAP.kmap ]; then 
+		loadkmap < /usr/local/share/keymap/$KEYMAP.kmap
+	fi
+
 	# plate locale
 	PLATE=/usr/share/plate/chrome/content
 	if [ ! -z $UILANG ] && [ -e $PLATE/template.$UILANG ]; then 
@@ -39,11 +44,6 @@ export GTK_IM_MODULE="scim"
 	ln -s $PLATE/index.$UILANG.html $PLATE/index.html
 	ln -s $PLATE/template.$UILANG $PLATE/template
 
-	# keymap
-	if [ ! -z $KEYMAP ] && [ -e /usr/local/share/keymap/$KEYMAP.kmap ]; then 
-		loadkmap < /usr/local/share/keymap/$KEYMAP.kmap
-	fi
-	
 	# init hook
 	find /etc/init.d/ -type f -exec {} \; 
 	
