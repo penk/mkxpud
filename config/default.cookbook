@@ -34,6 +34,7 @@ wireless-tools
 artwork
 scim-chewing
 plate
+#python
 
 [overwrite]
 # files to be overwritten
@@ -49,5 +50,9 @@ plate
 /bin/mount
 /usr/bin/mplayer
 
+
 [remove]
 # files to be removed after rootfs extraction
+
+[image]
+gz iso zip

@@ -129,8 +129,24 @@ function image {
 	find | cpio -H newc -o > ../../../deploy/$MKXPUD_CODENAME/rootfs.cpio
 	cd -
 
-	## FIXME: check format
-	cat deploy/$MKXPUD_CODENAME/rootfs.cpio | gzip -9 > deploy/$MKXPUD_CODENAME/rootfs.gz
+	for format in `./tools/parser $MKXPUD_CONFIG image`; do 
+	
+	case $format in
+			gz)
+				cat deploy/$MKXPUD_CODENAME/rootfs.cpio | gzip -9 > deploy/$MKXPUD_CODENAME/rootfs.gz
+			;;
+			iso)
+				cp -r skeleton/boot/iso/ deploy/$MKXPUD_CODENAME/
+				cp deploy/bzImage deploy/$MKXPUD_CODENAME/iso/boot/
+				cp deploy/$MKXPUD_CODENAME/rootfs.gz deploy/$MKXPUD_CODENAME/iso/boot/
+				mkisofs -R -l -V 'xPUD' -input-charset utf-8 -b isolinux.bin -c boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o deploy/$MKXPUD_CODENAME.iso deploy/$MKXPUD_CODENAME/iso/
+			;;
+			*)
+			echo "$format: not supported format"
+			;;
+	esac 
+	done
+
 	du -h deploy/$MKXPUD_CODENAME/rootfs.gz
 
 }
