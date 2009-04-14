@@ -1,0 +1,33 @@
+#!/usr/bin/perl
+
+$MOD_PATH=$ENV{'MKXPUD_MOD_PATH'};
+$flag = 1;
+
+&travel(@ARGV);
+print $_, "\n" for @copy;
+
+sub travel() {
+
+for (@_) {
+chomp;
+
+if (/\.ko$/) {
+($mod, $dep) = split(':', `grep $_: $MOD_PATH/modules.dep`);
+} else {
+($mod, $dep) = split(':', `grep $_.ko: $MOD_PATH/modules.dep`);
+}
+
+push(@copy, $mod);
+
+if ($dep =~ /\w/) {
+	@travel=split(/ /,$dep);
+	for $t (@travel) {
+	chomp($t);
+	next if $t eq '';
+	&travel($t);
+	}
+}
+
+}
+
+}
