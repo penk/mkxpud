@@ -34,6 +34,9 @@ scim-chewing
 plate
 #python
 
+[action]
+perl -pi -e 's/ath5k/ath_pci/g' $MKXPUD_TARGET/lib/modules/$MKXPUD_KERNEL/modules.alias
+
 [overwrite]
 # files to be overwritten
 /etc/passwd

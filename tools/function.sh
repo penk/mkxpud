@@ -103,6 +103,7 @@ function post {
 
 	./tools/busybox-helper
 
+	eval `./tools/parser $MKXPUD_CONFIG action`
 }
 
 function Kernel {
