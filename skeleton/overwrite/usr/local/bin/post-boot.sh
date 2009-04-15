@@ -24,6 +24,13 @@ done
 # post hook
 find /etc/post-boot.d/ -type f -exec {} \;  
 
+if [ "$(cat /proc/cpuinfo | grep Atom)" ] ; then
+    modprobe acpi_cpufreq 
+    modprobe cpufreq_ondemand
+    echo ondemand > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor 
+    echo ondemand > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+fi
+
 # start hotplug script
 /bin/cp /sbin/hotplug-x /sbin/hotplug
 

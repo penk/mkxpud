@@ -87,6 +87,7 @@ sudo tar zxf kernel/module/default-module-2.6.28.tgz -C $MKXPUD_TARGET/;
 /lib/udev/watershed
 /lib/udev/ata_id
 
+/usr/lib/libXss.so.1
 
 #---------------------------
 
@@ -94,8 +95,9 @@ sudo tar zxf kernel/module/default-module-2.6.28.tgz -C $MKXPUD_TARGET/;
 
 /etc/fstab
 /etc/hostname
+/etc/passwd
+
 #/etc/modules
-#/etc/passwd
 #/etc/group
 
 /etc/udev

@@ -59,6 +59,8 @@ tar jxf skeleton/archive/firefox* -C $MKXPUD_TARGET/usr/share/
 /init
 /sbin/session
 /usr/local/bin/get_flash
+/usr/local/bin/get_skype
+
 # /usr/local/bin/allstartfromhere.sh
 # /usr/sbin/bootchart-lite
 

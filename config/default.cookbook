@@ -21,6 +21,7 @@ wl michael_mic b43legacy b43
 e1000e ne2k-pci pcnet32
 usbserial
 uvcvideo
+acpi-cpufreq cpufreq_ondemand video
 
 [recipe]
 # packages and files to be included into rootfs
