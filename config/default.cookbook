@@ -17,10 +17,8 @@ iwl3945
 ath_pci ath5k ath9k
 r8180 
 rt2860sta
-wl 
-michael_mic
-e1000e ne2k-pci
-pcnet32
+wl michael_mic b43legacy b43
+e1000e ne2k-pci pcnet32
 usbserial
 uvcvideo
 
@@ -49,7 +47,6 @@ plate
 /bin/busybox
 /bin/mount
 /usr/bin/mplayer
-
 
 [remove]
 # files to be removed after rootfs extraction
