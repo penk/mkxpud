@@ -41,6 +41,14 @@ h2 {
 	font-size: 120%;
 	font-weight: bold;
 	z-index: 2;
+	display: inline;
+	-moz-user-focus: ignore;
+	-moz-user-input: disabled;
+	-moz-user-select: none;
+}
+
+#panel.maximized {
+	display: none;
 }
 
 #panel div {
@@ -121,6 +129,10 @@ h2 {
 	z-index: 3;
 }
 
+#content.maximized {
+	left: 0px;
+}
+
 #content a {
 	color: black;
 	text-decoration: none;
@@ -143,13 +155,19 @@ h2 {
 }
 
 #programs {
-	position: relative;
-	overflow: hidden;
+	position: absolute;
+	top: 20px;
+	bottom: auto;
+	left: 10px;
+	right: 10px;
+	width: auto;
 	height: 0px;
+	overflow: hidden;
 }
 
 #programs.show {
-	height: 100%;
+	bottom: 10px;
+	height: auto;
 }
 
 #programs div {
@@ -233,30 +251,54 @@ h2 {
 
 #close_button {
 	position: absolute;
-	top: 15px;
+	top: 2px;
 	bottom: auto;
 	left: auto;
-	right: 2px;
+	right: 10px;
 	width: 16px;
 	height: 16px;
-	background: url(image/cancel.png) no-repeat;
+	background: url(image/icon_close.png) center center no-repeat;
 	z-index: 4;
+	opacity: 0.6;
 }
 
 #close_button:hover {
 	cursor: pointer;
+	opacity: 1;
 }
 
-#cover{
+#maximize_button {
 	position: absolute;
-	top:0px; left:0px; display:none;
-	width:100%; height:100%; background-color:#000000;
-    z-index: 4; opacity:0.7;
+	top: 2px;
+	bottom: auto;
+	left: auto;
+	right: 28px;
+	width: 16px;
+	height: 16px;
+	background: url(image/icon_maximize.png) center center no-repeat;
+	z-index: 4;
+	opacity: 0.6;
 }
 
-#popup {
-position: absolute; top: 30%; left: 30%; display: none;
-background: white; padding: 20px;
-z-index: 5;
--moz-border-radius: 15px;
+#maximize_button:hover {
+	cursor: pointer;
+	opacity: 1;
+}
+
+#minimize_button {
+	position: absolute;
+	top: 2px;
+	bottom: auto;
+	left: auto;
+	right: 46px;
+	width: 16px;
+	height: 16px;
+	background: url(image/icon_minimize.png) center center no-repeat;
+	z-index: 4;
+	opacity: 0.6;
+}
+
+#minimize_button:hover {
+	cursor: pointer;
+	opacity: 1;
 }

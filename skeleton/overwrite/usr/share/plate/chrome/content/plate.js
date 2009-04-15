@@ -1,36 +1,3 @@
-function update_sysinfo() {
-
-update_div('sysinfo', '/tmp/sysinfo');
-setTimeout('update_sysinfo()', 10000);
-system('/usr/local/bin/sysinfo');
-
-}
-
-function update_div(id, path) {
-	netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
-	var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
-	file.initWithPath(path);
-
-	var data = "";
-	var fstream = Components.classes["@mozilla.org/network/file-input-stream;1"].createInstance(Components.interfaces.nsIFileInputStream);
-	var sstream = Components.classes["@mozilla.org/scriptableinputstream;1"].createInstance(Components.interfaces.nsIScriptableInputStream);
-	fstream.init(file, -1, 0, 0);
-	sstream.init(fstream); 
-
-	var str = sstream.read(4096);
-	while (str.length > 0) {
-		data += str;
-		str = sstream.read(4096);
-	}
-
-	sstream.close();
-	fstream.close();
-
-	var utf8Converter = Components.classes["@mozilla.org/intl/utf8converterservice;1"].getService(Components.interfaces.nsIUTF8ConverterService);
-    data = utf8Converter.convertURISpecToUTF8 (data, "UTF-8");
-
-	document.getElementById(id).innerHTML = data;
-}
 
 function select_tab( this_tab ) {
 	if( this_tab.className == '' ) {
@@ -74,6 +41,8 @@ function show_menu( input ) {
     data = utf8Converter.convertURISpecToUTF8 (data, "UTF-8");
     
 	document.getElementById('close_button').style.display = "none";
+	document.getElementById('maximize_button').style.display = "none";
+	document.getElementById('minimize_button').style.display = "none";
 	document.getElementById('programs').className = '';
 	document.getElementById('menu').className = 'show';
 	document.getElementById('menu').innerHTML = data;
@@ -89,6 +58,8 @@ function resume_notify( this_obj, program_name ) {
 
 function show_program( input ) {
 	document.getElementById('close_button').style.display = "inline";
+	document.getElementById('maximize_button').style.display = "inline";
+	document.getElementById('minimize_button').style.display = "inline";
 	document.getElementById('menu').className = '';
 	document.getElementById('programs').className = 'show';
 	if( document.getElementById("exec." + input) == null ) {
@@ -115,6 +86,24 @@ function close_program() {
 	for( var i = 0; i < tabs.length; i++ )
 		if( tabs[i].className == "selected" )
 			show_menu( tabs[i].id );
+	unmaximize_program();
+}
+
+function maximize_program() {
+	document.getElementById('panel').className = 'maximized';
+	document.getElementById('content').className = 'maximized';
+}
+
+function unmaximize_program() {
+	document.getElementById('panel').className = '';
+	document.getElementById('content').className = '';
+}
+
+function toggle_maximize_program() {
+	if( document.getElementById('panel').className == 'maximized' )
+		unmaximize_program();
+	else
+		maximize_program();
 }
 
 function $()
@@ -179,6 +168,40 @@ function sleep(milliseconds) {
 function confirm_off() {
 	tmp = window.confirm('Do you want to shutdown?'); 
 	if (tmp) system('poweroff -f');
+}
+
+function update_div(id, path) {
+	netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
+	var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
+	file.initWithPath(path);
+
+	var data = "";
+	var fstream = Components.classes["@mozilla.org/network/file-input-stream;1"].createInstance(Components.interfaces.nsIFileInputStream);
+	var sstream = Components.classes["@mozilla.org/scriptableinputstream;1"].createInstance(Components.interfaces.nsIScriptableInputStream);
+	fstream.init(file, -1, 0, 0);
+	sstream.init(fstream); 
+
+	var str = sstream.read(4096);
+	while (str.length > 0) {
+		data += str;
+		str = sstream.read(4096);
+	}
+
+	sstream.close();
+	fstream.close();
+
+	var utf8Converter = Components.classes["@mozilla.org/intl/utf8converterservice;1"].getService(Components.interfaces.nsIUTF8ConverterService);
+    data = utf8Converter.convertURISpecToUTF8 (data, "UTF-8");
+
+	document.getElementById(id).innerHTML = data;
+}
+
+function update_sysinfo() {
+
+update_div('sysinfo', '/tmp/sysinfo');
+setTimeout('update_sysinfo()', 10000);
+system('/usr/local/bin/sysinfo');
+
 }
 
 var vis=1;
