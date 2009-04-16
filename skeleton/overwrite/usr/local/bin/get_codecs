@@ -12,6 +12,6 @@ wget "http://packages.medibuntu.org/pool/free/libd/libdvdcss/libdvdcss2_1.2.10-0
 ar p libdvdcss*.deb data.tar.gz | zcat | tar xv
 
 cp -a ./usr/lib /usr
-rm rf *.deb /tmp/usr/
+rm -rf *.deb /tmp/usr/
 
 cd -
