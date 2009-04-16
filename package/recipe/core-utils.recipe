@@ -101,6 +101,7 @@ sudo tar zxf kernel/module/default-module-2.6.28.tgz -C $MKXPUD_TARGET/;
 #/etc/group
 
 /etc/udev
+/etc/xpud-backup.conf
 
 #---------------------------
 
@@ -110,3 +111,6 @@ sudo tar zxf kernel/module/default-module-2.6.28.tgz -C $MKXPUD_TARGET/;
 /bin/sh
 /bin/busybox
 /usr/local/share/keymap
+
+/usr/local/bin/get_mod_list
+/usr/local/bin/xpud-backup

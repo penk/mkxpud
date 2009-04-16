@@ -1,0 +1,11 @@
+#!/bin/bash
+# xpud-backup <path>
+
+mkdir -p /tmp/backup
+cd /tmp/backup
+
+tar cpvf - -T /etc/xpud-backup.conf | tar xvf -;
+find | cpio -H newc -o | gzip -9 > $1/xpud-data.gz
+
+cd -
+rm -rf /tmp/backup
