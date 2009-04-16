@@ -1,0 +1,17 @@
+#!/bin/bash -e
+# by penk
+# get codecs from medibuntu
+# use at your own risk
+
+cd /tmp
+
+wget "http://packages.medibuntu.org/pool/non-free/w/w32codecs/w32codecs_20071007-0medibuntu3_i386.deb"
+ar p w32codecs*.deb data.tar.gz | zcat | tar xv
+
+wget "http://packages.medibuntu.org/pool/free/libd/libdvdcss/libdvdcss2_1.2.10-0.2medibuntu1_i386.deb"
+ar p libdvdcss*.deb data.tar.gz | zcat | tar xv
+
+cp -a ./usr/lib /usr
+rm rf *.deb /tmp/usr/
+
+cd -

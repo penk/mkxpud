@@ -1,0 +1,5 @@
+#!/bin/bash
+
+for i in `lsmod | cut -d' ' -f1 | sed s/_/*/g`; do
+	find /lib/modules/`uname -r` -name $i.ko 
+done
