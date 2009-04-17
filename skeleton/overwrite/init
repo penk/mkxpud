@@ -30,8 +30,8 @@ export GTK_IM_MODULE="scim"
 	done 
 
 	# keymap
-	if [ ! -z $KEYMAP ] && [ -e /usr/local/share/keymap/$KEYMAP.kmap ]; then 
-		loadkmap < /usr/local/share/keymap/$KEYMAP.kmap
+	if [ ! -z $KEYMAP ] && [ -e /usr/share/keymap/$KEYMAP.kmap ]; then 
+		loadkmap < /usr/share/keymap/$KEYMAP.kmap
 	fi
 
 	# plate locale
