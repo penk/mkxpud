@@ -46,6 +46,7 @@ function show_menu( input ) {
 	document.getElementById('programs').className = '';
 	document.getElementById('menu').className = 'show';
 	document.getElementById('menu').innerHTML = data;
+	unmaximize_program();
 }
 
 function resume_notify( this_obj, program_name ) {
@@ -92,16 +93,23 @@ function close_program() {
 function maximize_program() {
 	document.getElementById('panel').className = 'maximized';
 	document.getElementById('content').className = 'maximized';
+	document.getElementById('padding').className = 'maximized';
+	document.getElementById('programs').className = 'maximized';
 }
 
 function unmaximize_program() {
 	document.getElementById('panel').className = '';
 	document.getElementById('content').className = '';
+	document.getElementById('padding').className = '';
+	document.getElementById('programs').className = '';
 }
 
 function toggle_maximize_program() {
 	if( document.getElementById('panel').className == 'maximized' )
+	{
 		unmaximize_program();
+		document.getElementById('programs').className = 'show';
+	}
 	else
 		maximize_program();
 }

@@ -29,6 +29,10 @@ h2 {
 	overflow: hidden;
 }
 
+#padding.maximized {
+	border: 0px #2E598D solid;
+}
+
 #panel {
 	position: absolute;
 	top: 0px;
@@ -165,8 +169,17 @@ h2 {
 	overflow: hidden;
 }
 
+#programs.maximized {
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	height: auto;
+}
+
 #programs.show {
 	bottom: 10px;
+	left: 10px;
+	right: 10px;
 	height: auto;
 }
 
@@ -282,7 +295,7 @@ h2 {
 	height: 16px;
 	background: url(image/icon_close.png) center center no-repeat;
 	z-index: 4;
-	opacity: 0.6;
+	opacity: 0.4;
 }
 
 #close_button:hover {
@@ -300,7 +313,7 @@ h2 {
 	height: 16px;
 	background: url(image/icon_maximize.png) center center no-repeat;
 	z-index: 4;
-	opacity: 0.6;
+	opacity: 0.4;
 }
 
 #maximize_button:hover {
@@ -318,7 +331,7 @@ h2 {
 	height: 16px;
 	background: url(image/icon_minimize.png) center center no-repeat;
 	z-index: 4;
-	opacity: 0.6;
+	opacity: 0.4;
 }
 
 #minimize_button:hover {
