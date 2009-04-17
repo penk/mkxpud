@@ -24,11 +24,6 @@ wmctrl
 
 /lib/terminfo
 
-## FIXME: local binary ldd-helper
-/usr/lib/libts-0.0.so.0
-/usr/lib/libXfont.so.1
-/usr/lib/libfontenc.so.1
-
 [config]
 
 /etc/xdg/openbox
@@ -38,6 +33,8 @@ wmctrl
 /bin/startx
 
 /usr/sbin/915resolution
+
+/usr/lib/libts-0.0.so.0
 
 /usr/local/bin/Xvesa
 /usr/bin/xhkeys

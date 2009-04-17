@@ -82,6 +82,15 @@ function strip {
 					;;
 				overwrite) 
 						## skeleton/overwrite/
+						
+						if [ -x $A ]; then
+						for i in `./tools/ldd-helper $A`; do 
+							if [ `dirname $i` == '/usr/lib' ]; then 
+							cp -rfpL --remove-destination $i $MKXPUD_TARGET/usr/lib ; 
+							else cp -rfpL --remove-destination $i $MKXPUD_TARGET/lib ; fi
+						done
+						fi
+						
 						[ -d $MKXPUD_TARGET/`dirname $A` ] || mkdir -p $MKXPUD_TARGET/`dirname $A` 
 						cp -rfp skeleton/overwrite/$A $MKXPUD_TARGET/$A
 					;;
