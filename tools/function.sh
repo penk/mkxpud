@@ -83,7 +83,8 @@ function strip {
 				overwrite) 
 						## skeleton/overwrite/
 						
-						if [ -x $A ]; then
+						# check binary dependency if the overwrite file is an execute
+						if [ -x $A ] && [ ! -d $A ]; then
 						for i in `./tools/ldd-helper $A`; do 
 							if [ `dirname $i` == '/usr/lib' ]; then 
 							cp -rfpL --remove-destination $i $MKXPUD_TARGET/usr/lib ; 
