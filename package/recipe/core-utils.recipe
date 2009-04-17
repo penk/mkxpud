@@ -56,9 +56,7 @@ sudo tar zxf kernel/module/default-module-2.6.28.tgz -C $MKXPUD_TARGET/;
 /usr/bin/ldd
 /usr/bin/os-prober
 /usr/bin/perl
-/usr/bin/python
 /usr/bin/strace
-/usr/bin/unionctl
 
 /usr/sbin/dmidecode
 /usr/sbin/grub
@@ -114,5 +112,6 @@ sudo tar zxf kernel/module/default-module-2.6.28.tgz -C $MKXPUD_TARGET/;
 
 /usr/local/bin/get_mod_list
 /usr/local/bin/xpud-backup
+/usr/local/bin/boot-to-win
 
 /usr/share/grldr

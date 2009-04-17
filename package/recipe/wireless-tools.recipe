@@ -6,6 +6,7 @@ wireless-tools
 [package]
 wpasupplicant
 wireless-tools
+linux-firmware
 
 [binary]
 /sbin/iwconfig
@@ -25,6 +26,11 @@ wireless-tools
 
 /lib/libnss_dns.so.2
 /lib/libnss_files.so.2
+
+/lib/firmware/iwlwifi-3945-1.ucode
+/lib/firmware/iwlwifi-4965-1.ucode
+/lib/firmware/iwlwifi-4965-2.ucode
+/lib/firmware/iwlwifi-5000-1.ucode
 
 [config]
 
