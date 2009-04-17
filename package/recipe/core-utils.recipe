@@ -21,12 +21,9 @@ module-init-tools
 
 [action]
 
-# copy script
 # copy dev 
 
 sudo tar zxf skeleton/archive/dev.tgz -C $MKXPUD_TARGET/;
-
-# FIXME: modules
 sudo tar zxf kernel/module/default-module-2.6.28.tgz -C $MKXPUD_TARGET/;
 
 #---------------------------
@@ -39,7 +36,6 @@ sudo tar zxf kernel/module/default-module-2.6.28.tgz -C $MKXPUD_TARGET/;
 
 /sbin/depmod
 
-## FIXME: depdency
 /sbin/blkid
 /sbin/vol_id
 

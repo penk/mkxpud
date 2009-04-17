@@ -12,10 +12,11 @@ leafpad
 
 [action]
 
-# download firefox.tgz
+# download firefox
 
 if [ ! -e skeleton/archive/firefox* ]; then wget http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-mozilla-1.9.1/firefox-3.5b4pre.en-US.linux-i686.tar.bz2 -P skeleton/archive/; fi; 
 tar jxf skeleton/archive/firefox* -C $MKXPUD_TARGET/usr/share/
+
 # checkout plate 
 
 [binary]
@@ -62,7 +63,6 @@ tar jxf skeleton/archive/firefox* -C $MKXPUD_TARGET/usr/share/
 /usr/local/bin/get_skype
 /usr/local/bin/get_codecs
 
-# /usr/local/bin/allstartfromhere.sh
 # /usr/sbin/bootchart-lite
 
 ## FIXME rename
