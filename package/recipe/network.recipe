@@ -10,8 +10,12 @@ ppp
 pppoeconf
 net-tools
 iptables
+dropbear
 
 [binary]
+
+/usr/bin/dbclient
+/usr/bin/dropbearkey
 
 /sbin/iptables
 /sbin/iptables-save
@@ -39,6 +43,7 @@ iptables
 /etc/resolv.conf
 /usr/lib/pppd
 /lib/iptables
+/usr/lib/dropbear
 
 [config]
 
