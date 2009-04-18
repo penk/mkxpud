@@ -12,7 +12,7 @@ MKXPUD_MOD_PATH="/lib/modules/2.6.28"
 [module]
 # kernel modules to be included into rootfs
 ata_piix
-atl1 atl2
+atl1 atl2 atl1e 
 iwl3945
 ath_pci ath5k ath9k
 r8180 
