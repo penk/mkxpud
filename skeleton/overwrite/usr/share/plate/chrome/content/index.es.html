@@ -10,8 +10,12 @@
 		<link rev="made" href="mailto:penkia@gmail.com" />
 	</head>
 	<body onload="select_tab(document.getElementById('home')); system('/usr/local/bin/post-boot.sh');">
+	
+	<div id="cover"></div>
+	<div id="popup"></div>
+	
 		<div id="padding">
-			<div id="panel" style="-moz-user-focus: ignore; -moz-user-input: disabled; -moz-user-select: none;">
+			<div id="panel">
 				<div id="home" onclick="select_tab(this);">
 					<div class="under_cover">
 					</div>
@@ -59,6 +63,8 @@
 				</div>
 			</div>
 			<div id="close_button" onclick="close_program()"></div>
+			<div id="maximize_button" onclick="toggle_maximize_program()"></div>
+			<div id="minimize_button" onclick="show_menu('exec');"></div>>
 		</div>
 		<!-- padding close -->
 	</body>

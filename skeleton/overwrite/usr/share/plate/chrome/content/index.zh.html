@@ -10,8 +10,12 @@
 		<link rev="made" href="mailto:penkia@gmail.com" />
 	</head>
 	<body onload="select_tab(document.getElementById('home')); system('/usr/local/bin/post-boot.sh');">
+	
+	<div id="cover"></div>
+	<div id="popup"></div>
+	
 		<div id="padding">
-			<div id="panel" style="-moz-user-focus: ignore; -moz-user-input: disabled; -moz-user-select: none;">
+			<div id="panel">
 				<div id="home" onclick="select_tab(this);">
 					<div class="under_cover">
 					</div>
@@ -27,7 +31,7 @@
 					<table><tr><td>
 						<img src = "image/browser.png" />
 						<br />
-						執行程式	
+						執行程式
 					</td></tr></table>
 				</div>
 				<div id="files" onclick="select_tab(this);">
@@ -45,7 +49,7 @@
 					<table><tr><td>
 						<img src = "image/advancedsettings.png" />
 						<br />
-					設定系統	
+						設定系統
 					</td></tr></table>
 				</div>
 				<div id="slot">
@@ -59,6 +63,8 @@
 				</div>
 			</div>
 			<div id="close_button" onclick="close_program()"></div>
+			<div id="maximize_button" onclick="toggle_maximize_program()"></div>
+			<div id="minimize_button" onclick="show_menu('exec');"></div>>
 		</div>
 		<!-- padding close -->
 	</body>
