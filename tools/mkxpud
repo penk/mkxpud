@@ -18,8 +18,8 @@ else
 			setup $MKXPUD_CODENAME	
 			echo "[mkxpud] Project Name: $MKXPUD_NAME"
 			install && strip 
-			post
 			Kernel
+			post
 			image $MKXPUD_CODENAME
 			echo "[mkxpud] $MKXPUD_CODENAME Done"
 			;;

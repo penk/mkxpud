@@ -38,7 +38,9 @@ plate
 #python
 
 [action]
-perl -pi -e 's/ath5k/ath_pci/g' $MKXPUD_TARGET/lib/modules/$MKXPUD_KERNEL/modules.alias
+perl -pi -e 's/ath5k/ath_pci/g' $MKXPUD_TARGET/lib/modules/$MKXPUD_KERNEL/modules.alias;
+perl -pi -e 's/ath9k/ath_pci/g' $MKXPUD_TARGET/lib/modules/$MKXPUD_KERNEL/modules.alias;
+rm -f $MKXPUD_TARGET/usr/lib/libbluetooth.so.3;
 
 [overwrite]
 # files to be overwritten
@@ -47,7 +49,7 @@ perl -pi -e 's/ath5k/ath_pci/g' $MKXPUD_TARGET/lib/modules/$MKXPUD_KERNEL/module
 
 [obfuscate]
 # files to be compressed with `upx' or `shc'
-/usr/bin/Xvesa
+/usr/local/bin/Xvesa
 /usr/bin/perl
 /bin/bash
 /bin/busybox

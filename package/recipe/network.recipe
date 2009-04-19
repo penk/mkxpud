@@ -9,18 +9,19 @@ wvdial
 ppp
 pppoeconf
 net-tools
-iptables
+#iptables
 dropbear
 
 [binary]
 
+/usr/sbin/dropbear
 /usr/bin/dbclient
 /usr/bin/dropbearkey
 
-/sbin/iptables
-/sbin/iptables-save
-/sbin/iptables-restore
-/sbin/iptables-xml
+#/sbin/iptables
+#/sbin/iptables-save
+#/sbin/iptables-restore
+#/sbin/iptables-xml
 
 /sbin/dhclient
 /sbin/dhclient-script
@@ -41,9 +42,10 @@ dropbear
 /etc/dhcp3
 /etc/ppp
 /etc/resolv.conf
-/usr/lib/pppd
-/lib/iptables
+/usr/lib/pppd/2.4.4/rp-pppoe.so
+#/lib/iptables
 /usr/lib/dropbear
+/etc/dropbear
 
 [config]
 

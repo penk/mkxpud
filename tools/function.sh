@@ -33,15 +33,17 @@ function setup {
 function install {
 
 	echo "    Preparing recipes..."
-
-	if [ "$MKXPUD_SKIP_APT" == 'false' ]; then
 	for R in `./tools/parser $MKXPUD_CONFIG recipe`; do 
 		for P in `./tools/parser package/recipe/$R.recipe package`; do
 		PACKAGE="$PACKAGE $P"
 		done
 	done
 
-	sudo apt-get install -y $PACKAGE
+	if [ "$MKXPUD_SKIP_APT" == 'false' ]; then
+		sudo apt-get install -y $PACKAGE
+	else 
+		echo "You need to install following packages according to your cookbook: "
+		echo "$PACKAGE"
 	fi
 
 }
@@ -104,20 +106,9 @@ function strip {
 
 }
 
-# post 
-# FIXME: hook post scripts
-function post {
-
-	echo ""
-	echo "[mkxpud] Post-install scripts"
-
-	./tools/busybox-helper
-
-	eval `./tools/parser $MKXPUD_CONFIG action`
-}
-
 function Kernel {
 
+	echo ""
 	echo "[mkxpud] Adding kernel modules"
 	
 	for MOD in `./tools/parser $MKXPUD_CONFIG module`; do
@@ -129,6 +120,34 @@ function Kernel {
 
 	depmod -b $MKXPUD_TARGET $MKXPUD_KERNEL
 
+}
+
+# post 
+# FIXME: hook post scripts
+function post {
+
+	echo "[mkxpud] Post-install scripts"
+
+	./tools/busybox-helper
+
+	# check dependencies of each files under usr/lib 
+	for s in `find $MKXPUD_TARGET/usr/lib`; do 
+	
+		if [ ! -d $s ]; then 
+		for i in `./tools/ldd-helper $s`; do 
+			if [ ! -e $MKXPUD_TARGET/usr/lib/`basename $i` ] && [ ! -e $MKXPUD_TARGET/lib/`basename $i` ]; then 
+			cp -rfpL --remove-destination $i $MKXPUD_TARGET/usr/lib; fi
+		done
+		fi
+	done
+
+	eval `./tools/parser $MKXPUD_CONFIG action`
+	
+	if [ -e /usr/bin/upx ]; then 
+		for o in `./tools/parser $MKXPUD_CONFIG obfuscate`; do
+			upx  $MKXPUD_TARGET/$o
+		done
+	fi
 }
 
 function image {
