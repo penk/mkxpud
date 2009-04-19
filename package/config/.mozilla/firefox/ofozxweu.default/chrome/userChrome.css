@@ -14,7 +14,9 @@
  */
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); /* set default namespace to XUL */
 
+/* 
 #toolbar-menubar { display: none !important; }
+*/
 
 .statusbar-resizerpanel { display: none !important; }
 
