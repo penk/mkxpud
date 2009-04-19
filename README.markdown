@@ -5,7 +5,7 @@ ABOUT
 
 It is a binary-level build system that reads project setting 
 (named **cookbook**), parse it into package settings (called **recipe**), 
-strips directly from a working x86 Linux installation, 
+strips directly from a working APT/dpkg-based Linux installation, 
 extracts them into rootfs and finally generates xPUD image.
 
 
@@ -34,55 +34,56 @@ Quick Start:
 
 1. Check out the latest source code:
 
-    git clone git://github.com/penk/mkxpud.git
+        git clone git://github.com/penk/mkxpud.git
 
 2. Build the rootfs and generate the image:
 
-    ./tools/mkxpud all
+        ./tools/mkxpud all
 
-This will create an iso9669 image at `deploy/default.iso'.
+This will create an iso9669 image at `deploy/default.iso`.
 
 3. Test your result:
 
-    ./tools/mkxpud test
+        ./tools/mkxpud test
 
 Usage:
 ------
 
 * Basic usage of **mkxpud**: 
 
-    mkxpud <option> [<project name>] 
+        mkxpud <option> [<project name>] 
 
 If you doesn't specify the project name, it will create a project called **default**, 
-by using the configuration file `config/default.cookbook'.
+by using the configuration file `config/default.cookbook`.
 	
 * To generate specified project:
 
-	./tools/mkxpud all example
+        ./tools/mkxpud all example
 	
-It will use `config/example.cookbook' as configuration instead.
+It will use `config/example.cookbook` as configuration instead.
 	
 * To test generated image:
 
-	./tools/mkxpud test 
+        ./tools/mkxpud test 
 
 This requires QEMU installed on host and at least 384MB of ram to run virtual machine.
 
 * To re-generate image:
 
-	./tools/mkxpud image
+        ./tools/mkxpud image
 
-More information please read the output of `./tools/mkxpud help'
+More information please read the output of `./tools/mkxpud help`
 
 CONFIGURATION
 =============
 
-* Project configuration, "cookbook":
+* Project configuration, **cookbook**:
 
-A project configuration for mkxpud is named with ".cookbook" 
+A project configuration for mkxpud is named with `.cookbook` 
 in the end of filename extension. 
-Lines beginning with `#' are for comments, and five sections,
-which are quoted by `[]', take every raws as its input data:
+
+Lines beginning with `#` are for comments, and there are five sections, 
+which are quoted by `[]`, take every raws as its input data:
 	
 	[config]
 	# short project description
@@ -90,38 +91,41 @@ which are quoted by `[]', take every raws as its input data:
 	# you can skip the apt-get install by setting this to "true"
 	MKXPUD_SKIP_APT=""
 	# specified the Linux kernel version to be used
-	KERNEL=""
-
-	[kernel]
+	MKXPUD_KERNEL="2.6.28"
+	MKXPUD_MOD_PATH="/lib/modules/2.6.28"
+	
+	[module]
 	# kernel modules to be included into rootfs
-	# not yet implemented
-
+	# the dependencies will be handled recursively
+	
 	[recipe]
 	# packages and files to be included into rootfs
 
+	[action]
+	# the command that will be executed after rootfs created
+	
 	[overwrite]
 	# files to be overwritten
 	# not yet implemented
 
 	[obfuscate]
-	# files to be compressed with `upx' or `shc'
-	# not yet implemented
+	# files to be compressed if `upx' is installed on the host
 	
 	[remove]
 	# files to be removed after rootfs extraction
 	# not yet implemented
 
-More information please read the example file "config/default.cookbook"
+More information please read the example file `config/default.cookbook`
 
-* Package configuration, "recipe":
+* Package configuration, **recipe**:
 
-mkxpud reads several "recipe" files to generate an image:
+**mkxpud** reads several **recipe** files to generate an image:
 
 	[name]
 	# name of this recipe
 	
 	[package]
-	# packages to be installed via apt-get 
+	# packages to be installed via apt-get or some other package manager
 
 	[action]
 	# actions to be executed before install this recipe
@@ -129,11 +133,11 @@ mkxpud reads several "recipe" files to generate an image:
 
 	[binary]
 	# binaries to be copied from your host to target
-	# these data will be handle by ldd helper
-	# and the *.so.* files are copied automatically
+	# these data will be handle by ldd-helper 
+	# and the *.so.* files are copied automatically 
 
 	[data]
-	# other necessary data to be used with package
+	# other necessary data to be used with applications
 	# for example /usr/share/* and /usr/lib/*
 	# these will be copied from your host to target directory
 
@@ -145,7 +149,7 @@ mkxpud reads several "recipe" files to generate an image:
 	# system-wide files to be overwritten
 	# these will be copied from the "skeleton/overwrite" directory
 	
-Please read files under "package/recipe/" as examples.
+Please read files under `package/recipe/` as examples.
 
 STRUCTURE
 =========
@@ -161,17 +165,17 @@ This is the internal structure of mkxpud:
     |   `-- bzImage				pre-built kernel image
     |-- kernel
     |   |-- module
-    |   |   `-- 2.6.28-modules.tgz		pre-built kernel modules
+    |   |   `-- default-module-2.6.28.tgz 		pre-built kernel modules
     |   `-- src
     |-- package
     |   |-- config				config files to be copied to target
     |   `-- recipe				config files for package
     |-- skeleton	
-    |   |-- archive
+	|   |-- archive
     |   |   `-- dev.tgz			pre-generated device nodes
     |   |-- boot				boot loader for images
-    |   |-- overwrite			data to be copied to target
-    |   `-- rootfs				skeleton rootfs 
+    |   |-- overwrite			data to be copied to target 
+	|   `-- rootfs.tgz				skeleton rootfs
     |-- tools
     |   `-- mkxpud				the main script 
     `-- working
