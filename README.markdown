@@ -1,7 +1,7 @@
 ABOUT
 =====================================================================
 
-mkxpud, an image generator for xPUD project (http://xpud.org).
+mkxpud is an image generator for xPUD project (http://xpud.org).
 
 It's a binary-level build system that reads project setting 
 (named "cookbook"), parse it into package settings (called "recipe"), 
@@ -13,16 +13,19 @@ REQUIREMENT
 =====================================================================
 
 To generate a xPUD image, you will need:
-	- a working Debian/Ubuntu GNU/Linux system
-	- "sudo" permission to install and test 
-	- Internet connection to download packages
-	- 500MB of hard disk free space
+
+* a working Debian/Ubuntu GNU/Linux system
+* "sudo" permission to install and test 
+* Internet connection to download packages
+* 500MB of hard disk free space
+
 
 
 BUILDING
 =====================================================================
 
-* Usage:  mkxpud <option> [<project name>] 
+* Usage:
+  mkxpud <option> [<project name>] 
 
 You can simply build the image with:
 	$ ./tools/mkxpud all
