@@ -1,52 +1,81 @@
 ABOUT
-=====================================================================
+=====
 
-mkxpud is an image generator for xPUD project (http://xpud.org).
+**mkxpud** is an image generator for xPUD project (<http://www.xpud.org>).
 
-It's a binary-level build system that reads project setting 
-(named "cookbook"), parse it into package settings (called "recipe"), 
-strips directly from a working APT/dpkg based Linux installation,
+It is a binary-level build system that reads project setting 
+(named **cookbook**), parse it into package settings (called **recipe**), 
+strips directly from a working x86 Linux installation, 
 extracts them into rootfs and finally generates xPUD image.
 
 
 REQUIREMENT
-=====================================================================
+===========
 
 To generate a xPUD image, you will need:
 
-* a working Debian/Ubuntu GNU/Linux system
-* "sudo" permission to install and test 
-* Internet connection to download packages
-* 500MB of hard disk free space
+1. a working Debian/Ubuntu GNU/Linux system
+2. **sudo** permission to install packages on the host and testing
+3. Internet access to download packages (if required)
+4. at least 500MB of hard disk free space
 
-
+We designed **mkxpud** to be distribution-independent, but at current 
+development stage, only limited distribuations and released version
+have been fully tested. If you find something wrong or want to improve 
+the function on different distribution, please 
+post on our [forum](http://groups.google.com/group/pud-linux) or 
+[tracking system](http://code.google.com/p/xpud/issues/list).
 
 BUILDING
-=====================================================================
+========
 
-* Usage:
-  mkxpud <option> [<project name>] 
+Quick Start:
+------------
 
-You can simply build the image with:
-	$ ./tools/mkxpud all
-This will create a project called "default", with 
-the configuration file "config/default.cookbook"
+1. Check out the latest source code:
+
+    git clone git://github.com/penk/mkxpud.git
+
+2. Build the rootfs and generate the image:
+
+    ./tools/mkxpud all
+
+This will create an iso9669 image at `deploy/default.iso'.
+
+3. Test your result:
+
+    ./tools/mkxpud test
+
+Usage:
+------
+
+* Basic usage of **mkxpud**: 
+
+    mkxpud <option> [<project name>] 
+
+If you doesn't specify the project name, it will create a project called **default**, 
+by using the configuration file `config/default.cookbook'.
 	
-To generate specified project with:
-	$ ./tools/mkxpud all example
-It will use "config/example.cookbook" as configuration file
+* To generate specified project:
+
+	./tools/mkxpud all example
 	
-To test generated image with:
-	$ ./tools/mkxpud test 
-This requires QEMU to run the image 
+It will use `config/example.cookbook' as configuration instead.
+	
+* To test generated image:
 
-And re-generate image is simple, too:
-	$ ./tools/mkxpud image
+	./tools/mkxpud test 
 
-More information please read the output of "./tools/mkxpud help"
+This requires QEMU installed on host and at least 384MB of ram to run virtual machine.
+
+* To re-generate image:
+
+	./tools/mkxpud image
+
+More information please read the output of `./tools/mkxpud help'
 
 CONFIGURATION
-=====================================================================
+=============
 
 * Project configuration, "cookbook":
 
@@ -119,49 +148,57 @@ mkxpud reads several "recipe" files to generate an image:
 Please read files under "package/recipe/" as examples.
 
 STRUCTURE
-=====================================================================
+=========
 
 This is the internal structure of mkxpud:
 
-.
-|-- README				the file you're reading
-|-- config
-|   |-- config-2.6.28			kernel .config file
-|   `-- default.cookbook		default config file for project
-|-- deploy
-|   `-- bzImage				pre-built kernel image
-|-- kernel
-|   |-- module
-|   |   `-- 2.6.28-modules.tgz		pre-built kernel modules
-|   `-- src
-|-- package
-|   |-- config				config files to be copied to target
-|   `-- recipe				config files for package
-|-- skeleton	
-|   |-- archive
-|   |   `-- dev.tgz			pre-generated device nodes
-|   |-- boot				boot loader for images
-|   |-- overwrite			data to be copied to target
-|   `-- rootfs				skeleton rootfs 
-|-- tools
-|   `-- mkxpud				the main script 
-`-- working
-    `-- default				working and temporary files 
+    .
+    |-- README				the file you're reading
+    |-- config
+    |   |-- config-2.6.28			kernel .config file
+    |   `-- default.cookbook		default config file for project
+    |-- deploy
+    |   `-- bzImage				pre-built kernel image
+    |-- kernel
+    |   |-- module
+    |   |   `-- 2.6.28-modules.tgz		pre-built kernel modules
+    |   `-- src
+    |-- package
+    |   |-- config				config files to be copied to target
+    |   `-- recipe				config files for package
+    |-- skeleton	
+    |   |-- archive
+    |   |   `-- dev.tgz			pre-generated device nodes
+    |   |-- boot				boot loader for images
+    |   |-- overwrite			data to be copied to target
+    |   `-- rootfs				skeleton rootfs 
+    |-- tools
+    |   `-- mkxpud				the main script 
+    `-- working
+        `-- default				working and temporary files 
+
+REFERENCE
+=========
+
+* xPUD project website: <http://www.xpud.org>
+* Project host: <http://github.com/penk/mkxpud>
+* Developer forum: <http://groups.google.com/group/pud-linux>
+* Issue tracking: <http://code.google.com/p/xpud/issues/list>
 
 LICENSE
-=====================================================================
+=======
 
 Copyright (c) 2009, Ping-Hsun Chen.
 
-Except the file that comes with its own license, the rest of mkxpud is free.
+Except the file that comes with its own license, the rest of **mkxpud** is free.
 You are free to distribute and/or modify this software under the terms of
 the GNU General Public License.
 
 On Debian systems, the complete text of the GNU General Public License can
-be found in /usr/share/common-licenses/GPL file.
+be found in `/usr/share/common-licenses/GPL' file.
 
 AUTHOR
-=====================================================================
+======
 
 Ping-Hsun Chen (penk) <penkia@gmail.com>
 
@@ -169,4 +206,6 @@ This project is under heavy development, and we're looking forward
 to any kind of feedback. If you have suggestion or find something wrong, 
 please contact me directly. :-)
 
-Last updated: 2009-04-01
+* <penkia@gmail.com>
+* [@penk][http://twitter.com/penk] on Twitter
+* <http://penkia.blogspot.com>
