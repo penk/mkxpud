@@ -4,4 +4,4 @@ killall Xvesa
 kexec -l /usr/share/grldr/grub.exe --command-line="--config-file=root (hd0,1); chainloader +1"
 sync
 umount -a
-kexec -a
+kexec -e
