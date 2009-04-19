@@ -8,7 +8,7 @@ mozplugger
 gnome-mplayer
 transmission-gtk
 gpicview
-leafpad
+geany
 epdfview
 
 [action]
@@ -24,7 +24,7 @@ tar jxf skeleton/archive/firefox* -C $MKXPUD_TARGET/usr/share/
 
 /usr/bin/epdfview
 /usr/bin/gpicview
-/usr/bin/leafpad
+/usr/bin/geany
 ## FIXME: mime file
 /usr/bin/transmission
 
@@ -53,6 +53,7 @@ tar jxf skeleton/archive/firefox* -C $MKXPUD_TARGET/usr/share/
 /etc/bootchart-lite
 /etc/pulse
 /.mozilla
+/.geany 
 
 [overwrite]
 

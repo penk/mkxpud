@@ -107,7 +107,7 @@ plate/pud3:pud3:xPUD wrapper file
 	repeat noisy swallow(gnome-mplayer): gnome-mplayer
 
 plate/pud4:pud4:xPUD wrapper file
-        repeat noisy swallow(leafpad): leafpad
+        repeat noisy swallow(geany): geany
 
 plate/pud5:pud5:xPUD wrapper file
 	repeat noisy swallow(Shiretoko): firefox 
