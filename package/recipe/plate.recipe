@@ -9,6 +9,7 @@ gnome-mplayer
 transmission-gtk
 gpicview
 leafpad
+epdfview
 
 [action]
 
@@ -21,6 +22,7 @@ tar jxf skeleton/archive/firefox* -C $MKXPUD_TARGET/usr/share/
 
 [binary]
 
+/usr/bin/epdfview
 /usr/bin/gpicview
 /usr/bin/leafpad
 ## FIXME: mime file
@@ -35,6 +37,7 @@ tar jxf skeleton/archive/firefox* -C $MKXPUD_TARGET/usr/share/
 
 [data]
 
+/usr/share/epdfview
 /usr/share/mplayer
 
 ## FIXME
