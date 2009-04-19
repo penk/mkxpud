@@ -1,4 +1,5 @@
 ABOUT
+=====================================================================
 
 mkxpud, an image generator for xPUD project (http://xpud.org).
 
@@ -7,8 +8,9 @@ It's a binary-level build system that reads project setting
 strips directly from a working APT/dpkg based Linux installation,
 extracts them into rootfs and finally generates xPUD image.
 
-=====================================================================
+
 REQUIREMENT
+=====================================================================
 
 To generate a xPUD image, you will need:
 	- a working Debian/Ubuntu GNU/Linux system
@@ -16,8 +18,9 @@ To generate a xPUD image, you will need:
 	- Internet connection to download packages
 	- 500MB of hard disk free space
 
-=====================================================================
+
 BUILDING
+=====================================================================
 
 * Usage:  mkxpud <option> [<project name>] 
 
@@ -39,8 +42,8 @@ And re-generate image is simple, too:
 
 More information please read the output of "./tools/mkxpud help"
 
-=====================================================================
 CONFIGURATION
+=====================================================================
 
 * Project configuration, "cookbook":
 
@@ -112,8 +115,8 @@ mkxpud reads several "recipe" files to generate an image:
 	
 Please read files under "package/recipe/" as examples.
 
-=====================================================================
 STRUCTURE
+=====================================================================
 
 This is the internal structure of mkxpud:
 
@@ -142,8 +145,8 @@ This is the internal structure of mkxpud:
 `-- working
     `-- default				working and temporary files 
 
-=====================================================================
 LICENSE
+=====================================================================
 
 Copyright (c) 2009, Ping-Hsun Chen.
 
@@ -154,8 +157,8 @@ the GNU General Public License.
 On Debian systems, the complete text of the GNU General Public License can
 be found in /usr/share/common-licenses/GPL file.
 
-=====================================================================
 AUTHOR
+=====================================================================
 
 Ping-Hsun Chen (penk) <penkia@gmail.com>
 
