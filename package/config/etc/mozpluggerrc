@@ -112,6 +112,9 @@ plate/pud4:pud4:xPUD wrapper file
 plate/pud5:pud5:xPUD wrapper file
 	repeat noisy swallow(Shiretoko): firefox 
 
+plate/pud6:pud6:xPUD wrapper file
+        repeat noisy swallow(epdfview): epdfview
+
 ###################
 ### Video       ###
 ###################
