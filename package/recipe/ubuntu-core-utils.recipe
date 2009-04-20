@@ -7,6 +7,13 @@ core-utils
 
 [package]
 
+# tools for mkxpud
+genisoimage
+upx-ucl
+wget 
+gnome-icon-theme
+
+libxss1
 busybox-static
 ntfs-3g
 kexec-tools

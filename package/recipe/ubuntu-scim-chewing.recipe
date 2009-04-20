@@ -22,7 +22,6 @@ scim-gtk2-immodule
 /usr/share/scim/icons/menu.png
 /usr/share/scim/icons/rawcode.png
 /usr/share/scim/icons/down.png
-/usr/share/scim/icons/table.png
 /usr/share/scim/icons/help.png
 /usr/share/scim/icons/pin-down.png
 /usr/share/scim/icons/scim-chewing-swap-colors.png
@@ -39,8 +38,6 @@ scim-gtk2-immodule
 /usr/share/libchewing3
 /usr/lib/libchewing.so.3
 
-/usr/lib/gtk-2.0/modules/libgail.so
-/usr/lib/gtk-2.0/modules/libferret.so
 /usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-ani.so
 /usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-xbm.so
 /usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-pcx.so

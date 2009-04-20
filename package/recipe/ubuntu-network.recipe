@@ -8,6 +8,7 @@ dhcp3-client
 wvdial
 ppp
 pppoeconf
+pppconfig
 net-tools
 #iptables
 dropbear
@@ -42,7 +43,7 @@ dropbear
 /etc/dhcp3
 /etc/ppp
 /etc/resolv.conf
-/usr/lib/pppd/2.4.4/rp-pppoe.so
+/usr/lib/pppd
 #/lib/iptables
 /usr/lib/dropbear
 /etc/dropbear
