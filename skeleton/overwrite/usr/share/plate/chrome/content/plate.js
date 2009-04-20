@@ -205,11 +205,13 @@ function update_div(id, path) {
 }
 
 function update_sysinfo() {
-
+	
+if (document.getElementById('sysinfo')) {
 update_div('sysinfo', '/tmp/sysinfo');
-setTimeout('update_sysinfo()', 10000);
 system('/usr/local/bin/sysinfo');
+}
 
+setTimeout('update_sysinfo()', 5000);
 }
 
 var vis=1;

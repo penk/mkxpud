@@ -2,12 +2,10 @@
 	<p>You can now control your system by using this interface.</p>
 	<table class="soft_background green"><tr>
 	<td>
-		<img src="image/ksysv.png" style="float: left; margin-bottom: 10px;" />
+		<img src="image/ksysv.png" style="float: left; margin-bottom: 40px;" />
 		<strong>System Information</strong>
-		<br />
-		Version - xPUD 0.8.9
-		<br />
-		Image size - 47 MB	
+		Version - xPUD 0.9
+		<div id="sysinfo"></div>
 	</td>
 
 <!--
