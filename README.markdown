@@ -3,8 +3,8 @@ ABOUT
 
 **mkxpud** is an image generator for xPUD project (<http://www.xpud.org>).
 
-It is a binary-level build system that reads project setting 
-(named **cookbook**), parse it into package settings (called **recipe**), 
+It is a binary-level build system that reads project config 
+(named **cookbook**), parses it with package settings (called **recipe**), 
 strips directly from a working APT/dpkg-based Linux installation, 
 extracts them into rootfs and finally generates xPUD image.
 
@@ -24,7 +24,7 @@ development stage, only limited distribuations and released version
 have been fully tested. If you find something wrong or want to improve 
 the function on different distribution, please 
 post on our [forum](http://groups.google.com/group/pud-linux) or 
-[tracking system](http://code.google.com/p/xpud/issues/list).
+[bug tracker](http://code.google.com/p/xpud/issues/list).
 
 BUILDING
 ========
@@ -40,11 +40,11 @@ Quick Start:
 
         ./tools/mkxpud all
 
-This will create an iso9669 image at `deploy/default.iso`.
-
 3. Test your result:
 
         ./tools/mkxpud test
+
+This will create an iso9669 image at `deploy/default.iso`.
 
 Usage:
 ------
@@ -79,12 +79,11 @@ CONFIGURATION
 
 * Project configuration, **cookbook**:
 
-A project configuration for mkxpud is named with `.cookbook` 
-in the end of filename extension. 
+A project configuration of mkxpud is named with `.cookbook` as filename extension. 
 
-Lines beginning with `#` are for comments, and there are five sections, 
-which are quoted by `[]`, take every raws as its input data:
-	
+Lines beginning with `#` are for comments, and there are sections 
+which quoted by `[ ]`, rest of the rows are data:
+
 	[config]
 	# short project description
 	MKXPUD_NAME=""
@@ -105,7 +104,7 @@ which are quoted by `[]`, take every raws as its input data:
 	# the command that will be executed after rootfs created
 	
 	[overwrite]
-	# files to be overwritten
+	# files to be overwritten at system-wide 
 	# not yet implemented
 
 	[obfuscate]
@@ -114,12 +113,16 @@ which are quoted by `[]`, take every raws as its input data:
 	[remove]
 	# files to be removed after rootfs extraction
 	# not yet implemented
+	
+	[image]
+	# image format that will be generated. CPIO is default
+	gz iso zip
 
 More information please read the example file `config/default.cookbook`
 
 * Package configuration, **recipe**:
 
-**mkxpud** reads several **recipe** files to generate an image:
+**mkxpud** takes several **recipe** files to **cook** an image:
 
 	[name]
 	# name of this recipe
@@ -184,10 +187,10 @@ This is the internal structure of mkxpud:
 REFERENCE
 =========
 
-* xPUD project website: <http://www.xpud.org>
-* Project host: <http://github.com/penk/mkxpud>
+* Project website: <http://www.xpud.org>
+* Repository host: <http://github.com/penk/mkxpud>
 * Developer forum: <http://groups.google.com/group/pud-linux>
-* Issue tracking: <http://code.google.com/p/xpud/issues/list>
+* Bug tracker: <http://code.google.com/p/xpud/issues/list>
 
 LICENSE
 =======
@@ -199,7 +202,7 @@ You are free to distribute and/or modify this software under the terms of
 the GNU General Public License.
 
 On Debian systems, the complete text of the GNU General Public License can
-be found in `/usr/share/common-licenses/GPL' file.
+be found in `/usr/share/common-licenses/GPL` file.
 
 AUTHOR
 ======
