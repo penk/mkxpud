@@ -27,14 +27,14 @@ acpi-cpufreq cpufreq_ondemand video
 
 [recipe]
 # packages and files to be included into rootfs
-core-utils
-x11
-sound
-network
-wireless-tools
-artwork
-scim-chewing
-plate
+ubuntu-core-utils
+ubuntu-x11
+ubuntu-sound
+ubuntu-network
+ubuntu-wireless-tools
+ubuntu-artwork
+ubuntu-scim-chewing
+ubuntu-plate
 #python
 
 [action]
