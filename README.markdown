@@ -214,5 +214,5 @@ to any kind of feedback. If you have suggestion or find something wrong,
 please contact me directly. :-)
 
 * <penkia@gmail.com>
-* [@penk][http://twitter.com/penk] on Twitter
+* [@penk](http://twitter.com/penk) on Twitter
 * <http://penkia.blogspot.com>
