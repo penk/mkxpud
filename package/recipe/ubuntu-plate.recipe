@@ -66,6 +66,7 @@ tar jxf skeleton/archive/firefox* -C $MKXPUD_TARGET/usr/share/
 /usr/local/bin/get_flash
 /usr/local/bin/get_skype
 /usr/local/bin/get_codecs
+/usr/local/bin/sysinfo
 
 # /usr/sbin/bootchart-lite
 

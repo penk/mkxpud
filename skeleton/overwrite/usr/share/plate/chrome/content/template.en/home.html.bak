@@ -3,7 +3,7 @@
 	<table class="soft_background green"><tr>
 	<td>
 		<img src="image/ksysv.png" style="float: left; margin-bottom: 40px;" />
-		<strong>System Information</strong>
+		<strong>System Information</strong><br />
 		Version - xPUD 0.9
 		<div id="sysinfo"></div>
 	</td>
