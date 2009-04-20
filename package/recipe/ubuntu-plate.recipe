@@ -53,7 +53,7 @@ tar jxf skeleton/archive/firefox* -C $MKXPUD_TARGET/usr/share/
 /etc/bootchart-lite
 /etc/pulse
 /.mozilla
-/.geany 
+/.config/geany 
 
 [overwrite]
 
