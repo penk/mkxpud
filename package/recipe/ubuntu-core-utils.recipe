@@ -59,7 +59,6 @@ sudo tar zxf kernel/module/default-module-2.6.28.tgz -C $MKXPUD_TARGET/;
 /usr/bin/ldd
 /usr/bin/os-prober
 /usr/bin/perl
-/usr/bin/strace
 
 /usr/sbin/dmidecode
 /usr/sbin/grub
@@ -75,18 +74,7 @@ sudo tar zxf kernel/module/default-module-2.6.28.tgz -C $MKXPUD_TARGET/;
 /usr/lib/pango
 /usr/lib/grub
 
-/lib/udev/usb_device_name
-/lib/udev/vol_id
-/lib/udev/vio_type
-/lib/udev/ide_media
-/lib/udev/edd_id
-/lib/udev/firmware_helper
-/lib/udev/dvb_device_name
-/lib/udev/scsi_id
-/lib/udev/usb_id
-/lib/udev/path_id
-/lib/udev/watershed
-/lib/udev/ata_id
+/lib/udev
 
 /usr/lib/libXss.so.1
 
