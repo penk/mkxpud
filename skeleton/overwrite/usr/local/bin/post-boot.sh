@@ -18,7 +18,7 @@ done
 
 # setup sound channel
 for channel in Master Front; do
-	/usr/bin/amixer set $channel 80%
+	/usr/bin/amixer set $channel 95%
 done
 
 # post hook

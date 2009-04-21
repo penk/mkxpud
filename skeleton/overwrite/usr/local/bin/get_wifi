@@ -44,4 +44,7 @@ system "iwconfig $nic mode Managed";
 
 }
 
-system "dhclient $nic; rm -f /tmp/netstat.tmp";
+system "dhclient $nic";
+
+if ( ! `ifconfig|grep "inet addr"`) { system "dhclient $nic; rm -f /tmp/netstat.tmp"; } 
+else { system "rm -f /tmp/netstat.tmp"; }
