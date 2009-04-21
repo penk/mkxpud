@@ -4,8 +4,8 @@
 	<td>
 		<img src="image/ksysv.png" style="float: left; margin-bottom: 40px;" />
 		<strong>System Information</strong><br />
-		Version - xPUD 0.9
-		<div id="sysinfo"></div>
+		Version: xPUD 0.9
+		<div id="sysinfo"><img src="image/load.gif" style="margin: 15px;" /></div>
 	</td>
 
 <!--
