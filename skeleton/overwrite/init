@@ -52,8 +52,8 @@ export GTK_IM_MODULE="scim"
 	/bin/sleep 0.1
 	
 	# count boot time
-	TIME=`/bin/cat /proc/uptime | /bin/cut -d' ' -f 1` 
-	/bin/sed -e s/xPUD.*9/"xPUD 0.9<br \/>Boot time: $TIME sec"/g /usr/share/plate/chrome/content/template/home.html.bak > /usr/share/plate/chrome/content/template/home.html 
+	#TIME=`/bin/cat /proc/uptime | /bin/cut -d' ' -f 1` 
+	#/bin/sed -e s/xPUD.*9/"xPUD 0.9<br \/>Boot time: $TIME sec"/g /usr/share/plate/chrome/content/template/home.html.bak > /usr/share/plate/chrome/content/template/home.html 
 	
 	# start plate UI
 	/usr/bin/firefox -app /usr/share/plate/application.ini &
