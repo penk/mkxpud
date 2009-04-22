@@ -106,10 +106,15 @@ function strip {
 
 }
 
-function Kernel {
+function kernel {
 
 	echo ""
 	echo "[mkxpud] Adding kernel modules"
+	
+	MKXPUD_CODENAME=$1
+	export MKXPUD_CONFIG=config/$MKXPUD_CODENAME.cookbook
+	eval export `./tools/parser $MKXPUD_CONFIG config`
+	export MKXPUD_TARGET=working/$MKXPUD_CODENAME/rootfs
 	
 	for MOD in `./tools/parser $MKXPUD_CONFIG module`; do
 		for M in `./tools/module-helper $MOD`; do
@@ -154,7 +159,10 @@ function image {
 
 	echo "[mkxpud] Generating image..."
 	MKXPUD_CODENAME=$1
-	MKXPUD_TARGET=working/$MKXPUD_CODENAME/rootfs
+	export MKXPUD_CONFIG=config/$MKXPUD_CODENAME.cookbook
+	eval export `./tools/parser $MKXPUD_CONFIG config`
+	export MKXPUD_TARGET=working/$MKXPUD_CODENAME/rootfs
+	
 	cd $MKXPUD_TARGET
 	find | cpio -H newc -o > ../../../deploy/$MKXPUD_CODENAME/rootfs.cpio
 	cd -

@@ -18,7 +18,7 @@ else
 			setup $MKXPUD_CODENAME	
 			echo "[mkxpud] Project Name: $MKXPUD_NAME"
 			install && strip 
-			Kernel
+			kernel $MKXPUD_CODENAME
 			post
 			image $MKXPUD_CODENAME
 			echo "[mkxpud] $MKXPUD_CODENAME Done"
