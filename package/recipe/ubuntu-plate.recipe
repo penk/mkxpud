@@ -68,6 +68,8 @@ tar jxf skeleton/archive/firefox* -C $MKXPUD_TARGET/usr/share/
 /usr/local/bin/get_codecs
 /usr/local/bin/sysinfo
 
+/tmp/sysinfo
+
 # /usr/sbin/bootchart-lite
 
 ## FIXME rename

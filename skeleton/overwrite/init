@@ -57,6 +57,6 @@ export GTK_IM_MODULE="scim"
 	
 	# start plate UI
 	/usr/bin/firefox -app /usr/share/plate/application.ini &
-	touch /tmp/sysinfo
+#	touch /tmp/sysinfo
 	/sbin/session &
 	/bin/sh
