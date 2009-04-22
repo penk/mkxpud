@@ -1,0 +1,63 @@
+# mkxpud project config
+
+[config]
+# short project description
+MKXPUD_NAME="xPUD default image"
+# you can skip the apt-get install by setting this to `true'
+MKXPUD_SKIP_APT="false"
+# specified the Linux kernel version to be used
+MKXPUD_KERNEL="2.6.28-11-generic"
+MKXPUD_MOD_PATH="/lib/modules/2.6.28-11-generic"
+
+[module]
+# kernel modules to be included into rootfs
+ata_piix
+atl1 atl2 atl1e 
+iwl3945 iwlagn
+#ath_pci 
+ath5k ath9k
+sis190 sis900
+rtl8180 
+rt2860sta rt2870sta
+rt2400pci rt2500pci rt2500usb rt61pci rt73usb
+#wl 
+michael_mic b43legacy b43
+e1000e ne2k-pci pcnet32
+usbserial
+uvcvideo
+#acpi-cpufreq cpufreq_ondemand 
+video
+
+[recipe]
+# packages and files to be included into rootfs
+ubuntu-core-utils
+ubuntu-x11
+ubuntu-sound
+ubuntu-network
+ubuntu-wireless-tools
+ubuntu-artwork
+ubuntu-scim-chewing
+ubuntu-plate
+#python
+
+[action]
+
+[overwrite]
+# files to be overwritten
+/etc/passwd
+/etc/group
+
+[obfuscate]
+# files to be compressed with `upx' or `shc'
+/usr/local/bin/Xvesa
+/usr/bin/perl
+/bin/bash
+/bin/busybox
+/bin/mount
+/usr/bin/mplayer
+
+[remove]
+# files to be removed after rootfs extraction
+
+[image]
+gz iso zip
