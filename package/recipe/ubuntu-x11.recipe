@@ -10,7 +10,7 @@ x11-xserver-utils
 xterm
 openbox
 wmctrl
-lxterminal
+#lxterminal
 
 [binary]
 
@@ -21,18 +21,18 @@ lxterminal
 /usr/bin/xrandr
 /usr/bin/lxrandr
 
-/usr/bin/lxterminal
+#/usr/bin/lxterminal
 
 [data]
 
-/usr/share/vte
-/usr/lib/libvte9
-/lib/terminfo
+#/usr/share/vte
+#/usr/lib/libvte9
+#/lib/terminfo
 
 [config]
 
 /etc/xdg/openbox
-/.config/lxterminal
+#/.config/lxterminal
 
 [overwrite]
 
