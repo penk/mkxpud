@@ -22,3 +22,7 @@ dbus
 /lib/dbus-1.0
 /var/lib/dbus
 /var/run/dbus
+
+[config]
+
+/var/lib/dbus/machine-id

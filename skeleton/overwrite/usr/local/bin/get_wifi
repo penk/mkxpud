@@ -17,9 +17,11 @@ if ($enc eq 'wifi-wep') {
 my $c = `echo $pass | wc -c`;
 if ($c == 6 || $c == 14) {
 my $passwd = $1 if $pass =~ /^"(.*)"$/;
-system qq{iwconfig $nic ap $addr key "s:$passwd"};
+my $ssid = '"'.$1.'"' if `grep $addr /tmp/wifi.opt` =~ />"(.*)"</;
+
+system qq{iwconfig $nic essid $ssid key "s:$passwd"};
 } else {
-system qq{iwconfig $nic ap $addr key $pass};
+system qq{iwconfig $nic essid $ssid key $pass};
 }
 
 }
