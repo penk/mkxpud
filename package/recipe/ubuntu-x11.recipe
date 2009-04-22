@@ -27,7 +27,7 @@ wmctrl
 
 #/usr/share/vte
 #/usr/lib/libvte9
-#/lib/terminfo
+/lib/terminfo
 
 [config]
 
