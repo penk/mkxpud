@@ -32,6 +32,7 @@ lxterminal
 [config]
 
 /etc/xdg/openbox
+/.config/lxterminal
 
 [overwrite]
 
