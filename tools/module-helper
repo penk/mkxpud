@@ -12,7 +12,7 @@ for (@_) {
 chomp;
 
 if (/\.ko$/) {
-($mod, $dep) = split(':', `grep /$_: $MOD_PATH/modules.dep`);
+($mod, $dep) = split(':', `grep $_: $MOD_PATH/modules.dep`);
 } else {
 ($mod, $dep) = split(':', `grep /$_.ko: $MOD_PATH/modules.dep`);
 }

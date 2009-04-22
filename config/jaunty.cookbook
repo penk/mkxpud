@@ -2,7 +2,7 @@
 
 [config]
 # short project description
-MKXPUD_NAME="xPUD default image"
+MKXPUD_NAME="xPUD Ubuntu Jaunty image"
 # you can skip the apt-get install by setting this to `true'
 MKXPUD_SKIP_APT="false"
 # specified the Linux kernel version to be used
