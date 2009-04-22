@@ -31,8 +31,9 @@ module-init-tools
 # copy dev 
 
 sudo tar zxf skeleton/archive/dev.tgz -C $MKXPUD_TARGET/;
-sudo tar zxf kernel/module/default-module-2.6.28.tgz -C $MKXPUD_TARGET/;
-
+if [ -e kernel/module/default-module-$MKXPUD_KERNEL.tgz ]; then 
+sudo tar zxf kernel/module/default-module-$MKXPUD_KERNEL.tgz -C $MKXPUD_TARGET/;
+fi 
 #---------------------------
 
 [binary]
