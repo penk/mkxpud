@@ -10,6 +10,7 @@ x11-xserver-utils
 xterm
 openbox
 wmctrl
+lxterminal
 
 [binary]
 
@@ -20,8 +21,12 @@ wmctrl
 /usr/bin/xrandr
 /usr/bin/lxrandr
 
+/usr/bin/lxterminal
+
 [data]
 
+/usr/share/vte
+/usr/lib/libvte9
 /lib/terminfo
 
 [config]
