@@ -276,8 +276,6 @@ h2 {
 
 #popup {
 	position: absolute;
-	left: 30%;
-	top: 30%;
 	display: none;
 	background: white;
 	padding: 20px;

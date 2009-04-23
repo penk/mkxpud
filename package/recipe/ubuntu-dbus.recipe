@@ -20,7 +20,6 @@ dbus
 /etc/dbus-1
 /usr/share/dbus-1
 /lib/dbus-1.0
-/var/lib/dbus
 /var/run/dbus
 
 [config]

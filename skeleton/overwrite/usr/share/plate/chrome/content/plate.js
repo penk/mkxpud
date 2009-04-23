@@ -234,5 +234,8 @@ function popup(path) {
 
 cover(); 
 update_div('popup', '/usr/share/plate/chrome/content/template/'+path+'.html');
-
+var w = Math.ceil((window.innerWidth - document.getElementById('popup').offsetWidth) / 2);
+var h = Math.ceil((window.innerHeight - document.getElementById('popup').offsetHeight) / 2);
+document.getElementById('popup').style.left=w+'px';
+document.getElementById('popup').style.top=h+'px';
 }
