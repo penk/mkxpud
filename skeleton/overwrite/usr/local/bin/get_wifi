@@ -2,26 +2,29 @@
 # NIC, EncType, Address, Password
 
 ($nic, $enc, $addr, $pass) = ($ARGV[0], $ARGV[1], $ARGV[2], $ARGV[3]);
-
+open(LOG, ">/tmp/wifi.cmd");
 system "touch /tmp/netstat.tmp";
 system "echo 1 > /tmp/netattempt";
 
 # NONE 
 if ($enc eq 'wifi-none') {
 system "iwconfig $nic ap $addr key off";
+print LOG "iwconfig $nic ap $addr key off";
 }
 
 # WEP
 if ($enc eq 'wifi-wep') {
 
 my $c = `echo $pass | wc -c`;
-if ($c == 6 || $c == 14) {
-my $passwd = $1 if $pass =~ /^"(.*)"$/;
 my $ssid = '"'.$1.'"' if `grep $addr /tmp/wifi.opt` =~ />"(.*)"</;
 
+if ($c == 6 || $c == 14) {
+my $passwd = $1 if $pass =~ /^"(.*)"$/;
 system qq{iwconfig $nic essid $ssid key "s:$passwd"};
+print LOG qq{iwconfig $nic essid $ssid key "s:$passwd"};
 } else {
 system qq{iwconfig $nic essid $ssid key $pass};
+print LOG qq{iwconfig $nic essid $ssid key $pass};
 }
 
 }
@@ -32,7 +35,9 @@ if ($enc eq 'wifi-wpa') {
 my $ssid = '"'.$1.'"' if `grep $addr /tmp/wifi.opt` =~ />"(.*)"</;
 
 system "wpa_passphrase $ssid $pass > /tmp/wifi.conf";
+print LOG "wpa_passphrase $ssid $pass > /tmp/wifi.conf";
 system "wpa_supplicant -Dwext -i$nic -c/tmp/wifi.conf &";
+print LOG "wpa_supplicant -Dwext -i$nic -c/tmp/wifi.conf &";
 
 }
 
@@ -43,6 +48,11 @@ system "ifconfig $nic down";
 system "iwconfig $nic ap $addr key $pass";
 system "ifconfig $nic up";
 system "iwconfig $nic mode Managed";
+
+print LOG "ifconfig $nic down\n
+iwconfig $nic ap $addr key $pass\n
+ifconfig $nic up\n
+iwconfig $nic mode Managed";
 
 }
 
