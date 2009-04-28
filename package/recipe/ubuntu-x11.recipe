@@ -11,6 +11,7 @@ xterm
 openbox
 wmctrl
 #lxterminal
+xresprobe
 
 [binary]
 
@@ -20,6 +21,7 @@ wmctrl
 /usr/bin/xterm
 /usr/bin/xrandr
 /usr/bin/lxrandr
+/usr/sbin/ddcprobe
 
 #/usr/bin/lxterminal
 
