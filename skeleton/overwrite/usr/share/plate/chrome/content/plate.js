@@ -207,12 +207,11 @@ function update_div(id, path) {
 function update_sysinfo() {
 	
 if (document.getElementById('sysinfo')) {
-system('/usr/local/bin/sysinfo');
-sleep(50);
 update_div('sysinfo', '/tmp/sysinfo');
+system('/usr/local/bin/sysinfo');
 }
 
-setTimeout('update_sysinfo()', 5000);
+setTimeout('update_sysinfo()', 3500);
 }
 
 var vis=1;

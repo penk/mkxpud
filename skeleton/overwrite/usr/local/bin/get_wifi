@@ -13,7 +13,7 @@ my $ssid = '"'.$1.'"' if `grep $addr /tmp/wifi.opt` =~ />"(.*)"</;
 # NONE 
 if ($enc eq 'wifi-none') {
 system "iwconfig $nic essid $ssid key off";
-print PF "iwconfig $nic essid $ssid key off";
+print PF "iwconfig $nic essid $ssid key off\n";
 }
 
 # WEP
@@ -24,10 +24,10 @@ my $c = `echo $pass | wc -c`;
 if ($c == 6 || $c == 14) {
 my $passwd = $1 if $pass =~ /^"(.*)"$/;
 system qq{iwconfig $nic essid $ssid key "s:$passwd"};
-print PF qq{iwconfig $nic essid $ssid key "s:$passwd"};
+print PF qq{iwconfig $nic essid $ssid key "s:$passwd" \n};
 } else {
 system qq{iwconfig $nic essid $ssid key $pass};
-print PF qq{iwconfig $nic essid $ssid key $pass};
+print PF qq{iwconfig $nic essid $ssid key $pass \n};
 }
 
 }
@@ -36,9 +36,10 @@ print PF qq{iwconfig $nic essid $ssid key $pass};
 if ($enc eq 'wifi-wpa') {
 
 system "wpa_passphrase $ssid $pass > /tmp/wifi.conf";
-print PF "wpa_passphrase $ssid $pass > /tmp/wifi.conf";
 system "wpa_supplicant -Dwext -i$nic -c/tmp/wifi.conf &";
-print PF "wpa_supplicant -Dwext -i$nic -c/tmp/wifi.conf &";
+
+system "cp /tmp/wifi.conf /etc/netwiz/$addr.conf";
+print PF "wpa_supplicant -Dwext -i$nic -c/etc/netwiz/$addr.conf & \n";
 
 }
 
@@ -53,12 +54,12 @@ system "iwconfig $nic mode Managed";
 print PF "ifconfig $nic down\n
 iwconfig $nic ap $addr key $pass\n
 ifconfig $nic up\n
-iwconfig $nic mode Managed";
+iwconfig $nic mode Managed \n";
 
 }
 
 system "dhclient $nic";
-print PF "dhclient $nic";
+print PF "dhclient $nic \n";
 
 if ( ! `ifconfig|grep "inet addr"`) { system "dhclient $nic; rm -f /tmp/netstat.tmp"; } 
 else { system "rm -f /tmp/netstat.tmp"; }
