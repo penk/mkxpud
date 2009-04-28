@@ -1,0 +1,12 @@
+timeout 10
+default 1
+
+title xPUD
+find --set-root /xpud-0.8.9-image 
+append quiet loglevel=0 noisapnp
+
+title Windows NT/2K/XP
+fallback 1
+find --set-root --ignore-floppies /ntldr
+chainloader /ntldr
+savedefault --wait=2
