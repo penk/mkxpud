@@ -37,6 +37,7 @@ ubuntu-scim-chewing
 ubuntu-plate
 
 [action]
+rm -rf $MKXPUD_TARGET/lib/udev/device/
 
 [overwrite]
 # files to be overwritten

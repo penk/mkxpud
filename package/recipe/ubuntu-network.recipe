@@ -12,8 +12,11 @@ pppconfig
 net-tools
 #iptables
 dropbear
+rdesktop
 
 [binary]
+
+/usr/bin/rdesktop
 
 /usr/sbin/dropbear
 /usr/bin/dbclient
@@ -47,6 +50,8 @@ dropbear
 #/lib/iptables
 /usr/lib/dropbear
 /etc/dropbear
+
+/usr/share/rdesktop
 
 [config]
 
