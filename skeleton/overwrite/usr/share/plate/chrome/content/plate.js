@@ -207,8 +207,9 @@ function update_div(id, path) {
 function update_sysinfo() {
 	
 if (document.getElementById('sysinfo')) {
-update_div('sysinfo', '/tmp/sysinfo');
 system('/usr/local/bin/sysinfo');
+sleep(50);
+update_div('sysinfo', '/tmp/sysinfo');
 }
 
 setTimeout('update_sysinfo()', 5000);
