@@ -6,17 +6,18 @@ open(LOG, ">/tmp/wifi.cmd");
 system "touch /tmp/netstat.tmp";
 system "echo 1 > /tmp/netattempt";
 
+my $ssid = '"'.$1.'"' if `grep $addr /tmp/wifi.opt` =~ />"(.*)"</;
+
 # NONE 
 if ($enc eq 'wifi-none') {
-system "iwconfig $nic ap $addr key off";
-print LOG "iwconfig $nic ap $addr key off";
+system "iwconfig $nic essid $ssid key off";
+print LOG "iwconfig $nic essid $ssid key off";
 }
 
 # WEP
 if ($enc eq 'wifi-wep') {
 
 my $c = `echo $pass | wc -c`;
-my $ssid = '"'.$1.'"' if `grep $addr /tmp/wifi.opt` =~ />"(.*)"</;
 
 if ($c == 6 || $c == 14) {
 my $passwd = $1 if $pass =~ /^"(.*)"$/;
@@ -31,8 +32,6 @@ print LOG qq{iwconfig $nic essid $ssid key $pass};
 
 # WPA
 if ($enc eq 'wifi-wpa') {
-
-my $ssid = '"'.$1.'"' if `grep $addr /tmp/wifi.opt` =~ />"(.*)"</;
 
 system "wpa_passphrase $ssid $pass > /tmp/wifi.conf";
 print LOG "wpa_passphrase $ssid $pass > /tmp/wifi.conf";
