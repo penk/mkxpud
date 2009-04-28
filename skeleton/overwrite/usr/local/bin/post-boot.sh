@@ -16,6 +16,8 @@ for NIC in eth0 eth1 eth2 wlan0 ath0 ra0; do
 done
 /usr/local/bin/netdaemon eth0
 
+/usr/local/bin/auto-reconnect.pl &
+
 # setup sound channel
 for channel in Master Front; do
 	/usr/bin/amixer set $channel 95%

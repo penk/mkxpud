@@ -64,4 +64,4 @@ rdesktop
 /usr/local/bin/netdaemon
 
 # FIXME
-# /usr/local/bin/auto-reconnect.pl
+/usr/local/bin/auto-reconnect.pl
