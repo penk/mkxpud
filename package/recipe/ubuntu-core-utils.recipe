@@ -76,6 +76,7 @@ fi
 /usr/lib/grub
 
 /lib/udev
+/etc/udev
 
 /usr/lib/libXss.so.1
 
@@ -90,7 +91,6 @@ fi
 #/etc/modules
 #/etc/group
 
-/etc/udev
 /etc/xpud-backup.conf
 
 #---------------------------
