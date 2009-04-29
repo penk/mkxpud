@@ -3,7 +3,7 @@ default 0
 
 title xPUD Image
 find --set-root /xpud-0.8.9-image
-initrd loglevel=0 noisapnp
+kernel /xpud-0.8.9-image loglevel=0 noisapnp
 
 title xPUD ISO
 find --set-root /xpud-0.8.9.iso
