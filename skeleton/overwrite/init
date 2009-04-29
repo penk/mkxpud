@@ -7,14 +7,6 @@ export GTK_IM_MODULE="scim"
 	/bin/mount -t proc none /proc -onodev,noexec,nosuid
 	ln -sf /proc/mounts /etc/mtab
 
-	/usr/sbin/915resolution 32 1024 600 24
-	/usr/sbin/915resolution -l > /tmp/915
-	if grep -q '1024x600' /tmp/915; then
-		RES=1024x600x24
-	else
-		RES=1024x768x24
-	fi
-
 	for x in $(cat /proc/cmdline); do
 		case $x in
 			screen=*)
@@ -46,6 +38,16 @@ export GTK_IM_MODULE="scim"
 
 	# init hook
 	find /etc/init.d/ -type f -exec {} \; 
+	
+	if [ -z $RES ]; then
+		/usr/sbin/915resolution 32 1024 600 24
+		/usr/sbin/915resolution -l > /tmp/915
+		if grep -q '1024x600' /tmp/915; then
+			export RES=1024x600x24
+		else
+			export RES=1024x768x24
+		fi
+	fi
 	
 	# X server
 	/usr/local/bin/Xvesa :0 -ac -shadow -screen $RES -br -mouse mouse,/dev/input/mice &
