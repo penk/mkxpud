@@ -179,6 +179,7 @@ function image {
 	case $format in
 			gz)
 				cat deploy/$MKXPUD_CODENAME/rootfs.cpio | gzip -9 > deploy/$MKXPUD_CODENAME/rootfs.gz
+				du -h deploy/$MKXPUD_CODENAME/rootfs.gz
 			;;
 			iso)
 				cp -r skeleton/boot/iso/ deploy/$MKXPUD_CODENAME/
@@ -191,7 +192,5 @@ function image {
 			;;
 	esac 
 	done
-
-	du -h deploy/$MKXPUD_CODENAME/rootfs.gz
 
 }

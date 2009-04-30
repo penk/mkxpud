@@ -14,14 +14,14 @@ REQUIREMENT
 
 To generate a xPUD image, you will need:
 
-1. a working Debian/Ubuntu GNU/Linux system
+1. a working Ubuntu 9.04 installation 
 2. **sudo** permission to install packages on the host and testing
 3. Internet access to download packages (if required)
 4. at least 500MB of hard disk free space
 
 We designed **mkxpud** to be distribution-independent, but at current 
 development stage, only limited distribuations and released version
-have been fully tested. If you find something wrong or want to improve 
+have been fully tested. If you find something wrong or want to improve
 the function on different distribution, please 
 post on our [forum](http://groups.google.com/group/pud-linux) or 
 [bug tracker](http://code.google.com/p/xpud/issues/list).
