@@ -175,7 +175,7 @@ function image {
 			;;
 			iso)
 				cp -r skeleton/boot/iso/ deploy/$MKXPUD_CODENAME/
-				cp deploy/bzImage deploy/$MKXPUD_CODENAME/iso/boot/
+				cp $MKXPUD_KERNEL_IMAGE deploy/$MKXPUD_CODENAME/iso/boot/bzImage
 				cp deploy/$MKXPUD_CODENAME/rootfs.gz deploy/$MKXPUD_CODENAME/iso/boot/
 				mkisofs -R -l -V 'xPUD' -input-charset utf-8 -b isolinux.bin -c boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o deploy/$MKXPUD_CODENAME.iso deploy/$MKXPUD_CODENAME/iso/
 			;;

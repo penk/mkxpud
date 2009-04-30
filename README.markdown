@@ -89,8 +89,10 @@ which quoted by `[ ]`, rest of the rows are data:
 	MKXPUD_NAME=""
 	# you can skip the apt-get install by setting this to "true"
 	MKXPUD_SKIP_APT=""
+	
 	# specified the Linux kernel version to be used
 	MKXPUD_KERNEL="2.6.28"
+	MKXPUD_KERNEL_IMAGE="deploy/vmlinuz-2.6.28"
 	MKXPUD_MOD_PATH="/lib/modules/2.6.28"
 	
 	[module]
