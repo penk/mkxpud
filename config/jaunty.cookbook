@@ -5,8 +5,10 @@
 MKXPUD_NAME="xPUD Ubuntu Jaunty image"
 # you can skip the apt-get install by setting this to `true'
 MKXPUD_SKIP_APT="false"
+
 # specified the Linux kernel version to be used
 MKXPUD_KERNEL="2.6.28-11-generic"
+MKXPUD_KERNEL_IMAGE="/boot/vmlinuz-2.6.28-11-generic"
 MKXPUD_MOD_PATH="/lib/modules/2.6.28-11-generic"
 
 [module]
@@ -14,19 +16,18 @@ MKXPUD_MOD_PATH="/lib/modules/2.6.28-11-generic"
 ata_piix
 atl1 atl2 atl1e 
 iwl3945 iwlagn
-#ath_pci 
 ath5k ath9k
 sis190 sis900
-rtl8180 
-rt2860sta rt2870sta
+rtl8180 rtl8187
+rt2860sta
 rt2400pci rt2500pci rt2500usb rt61pci rt73usb
-#wl 
-michael_mic b43legacy b43
-e1000e ne2k-pci pcnet32
+wl michael_mic b43legacy b43
+e1000e e1000 e100
+ne2k-pci pcnet32
 usbserial
 uvcvideo
-#acpi-cpufreq cpufreq_ondemand 
-video
+acpi-cpufreq cpufreq_ondemand video
+psmouse
 
 [recipe]
 # packages and files to be included into rootfs
@@ -38,7 +39,6 @@ ubuntu-wireless-tools
 ubuntu-artwork
 ubuntu-scim-chewing
 ubuntu-plate
-#python
 
 [action]
 
@@ -52,8 +52,8 @@ ubuntu-plate
 /usr/local/bin/Xvesa
 /usr/bin/perl
 /bin/bash
-/bin/busybox
-/bin/mount
+#/bin/busybox
+#/bin/mount
 /usr/bin/mplayer
 
 [remove]
