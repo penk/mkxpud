@@ -119,7 +119,8 @@ function kernel {
 	for MOD in `./tools/parser $MKXPUD_CONFIG module`; do
 		for M in `./tools/module-helper $MOD`; do
 		
-		if [ `echo $MKXPUD_MOD_PATH | grep "^/"` ]; then
+		## FIXME: workaround with different kernel path
+		if [ `echo $M | grep "^/"` ]; then
 			[ -d $MKXPUD_TARGET/`dirname $M` ] || mkdir -p $MKXPUD_TARGET/`dirname $M` 
 			cp -rfpL --remove-destination $M $MKXPUD_TARGET/$M
 		else 
