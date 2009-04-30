@@ -118,8 +118,14 @@ function kernel {
 	
 	for MOD in `./tools/parser $MKXPUD_CONFIG module`; do
 		for M in `./tools/module-helper $MOD`; do
-		[ -d $MKXPUD_TARGET/`dirname $M` ] || mkdir -p $MKXPUD_TARGET/`dirname $M` 
-		cp -rfpL --remove-destination $XPUD_MOD_PATH/$M $MKXPUD_TARGET/$M
+		
+		if [ `echo $MKXPUD_MOD_PATH | grep "^/"` ]; then
+			[ -d $MKXPUD_TARGET/`dirname $M` ] || mkdir -p $MKXPUD_TARGET/`dirname $M` 
+			cp -rfpL --remove-destination $M $MKXPUD_TARGET/$M
+		else 
+			[ -d $MKXPUD_TARGET/$MKXPUD_MOD_PATH/`dirname $M` ] || mkdir -p $MKXPUD_TARGET/$MKXPUD_MOD_PATH/`dirname $M` 
+			cp -rfpL --remove-destination $MKXPUD_MOD_PATH/$M $MKXPUD_TARGET/$MKXPUD_MOD_PATH/$M
+		fi
 		done
 	done
 
