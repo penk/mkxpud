@@ -44,6 +44,8 @@ ubuntu-plate
 
 [action]
 #rm -rf $MKXPUD_TARGET/lib/udev/devices/*
+# FIXME: remove firefox updater
+rm -f $MKXPUD_TARGET/usr/share/firefox/updater
 
 [overwrite]
 # files to be overwritten
