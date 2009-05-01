@@ -135,7 +135,7 @@
 
   <keybind key="A-F2">
     <action name="Execute">
-        <command>/usr/bin/lxterminal</command>
+        <command>/usr/bin/xterm -bg black -fg gray</command>
     </action>
   </keybind>
 
