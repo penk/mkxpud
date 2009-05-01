@@ -52,8 +52,8 @@ ubuntu-plate
 /usr/local/bin/Xvesa
 /usr/bin/perl
 /bin/bash
-#/bin/busybox
-#/bin/mount
+/bin/busybox
+/bin/mount
 /usr/bin/mplayer
 
 [remove]
