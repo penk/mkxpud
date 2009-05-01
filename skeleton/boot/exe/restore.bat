@@ -10,6 +10,7 @@ goto ver_vista
 
 attrib -R -H -S "c:\boot.ini"
 sed -ri "/grldr/d" "c:\boot.ini"
+sed -ri "s/$/\r/" "c:\boot.ini"
 
 :: Windows Vista
 :ver_vista

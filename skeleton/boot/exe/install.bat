@@ -17,7 +17,7 @@ findstr /L grldr "c:\boot.ini" > nul
 if %ERRORLEVEL% == 0 goto END
 
 :: Add boot entry
-echo C:\grldr="xPUD" >> c:\boot.ini
+echo C:\grldr="xPUD" >> "c:\boot.ini"
 
 goto END
 
