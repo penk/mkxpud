@@ -7,10 +7,10 @@ x11
 x11-apps
 lxrandr
 x11-xserver-utils
-xterm
+#xterm
 openbox
 wmctrl
-#lxterminal
+lxterminal
 xresprobe
 
 [binary]
@@ -23,18 +23,18 @@ xresprobe
 /usr/bin/lxrandr
 /usr/sbin/ddcprobe
 
-#/usr/bin/lxterminal
+/usr/bin/lxterminal
 
 [data]
 
-#/usr/share/vte
-#/usr/lib/libvte9
+/usr/share/vte
+/usr/lib/libvte9
 /lib/terminfo
 
 [config]
 
 /etc/xdg/openbox
-#/.config/lxterminal
+/.config/lxterminal
 
 [overwrite]
 
