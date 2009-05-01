@@ -30,6 +30,7 @@ tar jxf skeleton/archive/firefox* -C $MKXPUD_TARGET/usr/share/
 
 /usr/bin/mozplugger-controller
 /usr/bin/mozplugger-helper
+/usr/bin/mozplugger-linker
 /usr/bin/m4
 
 /usr/bin/gnome-mplayer
