@@ -107,9 +107,9 @@ fi
 /etc/fstab
 /etc/hostname
 /etc/passwd
+/etc/group
 
 #/etc/modules
-#/etc/group
 
 /etc/xpud-backup.conf
 
