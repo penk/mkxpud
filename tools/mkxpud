@@ -12,6 +12,8 @@ else
 
 	if [ ! -z $2 ] && [ -f "config/$2.cookbook" ]; then export MKXPUD_CODENAME=$2
 	else export MKXPUD_CODENAME='default'; fi
+	export MKXPUD_CONFIG=config/$MKXPUD_CODENAME.cookbook
+	eval export `./tools/parser $MKXPUD_CONFIG config`
 	
 	case $1 in
 		all)
@@ -30,7 +32,7 @@ else
 			image $MKXPUD_CODENAME
 			;;
 		test)
-			sudo qemu -kernel deploy/bzImage -initrd deploy/$MKXPUD_CODENAME/rootfs.cpio -hda /dev/zero -m 512 &
+			sudo qemu -kernel $MKXPUD_KERNEL_IMAGE -initrd deploy/$MKXPUD_CODENAME/rootfs.cpio -hda /dev/zero -m 512
 			;;
 		help|usage)
 			usage
