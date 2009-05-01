@@ -1,0 +1,22 @@
+timeout 10
+default 0
+
+title xPUD Image
+find --set-root /xpud-0.8.9-image
+kernel /xpud-0.8.9-image loglevel=0 noisapnp
+
+title xPUD ISO
+find --set-root /xpud-0.8.9.iso
+map /xpud-0.8.9.iso (hd32)
+map --hook
+root (hd32)
+chainloader (hd32)
+
+title Windows XP
+find --set-root --ignore-floppies /ntldr
+chainloader /ntldr
+
+title Windows Vista
+find --set-root --ignore-floppies /bootmgr
+chainloader /bootmgr
+

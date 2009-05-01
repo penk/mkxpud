@@ -60,6 +60,7 @@ rm -f $MKXPUD_TARGET/usr/share/firefox/updater
 /bin/busybox
 /bin/mount
 /usr/bin/mplayer
+/usr/share/firefox/firefox-bin
 
 [remove]
 # files to be removed after rootfs extraction
