@@ -29,7 +29,7 @@ export GTK_IM_MODULE="scim"
 	# plate locale
 	PLATE=/usr/share/plate/chrome/content
 	if [ ! -z $UILANG ] && [ -e $PLATE/template.$UILANG ]; then 
-		UILANG=	$UILANG
+		UILANG=$UILANG
 	else
 		UILANG=en
 	fi
@@ -50,7 +50,6 @@ export GTK_IM_MODULE="scim"
 	fi
 	
 	# X server
-	su
 	/usr/local/bin/Xvesa :0 -ac -shadow -screen $RES -br -mouse mouse,/dev/input/mice &
 	/bin/sleep 0.1
 	
