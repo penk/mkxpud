@@ -66,4 +66,4 @@ rm -f $MKXPUD_TARGET/usr/share/firefox/updater
 # files to be removed after rootfs extraction
 
 [image]
-gz iso zip
+gz iso exe zip
