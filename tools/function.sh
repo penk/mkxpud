@@ -26,6 +26,12 @@ function setup {
 	#cp -rfpL --remove-destination skeleton/rootfs/ working/$MKXPUD_CODENAME/rootfs
 	tar zxf skeleton/rootfs.tgz -C working/$MKXPUD_CODENAME/
 	export MKXPUD_TARGET=working/$MKXPUD_CODENAME/rootfs
+
+	if [ "$MKXPUD_HOST_DEV" == 'true' ]; then
+		sudo tar zcf skeleton/archive/dev.tgz /dev/*
+		sudo tar zxf skeleton/archive/dev.tgz -C $MKXPUD_TARGET/
+	fi
+
 	echo "[mkxpud] Project Target: $MKXPUD_TARGET"
 
 }

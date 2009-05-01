@@ -5,6 +5,8 @@
 MKXPUD_NAME="xPUD Ubuntu Intrepid image"
 # you can skip the apt-get install by setting this to `true'
 MKXPUD_SKIP_APT="false"
+# set to `true' if you want to include host /dev nodes
+MKXPUD_HOST_DEV="false"
 
 # specified the Linux kernel version to be used
 MKXPUD_KERNEL="2.6.28"
@@ -24,7 +26,8 @@ rt2400pci rt2500pci rt2500usb rt61pci rt73usb
 wl michael_mic b43legacy b43
 e1000e e1000 e100
 ne2k-pci pcnet32
-usbserial
+sky2
+usbserial hso nozomi sierra option
 uvcvideo
 acpi-cpufreq cpufreq_ondemand video
 

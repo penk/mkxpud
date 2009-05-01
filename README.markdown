@@ -89,6 +89,8 @@ which quoted by `[ ]`, rest of the rows are data:
 	MKXPUD_NAME=""
 	# you can skip the apt-get install by setting this to "true"
 	MKXPUD_SKIP_APT=""
+	# set this to "true" if you want to use host /dev nodes
+	MKXPUD_HOST_DEV=""
 	
 	# specified the Linux kernel version to be used
 	MKXPUD_KERNEL="2.6.28"
