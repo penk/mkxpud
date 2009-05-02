@@ -196,6 +196,7 @@ function image {
 				cp $MKXPUD_KERNEL_IMAGE deploy/$MKXPUD_CODENAME/iso/boot/bzImage
 				cp deploy/$MKXPUD_CODENAME/rootfs.gz deploy/$MKXPUD_CODENAME/iso/boot/
 				mkisofs -R -l -V 'xPUD' -input-charset utf-8 -b isolinux.bin -c boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o deploy/$MKXPUD_CODENAME.iso deploy/$MKXPUD_CODENAME/iso/
+				rm -rf deploy/$MKXPUD_CODENAME/iso/
 				du -h deploy/$MKXPUD_CODENAME.iso
 			;;
 			exe)
@@ -205,7 +206,8 @@ function image {
 				cd deploy/$MKXPUD_CODENAME/exe/
 				../../../tools/makensis xpud-installer.nsi
 				cd -
-				cp deploy/$MKXPUD_CODENAME/exe/xpud-installer.exe deploy/$MKXPUD_CODENAME.exe
+				mv deploy/$MKXPUD_CODENAME/exe/xpud-installer.exe deploy/$MKXPUD_CODENAME.exe
+				rm -rf deploy/$MKXPUD_CODENAME/exe/
 				du -h deploy/$MKXPUD_CODENAME.exe
 			;;
 			*)
