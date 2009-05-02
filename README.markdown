@@ -17,7 +17,7 @@ To generate a xPUD image, you will need:
 1. a working Ubuntu 9.04 installation 
 2. **sudo** permission to install packages on the host and testing
 3. Internet access to download packages (if required)
-4. at least 500MB of hard disk free space
+4. at least 700MB of hard disk free space
 
 We designed **mkxpud** to be distribution-independent, but at current 
 development stage, only limited distribuations and released version
