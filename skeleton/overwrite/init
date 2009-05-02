@@ -28,12 +28,12 @@ export GTK_IM_MODULE="scim"
 
 	# plate locale
 	PLATE=/usr/share/plate/chrome/content
-	if [ ! -z $UILANG ] && [ -e $PLATE/template.$UILANG ]; then 
+	if [ ! -z $UILANG ] && [ -e $PLATE/index.$UILANG.html ]; then 
 		UILANG=$UILANG
 	else
 		UILANG=en
 	fi
-	/bin/sed -e s/index.*html/"index.$UILANG.html"/g /usr/share/plate/chrome/content/main.default > /usr/share/plate/chrome/content/main.xul 
+	/bin/sed -e s/index.*html/"index.$UILANG.html"/g $PLATE/main.default > $PLATE/main.xul 
 
 	# init hook
 	find /etc/init.d/ -type f -exec {} \; 
