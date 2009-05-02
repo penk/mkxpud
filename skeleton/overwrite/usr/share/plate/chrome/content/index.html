@@ -4,52 +4,57 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Interfaz Plate</title>
+		<title>Plate User Interface</title>
 		<link rel="stylesheet" type="text/css" href="style.css" />
 		<script type="text/javascript" src="plate.js"></script>
+		<script type="text/javascript" src="jquery-1.3.2.js"></script>
+		<script type="text/javascript" src="plate-i18n.js"></script>
 		<link rev="made" href="mailto:penkia@gmail.com" />
-	</head>
-	<body onload="select_tab(document.getElementById('home')); system('/usr/local/bin/post-boot.sh');">
+	<script type="text/javascript">  
+                     
+	 </script> 
+	</head> <!-- system('/usr/local/bin/post-boot.sh');  -->
+	<body onload="select_tab(document.getElementById('home')); update_sysinfo(); do_i18n();">
 	
 	<div id="cover"></div>
 	<div id="popup"></div>
 	
 		<div id="padding">
 			<div id="panel">
-				<div id="home" onclick="select_tab(this);">
+				<div id="home" onclick="select_tab(this); do_i18n();">
 					<div class="under_cover">
 					</div>
 					<table><tr><td>
 						<img src = "image/Eterm.png" />
 						<br />
-						Inicio
+						<span class="i18n">home</span>
 					</td></tr></table>
 				</div>
-				<div id="exec" onclick="select_tab(this);">
+				<div id="exec" onclick="select_tab(this); do_i18n();">
 					<div>
 					</div>
 					<table><tr><td>
 						<img src = "image/browser.png" />
 						<br />
-						Men&uacute;	
+						<span class="i18n">menu</span>	
 					</td></tr></table>
 				</div>
-				<div id="files" onclick="select_tab(this);">
+				<div id="files" onclick="select_tab(this); do_i18n();">
 					<div>
 					</div>
 					<table><tr><td>
 						<img src = "image/kcmdevices.png" />
 						<br />
-						Archivos
+						<span class="i18n">file</span>
 					</td></tr></table>
 				</div>
-				<div id="setting" onclick="select_tab(this);">
+				<div id="setting" onclick="select_tab(this); do_i18n();">
 					<div>
 					</div>
 					<table><tr><td>
 						<img src = "image/advancedsettings.png" />
 						<br />
-					Preferencias
+						<span class="i18n">setting</span>
 					</td></tr></table>
 				</div>
 				<div id="slot">

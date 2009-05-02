@@ -33,8 +33,7 @@ export GTK_IM_MODULE="scim"
 	else
 		UILANG=en
 	fi
-	ln -s $PLATE/index.$UILANG.html $PLATE/index.html
-	ln -s $PLATE/template.$UILANG $PLATE/template
+	/bin/sed -e s/index.*html/"index.$UILANG.html"/g /usr/share/plate/chrome/content/main.default > /usr/share/plate/chrome/content/main.xul 
 
 	# init hook
 	find /etc/init.d/ -type f -exec {} \; 
@@ -59,6 +58,5 @@ export GTK_IM_MODULE="scim"
 	
 	# start plate UI
 	/usr/bin/firefox -app /usr/share/plate/application.ini &
-#	touch /tmp/sysinfo
 	/sbin/session &
 	/bin/sh

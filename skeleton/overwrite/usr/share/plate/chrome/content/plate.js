@@ -114,21 +114,6 @@ function toggle_maximize_program() {
 		maximize_program();
 }
 
-function $()
-{
-  var elements = new Array();
-  for (var i = 0; i < arguments.length; i++)
-  {
-    var element = arguments[i];
-    if (typeof element == 'string')
-      element = document.getElementById(element);
-    if (arguments.length == 1)
-      return element;
-    elements.push(element);
-  }
-  return elements;
-}
-
 function system(input) {
 	netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
 	var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
@@ -205,7 +190,7 @@ function update_div(id, path) {
 }
 
 function update_sysinfo() {
-	
+
 if (document.getElementById('sysinfo')) {
 update_div('sysinfo', '/tmp/sysinfo');
 system('/usr/local/bin/sysinfo');
@@ -219,19 +204,18 @@ function cover() {
 
 	if(vis) {
 		vis=0;
-		$('cover').style.display='block';
-		$('popup').style.display='block';
+		document.getElementById('cover').style.display='block';
+		document.getElementById('popup').style.display='block';
 	} 
 	else {   
 		vis=1;
-		$('cover').style.display='none'; 
-		$('popup').style.display='none';
+		document.getElementById('cover').style.display='none'; 
+		document.getElementById('popup').style.display='none';
 	}
 
 }
 
 function popup(path) {
-
 cover(); 
 update_div('popup', '/usr/share/plate/chrome/content/template/'+path+'.html');
 var w = Math.ceil((window.innerWidth - document.getElementById('popup').offsetWidth) / 2);
@@ -239,3 +223,16 @@ var h = Math.ceil((window.innerHeight - document.getElementById('popup').offsetH
 document.getElementById('popup').style.left=w+'px';
 document.getElementById('popup').style.top=h+'px';
 }
+
+var url = this.location.href.split('.');
+var lang = url[1];
+function do_i18n() {
+	$(".i18n").each(
+	   		function(i){
+	   			if(typeof i18n[$(this).text()][lang]  == "undefined")
+	   				$(this).replaceWith(i18n[$(this).text()]["en"]);
+	   			else
+	   				$(this).replaceWith(i18n[$(this).text()][lang]);
+	   			}
+	);	   		         
+}    
