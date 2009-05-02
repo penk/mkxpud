@@ -17,6 +17,7 @@ done
 /usr/local/bin/netdaemon eth0
 
 /usr/local/bin/auto-reconnect.pl &
+/usr/local/bin/get_ssid &
 
 # setup sound channel
 for channel in Master Front; do
