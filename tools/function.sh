@@ -24,14 +24,24 @@ function setup {
 
 	## FIXME: alias cp='cp -rfpL --remove-destination'
 	#cp -rfpL --remove-destination skeleton/rootfs/ working/$MKXPUD_CODENAME/rootfs
+	# untar rootfs skeleton
 	tar zxf skeleton/rootfs.tgz -C working/$MKXPUD_CODENAME/
 	export MKXPUD_TARGET=working/$MKXPUD_CODENAME/rootfs
 
+	# copy /dev nodes
 	if [ "$MKXPUD_HOST_DEV" == 'true' ]; then
-		sudo tar zcf skeleton/archive/dev.tgz /dev/*
+		sudo tar zcf skeleton/archive/dev-host.tgz /dev/*
+		sudo tar zxf skeleton/archive/dev-host.tgz -C $MKXPUD_TARGET/
+	else 
 		sudo tar zxf skeleton/archive/dev.tgz -C $MKXPUD_TARGET/
 	fi
+	
+	# untar default kernel modules if exists
+	if [ -e kernel/module/default-module-$MKXPUD_KERNEL.tgz ]; then
+		sudo tar zxf kernel/module/default-module-$MKXPUD_KERNEL.tgz -C $MKXPUD_TARGET/
+	fi
 
+	# install nsis on the host
 	if [ ! -e /usr/local/nsis ]; then
 		sudo tar zxf skeleton/archive/nsis.tgz -C /usr/local/
 	fi
@@ -61,7 +71,6 @@ function install {
 function strip {
 
 	echo "    Stripping binaries..."
-	## FIXME: alias cp='cp -rfpL --remove-destination'
 	for R in `./tools/parser $MKXPUD_CONFIG recipe`; do 
 		
 		# action 
