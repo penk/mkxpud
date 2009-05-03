@@ -47,6 +47,7 @@ function show_menu( input ) {
 	document.getElementById('menu').className = 'show';
 	document.getElementById('menu').innerHTML = data;
 	unmaximize_program();
+	do_i18n();
 }
 
 function resume_notify( this_obj, program_name ) {
