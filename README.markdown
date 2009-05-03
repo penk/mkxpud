@@ -9,8 +9,8 @@ strips directly from a working APT/dpkg-based Linux installation,
 extracts them into rootfs and finally generates xPUD image.
 
 
-REQUIREMENT
-===========
+REQUIREMENTS
+============
 
 To generate a xPUD image, you will need:
 
@@ -20,7 +20,7 @@ To generate a xPUD image, you will need:
 4. at least 700MB of hard disk free space
 
 We designed **mkxpud** to be distribution-independent, but at current 
-development stage, only limited distribuations and released version
+development stage, only limited distributions and released version
 have been fully tested. If you find something wrong or want to improve
 the function on different distribution, please 
 post on our [forum](http://groups.google.com/group/pud-linux) or 
