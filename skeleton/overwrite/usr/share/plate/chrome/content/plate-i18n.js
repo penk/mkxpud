@@ -8,6 +8,7 @@ var i18n =  {
         en: "Home",
     	de: "Start",
         es: "Inicio",
+        fr: "Accueil",
         zh: "回到主頁",
     },
     
@@ -15,6 +16,7 @@ var i18n =  {
     	en: "Menu",
     	de: "Programme",
     	es: "Men&uacute;",
+        fr: "Menu",
     	zh: "執行程式",
     },
 
@@ -22,6 +24,7 @@ var i18n =  {
     	en: "File",
     	de: "Dateien",
     	es: "Archivos",
+        fr: "Fichier",
     	zh: "開啟檔案",
     },
 
@@ -29,6 +32,7 @@ var i18n =  {
     	en: "Setting",
     	de: "Einstellung",
     	es: "Preferencias",
+        fr: "Préférences",
     	zh: "設定系統",
     },
     
@@ -141,7 +145,7 @@ var i18n =  {
 	},
 	pdf_viewer: {
 		en: "PDF Viewer",
-		fr: "PDF Viewer",
+		fr: "Visionneur de PDF",
 		es: "Visor de PDF",
 		zh: "PDF 閱讀",
 	},
@@ -157,6 +161,7 @@ var i18n =  {
 	setting_personal: {
 		en: "Personal",
 		es: "Personal",
+                fr: "Personnel",
 		zh: "個人設定",
 	},
 	
@@ -214,17 +219,20 @@ var i18n =  {
 		setting_wifi: {
 			en: "WiFi/3G",
 			es: "WiFi/3G",
+                        fr: "WiFi/3G",
 			zh: "WiFi/3G",
 		},
 		setting_wifi_desc: {
 			en: "setup wireless connection",
 			de: "drahtloses netzwerk einrichten",
 			es: "configurar la conexi&oacute;n inal&aacute;mbrica",
+                        fr: "configurer la connexion sans fil",
 			zh: "使用無線網路連線",
 		},
 		setting_ethernet: {
 			en: "Ethernet",
 			es: "Red Cableada",
+                        fr: "Connexion filaire",
 			zh: "有線網路",
 		},
 		setting_ethernet_desc: {
@@ -237,6 +245,7 @@ var i18n =  {
 		setting_opt: {
 			en: "Opt-Get",
 			es: "Opt-Get",
+                        fr: "Opt-Get",
 			zh: "Opt-Get",
 		},
 		setting_opt_desc: {
@@ -250,6 +259,7 @@ var i18n =  {
 	setting_hardware: {
 		en: "Hardware",
 		es: "Hardware",
+                fr: "Matériel",
 		zh: "硬體設定",
 	},
 		setting_sound: {
