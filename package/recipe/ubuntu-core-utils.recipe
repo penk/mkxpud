@@ -12,6 +12,8 @@ genisoimage
 upx-ucl
 wget 
 gnome-icon-theme
+nsis
+ttf-droid
 
 libxss1
 busybox-static
@@ -62,6 +64,8 @@ module-init-tools
 #---------------------------
 
 [data]
+
+/usr/share/fonts/truetype/ttf-droid
 
 /usr/share/os-prober
 /usr/lib/linux-boot-probes

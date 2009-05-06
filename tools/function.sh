@@ -41,11 +41,6 @@ function setup {
 		sudo tar zxf kernel/module/default-module-$MKXPUD_KERNEL.tgz -C $MKXPUD_TARGET/
 	fi
 
-	# install nsis on the host
-	if [ ! -e /usr/local/nsis ]; then
-		sudo tar zxf skeleton/archive/nsis.tgz -C /usr/local/
-	fi
-
 	echo "[mkxpud] Project Target: $MKXPUD_TARGET"
 
 }
@@ -213,7 +208,7 @@ function image {
 				cp $MKXPUD_KERNEL_IMAGE deploy/$MKXPUD_CODENAME/exe/bzImage
 				cp deploy/$MKXPUD_CODENAME/rootfs.gz deploy/$MKXPUD_CODENAME/exe/
 				cd deploy/$MKXPUD_CODENAME/exe/
-				../../../tools/makensis xpud-installer.nsi
+				makensis xpud-installer.nsi
 				cd -
 				mv deploy/$MKXPUD_CODENAME/exe/xpud-installer.exe deploy/$MKXPUD_CODENAME.exe
 				rm -rf deploy/$MKXPUD_CODENAME/exe/
