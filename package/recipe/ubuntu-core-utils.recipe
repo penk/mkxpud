@@ -13,7 +13,7 @@ upx-ucl
 wget 
 gnome-icon-theme
 nsis
-ttf-droid
+powertop
 
 libxss1
 busybox-static
@@ -61,11 +61,11 @@ module-init-tools
 /usr/sbin/grub
 /usr/sbin/grub-set-default
 
+/usr/sbin/powertop
+
 #---------------------------
 
 [data]
-
-/usr/share/fonts/truetype/ttf-droid
 
 /usr/share/os-prober
 /usr/lib/linux-boot-probes

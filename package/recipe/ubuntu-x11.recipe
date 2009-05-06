@@ -12,6 +12,7 @@ openbox
 wmctrl
 #lxterminal
 xresprobe
+ttf-droid
 
 [binary]
 
@@ -26,6 +27,8 @@ xresprobe
 #/usr/bin/lxterminal
 
 [data]
+
+/usr/share/fonts/truetype/ttf-droid
 
 #/usr/share/vte
 #/usr/lib/libvte9
