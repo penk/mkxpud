@@ -169,7 +169,7 @@ This is the internal structure of mkxpud:
     |   |-- config-2.6.28			kernel .config file
     |   `-- default.cookbook		default config file for project
     |-- deploy
-    |   `-- bzImage				pre-built kernel image
+    |   `-- vmlinuz-2.6.28			pre-built kernel image
     |-- kernel
     |   |-- module
     |   |   `-- default-module-2.6.28.tgz 		pre-built kernel modules
