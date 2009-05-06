@@ -52,8 +52,6 @@ ttf-droid
 /usr/bin/xhkconf
 /usr/bin/xli
 
-/usr/share/fonts
-
 ## FIXME
 /usr/local/lib/ts
 /usr/lib/xhkeys
