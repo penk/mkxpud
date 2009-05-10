@@ -17,6 +17,7 @@ MKXPUD_MOD_PATH="/lib/modules/2.6.28"
 # kernel modules to be included into rootfs
 ata_piix isofs
 sr_mod cdrom sg
+pppoe
 atl1 atl2 atl1e 
 iwl3945 iwlagn
 ath5k ath9k
