@@ -201,24 +201,24 @@ setTimeout('update_sysinfo()', 3500);
 }
 
 var vis=1;
-function cover() {  
+function cover() {
 
 	if(vis) {
 		vis=0;
 		document.getElementById('cover').style.display='block';
 		document.getElementById('popup').style.display='block';
-	} 
-	else {   
+	}
+	else {  
 		vis=1;
-		document.getElementById('cover').style.display='none'; 
+		document.getElementById('cover').style.display='none';
 		document.getElementById('popup').style.display='none';
 	}
-
 }
 
 function popup(path) {
 cover(); 
 update_div('popup', '/usr/share/plate/chrome/content/template/'+path+'.html');
+do_i18n();
 var w = Math.ceil((window.innerWidth - document.getElementById('popup').offsetWidth) / 2);
 var h = Math.ceil((window.innerHeight - document.getElementById('popup').offsetHeight) / 2);
 document.getElementById('popup').style.left=w+'px';

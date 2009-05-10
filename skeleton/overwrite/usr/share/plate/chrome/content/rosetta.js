@@ -61,6 +61,7 @@ var i18n =  {
 		fr: "Vous voulez:",
 		zh: "你也可以：",
 	},
+	
 	power_off: {
 		en: "Power Off",
 		de: "Ausschalten",
@@ -68,6 +69,31 @@ var i18n =  {
 		fr: "Éteindre",
 		zh: "關機",
 	},
+	
+		quit_now: {
+			en: "Do you want to quit now?",
+			de: "M&ouml;chten Sie jetzt ausschalten?",
+			zh: "確定要關機?",
+		},
+	
+		turn_off: {
+			en: "Turn Off",
+			de: "Ausschalten",
+			zh: "關機",
+		},
+	
+		restart: {
+			en: "Restart",
+			de: "Neustart",
+			zh: "重新開機",
+		},
+		
+		cancel_shutdown: {
+			en: "Cancel",
+			de: "Abbrechen",
+			zh: "取消",
+		},
+	
 	power_off_desc: {
 		en: "turn off this machine",
 		de: "Dieses Ger&auml;t ausschalten",
@@ -96,6 +122,7 @@ var i18n =  {
 		fr: "Obtenir de l'aide",
 		zh: "取得幫助",
 	},
+	
 	get_help_desc: {
 		en: "and contact information",
 		de: "und Kontaktinformationen",
@@ -104,6 +131,22 @@ var i18n =  {
 		zh: "和更多資訊",
 	},
 	
+		help_about: {
+			en: "About",
+			de: "&Uuml;ber",
+			zh: "更多訊息",
+		},
+		help_info: {
+			en: "xPUD is a rapidly developing project. <br /> For more information, please go to:",
+			de: "xPUD ist ein aktiv entwickeltes Projekt. <br /> Weitere Informationen unter:",
+			zh: "xPUD 是一個快速發展中的計畫。請參閱：",
+		},
+		help_done: {
+			en: "Done",
+			de: "OK",
+			zh: "完成",
+			
+		},
 // menu
 	application: {
 		en: "Applications",
