@@ -65,3 +65,4 @@ rdesktop
 
 # FIXME
 /usr/local/bin/auto-reconnect.pl
+/usr/local/bin/get_adsl
