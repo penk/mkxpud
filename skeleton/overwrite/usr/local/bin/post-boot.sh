@@ -34,6 +34,12 @@ if [ "$(cat /proc/cpuinfo | grep Atom)" ] ; then
     echo ondemand > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
 fi
 
+# mount all partitions
+for i in `fdisk -l | grep "^/dev" | cut -d' ' -f1`; do
+   mkdir -p /mnt/`basename $i`;
+   mount $i /mnt/`basename $i`;
+done
+
 # start hotplug script
 /bin/cp /sbin/hotplug-x /sbin/hotplug
 
