@@ -39,13 +39,26 @@ export GTK_IM_MODULE="scim"
 	find /etc/init.d/ -type f -exec {} \; 
 	
 	if [ -z $RES ]; then
-		/usr/sbin/915resolution 32 1024 600 24
-		/usr/sbin/915resolution -l > /tmp/915
-		if grep -q '1024x600' /tmp/915; then
-			export RES=1024x600x24
-		else
+		#/usr/sbin/915resolution 32 1024 600 24
+		#/usr/sbin/915resolution -l > /tmp/915
+		#if grep -q '1024x600' /tmp/915; then
+		#	export RES=1024x600x24
+		#else
+		#	export RES=1024x768x24
+		#fi
+		
+		# FIXME: problems when using multiple monitors
+		# get panel size from ddcprobe
+		VMODE=`ddcprobe | grep dtiming | cut -d " " -f 2`
+		# if panel size was found - set the mode 
+		if [ -z $VMODE ]; then
 			export RES=1024x768x24
+		else
+			RES=`echo $VMODE | cut -d @ -f 1`
+			/usr/sbin/915resolution 32 `echo ${RES/x/ }` 24
+			export RES=`echo $RES"x24"`
 		fi
+		
 	fi
 	
 	# X server

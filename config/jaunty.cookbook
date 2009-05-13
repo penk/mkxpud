@@ -15,7 +15,9 @@ MKXPUD_MOD_PATH="/lib/modules/2.6.28-11-generic"
 
 [module]
 # kernel modules to be included into rootfs
-ata_piix
+ata_piix isofs
+sr_mod cdrom sg
+pppoe
 atl1 atl2 atl1e 
 iwl3945 iwlagn
 ath5k ath9k
@@ -67,4 +69,4 @@ rm -f $MKXPUD_TARGET/usr/share/firefox/updater
 # files to be removed after rootfs extraction
 
 [image]
-gz iso exe zip
+gz iso
