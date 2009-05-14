@@ -347,4 +347,9 @@ var i18n =  {
 			fr: "informations et drivers des périphériques",
 			zh: "安裝更多驅動程式",
 		},
+		
+	back_to_setting: {
+		en: "Back to Setting",
+		zh: "回到設定頁面",
+	},
 };
