@@ -94,7 +94,7 @@ function send_wifi() {
 <p>
 <input type="hidden" id="enctype">
 <label>Password:</label> <input id="passwd" type="password" size="18" />
-<input type="button" value="Connect" onclick="send_wifi()" />
+<input type="button" value="Connect" onclick="send_wifi(); $(this).attr('disabled', 'disabled'); $(this).attr('value', 'Loading...');" />
 </p>
 </div>
 

@@ -46,7 +46,7 @@ system('/usr/local/bin/get_adsl ' + $('#username').val() + ' ' + $('#password').
 
 
 <p id="dhcp-info" style="display: none;" class="info">
-<br /><input type="button" value="Connect" onclick="system('dhclient eth0');" />
+<br /><input type="button" value="Connect" onclick="system('dhclient eth0'); $(this).attr('disabled', 'disabled'); $(this).attr('value', 'Loading...');" />
 </p>
 
 <p id="static-info" style="display: none;" class="info">
@@ -58,15 +58,15 @@ system('/usr/local/bin/get_adsl ' + $('#username').val() + ' ' + $('#password').
 <input id="gateway" type="text" size="14" /><br />
 <label for="dns">DNS Server</label><br />
 <input id="dns" type="text" size="14" value="168.95.1.1" /><br />
-<br /><input type="button" value="Connect" onclick="send_static();" />
+<br /><input type="button" value="Connect" onclick="send_static(); $(this).attr('disabled', 'disabled'); $(this).attr('value', 'Loading...');" />
 </p>
 
 <p id="adsl-info" style="display: none;" class="info">
 <label for="username">Username</label><br />
-<input id="username" type="text" size="18" /><br />
+<input id="username" type="text" size="15" /><br />
 <label for="password">Password</label><br />
-<input id="password" type="password" size="18" /><br />
-<br /><input type="button" value="Connect" onclick="send_adsl();" />
+<input id="password" type="password" size="15" /><br />
+<br /><input type="button" value="Connect" onclick="send_adsl(); $(this).attr('disabled', 'disabled'); $(this).attr('value', 'Loading...');" />
 </p>
 
 <br />
