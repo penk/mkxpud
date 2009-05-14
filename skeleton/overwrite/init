@@ -40,15 +40,15 @@ export GTK_IM_MODULE="scim"
 	
 	if [ -z $RES ]; then
 		# FIXME: problems when using multiple monitors
-		# get panel size from ddcprobe
 		/usr/sbin/ddcprobe > /tmp/ddcprobe.log
+		/usr/sbin/915resolution -l > /tmp/915resolution.log
+		# get panel size from ddcprobe
 		VMODE=`grep dtiming /tmp/ddcprobe.log | cut -d " " -f 2`
 		# if panel size was found - set the screen resolution 
 		if [ -z $VMODE ]; then
 			export RES=1024x768x24
 		else
 			RES=`echo $VMODE | cut -d @ -f 1`
-			/usr/sbin/915resolution -l > /tmp/915
 			/usr/sbin/915resolution 32 `echo ${RES/x/ }` 24
 			export RES=`echo $RES"x24"`
 		fi	
