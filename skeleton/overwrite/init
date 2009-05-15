@@ -41,28 +41,33 @@ export GTK_IM_MODULE="scim"
 	if [ -z $RES ]; then
 		# FIXME: problems when using multiple monitors
 		/usr/sbin/ddcprobe > /tmp/ddcprobe.log
+		
+		# try to override 640x480 video mode 
+		/usr/sbin/915resolution 50 1024 600 24
 		/usr/sbin/915resolution -l > /tmp/915resolution.log
-		# get panel size from ddcprobe
-		VMODE=`grep dtiming /tmp/ddcprobe.log | cut -d " " -f 2`
-		# if panel size was found - set the screen resolution 
-		if [ -z $VMODE ]; then
-			export RES=1024x768x24
+
+		# if successed
+		if grep -q '1024x600' /tmp/915resolution.log; then
+			export RES=1024x600x24
 		else
-			RES=`echo $VMODE | cut -d @ -f 1`
-			/usr/sbin/915resolution 32 `echo ${RES/x/ }` 24
-			export RES=`echo $RES"x24"`
-		fi	
+			# get panel size from ddcprobe
+			VMODE=`grep dtiming /tmp/ddcprobe.log | cut -d " " -f 2`
+			# if panel size was found - set the screen resolution
+			if  [ -z $VMODE ]; then
+				export RES=1024x768x24
+			else
+				RES=`echo $VMODE | cut -d @ -f 1`
+				/usr/sbin/915resolution 32 `echo ${RES/x/ }` 24
+				export RES=`echo $RES"x24"`	
+			fi 
+		fi
 	fi
 	
-	# X server
+	# start X server
 	/usr/local/bin/Xvesa :0 -ac -shadow -screen $RES -br -mouse mouse,/dev/input/mice &
 	/bin/sleep 0.1
 	
-	# count boot time
-	#TIME=`/bin/cat /proc/uptime | /bin/cut -d' ' -f 1` 
-	#/bin/sed -e s/xPUD.*9/"xPUD 0.9<br \/>Boot time: $TIME sec"/g /usr/share/plate/chrome/content/template/home.html.bak > /usr/share/plate/chrome/content/template/home.html 
-	
-	# start plate UI
+	# start plate
 	/usr/bin/firefox -app /usr/share/plate/application.ini &
 	/sbin/session &
 	/bin/sh
