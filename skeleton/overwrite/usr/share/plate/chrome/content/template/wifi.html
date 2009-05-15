@@ -23,9 +23,6 @@ function sleep(milliseconds) {
 	}
 }
 
-function $(id) { 
-	return document.getElementById(id); 
-}
 function update_div(id, path) {
 	netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
 	var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
@@ -49,51 +46,50 @@ function update_div(id, path) {
 	document.getElementById(id).innerHTML = data;
 }
 function check_enc(num) {
-	var enc = $('ap-option').options[num].getAttribute('class').toString();
-	$('enctype').value = enc;
+	var enc = document.getElementById('ap-option').options[num].getAttribute('class').toString();
+	document.getElementById('enctype').value = enc;
 	switch (enc) {
 	case 'wifi-wep': // WEP
-		$('passwd').disabled = false;
+		document.getElementById('passwd').disabled = false;
 		break;
 	case 'wifi-wpa': // WPA
-		$('passwd').disabled = false;
+		document.getElementById('passwd').disabled = false;
 		break;
 	case 'wifi-hidden': // hidden node
-		$('passwd').disabled = false;
+		document.getElementById('passwd').disabled = false;
 		break;
 	default: // none 
-		$('passwd').disabled = true;
+		document.getElementById('passwd').disabled = true;
 		break;
 	}
 }
 
 function send_wifi() {
 
-	var addr = $('ap-option').value;
-	if ($('passwd') == null) { var passwd = ''; } 
-	else { var passwd = '"' + $('passwd').value + '"'; }
-	var enc = $('enctype').value;
-	var nic = $('nic').value;
+	var addr = document.getElementById('ap-option').value;
+	if (document.getElementById('passwd') == null) { var passwd = ''; } 
+	else { var passwd = '"' + document.getElementById('passwd').value + '"'; }
+	var enc = document.getElementById('enctype').value;
+	var nic = document.getElementById('nic').value;
 //	alert(addr + passwd + enc);
 	system('/usr/local/bin/get_wifi ' + nic + ' ' + enc + ' ' + addr + ' ' + passwd);
 
 }
 </script>
 </head>
-<body  onload="system('/usr/local/bin/get_ssid'); sleep(50); update_div('ap-option', '/tmp/wifi.opt'); update_div('nic', '/tmp/wifi.dev'); $('passwd').disabled=true;">
+<body  onload="system('/usr/local/bin/get_ssid'); sleep(50); update_div('ap-option', '/tmp/wifi.opt'); update_div('nic', '/tmp/wifi.dev'); document.getElementById('passwd').disabled=true;">
 
 <div style="margin: 20px auto; width: 400px;">
 <h2 style="border-bottom: 1px gray solid;">Wireless Network</h2>
 
 <label>Network Device: </label>
  <select id="nic"></select> 
- | <input type="button" value="Refresh" onclick="system('/usr/local/bin/get_ssid'); sleep(50); update_div('ap-option', '/tmp/wifi.opt'); update_div('nic', '/tmp/wifi.dev'); $('passwd').disabled=true;" />
+ | <input type="button" value="Refresh" onclick="system('/usr/local/bin/get_ssid'); sleep(50); update_div('ap-option', '/tmp/wifi.opt'); update_div('nic', '/tmp/wifi.dev'); document.getElementById('passwd').disabled=true;" />
 
 <p>Choose a network you want to join: </p>
 
 <select size="5" id="ap-option" style="width: 300px;">
 </select>
-
 
 <p>
 <input type="hidden" id="enctype">
