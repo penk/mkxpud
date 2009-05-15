@@ -23,7 +23,7 @@ dmidecode
 grub
 os-prober
 parted
-udev
+udev udev-extras
 module-init-tools
 
 #---------------------------
