@@ -39,14 +39,13 @@ export GTK_IM_MODULE="scim"
 	find /etc/init.d/ -type f -exec {} \; 
 	
 	if [ -z $RES ]; then
-		# FIXME: problems when using multiple monitors
 		/usr/sbin/ddcprobe > /tmp/ddcprobe.log
 		
-		# try to override 640x480 video mode 
-		/usr/sbin/915resolution 50 1024 600 24
+		# try to override 38 (1280x1024) video mode 
+		/usr/sbin/915resolution 38 1024 600 24
 		/usr/sbin/915resolution -l > /tmp/915resolution.log
 
-		# if successed
+		# if succeeded
 		if grep -q '1024x600' /tmp/915resolution.log; then
 			export RES=1024x600x24
 		else
@@ -57,7 +56,7 @@ export GTK_IM_MODULE="scim"
 				export RES=1024x768x24
 			else
 				RES=`echo $VMODE | cut -d @ -f 1`
-				/usr/sbin/915resolution 32 `echo ${RES/x/ }` 24
+				/usr/sbin/915resolution 38 `echo ${RES/x/ }` 24
 				export RES=`echo $RES"x24"`	
 			fi 
 		fi
