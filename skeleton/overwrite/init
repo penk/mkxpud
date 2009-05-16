@@ -38,29 +38,68 @@ export GTK_IM_MODULE="scim"
 	# init hook
 	find /etc/init.d/ -type f -exec {} \; 
 	
+	echo "Video resolution script started"
+	# GET video modes and screen resolution
+	echo "Writing logs"
+	/usr/sbin/ddcprobe > /tmp/ddcprobe.log
+	/usr/sbin/915resolution -l &> /tmp/915res.log
+	/usr/local/bin/Xvesa -listmodes 2> /tmp/xvmodes.log
+	
+	# FIND correct resolution
+	echo "Try to find panel size"
 	if [ -z $RES ]; then
-		/usr/sbin/ddcprobe > /tmp/ddcprobe.log
-		
-		# try to override 38 (1280x1024) video mode 
-		/usr/sbin/915resolution 38 1024 600 24
-		/usr/sbin/915resolution -l > /tmp/915resolution.log
-
-		# if succeeded
-		if grep -q '1024x600' /tmp/915resolution.log; then
-			export RES=1024x600x24
+		echo "Video mode was not set on boot, ddcprobe"
+		# if ddcprobe failed - try again
+		if grep edidfail /tmp/ddcprobe.log ; then
+			echo "edid fail, trying again"
+			sleep 1
+			/usr/sbin/ddcprobe > /tmp/ddcprobe.log
+		fi
+		# get panel size from ddcprobe
+		VMODE=`grep dtiming /tmp/ddcprobe.log | cut -d " " -f 2`
+		# if panel size was found - set the screen resolution
+		if [ ! -z $VMODE ]; then
+			echo "ddcprobe dtiming found "$VMODE
+			VRES=`echo $VMODE | cut -d @ -f 1`
+			VRES=`echo $VRES"x24"`
+		else # if failed again - set default resolution
+			echo "ddcprobe failed again"
+			VRES=1024x600x24
+		fi
+	else
+		# be sure to set resolution - it will be used in patching
+		echo "Resolution was set on boot"
+		VRES=$RES	
+	fi
+	echo "Got resolution "$VRES
+	
+	# PATCH resolution if needed
+	echo "Will patch if needed"
+	# if video resolution is not in Xvesa list and chip is supported by 915resolution
+	if ! grep $VRES /tmp/xvmodes.log && grep Mode /tmp/915res.log ; then
+		echo "Trying to patch..."
+		# try to patch needed video mode
+		/usr/sbin/915resolution 38 `echo ${VRES/x/ }`
+		# using original resolution setting method
+		/usr/sbin/915resolution -l > /tmp/915.tmp
+		# if resolution set successfull
+		if ! grep -q '1024x600' /tmp/915.tmp ; then
+			echo "Patching failed, back to default resolution"
+			VRES=1024x768x24
 		else
-			# get panel size from ddcprobe
-			VMODE=`grep dtiming /tmp/ddcprobe.log | cut -d " " -f 2`
-			# if panel size was found - set the screen resolution
-			if  [ -z $VMODE ]; then
-				export RES=1024x768x24
-			else
-				RES=`echo $VMODE | cut -d @ -f 1`
-				/usr/sbin/915resolution 38 `echo ${RES/x/ }` 24
-				export RES=`echo $RES"x24"`	
-			fi 
+			echo "Successfully patched"
+		fi
+	else
+		echo "Patching is not needed/supported"
+		# if resolution was not set on startup - set it to default
+		if [ -z $RES ]; then
+			VRES=1024x768x24
 		fi
 	fi
+	
+	# SET resolution
+	export RES=$VRES
+	echo "Resolution will be set as "$RES
 	
 	# start X server
 	/usr/local/bin/Xvesa :0 -ac -shadow -screen $RES -br -mouse mouse,/dev/input/mice &
