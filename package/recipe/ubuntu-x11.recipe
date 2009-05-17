@@ -13,6 +13,7 @@ wmctrl
 #lxterminal
 xresprobe
 ttf-droid
+read-edid
 
 [binary]
 
@@ -23,6 +24,8 @@ ttf-droid
 /usr/bin/xrandr
 /usr/bin/lxrandr
 /usr/sbin/ddcprobe
+/usr/bin/get-edid
+/usr/bin/parse-edid
 
 #/usr/bin/lxterminal
 
