@@ -44,17 +44,17 @@ read-edid
 
 [overwrite]
 
+/usr/share/fonts
 /bin/startx
 
 /usr/sbin/915resolution
 
-/usr/lib/libts-0.0.so.0
-
+#/usr/lib/libts-0.0.so.0
 /usr/local/bin/Xvesa
 /usr/bin/xhkeys
 /usr/bin/xhkconf
 /usr/bin/xli
 
 ## FIXME
-/usr/local/lib/ts
+#/usr/local/lib/ts
 /usr/lib/xhkeys
