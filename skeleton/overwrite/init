@@ -83,7 +83,8 @@ export GTK_IM_MODULE="scim"
 		# using original resolution setting method
 		/usr/sbin/915resolution -l > /tmp/915.tmp
 		# if resolution set successfull
-		if ! grep -q '1024x600' /tmp/915.tmp ; then
+		TMPRES=`echo $VRES | cut -d x -f 1,2`
+		if ! grep -q $TMPRES /tmp/915.tmp ; then
 			echo "Patching failed, back to default resolution"
 			VRES=1024x768x24
 		else
