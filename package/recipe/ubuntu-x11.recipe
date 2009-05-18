@@ -44,7 +44,7 @@ read-edid
 
 [overwrite]
 
-/usr/share/fonts
+/usr/share/fonts/X11
 /bin/startx
 
 /usr/sbin/915resolution
