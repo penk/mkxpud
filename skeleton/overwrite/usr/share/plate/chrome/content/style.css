@@ -258,6 +258,13 @@ h2 {
 	background: #FFE7AE;
 }
 
+.disabled_b {
+
+	opacity: 0.7; 
+	background: #FFE7AE; 
+	cursor: not-allowed;
+}
+
 .soft_background td {
 	width: auto;
 }
