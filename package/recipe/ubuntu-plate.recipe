@@ -49,6 +49,8 @@ tar jxf skeleton/archive/firefox* -C $MKXPUD_TARGET/usr/share/
 
 [config]
 
+/tmp/sysinfo-s
+
 /etc/mozpluggerrc
 /etc/bootchart-lite
 /etc/pulse

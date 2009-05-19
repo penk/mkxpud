@@ -125,6 +125,7 @@ function maximize_program() {
 	document.getElementById('content').className = 'maximized';
 	document.getElementById('padding').className = 'maximized';
 	document.getElementById('programs').className = 'maximized';
+	document.getElementById('systray').style.display = 'block';
 }
 
 function unmaximize_program() {
@@ -132,6 +133,7 @@ function unmaximize_program() {
 	document.getElementById('content').className = '';
 	document.getElementById('padding').className = '';
 	document.getElementById('programs').className = '';
+	document.getElementById('systray').style.display = 'none';
 }
 
 function toggle_maximize_program() {
@@ -223,9 +225,11 @@ function update_sysinfo() {
 
 if (document.getElementById('sysinfo')) {
 update_div('sysinfo', '/tmp/sysinfo');
-system('/usr/local/bin/sysinfo');
 }
 
+update_div('systray', '/tmp/sysinfo-s');
+
+system('/usr/local/bin/sysinfo');
 setTimeout('update_sysinfo()', 3500);
 }
 

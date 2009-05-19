@@ -1,8 +1,10 @@
 #!/usr/bin/perl
 
 open (F, ">/tmp/sysinfo");
+open (FS, ">/tmp/sysinfo-s");
 
 print F "Time: ", `LC_ALL=C date +%a\\ %I:%M\\ %p`, "<br />\n";
+chomp($time = `LC_ALL=C date +%I:%M\\ %p`);
 
 if (`ifconfig|grep "inet addr"`) { # online
 $netstat = "Online"; 
@@ -20,10 +22,10 @@ $netstat = "Connecting"; } else { $netstat = "Offline"; }
 print F "Network: $netstat <br />\n";
 
 $info = `cat /proc/acpi/battery/*/state`;
- 
+
 if ( $info ne '' ) {
 
-	print F "Battery: ";
+	$batstat = "Battery: ";
 	if ($info =~ /discharging/) {
 	$r = $1 if $info =~ /present rate:\s+(\d+)\s/;
 	$c = $1 if $info =~ /remaining capacity:\s+(\d+)\s/;
@@ -31,11 +33,11 @@ if ( $info ne '' ) {
 		if ($r != 0) {
 		$h = sprintf "%d", $c/$r;
 		$m = sprintf "%.2d", 60*$c/$r-$h*60;
-		print F "$h:$m remaining";
+		$batstat .= "$h:$m remaining";
 		}
 
 	} else {
-	print F "Charging";
+	$batstat .= "Charging";
 	}
 	
 	$status = '';
@@ -46,7 +48,14 @@ if ( $info ne '' ) {
 	}
 
 	if ($full) {
-	printf F " (%s%.2d%) <br />\n", $status, $now / $full * 100;
+	$batstat .= sprintf " (%s%.2d%) <br />\n", $status, $now / $full * 100;
 	} 
 
+	print F $batstat, "<br />\n";
+}
+
+if ($batstat) {
+print FS "$netstat | $time | $batstat\n";
+} else {
+print FS "$netstat | $time \n";
 }
