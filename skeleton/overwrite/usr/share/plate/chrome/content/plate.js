@@ -1,4 +1,33 @@
+function check_enc(num) {
+	var enc = document.getElementById('ap-option').options[num].getAttribute('class').toString();
+	document.getElementById('enctype').value = enc;
+	switch (enc) {
+	case 'wifi-wep': // WEP
+		document.getElementById('passwd').disabled = false;
+		break;
+	case 'wifi-wpa': // WPA
+		document.getElementById('passwd').disabled = false;
+		break;
+	case 'wifi-hidden': // hidden node
+		document.getElementById('passwd').disabled = false;
+		break;
+	default: // none 
+		document.getElementById('passwd').disabled = true;
+		break;
+	}
+}
 
+function send_wifi() {
+
+	var addr = document.getElementById('ap-option').value;
+	if (document.getElementById('passwd') == null) { var passwd = ''; } 
+	else { var passwd = '"' + document.getElementById('passwd').value + '"'; }
+	var enc = document.getElementById('enctype').value;
+	var nic = document.getElementById('nic').value;
+//	alert(addr + passwd + enc);
+	system('/usr/local/bin/get_wifi ' + nic + ' ' + enc + ' ' + addr + ' ' + passwd);
+
+}
 function select_tab( this_tab ) {
 	if( this_tab.className == '' ) {
 		var tabs = document.getElementById('panel').getElementsByTagName('div');

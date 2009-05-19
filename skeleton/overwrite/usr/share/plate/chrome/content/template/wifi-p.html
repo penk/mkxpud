@@ -1,0 +1,20 @@
+<div style="margin: 20px auto; width: 400px;">
+<h2>Setup Wireless Network</h2>
+
+<label>Network Device: </label>
+ <select id="nic"></select> 
+ | <input type="button" value="Refresh" onclick="system('/usr/local/bin/get_ssid'); sleep(50); update_div('ap-option', '/tmp/wifi.opt'); update_div('nic', '/tmp/wifi.dev'); document.getElementById('passwd').disabled=true;" />
+
+<p>Choose a network you want to join: </p>
+
+<select size="5" id="ap-option" style="width: 300px;">
+</select>
+
+<p>
+<input type="hidden" id="enctype">
+<label>Password:</label> <input id="passwd" type="password" size="18" />
+<input type="button" value="Connect" onclick="send_wifi(); cover();" />
+</p>
+</div>
+
+<a href="#" style="float: right;" onclick="cover();">Cancel</a>

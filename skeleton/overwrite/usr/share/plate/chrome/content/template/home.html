@@ -16,28 +16,15 @@
 	<table class="soft_background orange">
 	<tr>
 		<td>
-		<a href="#" onclick="popup('shutdown');" onfocus="this.blur()">
+		<a href="#" onfocus = "this.blur()" onclick="popup('wifi-p'); system('/usr/local/bin/get_ssid'); sleep(50); update_div('ap-option', '/tmp/wifi.opt'); update_div('nic', '/tmp/wifi.dev'); document.getElementById('passwd').disabled=true;">		
 			<table><tr><td class="image">
-					<img src="image/logout.png" />
+				<img src="image/wlassistant.png" />
 			</td><td>
-					<strong><span class="i18n">power_off</span></strong><br />
-					<span class="i18n">power_off_desc</span>
+				<strong><span class="i18n">setting_wifi</span></strong><br />
+				<span class="i18n">setting_wifi_desc</span>
 			</tr></table>
 		</a>
 		</td>
-		<td>
-		<a href="#" onclick="" onfocus="this.blur()">
-			<table><tr><td class="image">
-					<img src="image/cinemadisplay.png" />
-			</td><td>
-					<strong><span class="i18n">switch_mode</span></strong><br />
-					<span class="i18n">switch_mode_desc</span> 
-			</tr></table>
-		</a>
-		</td>
-
-	</tr>
-	<tr>
 		<td>
 		<a href="#" onclick="popup('help');" onfocus="this.blur()">
 			<table><tr><td class="image">
@@ -49,7 +36,30 @@
 		</a>
 		</td>
 
+
+
+	</tr>
+	<tr>
 		<td>
+		<a href="#" onclick="popup('shutdown');" onfocus="this.blur()">
+			<table><tr><td class="image">
+					<img src="image/logout.png" />
+			</td><td>
+					<strong><span class="i18n">power_off</span></strong><br />
+					<span class="i18n">power_off_desc</span>
+			</tr></table>
+		</a>
+		</td>
+
+		<td>
+<!--		<a href="#" onclick="" onfocus="this.blur()"> -->
+			<table style="opacity: 0.7; background: #FFE7AE; cursor: not-allowed"><tr><td class="image">
+					<img src="image/cinemadisplay.png" />
+			</td><td>
+					<strong><span class="i18n">switch_mode</span></strong><br />
+					<span class="i18n">switch_mode_desc</span> 
+			</tr></table>
+<!--		</a> -->
 		</td>
 	</tr>
 	</table>
