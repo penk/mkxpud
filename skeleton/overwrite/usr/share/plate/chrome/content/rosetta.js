@@ -81,6 +81,7 @@ var i18n =  {
 		quit_now: {
 			en: "Do you want to quit now?",
 			de: "M&ouml;chten Sie jetzt ausschalten?",
+			fr: "Voulez-vous quitter maintenant ?",
 			zh: "確定要關機?",
 			zh_cn:"确定要关机?",
 		},
@@ -88,6 +89,7 @@ var i18n =  {
 		turn_off: {
 			en: "Turn Off",
 			de: "Ausschalten",
+			fr: "Éteindre",
 			zh: "關機",
 			zh_cn:"关机",
 		},
@@ -95,6 +97,7 @@ var i18n =  {
 		restart: {
 			en: "Restart",
 			de: "Neustart",
+			fr: "Redémarrer",
 			zh: "重新開機",
 			zh_cn:"重启",
 		},
@@ -102,6 +105,7 @@ var i18n =  {
 		cancel_shutdown: {
 			en: "Cancel",
 			de: "Abbrechen",
+			fr: "Abandonner",
 			zh: "取消",
 			zh_cn:"取消",
 		},
@@ -151,18 +155,21 @@ var i18n =  {
 		help_about: {
 			en: "About",
 			de: "&Uuml;ber",
+			fr: "À propos",
 			zh: "更多訊息",
 			zh_cn:"关于xPUD计划",
 		},
 		help_info: {
 			en: "xPUD is a rapidly developing project. <br /> For more information, please go to:",
 			de: "xPUD ist ein aktiv entwickeltes Projekt. <br /> Weitere Informationen unter:",
+			fr: "xPUD est un projet qui se développe rapidement. <br /> Pour plus d'informations, visitez :",
 			zh: "xPUD 是一個快速發展中的計畫。請參閱：",
 			zh_cn:"xPUD 是一个快速发展中的计划。请参阅：",
 		},
 		help_done: {
 			en: "Done",
 			de: "OK",
+			fr: "OK",
 			zh: "完成",
 			zh_cn:"完成",
 			
@@ -399,6 +406,7 @@ var i18n =  {
 		
 			back_to_setting: {
 				en: "Back to Setting",
+				fr: "Retour aux Paramètres",
 				zh: "回到設定頁面",
 				zh_cn: "返回设置",
 		},
