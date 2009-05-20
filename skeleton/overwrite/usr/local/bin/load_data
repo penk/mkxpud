@@ -1,0 +1,26 @@
+#!/bin/bash
+
+for p in `ls /mnt/`; do 
+
+MODULE=/mnt/$p/xpud-`uname -r`-mod.tgz
+
+	if [ -e $MODULE ]; then
+
+		# disable hotplug 
+		rm -f /sbin/hotplug
+		tar zxf $MODULE -C /
+
+		# load kernel modules by udev
+		depmod -a
+		udevadm trigger 
+
+		# then enable it again
+		cp /sbin/hotplug-x /sbin/hotplug
+	fi
+
+	# load user data if exist 
+	if [ -e /mnt/$p/xpud-data.tgz ]; then
+		tar zxf /mnt/$p/xpud-data.tgz -C /
+	fi
+
+done
