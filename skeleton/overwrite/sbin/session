@@ -3,4 +3,5 @@ export DISPLAY=:0
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 #/usr/bin/xhkeys &
 #/usr/bin/matchbox-window-manager -use_titlebar no -use_desktop_mode plain
+/usr/sbin/acpid &
 /usr/bin/openbox
