@@ -25,6 +25,7 @@ os-prober
 parted
 udev udev-extras
 module-init-tools
+acpid
 
 #---------------------------
 
@@ -62,6 +63,9 @@ module-init-tools
 /usr/sbin/grub-set-default
 
 /usr/sbin/powertop
+
+/usr/sbin/acpid
+/usr/bin/acpi_listen
 
 #---------------------------
 
@@ -110,6 +114,8 @@ module-init-tools
 #/etc/modules
 
 /etc/xpud-backup.conf
+
+/etc/acpi/
 
 #---------------------------
 

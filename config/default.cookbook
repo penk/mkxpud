@@ -32,6 +32,7 @@ sky2
 usbserial hso nozomi sierra option
 uvcvideo
 acpi-cpufreq cpufreq_ondemand video
+button
 
 [recipe]
 # packages and files to be included into rootfs

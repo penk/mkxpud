@@ -109,4 +109,5 @@ export GTK_IM_MODULE="scim"
 	# start plate
 	/usr/bin/firefox -app /usr/share/plate/application.ini &
 	/sbin/session &
+	/usr/sbin/acpid &
 	/bin/sh
