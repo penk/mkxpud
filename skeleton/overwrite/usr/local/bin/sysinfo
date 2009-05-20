@@ -8,16 +8,20 @@ chomp($time = `LC_ALL=C date +%I:%M\\ %p`);
 
 if (`ifconfig|grep "inet addr"`) { # online
 $netstat = "Online"; 
+$net_short = $netstat;
+
 $iw = `iwconfig`;
 $ssid = $1 if $iw =~ /ESSID:"(.*?)"/;
 $quality = $1 if $iw =~ /Link Quality=(.*?)\s/;
 $str = sprintf "%.2d", ((eval $quality)*100);
 if ($ssid ne '' && $str ne '') {
 	$netstat .= " ($ssid - $str%)";
+	$net_short .= " ($ssid)";
 }
 } 
 elsif ( -e "/tmp/netstat.tmp" && `ps | grep dhclient`) { 
-$netstat = "Connecting"; } else { $netstat = "Offline"; } 
+$netstat = "Connecting"; $net_short = $netstat;} 
+else { $netstat = "Offline"; $net_short = $netstat;} 
 
 print F "Network: $netstat <br />\n";
 
@@ -51,11 +55,11 @@ if ( $info ne '' ) {
 	$batstat .= sprintf " (%s%.2d%) <br />\n", $status, $now / $full * 100;
 	} 
 
-	print F $batstat, "<br />\n";
+	print F $batstat;
 }
 
 if ($batstat) {
-print FS "$netstat | $time | $batstat\n";
+print FS "$net_short | $time | $batstat\n";
 } else {
-print FS "$netstat | $time \n";
+print FS "$net_short | $time \n";
 }
