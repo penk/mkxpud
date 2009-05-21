@@ -40,7 +40,7 @@ for i in `fdisk -l | grep "^/dev" | cut -d' ' -f1`; do
    mount $i /mnt/`basename $i`;
 done
 
-# auto load kernel modules & user data 
+# auto load user data 
 /usr/local/bin/load_data
 
 # start hotplug script

@@ -61,5 +61,8 @@ iwconfig $nic mode Managed \n";
 system "dhclient $nic";
 print PF "dhclient $nic \n";
 
+# FIXME: post-connect hook
+system "get_flash" if ( ! -e "/usr/share/firefox/plugins/libflashplayer.so" );
+
 if ( ! `ifconfig|grep "inet addr"`) { system "dhclient $nic; rm -f /tmp/netstat.tmp"; } 
 else { system "rm -f /tmp/netstat.tmp"; }
