@@ -303,11 +303,11 @@ var i18n =  {
 	},
 	
 		setting_wifi: {
-			en: "WiFi/3G",
-			es: "WiFi/3G",
-			fr: "WiFi/3G",
-			zh: "WiFi/3G",
-			zh_cn:"WiFi/3G",
+			en: "WiFi",
+			es: "WiFi",
+			fr: "WiFi",
+			zh: "WiFi",
+			zh_cn:"WiFi",
 		},
 		setting_wifi_desc: {
 			en: "setup wireless connection",
@@ -317,10 +317,23 @@ var i18n =  {
 			zh: "使用無線網路連線",
 			zh_cn:"使用无线网络",
 		},
+		
+			setting_wifi_device: {
+				en: "Network Device: ",
+				zh: "無線網路卡: ",
+			},
+			setting_wifi_choose: {
+				en: "Choose a network you want to join: ",
+				zh: "選一個要連線的網路基地台: ",
+			},
+			setting_wifi_password: {
+				en: "Password:",
+				zh: "密碼：",
+			},
 		setting_ethernet: {
 			en: "Ethernet",
 			es: "Red Cableada",
-                        fr: "Connexion filaire",
+			fr: "Connexion filaire",
 			zh: "有線網路",
 			zh_cn:"有线网络",
 		},
@@ -335,7 +348,7 @@ var i18n =  {
 		setting_opt: {
 			en: "Opt-Get",
 			es: "Opt-Get",
-                        fr: "Opt-Get",
+			fr: "Opt-Get",
 			zh: "Opt-Get",
 			zh_cn:"Opt-Get",
 		},
