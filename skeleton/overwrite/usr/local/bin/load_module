@@ -1,0 +1,27 @@
+#!/bin/bash
+# load kernel modules, default name "xpud-`uname -r`-mod.tgz", gzipped tarball
+# load_module [<path>]
+
+# disable hotplug 
+rm -f /sbin/hotplug
+
+if [ -z $1 ]; then
+
+	for p in `ls /mnt/`; do 
+		MODULE=/mnt/$p/xpud-`uname -r`-mod.tgz
+		if [ -e $MODULE ]; then
+			tar zxf $MODULE -C /
+		fi
+	done
+else
+	if [ -e $1 ]; then
+		tar zxf $1 -C /
+	fi
+fi
+
+# load kernel modules by udev
+depmod -a
+udevadm trigger 
+
+# then enable it again
+cp /sbin/hotplug-x /sbin/hotplug

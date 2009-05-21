@@ -1,26 +1,23 @@
 #!/bin/bash
+# load user data, default name "xpud-data.gz", gzipped CPIO 
+# load_data [<path>]
 
-for p in `ls /mnt/`; do 
+if [ -z $1 ]; then
 
-MODULE=/mnt/$p/xpud-`uname -r`-mod.tgz
+	for p in `ls /mnt/`; do 
 
-	if [ -e $MODULE ]; then
+		# load user data if exist 
+		if [ -e /mnt/$p/xpud-data.gz ]; then
+			cd /
+			cat /mnt/$p/xpud-data.gz | gzip -d | cpio -i
+			cd -
+		fi
 
-		# disable hotplug 
-		rm -f /sbin/hotplug
-		tar zxf $MODULE -C /
-
-		# load kernel modules by udev
-		depmod -a
-		udevadm trigger 
-
-		# then enable it again
-		cp /sbin/hotplug-x /sbin/hotplug
-	fi
-
-	# load user data if exist 
-	if [ -e /mnt/$p/xpud-data.tgz ]; then
-		tar zxf /mnt/$p/xpud-data.tgz -C /
-	fi
-
-done
+	done
+else
+		if [ -e $1 ]; then
+			cd /
+			cat $1 | gzip -d | cpio -i
+			cd -
+		fi
+fi
