@@ -103,7 +103,7 @@ export GTK_IM_MODULE="scim"
 	echo "Resolution will be set as "$RES
 	
 	# start X server
-	/usr/local/bin/Xvesa -ac -shadow dpms +extension Composite -screen $RES -br -mouse /dev/input/mice,5 &
+	/usr/local/bin/Xvesa :0 -ac -shadow -screen $RES -br -mouse mouse,/dev/input/mice &
 	/bin/sleep 0.1
 	
 	# start plate

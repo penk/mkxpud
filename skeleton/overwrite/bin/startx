@@ -1,7 +1,7 @@
 #!/bin/bash
 export DISPLAY=:0
 export GTK_IM_MODULE="scim"
-/usr/local/bin/Xvesa :0 -ac -shadow -screen $RES -br -mouse /dev/input/mice,5 &
+/usr/local/bin/Xvesa :0 -ac -shadow -screen $RES -br -mouse mouse,/dev/input/mice &
 /usr/bin/firefox -app /usr/share/plate/application.ini &
 /bin/sleep 0.1
 /sbin/session &
