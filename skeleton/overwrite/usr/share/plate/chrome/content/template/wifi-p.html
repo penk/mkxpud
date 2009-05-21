@@ -1,19 +1,20 @@
 <div style="margin: 20px auto; width: 400px;">
-<h2>Setup Wireless Network</h2>
+<h2><span class="i18n">setting_wifi_title</span></h2>
 
-<label><span class="i18n">setting_wifi_device</span></label>
- <select id="nic"></select> 
- | <input type="button" value="Refresh" onclick="system('/usr/local/bin/get_ssid'); sleep(50); update_div('ap-option', '/tmp/wifi.opt'); update_div('nic', '/tmp/wifi.dev'); document.getElementById('passwd').disabled=true;" />
+<select id="nic" style="display: none;"></select>
+<!--
+<p>1. <span class="i18n">setting_wifi_device</span>
+ <select id="nic"></select> <button onclick="system('/usr/local/bin/get_ssid'); sleep(50); update_div('ap-option', '/tmp/wifi.opt'); update_div('nic', '/tmp/wifi.dev'); document.getElementById('passwd').disabled=true;"><span class="i18n">setting_wifi_refresh</span></button></p>
+-->
 
-<p><span class="i18n">setting_wifi_choose</span></p>
+<p><span class="i18n">setting_wifi_choose</span> <button onclick="system('/usr/local/bin/get_ssid'); sleep(50); update_div('ap-option', '/tmp/wifi.opt');update_div('nic', '/tmp/wifi.dev'); document.getElementById('passwd').disabled=true;document.getElementById('wifi_connect').disabled=true;"><span class="i18n">setting_wifi_refresh</span></button></p> 
 
 <select size="5" id="ap-option" style="width: 300px;">
 </select>
-
 <p>
 <input type="hidden" id="enctype">
-<label><span class="i18n">setting_wifi_password</span></label> <input id="passwd" type="password" size="18" />
-<input type="button" value="Connect" onclick="send_wifi(); cover();" />
+<label><span class="i18n">setting_wifi_password</span></label> <input id="passwd" type="password" size="18" disabled>
+<button onclick="send_wifi(); cover();" disabled id="wifi_connect"><span class="i18n">setting_wifi_connect</span></button>
 </p>
 </div>
 

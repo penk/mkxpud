@@ -317,18 +317,29 @@ var i18n =  {
 			zh: "使用無線網路連線",
 			zh_cn:"使用无线网络",
 		},
-		
+			setting_wifi_title: {
+				en: "Setup Wireless Network",
+				zh: "連到無線網路",
+			},
 			setting_wifi_device: {
 				en: "Network Device: ",
-				zh: "無線網路卡: ",
+				zh: "網路卡: ",
 			},
 			setting_wifi_choose: {
-				en: "Choose a network you want to join: ",
-				zh: "選一個要連線的網路基地台: ",
+				en: "Choose a network: ",
+				zh: "選一個要連線的基地台: ",
+			},
+			setting_wifi_refresh: {
+				en: "Refresh",
+				zh: "重新整理",
 			},
 			setting_wifi_password: {
 				en: "Password:",
-				zh: "密碼：",
+				zh: "密碼:",
+			},
+			setting_wifi_connect: {
+				en: "Connect",
+				zh: "連線",
 			},
 		setting_ethernet: {
 			en: "Ethernet",

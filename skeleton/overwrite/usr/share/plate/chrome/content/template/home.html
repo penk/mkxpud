@@ -16,7 +16,7 @@
 	<table class="soft_background orange">
 	<tr>
 		<td>
-		<a href="#" onfocus = "this.blur()" onclick="popup('wifi-p'); system('/usr/local/bin/get_ssid'); sleep(50); update_div('ap-option', '/tmp/wifi.opt'); update_div('nic', '/tmp/wifi.dev'); document.getElementById('passwd').disabled=true;">		
+		<a href="#" onfocus = "this.blur()" onclick="system('/usr/local/bin/get_ssid'); sleep(50); popup('wifi-p'); update_div('ap-option', '/tmp/wifi.opt'); update_div('nic', '/tmp/wifi.dev');">
 			<table><tr><td class="image">
 				<img src="image/wlassistant.png" />
 			</td><td>

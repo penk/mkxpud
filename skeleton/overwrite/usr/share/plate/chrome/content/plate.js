@@ -1,4 +1,7 @@
 function check_enc(num) {
+	if (document.getElementById('wifi_connect')) {
+	document.getElementById('wifi_connect').disabled = false;
+	}
 	var enc = document.getElementById('ap-option').options[num].getAttribute('class').toString();
 	document.getElementById('enctype').value = enc;
 	switch (enc) {
