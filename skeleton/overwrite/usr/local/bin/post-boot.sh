@@ -22,9 +22,14 @@ done
 /usr/local/bin/get_ssid &
 
 # setup sound channel
-for channel in Master Front; do
-	/usr/bin/amixer set $channel 95%
+CARD=`grep '0 \[' /proc/asound/cards | cut -d'[' -f2| cut -d']' -f1`
+if [ ! -z $CARD ]; then 
+sed -e "s/Intel/$CARD/g" /etc/asound.conf > /etc/asound.conf.tmp
+mv /etc/asound.conf.tmp /etc/asound.conf
+for channel in Master Front PCM; do
+	/usr/bin/amixer set $channel 95% on
 done
+fi
 
 # post hook
 find /etc/post-boot.d/ -type f -exec {} \;  
