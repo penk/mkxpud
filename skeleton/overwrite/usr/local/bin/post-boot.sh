@@ -9,14 +9,16 @@ touch /tmp/firsttime
 udevd --daemon
 udevadm trigger
 
-# work through NIC 
+# work through NIC and wake them up
 for NIC in eth0 eth1 eth2 wlan0 ath0 ra0; do
 	/bin/ifconfig $NIC up
 	/sbin/iwconfig $NIC mode Managed
 done
+
+# try to setup DHCP for eth0
 /usr/local/bin/netdaemon eth0
 
-/usr/local/bin/auto-reconnect.pl &
+# get wireless SSID list
 /usr/local/bin/get_ssid &
 
 # setup sound channel
@@ -27,6 +29,7 @@ done
 # post hook
 find /etc/post-boot.d/ -type f -exec {} \;  
 
+# Atom-related setting 
 if [ "$(cat /proc/cpuinfo | grep Atom)" ] ; then
     modprobe acpi_cpufreq 
     modprobe cpufreq_ondemand
@@ -40,8 +43,11 @@ for i in `fdisk -l | grep "^/dev" | cut -d' ' -f1`; do
    mount $i /mnt/`basename $i`;
 done
 
-# auto load user data 
+# auto load user data if exist
 /usr/local/bin/load_data
+
+# auto reconnect
+/usr/local/bin/auto-reconnect.pl &
 
 # start hotplug script
 /bin/cp /sbin/hotplug-x /sbin/hotplug
