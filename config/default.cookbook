@@ -31,8 +31,8 @@ ne2k-pci pcnet32
 sky2
 usbserial hso nozomi sierra option
 uvcvideo
-acpi-cpufreq cpufreq_ondemand video
-button
+acpi-cpufreq cpufreq_ondemand video button
+snd-intel8x0
 
 [recipe]
 # packages and files to be included into rootfs
