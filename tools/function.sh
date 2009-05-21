@@ -122,7 +122,6 @@ function strip {
 
 function kernel {
 
-	echo ""
 	echo "[mkxpud] Adding kernel modules"
 	
 	MKXPUD_CODENAME=$1
