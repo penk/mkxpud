@@ -1,4 +1,4 @@
-<div style="margin: 20px auto; width: 380px; padding-left: 20px;">
+<div style="margin: 20px auto; width: 320px; padding-left: 20px;">
 <h2><span class="i18n">setting_wifi_title</span></h2>
 
 <select id="nic" style="display: none;"></select>
@@ -9,17 +9,15 @@
 
 <p><span class="i18n">setting_wifi_choose</span></p> 
 
-<select size="5" id="ap-option" style="width: 300px;">
+<select size="5" id="ap-option" style="width: 300px; margin-top: 20px; margin-bottom: 20px;">
 </select>
-
-<p>
+<br />
 <input type="hidden" id="enctype">
 <label><span class="i18n">setting_wifi_password</span></label> <input id="passwd" type="password" size="18" disabled>
-<button onclick="send_wifi(); cover();" disabled id="wifi_connect"><span class="i18n">setting_wifi_connect</span></button>
-</p>
+<button onclick="send_wifi(); cover();" disabled id="wifi_connect" style="margin-left: 10px; width: 75px;"><span class="i18n">setting_wifi_connect</span></button>
 
-<p>
-<button onclick="system('/usr/local/bin/get_ssid'); sleep(50); update_div('ap-option', '/tmp/wifi.opt');update_div('nic', '/tmp/wifi.dev'); document.getElementById('passwd').disabled=true;document.getElementById('wifi_connect').disabled=true;"><span class="i18n">setting_wifi_refresh</span></button> <button onclick="cover();"><span class="i18n">cancel_shutdown</span></button>
+<p style="margin-top: 30px; margin-bottom: -20px; margin-left: -25px;">
+<button onclick="system('/usr/local/bin/get_ssid'); sleep(50); update_div('ap-option', '/tmp/wifi.opt');update_div('nic', '/tmp/wifi.dev'); document.getElementById('passwd').disabled=true;document.getElementById('wifi_connect').disabled=true;"><span class="i18n">setting_wifi_refresh</span></button> <button style="width: 70px; float: right; margin-right: 10px;" onclick="cover();"><span class="i18n">cancel_shutdown</span></button>
 </p>
 </div>
 
