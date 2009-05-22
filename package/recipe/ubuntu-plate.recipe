@@ -15,7 +15,7 @@ epdfview
 
 # download firefox
 
-if [ ! -e skeleton/archive/firefox* ]; then wget http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-mozilla-1.9.1/firefox-3.5b5pre.en-US.linux-i686.tar.bz2 -P skeleton/archive/; fi; 
+if [ ! -e skeleton/archive/firefox* ]; then wget http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-mozilla-1.9.1/firefox-3.5pre.en-US.linux-i686.tar.bz2 -P skeleton/archive/; fi; 
 tar jxf skeleton/archive/firefox* -C $MKXPUD_TARGET/usr/share/
 
 # checkout plate 
