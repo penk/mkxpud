@@ -1,11 +1,12 @@
 # recipe file
 
 [name]
-scim-chewing
+scim
 
 [package]
 scim-chewing
 scim-gtk2-immodule
+scim-tables-zh
 
 [binary]
 /usr/bin/scim
@@ -14,6 +15,15 @@ scim-gtk2-immodule
 /usr/bin/scim-setup
 
 [data]
+
+## Wubi
+
+/usr/share/scim/tables/Wubi.bin
+/usr/share/scim/icons/Wubi.png
+
+/usr/share/scim/icons/table.png
+/usr/lib/scim-1.0/1.4.0/IMEngine/table.so
+/usr/lib/scim-1.0/1.4.0/SetupUI/table-imengine-setup.so
 
 ## FIXME
 /usr/share/scim/icons/pin-up.png
