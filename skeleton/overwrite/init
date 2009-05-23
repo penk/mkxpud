@@ -38,67 +38,54 @@ export GTK_IM_MODULE="scim"
 	# init hook
 	find /etc/init.d/ -type f -exec {} \; 
 	
-	echo "Video resolution script started"
-	# GET video modes and screen resolution
-	echo "Writing logs"
-	/usr/sbin/ddcprobe > /tmp/ddcprobe.log
+	# Get information from EDID, 915resolution and Xvesa
+	/usr/bin/get-edid 1> /tmp/edid.out 2> /tmp/edid.log
 	/usr/sbin/915resolution -l &> /tmp/915res.log
 	/usr/local/bin/Xvesa -listmodes 2> /tmp/xvmodes.log
-	
-	# FIND correct resolution
-	echo "Try to find panel size"
+	# Try to find correct screen resolution
+	echo "Trying to detect your screen resolution..."
 	if [ -z $RES ]; then
-		echo "Video mode was not set on boot, ddcprobe"
-		# if ddcprobe failed - try again
-		if grep edidfail /tmp/ddcprobe.log ; then
-			echo "edid fail, trying again"
-			sleep 1
-			/usr/sbin/ddcprobe > /tmp/ddcprobe.log
-		fi
-		# get panel size from ddcprobe
-		VMODE=`grep dtiming /tmp/ddcprobe.log | cut -d " " -f 2`
+		# parse edid
+		VMODE=`/usr/bin/parse-edid < /tmp/edid.out | grep [0-9].*x[0-9]* | cut -d \" -f 2`
 		# if panel size was found - set the screen resolution
 		if [ ! -z $VMODE ]; then
-			echo "ddcprobe dtiming found "$VMODE
-			VRES=`echo $VMODE | cut -d @ -f 1`
-			VRES=`echo $VRES"x24"`
-		else # if failed again - set default resolution
-			echo "ddcprobe failed again"
+			echo "Screen resolution was found: "$VMODE
+			VRES=`echo $VMODE"x24"`
+		else
+			echo "Failed. Defaulting to 1024x600"
 			VRES=1024x600x24
 		fi
 	else
 		# be sure to set resolution - it will be used in patching
-		echo "Resolution was set on boot"
+		echo "Resolution was set on boot: "$RES
 		VRES=$RES	
 	fi
-	echo "Got resolution "$VRES
-	
-	# PATCH resolution if needed
-	echo "Will patch if needed"
-	# if video resolution is not in Xvesa list and chip is supported by 915resolution
-	if ! grep $VRES /tmp/xvmodes.log && grep Mode /tmp/915res.log ; then
-		echo "Trying to patch..."
-		# try to patch needed video mode
-		/usr/sbin/915resolution 38 `echo ${VRES/x/ }`
-		# using original resolution setting method
-		/usr/sbin/915resolution -l > /tmp/915.tmp
-		# if resolution set successfull
-		TMPRES=`echo $VRES | cut -d x -f 1,2`
-		if ! grep -q $TMPRES /tmp/915.tmp ; then
-			echo "Patching failed, back to default resolution"
-			VRES=1024x768x24
+	# Patch resolution if needed
+	# if resolution is not in Xvesa modes
+	if ! grep $VRES /tmp/xvmodes.log ; then
+		# if resolution is available in 915resolution modes
+		if grep Mode /tmp/915res.log ; then
+			echo "Trying to patch..."
+			# try to patch needed video mode
+			/usr/sbin/915resolution 38 `echo ${VRES/x/ }`
+			/usr/sbin/915resolution -l > /tmp/915.tmp
+			# if resolution was set successfully
+			TMPRES=`echo $VRES | cut -d x -f 1,2`
+			if ! grep -q $TMPRES /tmp/915.tmp ; then
+				echo "Patching failed, back to default resolution"
+				VRES=1024x768x24
+			fi
 		else
-			echo "Successfully patched"
+			echo "Patching is not supported"
+			VRES=1024x768x24
 		fi
 	else
-		echo "Patching is not needed/supported"
 		# if resolution was not set in earlier step - set it to default
 		if [ -z $VRES ]; then
 			VRES=1024x768x24
 		fi
 	fi
-	
-	# SET resolution
+	# Set resolution
 	export RES=$VRES
 	echo "Resolution will be set as "$RES
 	
