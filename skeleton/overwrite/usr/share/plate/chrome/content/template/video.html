@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script type="text/javascript" src="../jquery-1.3.2.js"></script>
+<script type="text/javascript" src="../plate.js"></script>
+<script type="text/javascript">
+
+function set_video() {
+	var output = document.getElementById('output').name;
+	var mode = document.getElementById('output').value;
+	system('/usr/bin/xrandr --output ' + output + ' --mode ' + mode);
+}
+
+</script>
+</head>
+<body onload="system('/usr/local/bin/get_video'); sleep(7000); update_div('video-option', '/tmp/video.opt');">
+
+<div style="margin: 20px auto; width: 400px;">
+<h2 style="border-bottom: 1px gray solid;">Video settings</h2>
+
+<p>Choose screen resolution:</p>
+
+<div id="video-option"></div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+echo "" > /tmp/video.opt
+for i in `xrandr -q | grep [0-9]x[0-9]` ; do
+	if [ ! -z `echo $i | grep connected` ]; then
+	 echo $LASTLINE"<br /><select id=\"output\" name=\""$LASTLINE"\" size=\"5\" style=\"width: 300px;\">" >> /tmp/video.opt
+	 SEL_OPEN=1
+	else
+		if [ ! -z `echo $i | grep ^[0-9][0-9]*x[0-9][0-9]*$` ]; then
+		echo "<option>"$i"</option>" >> /tmp/video.opt
+		fi
+	fi
+	LASTLINE=$i
+done
+if [ $SEL_OPEN==1 ]; then
+ echo "</select><p><input type=\"button\" value=\"Apply\" onclick=\"set_video();\" /></p>" >> /tmp/video.opt
+fi 

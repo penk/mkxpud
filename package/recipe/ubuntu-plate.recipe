@@ -73,6 +73,7 @@ tar jxf skeleton/archive/firefox* -C $MKXPUD_TARGET/usr/share/
 /usr/local/bin/load_module
 /usr/local/bin/set_locale
 /usr/local/bin/sysinfo
+/usr/local/bin/get_video
 
 /tmp/sysinfo
 
