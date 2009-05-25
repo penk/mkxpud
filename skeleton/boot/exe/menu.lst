@@ -4,7 +4,7 @@ default 0
 title xPUD
 find --set-root /bzImage
 kernel /bzImage loglevel=0 noisapnp
-initrd /rootfs.gz 
+initrd /core.gz,/plate.gz,/cjkfont.gz,/scim.gz 
 
 title Boot to Windows XP
 find --set-root --ignore-floppies /ntldr
