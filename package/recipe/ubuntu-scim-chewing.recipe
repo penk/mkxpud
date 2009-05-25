@@ -48,22 +48,6 @@ scim-tables-zh
 /usr/share/libchewing3
 /usr/lib/libchewing.so.3
 
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-ani.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-xbm.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-pcx.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-jpeg.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-ras.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-bmp.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-pnm.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-xpm.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-ico.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-wbmp.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-icns.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-tga.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-gif.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-tiff.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-png.so
-/usr/lib/gtk-2.0/2.10.0/loader-files.d/libgtk2.0-0.loaders
 /usr/lib/gtk-2.0/2.10.0/immodule-files.d/scim-bridge-client-gtk.immodules
 /usr/lib/gtk-2.0/2.10.0/immodule-files.d/scim-gtk2-immodule.immodules
 /usr/lib/gtk-2.0/2.10.0/immodule-files.d/libgtk2.0-0.immodules
@@ -95,4 +79,3 @@ scim-tables-zh
 
 [config]
 
-/etc/gtk-2.0
