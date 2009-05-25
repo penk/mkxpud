@@ -236,7 +236,7 @@ function post {
 	./tools/busybox-helper
 
 	# check dependencies of each files under usr/lib
-	for s in `find $MKXPUD_TARGET/usr/lib/*.so.* $MKXPUD_TARGET/usr/share/firefox/components/*.so`; do 
+	for s in `find $MKXPUD_TARGET/usr/lib/*.so.* $MKXPUD_TARGET/usr/share/firefox/components/*.so $MKXPUD_TARGET/usr/share/firefox/*.so`; do 
 	
 		if [ ! -d $s ]; then 
 		for i in `./tools/ldd-helper $s`; do 
