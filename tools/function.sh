@@ -266,7 +266,9 @@ function image {
 	# move opt from rootfs
 	for R in `./tools/parser $MKXPUD_CONFIG opt`; do 
 		NAME=`./tools/parser package/recipe/$R.recipe name`
+		if [ -e $MKXPUD_TARGET/opt/$NAME ];then 
 		mv $MKXPUD_TARGET/opt/$NAME working/$MKXPUD_CODENAME/
+		fi
 		cd working/$MKXPUD_CODENAME/$NAME
 			find | cpio -H newc -o | gzip -9 > ../../../deploy/$MKXPUD_CODENAME/$NAME.gz
 		cd -
