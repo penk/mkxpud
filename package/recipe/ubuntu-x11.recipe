@@ -31,7 +31,13 @@ read-edid
 
 [data]
 
-/usr/share/fonts/truetype/ttf-droid
+/usr/share/fonts/truetype/ttf-droid/DroidSans.ttf
+/usr/share/fonts/truetype/ttf-droid/DroidSerif-Regular.ttf
+/usr/share/fonts/truetype/ttf-droid/DroidSansMono.ttf
+/usr/share/fonts/truetype/ttf-droid/DroidSerif-Italic.ttf
+/usr/share/fonts/truetype/ttf-droid/DroidSans-Bold.ttf
+/usr/share/fonts/truetype/ttf-droid/DroidSerif-Bold.ttf
+/usr/share/fonts/truetype/ttf-droid/DroidSerif-BoldItalic.ttf
 
 #/usr/share/vte
 #/usr/lib/libvte9

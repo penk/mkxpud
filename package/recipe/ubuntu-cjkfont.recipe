@@ -1,0 +1,19 @@
+# recipe file
+
+[name]
+cjkfont
+
+[package]
+ttf-droid
+
+[binary]
+
+[data]
+
+/usr/share/fonts/truetype/ttf-droid/DroidSansFallback.ttf
+/usr/share/fonts/truetype/ttf-droid/DroidSansJapanese.ttf
+
+[config]
+
+[overwrite]
+

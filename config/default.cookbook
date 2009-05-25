@@ -38,6 +38,7 @@ snd-intel8x0
 # packages and files to be included into rootfs
 ubuntu-core-utils
 ubuntu-x11
+ubuntu-cjkfont
 ubuntu-sound
 ubuntu-network
 ubuntu-wireless-tools
