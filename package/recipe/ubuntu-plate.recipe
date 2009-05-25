@@ -4,7 +4,6 @@
 plate
 
 [package]
-mozplugger 
 gnome-mplayer
 transmission-gtk
 gpicview
@@ -13,13 +12,6 @@ geany
 
 [action]
 
-# download firefox
-
-if [ ! -e skeleton/archive/firefox* ]; then wget http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-mozilla-1.9.1/firefox-3.5pre.en-US.linux-i686.tar.bz2 -P skeleton/archive/; fi; 
-tar jxf skeleton/archive/firefox* -C $MKXPUD_TARGET/usr/share/
-
-# checkout plate 
-
 [binary]
 
 #/usr/bin/epdfview
@@ -27,11 +19,6 @@ tar jxf skeleton/archive/firefox* -C $MKXPUD_TARGET/usr/share/
 /usr/bin/geany
 ## FIXME: mime file
 /usr/bin/transmission
-
-/usr/bin/mozplugger-controller
-/usr/bin/mozplugger-helper
-/usr/bin/mozplugger-linker
-/usr/bin/m4
 
 /usr/bin/gnome-mplayer
 /usr/bin/mplayer
@@ -45,42 +32,9 @@ tar jxf skeleton/archive/firefox* -C $MKXPUD_TARGET/usr/share/
 /usr/share/icons/gnome/index.theme
 /usr/share/icons/gnome/22x22/status/audio-volume-high.png
 
-/usr/lib/firefox/plugins/mozplugger.so
-
 [config]
 
-/tmp/sysinfo-s
-
-/etc/mozpluggerrc
-/etc/bootchart-lite
-/etc/pulse
-/etc/fonts
-/.mozilla
 /.config/geany 
 
 [overwrite]
 
-/usr/share/themes/Human/cursor.theme
-/usr/share/icons/default/index.theme
-/usr/bin/firefox
-/sbin/hotplug-x
-/init
-/sbin/session
-/usr/local/bin/get_flash
-/usr/local/bin/get_skype
-/usr/local/bin/get_codecs
-/usr/local/bin/load_data
-/usr/local/bin/load_module
-/usr/local/bin/set_locale
-/usr/local/bin/sysinfo
-/usr/local/bin/get_video
-
-/tmp/sysinfo
-
-# /usr/sbin/bootchart-lite
-
-## FIXME rename
-#/usr/share/firefox/plugins/mozplugger.so
-/usr/local/bin/post-boot.sh
-/usr/local/bin/jswrapper
-/usr/share/plate

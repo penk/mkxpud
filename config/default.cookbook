@@ -43,6 +43,7 @@ ubuntu-network
 ubuntu-wireless-tools
 ubuntu-artwork
 ubuntu-scim-chewing
+ubuntu-plate-core
 ubuntu-plate
 
 [action]
