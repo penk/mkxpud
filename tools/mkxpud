@@ -20,6 +20,7 @@ else
 			setup $MKXPUD_CODENAME	
 			echo "[mkxpud] Project Name: $MKXPUD_NAME"
 			install && strip 
+			opt
 			kernel $MKXPUD_CODENAME
 			post
 			image $MKXPUD_CODENAME
@@ -32,7 +33,7 @@ else
 			image $MKXPUD_CODENAME
 			;;
 		test)
-			sudo qemu -kernel $MKXPUD_KERNEL_IMAGE -initrd deploy/$MKXPUD_CODENAME/rootfs.cpio -hda /dev/zero -m 512
+			sudo qemu -kernel $MKXPUD_KERNEL_IMAGE -initrd deploy/$MKXPUD_CODENAME/core.cpio -hda /dev/zero -m 512
 			;;
 		help|usage)
 			usage

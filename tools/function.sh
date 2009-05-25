@@ -81,9 +81,13 @@ function strip {
 						cp -rfpL --remove-destination $A $MKXPUD_TARGET/$A
 						## ldd-helper
 						for i in `./tools/ldd-helper $A`; do 
+						
+						if [ ! -e $MKXPUD_TARGET/usr/lib/`basename $i` ] && [ ! -e $MKXPUD_TARGET/lib/`basename $i` ]; then
 							if [ `dirname $i` == '/usr/lib' ]; then 
 							cp -rfpL --remove-destination $i $MKXPUD_TARGET/usr/lib ; 
 							else cp -rfpL --remove-destination $i $MKXPUD_TARGET/lib ; fi
+						fi
+						
 						done
 					;;
 				data) 
@@ -102,14 +106,90 @@ function strip {
 						# check binary dependency if the overwrite file is an execute
 						if [ -x skeleton/overwrite/$A ] && [ ! -d skeleton/overwrite/$A ]; then
 						for i in `./tools/ldd-helper skeleton/overwrite/$A`; do 
+						if [ ! -e $MKXPUD_TARGET/usr/lib/`basename $i` ] && [ ! -e $MKXPUD_TARGET/lib/`basename $i` ]; then
 							if [ `dirname $i` == '/usr/lib' ]; then 
 							cp -rfpL --remove-destination $i $MKXPUD_TARGET/usr/lib ; 
 							else cp -rfpL --remove-destination $i $MKXPUD_TARGET/lib ; fi
+						fi
 						done
 						fi
 						
 						[ -d $MKXPUD_TARGET/`dirname $A` ] || mkdir -p $MKXPUD_TARGET/`dirname $A` 
 						cp -rfp skeleton/overwrite/$A $MKXPUD_TARGET/$A
+					;;
+			esac 
+			
+			done 
+		done 
+		
+	done
+
+}
+
+function opt {
+
+	echo "    Stripping Opt files..."
+	for R in `./tools/parser $MKXPUD_CONFIG opt`; do 
+		
+		# action 
+		eval `./tools/parser package/recipe/$R.recipe action`
+		
+		# create opt directory
+		NAME=`./tools/parser package/recipe/$R.recipe name`
+		mkdir -p $MKXPUD_TARGET/opt/$NAME
+
+		for S in binary data config overwrite; do
+		
+			for A in `./tools/parser package/recipe/$R.recipe $S`; do
+	
+			case $S in
+				binary) 
+						##  host
+						[ -d $MKXPUD_TARGET/opt/$NAME/`dirname $A` ] || mkdir -p $MKXPUD_TARGET/opt/$NAME/`dirname $A`
+						cp -rfpL --remove-destination $A $MKXPUD_TARGET/opt/$NAME/$A
+						## ldd-helper
+						for i in `./tools/ldd-helper $A`; do 
+							
+							# if not exist in rootfs 
+							if [ ! -e $MKXPUD_TARGET/usr/lib/`basename $i` ] && [ ! -e $MKXPUD_TARGET/lib/`basename $i` ]; then
+								if [ `dirname $i` == '/usr/lib' ]; then 
+								mkdir -p $MKXPUD_TARGET/opt/$NAME/usr/lib;
+								cp -rfpL --remove-destination $i $MKXPUD_TARGET/opt/$NAME/usr/lib ; 
+								else mkdir -p $MKXPUD_TARGET/opt/$NAME/lib;
+								cp -rfpL --remove-destination $i $MKXPUD_TARGET/opt/$NAME/lib ; fi
+							fi
+							
+						done
+					;;
+				data) 
+						## host 
+						[ -d $MKXPUD_TARGET/opt/$NAME/`dirname $A` ] || mkdir -p $MKXPUD_TARGET/opt/$NAME/`dirname $A` 
+						cp -rfpL --remove-destination $A $MKXPUD_TARGET/opt/$NAME/$A
+					;;
+				config) 
+						## package/config/*
+						[ -d $MKXPUD_TARGET/opt/$NAME/`dirname $A` ] || mkdir -p $MKXPUD_TARGET/opt/$NAME/`dirname $A` 
+						cp -rfpL --remove-destination package/config/$A $MKXPUD_TARGET/opt/$NAME/$A
+					;;
+				overwrite) 
+						## skeleton/overwrite/
+						
+						# check binary dependency if the overwrite file is an execute
+						if [ -x skeleton/overwrite/$A ] && [ ! -d skeleton/overwrite/$A ]; then
+						
+							if [ ! -e $MKXPUD_TARGET/usr/lib/`basename $i` ] && [ ! -e $MKXPUD_TARGET/lib/`basename $i` ]; then
+						
+								if [ `dirname $i` == '/usr/lib' ]; then 
+								mkdir -p $MKXPUD_TARGET/opt/$NAME/usr/lib;
+								cp -rfpL --remove-destination $i $MKXPUD_TARGET/opt/$NAME/usr/lib ; 
+								else mkdir -p $MKXPUD_TARGET/opt/$NAME/lib;
+								cp -rfpL --remove-destination $i $MKXPUD_TARGET/opt/$NAME/lib ; fi
+							
+							fi
+						fi
+						
+						[ -d $MKXPUD_TARGET/opt/$NAME/`dirname $A` ] || mkdir -p $MKXPUD_TARGET/opt/$NAME/`dirname $A` 
+						cp -rfp skeleton/overwrite/$A $MKXPUD_TARGET/opt/$NAME/$A
 					;;
 			esac 
 			
@@ -155,7 +235,7 @@ function post {
 
 	./tools/busybox-helper
 
-	# check dependencies of each files under usr/lib (or $MKXPUD_TARGET/usr/share/firefox/*.so)
+	# check dependencies of each files under usr/lib (or $MKXPUD_TARGET/usr/share/firefox/components/*.so)
 	for s in `find $MKXPUD_TARGET/usr/lib/*.so.*`; do 
 	
 		if [ ! -d $s ]; then 
@@ -170,7 +250,7 @@ function post {
 	
 	if [ -e /usr/bin/upx ]; then 
 		for o in `./tools/parser $MKXPUD_CONFIG obfuscate`; do
-			upx  $MKXPUD_TARGET/$o
+			upx $MKXPUD_TARGET/$o
 		done
 	fi
 }
@@ -183,21 +263,30 @@ function image {
 	eval export `./tools/parser $MKXPUD_CONFIG config`
 	export MKXPUD_TARGET=working/$MKXPUD_CODENAME/rootfs
 	
+	# move opt from rootfs
+	for R in `./tools/parser $MKXPUD_CONFIG opt`; do 
+		NAME=`./tools/parser package/recipe/$R.recipe name`
+		mv $MKXPUD_TARGET/opt/$NAME working/$MKXPUD_CODENAME/
+		cd working/$MKXPUD_CODENAME/$NAME
+			find | cpio -H newc -o | gzip -9 > ../../../deploy/$MKXPUD_CODENAME/$NAME.gz
+		cd -
+	done
+	
 	cd $MKXPUD_TARGET
-	find | cpio -H newc -o > ../../../deploy/$MKXPUD_CODENAME/rootfs.cpio
+	find | cpio -H newc -o > ../../../deploy/$MKXPUD_CODENAME/core.cpio
 	cd -
 
 	for format in `./tools/parser $MKXPUD_CONFIG image`; do 
 	
 	case $format in
 			gz)
-				cat deploy/$MKXPUD_CODENAME/rootfs.cpio | gzip -9 > deploy/$MKXPUD_CODENAME/rootfs.gz
-				du -h deploy/$MKXPUD_CODENAME/rootfs.gz
+				cat deploy/$MKXPUD_CODENAME/core.cpio | gzip -9 > deploy/$MKXPUD_CODENAME/core.gz
+				du -h deploy/$MKXPUD_CODENAME/core.gz
 			;;
 			iso)
 				cp -r skeleton/boot/iso/ deploy/$MKXPUD_CODENAME/
 				cp $MKXPUD_KERNEL_IMAGE deploy/$MKXPUD_CODENAME/iso/boot/bzImage
-				cp deploy/$MKXPUD_CODENAME/rootfs.gz deploy/$MKXPUD_CODENAME/iso/boot/
+				cp deploy/$MKXPUD_CODENAME/*.gz deploy/$MKXPUD_CODENAME/iso/boot/
 				mkisofs -R -l -V 'xPUD' -input-charset utf-8 -b isolinux.bin -c boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o deploy/$MKXPUD_CODENAME.iso deploy/$MKXPUD_CODENAME/iso/
 				rm -rf deploy/$MKXPUD_CODENAME/iso/
 				du -h deploy/$MKXPUD_CODENAME.iso
@@ -205,7 +294,7 @@ function image {
 			exe)
 				cp -r skeleton/boot/exe/ deploy/$MKXPUD_CODENAME/
 				cp $MKXPUD_KERNEL_IMAGE deploy/$MKXPUD_CODENAME/exe/bzImage
-				cp deploy/$MKXPUD_CODENAME/rootfs.gz deploy/$MKXPUD_CODENAME/exe/
+				cp deploy/$MKXPUD_CODENAME/*.gz deploy/$MKXPUD_CODENAME/exe/
 				cd deploy/$MKXPUD_CODENAME/exe/
 				makensis xpud-installer.nsi
 				cd -
