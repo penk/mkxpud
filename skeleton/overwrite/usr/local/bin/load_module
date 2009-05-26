@@ -23,5 +23,24 @@ fi
 depmod -a
 udevadm trigger 
 
-# then enable it again
+# work through NIC and wake them up
+for NIC in eth0 eth1 eth2 wlan0 ath0 ra0; do
+	/bin/ifconfig $NIC up
+	/sbin/iwconfig $NIC mode Managed
+done
+
+# get wireless SSID list
+/usr/local/bin/get_ssid &
+
+# setup sound channel
+CARD=`grep '0 \[' /proc/asound/cards | cut -d'[' -f2| cut -d']' -f1`
+if [ ! -z $CARD ]; then 
+sed -e "s/Intel/$CARD/g" /etc/asound.conf > /etc/asound.conf.tmp
+mv /etc/asound.conf.tmp /etc/asound.conf
+for channel in Master Front PCM; do
+	/usr/bin/amixer set $channel 95% on
+done
+fi
+
+# then enable hotplug again
 cp /sbin/hotplug-x /sbin/hotplug

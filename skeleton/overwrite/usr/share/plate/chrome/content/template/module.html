@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script type="text/javascript" src="../jquery-1.3.2.js"></script>
+<script type="text/javascript" src="../plate.js"></script>
+<script type="text/javascript">
+
+function system(input) {
+	netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
+	var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
+	file.initWithPath("/usr/local/bin/jswrapper");
+	var process = Components.classes["@mozilla.org/process/util;1"].createInstance(Components.interfaces.nsIProcess);
+	process.init(file);
+	var args = [input];
+	process.run(false, args, 1);
+}
+
+function module() {
+system('/usr/local/bin/load_module ' + $('#f').val());
+}
+
+</script>
+</head>
+
+<body>
+<div style="margin: 20px auto; width: 400px;">
+<h2 style="border-bottom: 1px gray solid;">Install more drivers</h2>
+
+<div style="margin-left: 20px;">
+
+<p>Load drivers from:</p>
+
+<input type="file" id="f" />
+
+<p>
+<input type="button" value="Install" onclick="module(); $(this).attr('disabled', 'disabled'); $(this).attr('value', 'Done.');" />
+</p>
+</div>
+
+</body>
+</html>
