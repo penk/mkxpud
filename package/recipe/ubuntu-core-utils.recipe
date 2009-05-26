@@ -101,6 +101,7 @@ acpid
 /etc/udev
 
 /usr/lib/libXss.so.1
+/lib/libresolv.so.2
 
 #---------------------------
 
