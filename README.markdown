@@ -103,6 +103,9 @@ which quoted by `[ ]`, rest of the rows are data:
 	
 	[recipe]
 	# packages and files to be included into rootfs
+	
+	[opt]
+	# packages and files that will be generated aside rootfs
 
 	[action]
 	# the command that will be executed after rootfs created
