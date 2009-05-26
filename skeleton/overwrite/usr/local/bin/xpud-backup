@@ -1,6 +1,8 @@
 #!/bin/bash
 # xpud-backup <path>
 
+if [ -d $1 ]; then
+
 mkdir -p /tmp/backup
 cd /tmp/backup
 
@@ -9,3 +11,5 @@ find | cpio -H newc -o | gzip -9 > $1/xpud-data.gz
 
 cd -
 rm -rf /tmp/backup
+
+fi
