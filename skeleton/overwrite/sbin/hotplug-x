@@ -10,11 +10,11 @@ add() {
 	case "$SUBSYSTEM" in
 		block)
 			mknod /dev/$DEV b $MAJOR $MINOR
+			if [ `echo $DEV | wc -c` == 5 ]; then
 			mkdir -p /mnt/$DEV
 			mount /dev/$DEV /mnt/$DEV
-			#if [ `echo $DEV | wc -c` == 5 ]; then
 			#/usr/bin/firefox file:///media/$DEV/ &
-			#fi
+			fi
 			;;
 		*)
 			mknod /dev/$DEV c $MAJOR $MINOR

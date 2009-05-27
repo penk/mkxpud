@@ -42,5 +42,11 @@ for channel in Master Front PCM; do
 done
 fi
 
+# mount all partitions
+for i in `fdisk -l | grep "^/dev" | cut -d' ' -f1`; do
+   mkdir -p /mnt/`basename $i`;
+   mount $i /mnt/`basename $i`;
+done
+
 # then enable hotplug again
 cp /sbin/hotplug-x /sbin/hotplug

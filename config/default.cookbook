@@ -65,7 +65,7 @@ ubuntu-plate
 /bin/busybox
 /bin/mount
 /opt/plate/usr/bin/mplayer
-/usr/share/firefox/firefox-bin
+#/usr/share/firefox/firefox-bin
 
 [remove]
 # files to be removed after rootfs extraction
