@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link type="text/css" href="../jquery-ui-1.7.1.custom.css" rel="stylesheet" />
+<script type="text/javascript" src="../jquery-1.3.2.js"></script>
+<script type="text/javascript" src="../jquery-ui-1.7.1.custom.min.js"></script>
+<script type="text/javascript" src="../plate.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+    $("#datepicker").datepicker();
+  });
+
+function showtime() {
+	var date = new Date();
+	document.getElementById('clock').innerHTML = date.toTimeString();
+};
+
+function checkTime(i)
+{
+if (i<10) { i="0" + i; }
+return i;
+}
+
+function gettime() {
+	var date = new Date();
+	document.getElementById('in-hour').value = checkTime(date.getHours());
+	document.getElementById('in-min').value = checkTime(date.getMinutes());
+	document.getElementById('in-sec').value = checkTime(date.getSeconds());
+	document.getElementById('clock').innerHTML = date.toTimeString();
+};
+
+function settime() {
+	var date_full = $("#datepicker").datepicker("getDate");
+	var date = $.datepicker.formatDate( "yymmdd", date_full );	
+	var hours = document.getElementById('in-hour').value;
+	var minutes = document.getElementById('in-min').value;
+	var seconds = document.getElementById('in-sec').value;
+	system('date -D %Y%m%d%H%M%S -s ' + date + hours + minutes + seconds);
+	sleep(10);
+	window.location.reload();
+};
+
+</script>
+</head>
+
+<body onload="gettime();setInterval('showtime()', 1000);">
+<div style="margin: 20px auto; width: 600px;">
+<h2 style="border-bottom: 1px gray solid;">Adjust system date and time</h2>
+
+<div style="margin-left: 20px;">
+
+<div style="font-size:62.5%; float: left; width: 200px;" type="text" id="datepicker"></div>
+
+<div style="float: right; margin-left: 10px; width: 360px;">
+Current time: <span id="clock"></span><br />
+<br />
+Time:
+<input type="text" id="in-hour" value="00" size="1" maxlength="2" />:
+<input type="text" id="in-min" value="00" size="1" maxlength="2" />:
+<input type="text" id="in-sec" value="00" size="1" maxlength="2" />
+</div>
+
+<div style="clear:both;"
+<p style="text-align: right;">
+<input type="button" value="Set system time" onclick="settime();$(this).attr('disabled', 'disabled');" />
+</p>
+</div>
+
+</div>
+
+</body>
+</html>
