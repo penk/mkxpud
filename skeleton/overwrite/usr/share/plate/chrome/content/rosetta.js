@@ -39,7 +39,7 @@ var i18n =  {
 		de: "Einstellung",
 		es: "Preferencias",
 		fr: "Préférences",
-		pt: "Configura&#231;&#245;es"
+		pt: "Configura&#231;&#245;es",
 		zh: "設定系統",
 		zh_cn: "设置系统",
     },
