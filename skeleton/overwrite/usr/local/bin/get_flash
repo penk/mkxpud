@@ -5,6 +5,7 @@
 DESTINATION="/usr/share/firefox/plugins/libflashplayer.so"
 
 # Download and install Flash plugin
+cd /tmp
 wget "http://fpdownload.macromedia.com/get/flashplayer/current/install_flash_player_10_linux.tar.gz"
 ls | grep flash 
 zcat install_flash_player_10_linux.tar.gz | \

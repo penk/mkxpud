@@ -2,7 +2,7 @@
 # done by probono 
 # http://klik.atekon.de/wiki/index.php/CustomizeXPUDLive
 
-cd /
+cd /tmp/
 
 # Install /usr/lib/libXss.so.1 (in minimalistic xPUD way)
 #wget "http://ftp.us.debian.org/debian/pool/main/libx/libxss/libxss1_1.1.0-1_i386.deb" 
@@ -11,12 +11,12 @@ cd /
 #rm libxss*.deb
 
 # Install Skype
-wget "http://www.skype.com/go/getskype-linux-oss"
+wget "http://www.skype.com/go/getskype-linux-static" -O skype_static-tmp.tar.bz2
 tar xjvf skype_static-*.tar.bz2
 rm skype_static-*.tar.bz2
 mkdir -p /opt # || echo "/opt already exists"
 mv skype_static-*/ /opt/
-find /opt -name skype -exec ln -s {} /usr/local/bin/
+find /opt -name skype -exec ln -s {} /usr/bin/ \;
 
 echo ""
 echo "Skype has been installed successfully."
@@ -25,4 +25,3 @@ echo "skype"
 echo ""
 
 cd -
-
