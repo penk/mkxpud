@@ -482,6 +482,7 @@
 </mouse>
 
 <applications>
+	
 	<application name="firefox*">
 		<decor>no</decor>
 		<shade>no</shade>
@@ -494,6 +495,48 @@
 	</application>
 
 	<application name="firefox*" type="dialog">
+		<decor>yes</decor>
+		<fullscreen>no</fullscreen>
+		<maximized>false</maximized>
+	</application>
+
+	<application name="firefox*" role="Preferences">
+		<decor>yes</decor>
+		<fullscreen>no</fullscreen>
+		<maximized>false</maximized>
+	</application>
+	
+	<application name="firefox*" role="*anager*">
+		<decor>yes</decor>
+		<fullscreen>no</fullscreen>
+		<maximized>false</maximized>
+	</application>
+	
+	<application name="firefox*" role="Permissions">
+		<decor>yes</decor>
+		<fullscreen>no</fullscreen>
+		<maximized>false</maximized>
+	</application>
+
+	<application name="firefox*" role="Organizer">
+		<decor>yes</decor>
+		<fullscreen>no</fullscreen>
+		<maximized>false</maximized>
+	</application>
+
+	<application name="firefox*" role="console">
+		<decor>yes</decor>
+		<fullscreen>no</fullscreen>
+		<maximized>false</maximized>
+	</application>
+
+	<application name="firefox*" role="page-info">
+		<decor>yes</decor>
+		<fullscreen>no</fullscreen>
+		<maximized>false</maximized>
+	</application>
+
+	<application name="firefox*" role="Wizard">
 		<decor>yes</decor>
 		<fullscreen>no</fullscreen>
 		<maximized>false</maximized>
