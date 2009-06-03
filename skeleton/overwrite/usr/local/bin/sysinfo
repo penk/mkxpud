@@ -3,6 +3,7 @@
 open (F, ">/tmp/sysinfo");
 open (FS, ">/tmp/sysinfo-s");
 
+print F "<div style='float: left;'>";
 print F "Time: ", `LC_ALL=C date +%a\\ %I:%M\\ %p`, "<br />\n";
 chomp($time = `LC_ALL=C date +%I:%M\\ %p`);
 
@@ -65,4 +66,4 @@ print FS "$net_short | $time \n";
 }
 
 $memfree = `cat /proc/meminfo | grep MemFree`;
-print F "<div style='float: right;'>$memfree</div>";
+print F "</div><div style='float: left;margin-left:20px;'>$memfree</div>";
