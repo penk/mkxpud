@@ -51,15 +51,23 @@ function check_enc(num) {
 	switch (enc) {
 	case 'wifi-wep': // WEP
 		document.getElementById('passwd').disabled = false;
+		document.getElementById('ssid').disabled = true;
 		break;
 	case 'wifi-wpa': // WPA
 		document.getElementById('passwd').disabled = false;
+		document.getElementById('ssid').disabled = true;
 		break;
+	case 'wifi-wpa-hidden': // WPA-HIDDEN
+		document.getElementById('passwd').disabled = false;
+		document.getElementById('ssid').disabled = false;
+		break;	
 	case 'wifi-hidden': // hidden node
 		document.getElementById('passwd').disabled = false;
+		document.getElementById('ssid').disabled = true;
 		break;
 	default: // none 
 		document.getElementById('passwd').disabled = true;
+		document.getElementById('ssid').disabled = true;
 		break;
 	}
 }
@@ -67,6 +75,7 @@ function check_enc(num) {
 function send_wifi() {
 
 	var addr = document.getElementById('ap-option').value;
+	if (document.getElementById('ssid') != null) { addr = document.getElementById('ssid').value; }
 	if (document.getElementById('passwd') == null) { var passwd = ''; } 
 	else { var passwd = '"' + document.getElementById('passwd').value + '"'; }
 	var enc = document.getElementById('enctype').value;
@@ -93,7 +102,8 @@ function send_wifi() {
 
 <p>
 <input type="hidden" id="enctype">
-<label>Password:</label> <input id="passwd" type="password" size="18" />
+<label>SSID:</label> <input id="ssid" type="text" size="18" disabled /><br />
+<label>Password:</label> <input id="passwd" type="password" size="18" disabled /><br />
 <input type="button" value="Connect" onclick="send_wifi(); $(this).attr('disabled', 'disabled'); $(this).attr('value', 'Done.');" />
 </p>
 </div>

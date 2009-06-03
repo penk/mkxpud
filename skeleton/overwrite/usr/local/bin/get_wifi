@@ -43,6 +43,19 @@ print PF "wpa_supplicant -Dwext -i$nic -c/etc/netwiz/$addr.conf & \n";
 
 }
 
+# HIDDEN WPA
+if ($enc eq 'wifi-wpa-hidden') {
+my $ssid = $addr;
+system "wpa_passphrase $ssid $pass > /tmp/wifi.conf";
+system "sed '{/ssid/i\scan_ssid=1' /tmp/wifi.conf > /tmp/wifi.conf2";
+system "iwconfig $nic essid $ssid";
+system "wpa_supplicant -Dwext -i$nic -c/tmp/wifi.conf2 &";
+
+system "cp /tmp/wifi.conf2 /etc/netwiz/$addr.conf";
+print PF "wpa_supplicant -Dwext -i$nic -c/etc/netwiz/$addr.conf & \n";
+
+}
+
 # HIDDEN
 if ($enc eq 'wifi-hidden') {
 
@@ -62,7 +75,7 @@ system "dhclient $nic";
 print PF "dhclient $nic \n";
 
 # FIXME: post-connect hook
-system "get_flash" if ( ! -e "/usr/share/firefox/plugins/libflashplayer.so" );
+#system "get_flash" if ( ! -e "/usr/share/firefox/plugins/libflashplayer.so" );
 
 if ( ! `ifconfig|grep "inet addr"`) { system "dhclient $nic; rm -f /tmp/netstat.tmp"; } 
 else { system "rm -f /tmp/netstat.tmp"; }

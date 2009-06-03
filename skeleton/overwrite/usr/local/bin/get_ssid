@@ -17,7 +17,13 @@ $addr = $1 if /Address: (.*)/;
 $essid = $1 if /ESSID:(.*)/;
 
 if ($essid eq '""') {
-$class = 'wifi-hidden'; 
+	if ($class eq 'wifi-wpa') {
+		$class = 'wifi-wpa-hidden';
+	}
+	else
+	{
+	$class = 'wifi-hidden';
+	} 
 $essid = $addr;
 }
 

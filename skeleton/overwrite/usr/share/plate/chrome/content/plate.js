@@ -6,15 +6,23 @@ function check_enc(num) {
 	document.getElementById('enctype').value = enc;
 	switch (enc) {
 	case 'wifi-wep': // WEP
+		document.getElementById('ssid').disabled = true;
 		document.getElementById('passwd').disabled = false;
 		break;
 	case 'wifi-wpa': // WPA
+		document.getElementById('ssid').disabled = true;
 		document.getElementById('passwd').disabled = false;
 		break;
+	case 'wifi-wpa-hidden': // WPA-HIDDEN
+		document.getElementById('passwd').disabled = false;
+		document.getElementById('ssid').disabled = false;
+		break;
 	case 'wifi-hidden': // hidden node
+		document.getElementById('ssid').disabled = true;	
 		document.getElementById('passwd').disabled = false;
 		break;
 	default: // none 
+		document.getElementById('ssid').disabled = true;		
 		document.getElementById('passwd').disabled = true;
 		break;
 	}
@@ -23,6 +31,7 @@ function check_enc(num) {
 function send_wifi() {
 
 	var addr = document.getElementById('ap-option').value;
+	if (document.getElementById('ssid') != null) { addr = document.getElementById('ssid').value; }
 	if (document.getElementById('passwd') == null) { var passwd = ''; } 
 	else { var passwd = '"' + document.getElementById('passwd').value + '"'; }
 	var enc = document.getElementById('enctype').value;
