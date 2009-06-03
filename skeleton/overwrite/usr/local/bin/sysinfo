@@ -63,3 +63,6 @@ print FS "$net_short | $time | $batstat\n";
 } else {
 print FS "$net_short | $time \n";
 }
+
+$memfree = `cat /proc/meminfo | grep MemFree`;
+print F "<div style='float: right;'>$memfree</div>";
