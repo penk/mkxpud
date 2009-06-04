@@ -24,11 +24,15 @@ function send_static() {
 system('/bin/ifconfig eth0 ' + $('#ip').val() + ' netmask ' + $('#mask').val());
 system('/bin/route add default gw ' +  $('#gateway').val());
 system('/bin/echo "nameserver ' +  $('#dns').val() + '" >> /etc/resolv.conf');
+
+system('/usr/local/bin/set_postconnect');
+
 }
 
 function send_adsl() {
 
 system('/usr/local/bin/get_adsl ' + $('#username').val() + ' ' + $('#password').val());
+
 }
 
 </script>

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ ! -e /usr/share/firefox/plugins/libflashplayer.so ]; then
+
+/usr/local/bin/get_flash
+
+fi
