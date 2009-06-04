@@ -8,22 +8,27 @@ function check_enc(num) {
 	case 'wifi-wep': // WEP
 		document.getElementById('ssid').disabled = true;
 		document.getElementById('passwd').disabled = false;
+		document.getElementById('ssid-line').style.display = 'none';
 		break;
 	case 'wifi-wpa': // WPA
 		document.getElementById('ssid').disabled = true;
 		document.getElementById('passwd').disabled = false;
+		document.getElementById('ssid-line').style.display = 'none';
 		break;
 	case 'wifi-wpa-hidden': // WPA-HIDDEN
 		document.getElementById('passwd').disabled = false;
 		document.getElementById('ssid').disabled = false;
+		document.getElementById('ssid-line').style.display = 'block';
 		break;
 	case 'wifi-hidden': // hidden node
 		document.getElementById('ssid').disabled = true;	
 		document.getElementById('passwd').disabled = false;
+		document.getElementById('ssid-line').style.display = 'block';
 		break;
 	default: // none 
 		document.getElementById('ssid').disabled = true;		
 		document.getElementById('passwd').disabled = true;
+		document.getElementById('ssid-line').style.display = 'none';
 		break;
 	}
 }

@@ -13,12 +13,14 @@
 </select>
 <br />
 <input type="hidden" id="enctype">
-<label>SSID:</label> <input id="ssid" type="text" size="18" disabled /><br />
+
+<div id="ssid-line" style="display: none;"><label>SSID:</label> <input id="ssid" type="text" size="18" disabled /><br /></div>
+
 <label><span class="i18n">setting_wifi_password</span></label> <input id="passwd" type="password" size="18" disabled />
-<button onclick="send_wifi(); cover();" disabled id="wifi_connect" style="margin-left: 10px; width: 75px;"><span class="i18n">setting_wifi_connect</span></button>
+<button onclick="send_wifi(); cover();" disabled id="wifi_connect" style="margin-left: 10px;"><span class="i18n">setting_wifi_connect</span></button>
 
 <p style="margin-top: 30px; margin-bottom: -20px; margin-left: -25px;">
-<button onclick="system('/usr/local/bin/get_ssid'); sleep(50); update_div('ap-option', '/tmp/wifi.opt');update_div('nic', '/tmp/wifi.dev'); document.getElementById('passwd').disabled=true;document.getElementById('wifi_connect').disabled=true;"><span class="i18n">setting_wifi_refresh</span></button> <button style="width: 70px; float: right; margin-right: 10px;" onclick="cover();"><span class="i18n">cancel_shutdown</span></button>
+<button onclick="system('/usr/local/bin/get_ssid'); sleep(50); update_div('ap-option', '/tmp/wifi.opt');update_div('nic', '/tmp/wifi.dev'); document.getElementById('passwd').disabled=true;document.getElementById('wifi_connect').disabled=true;"><span class="i18n">setting_wifi_refresh</span></button> <button style="float: right; margin-right: 10px;" onclick="cover();"><span class="i18n">cancel_shutdown</span></button>
 </p>
 </div>
 

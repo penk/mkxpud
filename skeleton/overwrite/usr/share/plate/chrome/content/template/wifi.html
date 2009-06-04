@@ -46,28 +46,36 @@ function update_div(id, path) {
 	document.getElementById(id).innerHTML = data;
 }
 function check_enc(num) {
+	if (document.getElementById('wifi_connect')) {
+	document.getElementById('wifi_connect').disabled = false;
+	}
 	var enc = document.getElementById('ap-option').options[num].getAttribute('class').toString();
 	document.getElementById('enctype').value = enc;
 	switch (enc) {
 	case 'wifi-wep': // WEP
-		document.getElementById('passwd').disabled = false;
 		document.getElementById('ssid').disabled = true;
+		document.getElementById('passwd').disabled = false;
+		document.getElementById('ssid-line').style.display = 'none';
 		break;
 	case 'wifi-wpa': // WPA
-		document.getElementById('passwd').disabled = false;
 		document.getElementById('ssid').disabled = true;
+		document.getElementById('passwd').disabled = false;
+		document.getElementById('ssid-line').style.display = 'none';
 		break;
 	case 'wifi-wpa-hidden': // WPA-HIDDEN
 		document.getElementById('passwd').disabled = false;
 		document.getElementById('ssid').disabled = false;
-		break;	
+		document.getElementById('ssid-line').style.display = 'block';
+		break;
 	case 'wifi-hidden': // hidden node
+		document.getElementById('ssid').disabled = true;	
 		document.getElementById('passwd').disabled = false;
-		document.getElementById('ssid').disabled = true;
+		document.getElementById('ssid-line').style.display = 'block';
 		break;
 	default: // none 
+		document.getElementById('ssid').disabled = true;		
 		document.getElementById('passwd').disabled = true;
-		document.getElementById('ssid').disabled = true;
+		document.getElementById('ssid-line').style.display = 'none';
 		break;
 	}
 }
@@ -102,7 +110,7 @@ function send_wifi() {
 
 <p>
 <input type="hidden" id="enctype">
-<label>SSID:</label> <input id="ssid" type="text" size="18" disabled /><br />
+<div id="ssid-line" style="display: none;"><label>SSID:</label> <input id="ssid" type="text" size="18" disabled /><br /></div>
 <label>Password:</label> <input id="passwd" type="password" size="18" disabled /><br />
 <input type="button" value="Connect" onclick="send_wifi(); $(this).attr('disabled', 'disabled'); $(this).attr('value', 'Done.');" />
 </p>
