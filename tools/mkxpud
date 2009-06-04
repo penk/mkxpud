@@ -33,7 +33,7 @@ else
 			image $MKXPUD_CODENAME
 			;;
 		test)
-			sudo qemu -kernel $MKXPUD_KERNEL_IMAGE -initrd deploy/$MKXPUD_CODENAME/core.cpio -hda /dev/zero -m 512
+			sudo qemu -kernel $MKXPUD_KERNEL_IMAGE -initrd deploy/$MKXPUD_CODENAME.cpio -hda /dev/zero -m 512
 			;;
 		help|usage)
 			usage

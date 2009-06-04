@@ -270,25 +270,25 @@ function image {
 		mv $MKXPUD_TARGET/opt/$NAME working/$MKXPUD_CODENAME/
 		fi
 		cd working/$MKXPUD_CODENAME/$NAME
-			find | cpio -H newc -o | gzip -9 > ../../../deploy/$MKXPUD_CODENAME/$NAME.gz
+			find | cpio -H newc -o | gzip -9 > ../../../deploy/$MKXPUD_CODENAME/$NAME
 		cd -
 	done
 	
 	cd $MKXPUD_TARGET
-	find | cpio -H newc -o > ../../../deploy/$MKXPUD_CODENAME/core.cpio
+	find | cpio -H newc -o > ../../../deploy/$MKXPUD_CODENAME.cpio
 	cd -
 
 	for format in `./tools/parser $MKXPUD_CONFIG image`; do 
 	
 	case $format in
 			gz)
-				cat deploy/$MKXPUD_CODENAME/core.cpio | gzip -9 > deploy/$MKXPUD_CODENAME/core.gz
-				du -h deploy/$MKXPUD_CODENAME/core.gz
+				cat deploy/$MKXPUD_CODENAME.cpio | gzip -9 > deploy/$MKXPUD_CODENAME/core
+				du -h deploy/$MKXPUD_CODENAME/core
 			;;
 			iso)
 				cp -r skeleton/boot/iso/ deploy/$MKXPUD_CODENAME/
 				cp $MKXPUD_KERNEL_IMAGE deploy/$MKXPUD_CODENAME/iso/boot/bzImage
-				cp deploy/$MKXPUD_CODENAME/*.gz deploy/$MKXPUD_CODENAME/iso/boot/
+				cp deploy/$MKXPUD_CODENAME/* deploy/$MKXPUD_CODENAME/iso/boot/
 				mkisofs -R -l -V 'xPUD' -input-charset utf-8 -b isolinux.bin -c boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o deploy/$MKXPUD_CODENAME.iso deploy/$MKXPUD_CODENAME/iso/
 				rm -rf deploy/$MKXPUD_CODENAME/iso/
 				du -h deploy/$MKXPUD_CODENAME.iso
@@ -296,7 +296,7 @@ function image {
 			exe)
 				cp -r skeleton/boot/exe/ deploy/$MKXPUD_CODENAME/
 				cp $MKXPUD_KERNEL_IMAGE deploy/$MKXPUD_CODENAME/exe/bzImage
-				cp deploy/$MKXPUD_CODENAME/*.gz deploy/$MKXPUD_CODENAME/exe/
+				cp deploy/$MKXPUD_CODENAME/* deploy/$MKXPUD_CODENAME/exe/
 				cd deploy/$MKXPUD_CODENAME/exe/
 				makensis xpud-installer.nsi
 				cd -
