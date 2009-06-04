@@ -1,0 +1,9 @@
+#!/usr/bin/perl
+
+open (F,">/tmp/mnt.opt");
+
+for (`cat /proc/mounts`) {
+
+print F "<option>$1</option>\n" if /\s(\/mnt.*?)\s/;
+
+}

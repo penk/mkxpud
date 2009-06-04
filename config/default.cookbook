@@ -64,7 +64,7 @@ ubuntu-plate
 /bin/bash
 /bin/busybox
 /bin/mount
-/opt/plate/usr/bin/mplayer
+/opt/apps/usr/bin/mplayer
 #/usr/share/firefox/firefox-bin
 
 [remove]

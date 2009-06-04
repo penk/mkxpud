@@ -30,14 +30,14 @@ system('/usr/local/bin/load_data ' + $('#f').val());
 </script>
 </head>
 
-<body>
+<body onload="system('/usr/local/bin/get_mnt'); update_div_ife('dir', '/tmp/mnt.opt');">
 <div style="margin: 20px auto; width: 400px;">
 <h2 style="border-bottom: 1px gray solid;">Backup data and changes</h2>
 
 <div style="margin-left: 20px;">
 
 <p>Backup to:</p>
-<input type="text" id="dir" value="/mnt/sda1" />
+<select id="dir"></select>
 <p>
 <input type="button" value="Backup" onclick="backup(); $(this).attr('disabled', 'disabled'); $(this).attr('value', 'Done.');" />
 </p>
