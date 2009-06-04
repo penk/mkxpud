@@ -48,5 +48,10 @@ for i in `fdisk -l | grep "^/dev" | cut -d' ' -f1`; do
    mount $i /mnt/`basename $i`;
 done
 
+# add these modules into backup list
+if [ ! "$(cat /etc/xpud-backup.conf | grep /lib/modules )" ]; then
+/usr/local/bin/get_mod_list >> /etc/xpud-backup.conf
+fi
+
 # then enable hotplug again
 cp /sbin/hotplug-x /sbin/hotplug

@@ -49,7 +49,7 @@ for i in `fdisk -l | grep "^/dev" | cut -d' ' -f1`; do
 done
 
 # auto load user data if exist
-if [ ! "$(cat /proc/cmdline | grep xpud-data.gz )" ]; then
+if [ ! "$(cat /proc/cmdline | grep xpud-data )" ]; then
 	/usr/local/bin/load_data
 fi
 # auto reconnect
