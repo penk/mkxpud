@@ -6,6 +6,9 @@ dbus
 [package]
 dbus
 
+[action]
+if [ ! -e /var/lib/dbus/machine-id ]; then dbus-uuidgen > /var/lib/dbus/machine-id; fi; 
+
 [binary]
 
 /usr/bin/dbus-launch  
@@ -21,6 +24,7 @@ dbus
 /usr/share/dbus-1
 /lib/dbus-1.0
 /var/run/dbus
+/usr/lib/libgconf2-4
 
 [config]
 

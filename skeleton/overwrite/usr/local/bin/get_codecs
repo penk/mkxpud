@@ -11,7 +11,11 @@ ar p w32codecs*.deb data.tar.gz | zcat | tar xv
 wget "http://packages.medibuntu.org/pool/free/libd/libdvdcss/libdvdcss2_1.2.10-0.2medibuntu1_i386.deb"
 ar p libdvdcss*.deb data.tar.gz | zcat | tar xv
 
+wget "http://mirrors.kernel.org/ubuntu/pool/multiverse/g/gecko-mediaplayer/gecko-mediaplayer_0.9.4-1ubuntu1_i386.deb"
+ar p gecko-mediaplayer*.deb data.tar.gz | zcat | tar xv
+
 cp -a ./usr/lib /usr
+cp -a ./usr/share/gconf /usr/share
 rm -rf *.deb /tmp/usr/
 
 cd -

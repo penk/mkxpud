@@ -43,6 +43,7 @@ ubuntu-network
 ubuntu-wireless-tools
 ubuntu-artwork
 ubuntu-plate-core
+ubuntu-dbus
 
 [opt]
 ubuntu-cjkfont
