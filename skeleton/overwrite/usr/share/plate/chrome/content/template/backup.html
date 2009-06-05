@@ -9,16 +9,6 @@
 <script type="text/javascript" src="../plate.js"></script>
 <script type="text/javascript">
 
-function system(input) {
-	netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
-	var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
-	file.initWithPath("/usr/local/bin/jswrapper");
-	var process = Components.classes["@mozilla.org/process/util;1"].createInstance(Components.interfaces.nsIProcess);
-	process.init(file);
-	var args = [input];
-	process.run(false, args, 1);
-}
-
 function backup() {
 system('/usr/local/bin/xpud-backup ' + $('#dir').val());
 }
