@@ -56,6 +56,7 @@ rdesktop
 [config]
 
 /etc/wvdial.conf
+/etc/ppp
 
 [overwrite]
 
