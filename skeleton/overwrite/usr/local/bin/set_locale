@@ -20,4 +20,5 @@ if [ ! -z $KEYMAP ] && [ -e /usr/share/keymap/$KEYMAP.kmap ]; then
 	loadkmap < /usr/share/keymap/$KEYMAP.kmap
 fi
 
+sleep 0.1
 /bin/startx &
