@@ -27,6 +27,9 @@ read-edid
 /usr/bin/get-edid
 /usr/bin/parse-edid
 
+/usr/bin/xev
+/usr/bin/xmodmap
+
 #/usr/bin/lxterminal
 
 [data]
@@ -43,10 +46,13 @@ read-edid
 #/usr/lib/libvte9
 /lib/terminfo
 
+/usr/share/X11/XKeysymDB
+
 [config]
 
 /etc/xdg/openbox
 #/.config/lxterminal
+/.Xmodmap
 
 [overwrite]
 

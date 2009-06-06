@@ -26,6 +26,7 @@ parted
 udev udev-extras
 module-init-tools
 acpid
+acpi-support
 
 #---------------------------
 
@@ -66,6 +67,7 @@ acpid
 
 /usr/sbin/acpid
 /usr/bin/acpi_listen
+/usr/bin/acpi_fakekey
 
 #---------------------------
 
