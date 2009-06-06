@@ -1,5 +1,7 @@
 #!/bin/bash
 
+/usr/bin/xmodmap ~/.Xmodmap
+
 if [ ! -e /tmp/firsttime ]; then
 
 # run this script once

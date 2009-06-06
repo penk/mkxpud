@@ -146,6 +146,25 @@
     <action name="NextWindow"/>
   </keybind>
 
+  <!-- Volume controls -->
+  <keybind key="XF86AudioLowerVolume">
+   <action name="Execute">
+    <execute>amixer set Master 5- unmute</execute>
+   </action>
+  </keybind>
+  
+  <keybind key="XF86AudioRaiseVolume">
+   <action name="Execute">
+    <execute>amixer set Master 5+ unmute</execute>
+   </action>
+  </keybind>
+
+  <keybind key="XF86AudioMute">
+   <action name="Execute">
+    <execute>amixer set Master toggle</execute>
+   </action>
+  </keybind>
+
 </keyboard>
 
 <mouse>
