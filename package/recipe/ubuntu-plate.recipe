@@ -26,7 +26,7 @@ geany
 [data]
 
 #/usr/share/epdfview
-/usr/share/mplayer
+/usr/share/mplayer/subfont.ttf
 
 ## FIXME
 /usr/share/icons/gnome/index.theme
