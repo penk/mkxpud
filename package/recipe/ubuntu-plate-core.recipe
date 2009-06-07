@@ -78,6 +78,7 @@ rm -f $MKXPUD_TARGET/usr/share/firefox/components/libnkgnomevfs.so;
 /usr/local/bin/sysinfo
 /usr/local/bin/get_video
 /usr/local/bin/get_mnt
+/usr/local/bin/audio_volume
 
 /tmp/sysinfo
 

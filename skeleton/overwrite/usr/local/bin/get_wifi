@@ -79,3 +79,8 @@ system "/usr/local/bin/set_postconnect";
 
 if ( ! `ifconfig|grep "inet addr"`) { system "dhclient $nic; rm -f /tmp/netstat.tmp"; } 
 else { system "rm -f /tmp/netstat.tmp"; }
+
+# show wifi connected notification message
+$iw = `iwconfig`;
+$ssid = $1 if $iw =~ /ESSID:"(.*?)"/;
+system "notify-send 'Wifi connected to $ssid' -i /usr/share/plate/chrome/content/image/wlassistant.png"

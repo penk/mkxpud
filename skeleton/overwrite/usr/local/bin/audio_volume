@@ -1,0 +1,21 @@
+#!/bin/bash
+
+case $1 in
+up)
+		amixer set Master 5+ unmute
+        ;;
+down)
+		amixer set Master 5- unmute
+        ;;
+mute)
+        amixer set Master toggle
+        ;;			
+*)
+        exit 
+        ;;
+esac
+
+# FIXME: fails to get volume if there's no Front Left channel, e.g. only Mono
+VOLUME=`amixer get Master | sed -ne '/Front Left/s/.*\[\(.*\)%\].*/\1/p'`
+# FIXME: show mute icon when needed
+notify-send "Volume" -i /usr/share/plate/chrome/content/image/kmixdocked.png -h int:value:$VOLUME -h string:x-canonical-private-synchronous:

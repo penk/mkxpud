@@ -149,19 +149,19 @@
   <!-- Volume controls -->
   <keybind key="XF86AudioLowerVolume">
    <action name="Execute">
-    <execute>amixer set Master 5- unmute</execute>
+    <execute>audio_volume down</execute>
    </action>
   </keybind>
   
   <keybind key="XF86AudioRaiseVolume">
    <action name="Execute">
-    <execute>amixer set Master 5+ unmute</execute>
+    <execute>audio_volume up</execute>
    </action>
   </keybind>
 
   <keybind key="XF86AudioMute">
    <action name="Execute">
-    <execute>amixer set Master toggle</execute>
+    <execute>audio_volume mute</execute>
    </action>
   </keybind>
 

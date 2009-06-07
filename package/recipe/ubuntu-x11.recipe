@@ -15,6 +15,9 @@ xresprobe
 ttf-droid
 read-edid
 
+libnotify-bin
+notify-osd
+
 [binary]
 
 /usr/bin/openbox
@@ -32,6 +35,8 @@ read-edid
 
 #/usr/bin/lxterminal
 
+/usr/bin/notify-send
+
 [data]
 
 /usr/share/fonts/truetype/ttf-droid/DroidSans.ttf
@@ -47,6 +52,9 @@ read-edid
 /lib/terminfo
 
 /usr/share/X11/XKeysymDB
+
+/usr/lib/notify-osd/notify-osd
+/usr/share/dbus-1/services/org.freedesktop.Notifications.service
 
 [config]
 
