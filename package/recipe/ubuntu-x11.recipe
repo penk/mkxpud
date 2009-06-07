@@ -63,10 +63,10 @@ read-edid
 
 /usr/lib/libts-0.0.so.0
 /usr/local/bin/Xvesa
-/usr/bin/xhkeys
-/usr/bin/xhkconf
+#/usr/bin/xhkeys
+#/usr/bin/xhkconf
 /usr/bin/xli
 
 ## FIXME
 /usr/local/lib/ts
-/usr/lib/xhkeys
+#/usr/lib/xhkeys
