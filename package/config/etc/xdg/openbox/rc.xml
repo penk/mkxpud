@@ -542,6 +542,12 @@
 		<fullscreen>no</fullscreen>
 		<maximized>false</maximized>
 	</application>
+	
+	<application name="firefox*" role="view-source">
+		<decor>yes</decor>
+		<fullscreen>no</fullscreen>
+		<maximized>false</maximized>
+	</application>
 
 	<application name="firefox*" role="console">
 		<decor>yes</decor>
