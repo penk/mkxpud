@@ -1,0 +1,3 @@
+# Fn-F9, Volume Up
+event=hotkey ATKD 00000015 .*
+action=acpi_fakekey 115

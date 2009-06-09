@@ -1,0 +1,3 @@
+# Fn-F8, Volume Down
+event=hotkey ATKD 00000014 .*
+action=acpi_fakekey 114
