@@ -12,4 +12,3 @@ zcat install_flash_player_10_linux.tar.gz | \
 tar x  install_flash_player_10_linux/libflashplayer.so \
 -O > "$DESTINATION"
 rm install_flash_player_10_linux.tar.gz
-
