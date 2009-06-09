@@ -36,6 +36,7 @@ notify-osd
 #/usr/bin/lxterminal
 
 /usr/bin/notify-send
+/usr/lib/notify-osd/notify-osd
 
 [data]
 
