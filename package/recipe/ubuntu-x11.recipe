@@ -33,6 +33,8 @@ notify-osd
 /usr/bin/xev
 /usr/bin/xmodmap
 
+/usr/bin/xbacklight
+
 #/usr/bin/lxterminal
 
 /usr/bin/notify-send
