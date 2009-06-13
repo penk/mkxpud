@@ -103,7 +103,9 @@ acpi-support
 /etc/udev
 
 /usr/lib/libXss.so.1
+/usr/lib/libXss.so.1.0.0
 /lib/libresolv.so.2
+/lib/libresolv-2.9.so
 
 #---------------------------
 

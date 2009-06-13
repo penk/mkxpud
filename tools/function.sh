@@ -78,7 +78,7 @@ function strip {
 			case $S in
 				binary) 
 						##  host
-						cp -rfpL --remove-destination $A $MKXPUD_TARGET/$A
+						cp -rfpl --remove-destination $A $MKXPUD_TARGET/$A
 						## ldd-helper
 						for i in `./tools/ldd-helper $A`; do 
 						
@@ -93,7 +93,7 @@ function strip {
 				data) 
 						## host 
 						[ -d $MKXPUD_TARGET/`dirname $A` ] || mkdir -p $MKXPUD_TARGET/`dirname $A` 
-						cp -rfpL --remove-destination $A $MKXPUD_TARGET/$A
+						cp -rfpl --remove-destination $A $MKXPUD_TARGET/$A
 					;;
 				config) 
 						## package/config/*

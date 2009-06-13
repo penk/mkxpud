@@ -27,7 +27,8 @@ rm -f $MKXPUD_TARGET/usr/share/firefox/components/libnkgnomevfs.so;
 
 [data]
 
-/usr/lib/firefox/plugins/mozplugger.so
+#/usr/lib/firefox/plugins/mozplugger.so
+/usr/lib/mozilla/plugins/mozplugger.so
 
 /usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-ani.so
 /usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-xbm.so
