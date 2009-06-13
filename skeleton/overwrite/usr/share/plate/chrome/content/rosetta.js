@@ -15,6 +15,7 @@ var i18n =  {
 		se: "Hem",
 		zh: "回到主頁",
 		zh_cn: "首页",
+		ru: "Главная страница",
     },
     
     menu : {
@@ -28,6 +29,7 @@ var i18n =  {
 		se: "Meny",
 		zh: "執行程式",
 		zh_cn:"应用程序",
+		ru: "Программы",
     },
 
     file : {
@@ -41,6 +43,7 @@ var i18n =  {
 		se: "Filer",
 		zh: "開啟檔案",
 		zh_cn:"打开文件",
+		ru: "Файл",
     },
 
     setting : {
@@ -54,6 +57,7 @@ var i18n =  {
 		se: "Inställning",
 		zh: "設定系統",
 		zh_cn: "设置系统",
+		ru: "Настройки",
     },
     
 // home 
@@ -69,6 +73,7 @@ var i18n =  {
 		se: "Välkommen till xPUD",
 		zh: "歡迎使用 xPUD",
 		zh_cn: "欢迎使用 xPUD",
+		ru: "Добро пожаловать в xPUD",
     },
     
 	sys_info: {
@@ -82,6 +87,7 @@ var i18n =  {
 		se: "Systeminformation",
 		zh: "系統資訊",
 		zh_cn: "系统信息",
+		ru: "Системная Информация",
 	},
 
 	want_to: {
@@ -95,6 +101,7 @@ var i18n =  {
 		se: "Du kanske vill:",
 		zh: "你也可以：",
 		zh_cn:"你也可以：",
+		ru: "Желаете:",
 	},
 	
 	power_off: {
@@ -108,6 +115,7 @@ var i18n =  {
 		se: "Stänga av",
 		zh: "關機",
 		zh_cn:"关机",
+		ru: "Выключить",
 	},
 	
 		quit_now: {
@@ -120,6 +128,7 @@ var i18n =  {
 			se: "Vill du avsluta nu?",
 			zh: "確定要關機?",
 			zh_cn: "确定要关机?",
+			ru: "Действительно выйти?",
 		},
 	
 		turn_off: {
@@ -132,6 +141,7 @@ var i18n =  {
 			se: "Stäng av",
 			zh: "關機",
 			zh_cn: "关机",
+			ru: "Выключить",
 		},
 	
 		restart: {
@@ -144,6 +154,7 @@ var i18n =  {
 			se: "Starta om",
 			zh: "重新開機",
 			zh_cn: "重启",
+			ru: "Перезагрузить",
 		},
 		
 		cancel_shutdown: {
@@ -156,6 +167,7 @@ var i18n =  {
 			se: "Avbryt",
 			zh: "取消",
 			zh_cn:"取消",
+			ru: "Отменить",
 		},
 	
 	power_off_desc: {
@@ -169,6 +181,7 @@ var i18n =  {
 		se: "Stäng av denna dator",
 		zh: "關閉這台電腦",
 		zh_cn:"关闭这台电脑",
+		ru: "Выключить компьютер",
 	},
 	switch_mode: {
 		en: "Switch Mode",
@@ -180,6 +193,7 @@ var i18n =  {
 		se: "Ändra läge",
 		zh: "切換模式",
 		zh_cn:"切换模式",
+		ru: "Переключить режим",
 	},
 	switch_mode_desc: {
 		en: "toggle into other OS",
@@ -191,6 +205,7 @@ var i18n =  {
 		se: "Starta andra operativsystem",
 		zh: "使用其他作業系統",
 		zh_cn:"使用其他操作系統",
+		ru: "загрузить другую ОС",
 	},
 	get_help: {
 		en: "Get Help",
@@ -203,6 +218,7 @@ var i18n =  {
 		se: "Hjälp",
 		zh: "取得幫助",
 		zh_cn:"获取帮助",
+		ru: "Помощь",
 	},
 	
 	get_help_desc: {
@@ -216,6 +232,7 @@ var i18n =  {
 		se: "och kontaktinformation",
 		zh: "和更多資訊",
 		zh_cn:"了解xPUD的更多信息",
+		ru: "и контакты",
 	},
 	
 		help_about: {
@@ -227,6 +244,7 @@ var i18n =  {
 			se: "Om",
 			zh: "更多訊息",
 			zh_cn:"关于xPUD计划",
+			ru: "О",
 		},
 		help_info: {
 			en: "xPUD is a rapidly developing project. <br /> For more information, please go to:",
@@ -237,6 +255,7 @@ var i18n =  {
 			se: "xPUD är ett snabbt utvecklande projekt. <br /> För mer information, gå till:",
 			zh: "xPUD 是一個快速發展中的計畫。請參閱：",
 			zh_cn:"xPUD 是一个快速发展中的计划。请参阅：",
+			ru: "xPUD быстро развивающийся проект. <br /> Больше информации можно получить здесь:",
 		},
 		help_done: {
 			en: "Done",
@@ -247,6 +266,7 @@ var i18n =  {
 			se: "Klar",
 			zh: "完成",
 			zh_cn:"完成",
+			ru: "Ок",
 		},
 // menu
 	application: {
@@ -260,6 +280,7 @@ var i18n =  {
 		se: "Applikationer",
 		zh: "所有應用程式",
 		zh_cn:"所有应用程序",
+		ru: "Программы",
 	},
 	
 	web_browser: {
@@ -273,6 +294,7 @@ var i18n =  {
 		se: "Webbläsare",
 		zh: "網頁瀏覽器",
 		zh_cn:"上网冲浪",
+		ru: "Веб Браузер",
 	},
 	bt_client: {
 		en: "BitTorrent Client",
@@ -285,6 +307,7 @@ var i18n =  {
 		se: "BitTorrent Klient",
 		zh: "BT 下載",
 		zh_cn:"BT 下载",
+		ru: "Torrent клиент",
 	},
 	media_player: {
 		en: "Media Player",
@@ -297,6 +320,7 @@ var i18n =  {
 		se: "Mediaspelare",
 		zh: "影音播放",
 		zh_cn:"播放影音",
+		ru: "Аудио/Видео проигрыватель",
 	},
 	picture_viewer: {
 		en: "Picture Viewer",
@@ -309,6 +333,7 @@ var i18n =  {
 		se: "Bildvisare",
 		zh: "圖片瀏覽",
 		zh_cn:"浏览图片",
+		ru: "Просмотрщик изображений",
 	},
 	text_editor: {
 		en: "Text Editor",
@@ -321,6 +346,7 @@ var i18n =  {
 		se: "Textredigerare",
 		zh: "文字編輯",
 		zh_cn:"编辑文字",
+		ru: "Текстовый редактор",
 	},
 	pdf_viewer: {
 		en: "PDF Viewer",
@@ -333,6 +359,7 @@ var i18n =  {
 		se: "PDF läsare",
 		zh: "PDF 閱讀",
 		zh_cn:"阅读PDF",
+		ru: "Просмотрщик PDF",
 	},
 	terminal_emulator: {
 		en: "Terminal Emulator",
@@ -345,6 +372,7 @@ var i18n =  {
 		se: "Kommandotolk",
 		zh: "終端機",
 		zh_cn:"使用终端",
+		ru: "Терминал/Коммандная строка",
 	},
 	
 // setting
@@ -359,6 +387,7 @@ var i18n =  {
 		se: "Personliga inställningar",
 		zh: "個人設定",
 		zh_cn:"个人设置",
+		ru: "Персональные настройки",
 	},
 	
 		setting_language: {
@@ -371,6 +400,7 @@ var i18n =  {
 			se: "Språk",
 			zh: "語言選項",
 			zh_cn:"语言选项",
+			ru: "Язык",
 		},
 		setting_language_desc: {
 			en: "choose locale and keymap",
@@ -382,6 +412,7 @@ var i18n =  {
 			se: "språk- och tangentbordsinstälnningar",
 			zh: "切換語系和鍵盤",
 			zh_cn:"切换语系和键盘",
+			ru: "Выберите язык и раскладку",
 		}, 
 	
 		setting_time_date: {
@@ -395,6 +426,7 @@ var i18n =  {
 			se: "Tid och Datum",
 			zh: "時間日期",
 			zh_cn:"时间与日期",
+			ru: "Дата и Время",
 		},
 		setting_time_date_desc: {
 			en: "change system clock",
@@ -407,6 +439,7 @@ var i18n =  {
 			se: "ändra systemtid",
 			zh: "調整系統日期與時間",
 			zh_cn:"调整系统的日期与时间",
+			ru: "Настроить часы",
 		},
 		setting_backup: {
 			en: "Backup",
@@ -419,6 +452,7 @@ var i18n =  {
 			se: "Backup",
 			zh: "儲存資料",
 			zh_cn:"保存资料",
+			ru: "Резервное сохранение",
 		},
 		setting_backup_desc: {
 			en: "save your data and changes",
@@ -431,6 +465,7 @@ var i18n =  {
 			se: "Spara ditt data och inställningar",
 			zh: "保留你的設定和資料",
 			zh_cn:"保留你的设置和资料",
+			ru: "Сохранить дату и изменения",
 		},
 
 
@@ -445,6 +480,7 @@ var i18n =  {
 		se: "System",
 		zh: "系統設定",
 		zh_cn:"系统设置",
+		ru: "Система",
 	},
 	
 		setting_wifi: {
@@ -457,6 +493,7 @@ var i18n =  {
 			se: "WiFi",
 			zh: "WiFi",
 			zh_cn:"WiFi",
+			ru: "WiFi",
 		},
 		setting_wifi_desc: {
 			en: "setup wireless connection",
@@ -468,6 +505,7 @@ var i18n =  {
 			se: "Konfigurera trådlöst nätverk",
 			zh: "使用無線網路連線",
 			zh_cn:"使用无线网络",
+			ru: "настроить беспроводное соединение",
 		},
 			setting_wifi_title: {
 				en: "Setup Wireless Network",
@@ -477,6 +515,7 @@ var i18n =  {
 				jp: "無線ネットワークの設定",
 				se: "Konfigurera trådlöst nätverk",
 				zh: "連到無線網路",
+				ru: "Настроить Беспроводную Сеть",
 			},
 			setting_wifi_device: {
 				en: "Network Device: ",
@@ -486,6 +525,7 @@ var i18n =  {
 				jp: "ネットワークカード",
 				se: "Trådlös enhet: ",
 				zh: "網路卡: ",
+				ru: "Устройство: ",
 			},
 			setting_wifi_choose: {
 				en: "Choose a network: ",
@@ -496,6 +536,7 @@ var i18n =  {
 				pt: "Selecione qual rede você quer se conectar:",
 				se: "Välj ett nätverk: ",
 				zh: "選一個要連線的基地台: ",
+				ru: "Выберите Сеть: ",
 			},
 			setting_wifi_refresh: {
 				en: "Refresh",
@@ -505,6 +546,7 @@ var i18n =  {
 				jp: "リフレッシュ",
 				se: "Sök",
 				zh: "重新整理",
+				ru: "Обновить",
 			},
 			setting_wifi_password: {
 				en: "Password:",
@@ -514,6 +556,7 @@ var i18n =  {
 				pt: "Senha:",
 				se: "Lösenord",
 				zh: "密碼:",
+				ru: "Пароль:",
 			},
 			setting_wifi_connect: {
 				en: "Connect",
@@ -523,6 +566,7 @@ var i18n =  {
 				jp: "接続する",
 				se: "Anslut",
 				zh: "連線",
+				ru: "Соединить",
 			},
 		setting_ethernet: {
 			en: "Ethernet",
@@ -534,6 +578,7 @@ var i18n =  {
 			se: "Ethernet",
 			zh: "有線網路",
 			zh_cn:"有线网络",
+			ru: "Локальная Сеть",
 		},
 		setting_ethernet_desc: {
 			en: "setup wired connection",
@@ -546,6 +591,7 @@ var i18n =  {
 			se: "Konfigurera trådburet nätverk",
 			zh: "連接到網際網路",
 			zh_cn:"使用有线网络",
+			ru: "настроить проводное соединение",
 		},
 		setting_opt: {
 			en: "Opt-Get",
@@ -558,6 +604,7 @@ var i18n =  {
 			se: "Opt-Get",
 			zh: "Opt-Get",
 			zh_cn:"Opt-Get",
+			ru: "Opt-Get",
 		},
 		setting_opt_desc: {
 			en: "get more apps",
@@ -570,6 +617,7 @@ var i18n =  {
 			se: "Installera flera applikationer",
 			zh: "安裝更多額外程式",
 			zh_cn:"安装更多程序",
+			ru: "установить дополнительные программы",
 		},
 	
 	setting_hardware: {
@@ -582,6 +630,7 @@ var i18n =  {
 		se: "Hårdvara",
 		zh: "硬體設定",
 		zh_cn:"硬件设置",
+		ru: "Оборудование",
 	},
 		setting_sound: {
 			en: "Sound",
@@ -594,6 +643,7 @@ var i18n =  {
 			se: "Ljud",
 			zh: "聲音",
 			zh_cn:"声音",
+			ru: "Звук",
 		},
 		setting_sound_desc: {
 			en: "adjust system sound",
@@ -606,6 +656,7 @@ var i18n =  {
 			se: "Ändra systemljud",
 			zh: "調整系統音量設定",
 			zh_cn:"调整系统音量",
+			ru: "настроить звук",
 		},
 		setting_display: {
 			en: "Display",
@@ -618,6 +669,7 @@ var i18n =  {
 			se: "Bildskärm",
 			zh: "螢幕",
 			zh_cn:"显示设置",
+			ru: "Экран",
 		},
 		setting_display_desc: {
 			en: "change screen resolution",
@@ -630,6 +682,7 @@ var i18n =  {
 			se: "Ändra skärmupplösning",
 			zh: "調整螢幕解析度",
 			zh_cn:"调整屏幕分辨率",
+			ru: "Изменить разрешение экрана",
 		},
 		setting_driver: {
 			en: "Driver",
@@ -641,6 +694,7 @@ var i18n =  {
 			se: "Drivrutin",
 			zh: "裝置管理",
 			zh_cn:"驱动管理",
+			ru: "Устройства",
 		},
 		setting_driver_desc: {
 			en: "device info and driver",
@@ -652,6 +706,7 @@ var i18n =  {
 			se: "hårdvaruinformation och drivrutiner",
 			zh: "安裝更多驅動程式",
 			zh_cn:"安装更多驱动程序",
+			ru: "информация об устройствах и драйверах",
 		},
 		
 			back_to_setting: {
@@ -663,7 +718,7 @@ var i18n =  {
 				se: "Tillbaka till Inställningar",
 				zh: "回到設定頁面",
 				zh_cn: "返回设置",
+				ru: "Назад к Настройкам",
 		},
 
 };
-
