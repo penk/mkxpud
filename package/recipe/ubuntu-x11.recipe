@@ -18,6 +18,8 @@ read-edid
 libnotify-bin
 notify-osd
 
+xbacklight
+
 [binary]
 
 /usr/bin/openbox
