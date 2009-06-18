@@ -100,6 +100,11 @@ function strip {
 						[ -d $MKXPUD_TARGET/`dirname $A` ] || mkdir -p $MKXPUD_TARGET/`dirname $A` 
 						cp -rfpL --remove-destination package/config/$A $MKXPUD_TARGET/$A
 					;;
+				alternative) 
+						## package/alternative/$MKXPUD_CODENAME
+						[ -d $MKXPUD_TARGET/`dirname $A` ] || mkdir -p $MKXPUD_TARGET/`dirname $A` 
+						cp -rfpL --remove-destination package/alternative/$MKXPUD_CODENAME/$A $MKXPUD_TARGET/$A
+					;;
 				overwrite) 
 						## skeleton/overwrite/
 						

@@ -155,6 +155,10 @@ More information please read the example file `config/default.cookbook`
 	# configuration files to be overwritten 
 	# these will be copied from the "package/config" directory
 
+	[alternative]
+	# project-specified configuration files
+	# under "package/config/alternative/$MKXPUD_CODENAME/" 
+
 	[overwrite]
 	# system-wide files to be overwritten
 	# these will be copied from the "skeleton/overwrite" directory
