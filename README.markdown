@@ -87,8 +87,8 @@ which quoted by `[ ]`, rest of the rows are data:
 	[config]
 	# short project description
 	MKXPUD_NAME=""
-	# you can skip the apt-get install by setting this to "true"
-	MKXPUD_SKIP_APT=""
+	# you can skip the package manager handling by setting this to `skip'
+	MKXPUD_PKGMGR=""
 	# set this to "true" if you want to use host /dev nodes
 	MKXPUD_HOST_DEV=""
 	

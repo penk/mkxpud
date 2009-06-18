@@ -72,4 +72,4 @@ ubuntu-plate
 # files to be removed after rootfs extraction
 
 [image]
-gz iso exe zip
+gz iso exe
