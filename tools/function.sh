@@ -54,8 +54,8 @@ function install {
 		done
 	done
 
-	if [ "$MKXPUD_SKIP_APT" == 'false' ]; then
-		sudo apt-get install -y $PACKAGE
+	if [ "$MKXPUD_PKGMGR" != 'skip' ]; then
+		sudo $MKXPUD_PKGMGR $PACKAGE
 	else 
 		echo "You need to install following packages according to your cookbook: "
 		echo "$PACKAGE"
