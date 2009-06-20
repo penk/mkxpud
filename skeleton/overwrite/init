@@ -18,6 +18,9 @@ export GTK_IM_MODULE="scim"
 			kmap=*)
 				export KEYMAP=${x#kmap=}
 			;;
+			url=*)
+				export URL=${x#url=}
+			;;
 		esac
 	done 
 
@@ -26,15 +29,28 @@ export GTK_IM_MODULE="scim"
 		loadkmap < /usr/share/keymap/$KEYMAP.kmap
 	fi
 
-	# plate locale
-	PLATE=/usr/share/plate/chrome/content
-	if [ ! -z $UILANG ] && [ -e $PLATE/index.$UILANG.html ]; then 
-		UILANG=$UILANG
-	else
-		UILANG=en
-	fi
-	/bin/sed -e s/index.*html/"index.$UILANG.html"/g $PLATE/main.default > $PLATE/main.xul 
 
+	# kiosk mode
+	PLATE=/usr/share/plate/chrome/content
+	
+	if [ ! -z $URL ]; then
+
+		/bin/sed -e s/index.*html/kiosk.html/g $PLATE/main.default > $PLATE/main.xul 
+		/bin/sed -e s/KIOSK_URL/"$URL"/g $PLATE/kiosk.html > $PLATE/kiosk.html.tmp
+		/bin/mv $PLATE/kiosk.html.tmp $PLATE/kiosk.html
+
+	else
+	
+		# plate locale
+		if [ ! -z $UILANG ] && [ -e $PLATE/index.$UILANG.html ]; then 
+			UILANG=$UILANG
+		else
+			UILANG=en
+		fi
+		/bin/sed -e s/index.*html/"index.$UILANG.html"/g $PLATE/main.default > $PLATE/main.xul 
+
+	fi 
+	
 	# init hook
 	find /etc/init.d/ -type f -exec {} \; 
 	
