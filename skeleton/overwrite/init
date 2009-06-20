@@ -36,8 +36,8 @@ export GTK_IM_MODULE="scim"
 	if [ ! -z $URL ]; then
 
 		/bin/sed -e s/index.*html/kiosk.html/g $PLATE/main.default > $PLATE/main.xul 
-		/bin/sed -e s/KIOSK_URL/"$URL"/g $PLATE/kiosk.html > $PLATE/kiosk.html.tmp
-		/bin/mv $PLATE/kiosk.html.tmp $PLATE/kiosk.html
+		/bin/sed -e s#KIOSK_URL#$URL#g $PLATE/kiosk.html > $PLATE/kiosk.html.tmp 
+		/bin/mv $PLATE/kiosk.html.tmp $PLATE/kiosk.html 
 
 	else
 	
