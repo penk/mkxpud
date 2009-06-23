@@ -36,7 +36,7 @@ function check_enc(num) {
 function send_wifi() {
 
 	var addr = document.getElementById('ap-option').value;
-	if (document.getElementById('ssid').value.length != 0) { addr = document.getElementById('ssid').value; }
+	if (document.getElementById('ssid').value.length != 0) { addr = '"' + document.getElementById('ssid').value + '"'; }
 	if (document.getElementById('passwd').value.length == 0) { var passwd = ''; } 
 	else { var passwd = '"' + document.getElementById('passwd').value + '"'; }
 	var enc = document.getElementById('enctype').value;
