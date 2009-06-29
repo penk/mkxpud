@@ -62,6 +62,7 @@ acpi-support
 /usr/sbin/dmidecode
 /usr/sbin/grub
 /usr/sbin/grub-set-default
+/sbin/cfdisk
 
 /usr/sbin/powertop
 
