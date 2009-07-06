@@ -1,3 +1,7 @@
+// Get the root branch
+var xpudPrefs = Components.classes["@mozilla.org/preferences-service;1"]
+                    .getService(Components.interfaces.nsIPrefBranch);
+
 function check_enc(num) {
 	if (document.getElementById('wifi_connect')) {
 	document.getElementById('wifi_connect').disabled = false;
@@ -305,9 +309,8 @@ document.getElementById('popup').style.left=w+'px';
 document.getElementById('popup').style.top=h+'px';
 }
 
-var url = this.location.href.split('.');
-var lang = url[1];
 function do_i18n() {
+	var lang = xpudPrefs.getCharPref("xpud.locale");
 	$(".i18n").each(
 	   		function(i){
 	   			if(typeof i18n[$(this).text()][lang]  == "undefined")
@@ -317,3 +320,19 @@ function do_i18n() {
 	   			}
 	);	   		         
 }    
+
+function save_preferences() {
+	var prefService = Components.classes["@mozilla.org/preferences-service;1"]
+                               .getService(Components.interfaces.nsIPrefService);
+	prefService.savePrefFile(null);
+}
+
+function setSelectedOpts(PrefString, ElementName) {
+	var selVal = xpudPrefs.getCharPref(PrefString);
+	var inputs = document.getElementsByName(ElementName); 
+	for(var i=0; i < inputs[0].options.length; i++) {      
+        if(inputs[0].options[i].value == selVal ) {
+                inputs[0].options[i].selected = true;
+          }      
+     }
+}

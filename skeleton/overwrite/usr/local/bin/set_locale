@@ -7,13 +7,7 @@ KEYMAP=$2
 /bin/killall Xvesa
 
 # plate locale
-PLATE=/usr/share/plate/chrome/content
-if [ ! -z $UILANG ] && [ -e $PLATE/index.$UILANG.html ]; then 
-	UILANG=$UILANG
-else
-	UILANG=en
-fi
-/bin/sed -e s/index.*html/"index.$UILANG.html"/g $PLATE/main.default > $PLATE/main.xul 
+#echo "pref(\"xpud.locale\", \""$UILANG"\");" >> /usr/share/plate/defaults/preferences/prefs.js
 
 # keymap
 if [ ! -z $KEYMAP ] && [ -e /usr/share/keymap/$KEYMAP.kmap ]; then 
