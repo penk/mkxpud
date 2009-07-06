@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link href="../jqueryFileTree.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+#divFileTree{
+position: absolute;
+top: 0;
+bottom: 0; 
+left: 0;
+width: 200px;
+height: 100%;
+overflow: scroll;
+}
+#preview{
+position: fixed;
+top: 0; 
+left: 200px;
+right: 0;
+bottom: 0;
+height: 100%;
+}
+</style>
+
+<script type="text/javascript" src="../jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="../jqueryFileTree.js"></script>
+<script type="text/javascript" src="../plate.js"></script>
+
+<script type="text/javascript">
+	function viewFile(filename) {
+		document.getElementById('preview').innerHTML = '<iframe style="border:none; height: 100%; width: 100%;" src="file://'+filename+'"></iframe>';
+	}
+
+    var $j = jQuery.noConflict();
+    $j(document).ready(function() {
+        $j('#divFileTree').fileTree({
+            root: '/'
+        }, function(file) {
+			viewFile(file);
+        });
+    });
+</script>
+
+</head>
+<body>
+
+<div id="divFileTree"></div>
+<div id="preview"></div>
+
+</body>
+</html>
