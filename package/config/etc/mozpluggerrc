@@ -110,7 +110,7 @@ plate/pud4:pud4:xPUD wrapper file
         repeat noisy swallow(geany): geany
 
 plate/pud5:pud5:xPUD wrapper file
-	repeat noisy swallow(Shiretoko): firefox 
+	repeat noisy swallow(Firefox): firefox 
 
 plate/pud6:pud6:xPUD wrapper file
         repeat noisy swallow(epdfview): epdfview
