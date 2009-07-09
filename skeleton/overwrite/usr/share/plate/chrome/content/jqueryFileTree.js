@@ -72,7 +72,7 @@ if(jQuery) (function($){
 							filelist += '<li class="file ext_'+getFileExtension(child.leafName)+'"><a href="#" rel="'+child.path+'">'+ child.leafName +'</a></li>';
 					}  
 					filelist += '</ul>';
-					 
+					filelist += '<script>showMenu(); </script>'; 
 					var data = filelist;
 					$(c).find('.start').html('');
 					$(c).removeClass('wait').append(data);

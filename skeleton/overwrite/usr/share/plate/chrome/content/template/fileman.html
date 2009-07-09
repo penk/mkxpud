@@ -6,6 +6,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <link href="../jqueryFileTree.css" rel="stylesheet" type="text/css" />
+<link href="../jquery.contextMenu.css" rel="stylesheet" type="text/css" />
 
 <style type="text/css">
 #divFileTree{
@@ -29,21 +30,50 @@ height: 100%;
 
 <script type="text/javascript" src="../jquery-1.3.2.min.js"></script>
 <script type="text/javascript" src="../jqueryFileTree.js"></script>
+<script type="text/javascript" src="../jquery.contextMenu.js"></script>
 <script type="text/javascript" src="../plate.js"></script>
+<script type="text/javascript">
+function HandleFolderContextMenu(action, folderPath){
+alert(action+'\n\n Folder Path : '+folderPath);
+}
+function HandleFileContextMenu(action, filePath){
+alert(action+'\n\n File Path : '+filePath);
+}
+function showMenu(){
+$('.directory>a').contextMenu({
+menu: 'myFolderMenu'
+},
+function(action, el, pos) {
+var folderPath=$(el).attr('rel');
+HandleFolderContextMenu(action, folderPath);
+}
+);
+
+$('.file>a').contextMenu({
+menu: 'myFileMenu'
+},
+function(action, el, pos) {
+var filePath=$(el).attr('rel');
+HandleFileContextMenu(action, filePath);
+}
+);
+}
+</script>
 
 <script type="text/javascript">
 	function viewFile(filename) {
 		document.getElementById('preview').innerHTML = '<iframe style="border:none; height: 100%; width: 100%;" src="file://'+filename+'"></iframe>';
 	}
 
-    var $j = jQuery.noConflict();
-    $j(document).ready(function() {
-        $j('#divFileTree').fileTree({
+    $(document).ready(function() {
+        $('#divFileTree').fileTree({
             root: '/'
         }, function(file) {
 			viewFile(file);
         });
+		
     });
+	
 </script>
 
 </head>
@@ -51,6 +81,17 @@ height: 100%;
 
 <div id="divFileTree"></div>
 <div id="preview"></div>
+
+<ul id="myFolderMenu" class="contextMenu">
+<li class="copy"><a href="#copy">Copy</a></li>
+<li class="paste"><a href="#paste">Paste</a></li>
+<li class="separator rename"><a href="#rename">Rename</a></li>
+<li class="deleteFolder"><a href="#deleteFolder">Delete</a></li>
+</ul>
+<ul id="myFileMenu" class="contextMenu">
+<li class="open"><a href="#open">Open…</a></li>
+<li class="properties"><a href="#properties">Properties</a></li>
+</ul>
 
 </body>
 </html>
