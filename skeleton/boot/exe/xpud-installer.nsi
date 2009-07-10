@@ -37,9 +37,9 @@ Section "${NAME}"
 	
 	File "bzImage"
 	File "core"
-	File "font"
-	File "apps"
-	File "scim"
+	File /nonfatal "font"
+	File /nonfatal "apps"
+	File /nonfatal "scim"
 
     SetOutPath "$INSTDIR"
     File "license.txt"
