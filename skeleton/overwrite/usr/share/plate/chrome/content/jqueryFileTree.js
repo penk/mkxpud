@@ -30,7 +30,7 @@
 // This plugin is dual-licensed under the GNU General Public License and the MIT License and
 // is copyright 2008 A Beautiful Site, LLC. 
 //
-// modified for xPUD - added directory parsing using XUL interfaces
+// modified for xPUD - added directory parsing function using XUL interfaces
 if(jQuery) (function($){
 	
 	$.extend($.fn, {
@@ -53,27 +53,8 @@ if(jQuery) (function($){
 					$(c).addClass('wait');
 					$(".jqueryFileTree.start").remove();
 					
-					netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
-
-					var file = Components.classes['@mozilla.org/file/local;1'].createInstance(Components.interfaces.nsILocalFile);  
-					file.initWithPath(t);
+					var data = getDirectoryList(t);
 					
-					var children = file.directoryEntries;  
-					var child;
-					// TODO: put files to array, sort
-					var list = [];
-					var filelist = '<ul class="jqueryFileTree" style="display: none;">';
-					
-					while (children.hasMoreElements()) {  
-						child = children.getNext().QueryInterface(Components.interfaces.nsILocalFile);
-						if (child.isDirectory())
-							filelist += '<li class="directory collapsed"><a href="#" rel="'+child.path+'/">'+ child.leafName +'</a></li>';
-						else
-							filelist += '<li class="file ext_'+getFileExtension(child.leafName)+'"><a href="#" rel="'+child.path+'">'+ child.leafName +'</a></li>';
-					}  
-					filelist += '</ul>';
-					filelist += '<script>showMenu(); </script>'; 
-					var data = filelist;
 					$(c).find('.start').html('');
 					$(c).removeClass('wait').append(data);
 					if( o.root == t ) $(c).find('UL:hidden').show(); else $(c).find('UL:hidden').slideDown({ duration: o.expandSpeed, easing: o.expandEasing });
@@ -120,4 +101,35 @@ function getFileExtension(filename)
 {
   var ext = /^.+\.([^.]+)$/.exec(filename);
   return ext == null ? "" : ext[1];
+}
+
+function getDirectoryList(dir)
+{
+	netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+
+	var file = Components.classes['@mozilla.org/file/local;1'].createInstance(Components.interfaces.nsILocalFile);
+	file.initWithPath(dir);
+
+	var children = file.directoryEntries;
+	var child;
+	var fileList = [];
+	var dirList = [];
+	var result = '<ul class="jqueryFileTree" style="display: none;">';
+
+	while (children.hasMoreElements()) {
+		child = children.getNext().QueryInterface(Components.interfaces.nsILocalFile);
+		var attributes = '';
+		if (child.isHidden()) attributes+=' hidden ';
+		if (child.isDirectory())
+			dirList.push('<li class="directory collapsed'+attributes+'"><a href="#" rel="'+child.path+'/">'+ child.leafName +'</a></li>');
+		else
+			fileList.push('<li id="'+child.leafName+'" class="file ext_'+getFileExtension(child.leafName)+attributes+'"><a href="#" rel="'+child.path+'">'+ child.leafName +'</a></li>');
+	}
+	dirList.sort();
+	fileList.sort();
+	result += dirList.join('\n');
+	result += fileList.join('\n');
+	result += '</ul>';
+	result += '<script>showMenu();</script>';
+	return result;
 }
