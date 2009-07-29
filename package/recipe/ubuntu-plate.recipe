@@ -35,6 +35,7 @@ geany
 [config]
 
 /.config/geany 
+/.mplayer
 
 [overwrite]
 
