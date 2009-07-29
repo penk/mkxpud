@@ -116,6 +116,7 @@ acpi-support
 /etc/hostname
 /etc/passwd
 /etc/group
+/etc/mime.types
 
 #/etc/modules
 
