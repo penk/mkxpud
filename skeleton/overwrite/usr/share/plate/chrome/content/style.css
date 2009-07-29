@@ -1,6 +1,7 @@
 body {
 	background: #2E598D;
 	font-family: dejavu sans;
+	overflow: hidden;
 }
 
 img {
@@ -167,6 +168,14 @@ h2 {
 	width: auto;
 	height: 0px;
 	overflow: hidden;
+	z-index: 4;
+}
+
+#programs.show {
+	bottom: 10px;
+	left: 10px;
+	right: 10px;
+	height: auto;
 }
 
 #programs.maximized {
@@ -176,10 +185,11 @@ h2 {
 	height: auto;
 }
 
-#programs.show {
-	bottom: 10px;
-	left: 10px;
-	right: 10px;
+#programs.full_screen {
+	top: 1px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
 	height: auto;
 }
 
@@ -292,14 +302,15 @@ h2 {
 
 #close_button {
 	position: absolute;
-	top: 2px;
-	bottom: auto;
+	top: 0px;
+	bottom: 5px;
 	left: auto;
-	right: 10px;
-	width: 16px;
-	height: 16px;
-	background: url(image/icon_close.png) center center no-repeat;
-	z-index: 4;
+	right: 0px;
+	width: 33px;
+	height: auto;
+	padding: 0px;
+	margin: 0px;
+	background: url(image/icon_close.png) bottom left no-repeat;
 	opacity: 0.4;
 }
 
@@ -310,14 +321,13 @@ h2 {
 
 #maximize_button {
 	position: absolute;
-	top: 2px;
-	bottom: auto;
+	top: auto;
+	bottom: 2px;
 	left: auto;
-	right: 28px;
+	right: 38px;
 	width: 16px;
 	height: 16px;
 	background: url(image/icon_maximize.png) center center no-repeat;
-	z-index: 4;
 	opacity: 0.4;
 }
 
@@ -328,18 +338,51 @@ h2 {
 
 #minimize_button {
 	position: absolute;
-	top: 2px;
-	bottom: auto;
+	top: auto;
+	bottom: 2px;
 	left: auto;
-	right: 46px;
+	right: 56px;
 	width: 16px;
 	height: 16px;
 	background: url(image/icon_minimize.png) center center no-repeat;
-	z-index: 4;
 	opacity: 0.4;
 }
 
 #minimize_button:hover {
 	cursor: pointer;
 	opacity: 1;
+}
+
+#systray {
+	position: absolute;
+	bottom: 2px;
+	left: 10px;
+	color: gray;
+	font-size: 80%;
+}
+
+#top_task {
+	position: absolute;
+	top: 0px;
+	bottom: auto;
+	left: 120px;
+	right: 0px;
+	width: auto;
+	height: 30px;
+	border: 0px;
+	z-index: 5;
+	overflow: hedden;
+}
+
+#top_task.maximized {
+	left: 0px;
+	right: -10px;
+	height: 20px;
+}
+
+#top_task.full_screen {
+	left: 0px;
+	right: -10px;
+	height: 1px;
+	background: black;
 }

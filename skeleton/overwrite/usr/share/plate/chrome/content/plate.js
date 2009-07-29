@@ -1,3 +1,10 @@
+function initail_plate_ui() {
+	select_tab(document.getElementById('home')); 
+	system('/usr/local/bin/post-boot.sh');
+	update_sysinfo();
+	do_i18n();
+}
+
 // Get the root branch
 var xpudPrefs = Components.classes["@mozilla.org/preferences-service;1"]
                     .getService(Components.interfaces.nsIPrefBranch);
@@ -50,6 +57,13 @@ function send_wifi() {
 
 }
 function select_tab( this_tab ) {
+	if( this_tab == null ) {
+		var tabs = document.getElementById('panel').getElementsByTagName('div');
+		for( var i = 0; i < tabs.length; i++ ) {
+			if( tabs[i].className == 'selected' )
+				this_tab = tabs[i];
+		}
+	}
 	if( this_tab.className == '' ) {
 		var tabs = document.getElementById('panel').getElementsByTagName('div');
 		for( var i = 0; i < tabs.length; i++ ) {
@@ -90,9 +104,10 @@ function show_menu( input ) {
 	var utf8Converter = Components.classes["@mozilla.org/intl/utf8converterservice;1"].getService(Components.interfaces.nsIUTF8ConverterService);
     data = utf8Converter.convertURISpecToUTF8 (data, "UTF-8");
     
-	document.getElementById('close_button').style.display = "none";
-	document.getElementById('maximize_button').style.display = "none";
-	document.getElementById('minimize_button').style.display = "none";
+	//document.getElementById('close_button').style.display = "none";
+	//document.getElementById('maximize_button').style.display = "none";
+	//document.getElementById('minimize_button').style.display = "none";
+	document.getElementById('top_task').style.display = "none";
 	document.getElementById('programs').className = '';
 	document.getElementById('menu').className = 'show';
 	document.getElementById('menu').innerHTML = data;
@@ -109,9 +124,10 @@ function resume_notify( this_obj, program_name ) {
 }
 
 function show_program( input ) {
-	document.getElementById('close_button').style.display = "inline";
-	document.getElementById('maximize_button').style.display = "inline";
-	document.getElementById('minimize_button').style.display = "inline";
+	//document.getElementById('close_button').style.display = "inline";
+	//document.getElementById('maximize_button').style.display = "inline";
+	//document.getElementById('minimize_button').style.display = "inline";
+	document.getElementById('top_task').style.display = "inline";
 	document.getElementById('menu').className = '';
 	document.getElementById('programs').className = 'show';
 	if( document.getElementById("exec." + input) == null ) {
@@ -127,6 +143,9 @@ function show_program( input ) {
 			break;
 		}
 	document.getElementById("exec."+input).className = 'show';
+
+	if( document.getElementById('maximize_button').className == 'maximized' )
+		maximize_program();
 }
 
 function close_program() {
@@ -146,7 +165,9 @@ function maximize_program() {
 	document.getElementById('content').className = 'maximized';
 	document.getElementById('padding').className = 'maximized';
 	document.getElementById('programs').className = 'maximized';
+	document.getElementById('top_task').className = 'maximized';
 	document.getElementById('systray').style.display = 'block';
+	top_task_auto_hide();
 }
 
 function unmaximize_program() {
@@ -154,6 +175,7 @@ function unmaximize_program() {
 	document.getElementById('content').className = '';
 	document.getElementById('padding').className = '';
 	document.getElementById('programs').className = '';
+	document.getElementById('top_task').className = '';
 	document.getElementById('systray').style.display = 'none';
 }
 
@@ -161,10 +183,14 @@ function toggle_maximize_program() {
 	if( document.getElementById('panel').className == 'maximized' )
 	{
 		unmaximize_program();
+		document.getElementById('maximize_button').className = '';
 		document.getElementById('programs').className = 'show';
 	}
 	else
+	{
 		maximize_program();
+		document.getElementById('maximize_button').className = 'maximized';
+	}
 }
 
 function system(input) {
@@ -209,11 +235,6 @@ function sleep(milliseconds) {
 	for (var i = 0; i < 1e7; i++) {
 		if ((new Date().getTime() - start) > milliseconds) break;
 	}
-}
-
-function confirm_off() {
-	tmp = window.confirm('Do you want to shutdown?'); 
-	if (tmp) system('poweroff -f');
 }
 
 function update_div(id, path) {
@@ -336,3 +357,26 @@ function setSelectedOpts(PrefString, ElementName) {
           }      
      }
 }
+
+var top_task_timer;
+
+function top_task_auto_hide() {
+	if( document.getElementById('top_task').className == 'maximized' )
+	{
+		top_task_timer = setTimeout("if(document.getElementById('top_task').className=='maximized')top_task_hide();",1500);
+	}
+}
+
+function top_task_hide() {
+	document.getElementById('top_task').className = 'full_screen';
+	document.getElementById('programs').className = 'full_screen';
+}
+
+function top_task_show() {
+	clearTimeout( top_task_timer );
+	if( document.getElementById('top_task').className == 'full_screen' )
+	{
+		document.getElementById('top_task').className = 'maximized';
+		document.getElementById('programs').className = 'maximized';
+	}
+} 
