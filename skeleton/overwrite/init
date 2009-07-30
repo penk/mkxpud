@@ -45,6 +45,7 @@ export GTK_IM_MODULE="scim"
 		fi
 		/bin/mv $PLATE/main.default $PLATE/main.xul
 		echo "pref(\"xpud.locale\", \""$UILANG"\");" >> /usr/share/plate/defaults/preferences/prefs.js
+		export LANG=$UILANG
 	fi 
 	
 	# init hook
