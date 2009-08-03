@@ -59,7 +59,6 @@ xbacklight
 /usr/share/X11/XKeysymDB
 
 /usr/lib/notify-osd/notify-osd
-/usr/share/dbus-1/services/org.freedesktop.Notifications.service
 
 [config]
 
