@@ -2,6 +2,9 @@
 
 /usr/bin/xmodmap ~/.Xmodmap
 
+# set mouse acceleration and threshold (pointer is too fast with new Xvesa build)
+/usr/bin/xset m 1.5/1 4
+
 if [ ! -e /tmp/firsttime ]; then
 
 # run this script once

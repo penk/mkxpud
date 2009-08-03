@@ -34,7 +34,7 @@ xbacklight
 
 /usr/bin/xev
 /usr/bin/xmodmap
-
+/usr/bin/xset
 /usr/bin/xbacklight
 
 #/usr/bin/lxterminal
@@ -59,6 +59,10 @@ xbacklight
 /usr/share/X11/XKeysymDB
 
 /usr/lib/notify-osd/notify-osd
+
+/usr/lib/libXxf86misc.so
+/usr/lib/libXxf86misc.so.1
+/usr/lib/libXxf86misc.so.1.1.0
 
 [config]
 
