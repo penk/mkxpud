@@ -33,6 +33,7 @@ usbserial hso nozomi sierra option
 uvcvideo
 acpi-cpufreq cpufreq_ondemand video button
 snd-intel8x0
+tulip
 
 [recipe]
 # packages and files to be included into rootfs
