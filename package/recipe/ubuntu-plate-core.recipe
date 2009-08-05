@@ -18,9 +18,6 @@ rm -f $MKXPUD_TARGET/usr/share/firefox/crashreporter;
 rm -f $MKXPUD_TARGET/usr/share/firefox/components/libmozgnome.so;
 rm -f $MKXPUD_TARGET/usr/share/firefox/components/libnkgnomevfs.so;
 
-# extract cxplorer
-tar xzf skeleton/archive/cxplorer-2.0.0.tar.gz -C $MKXPUD_TARGET/
-
 [binary]
 
 /usr/bin/mozplugger-controller
@@ -52,23 +49,6 @@ tar xzf skeleton/archive/cxplorer-2.0.0.tar.gz -C $MKXPUD_TARGET/
 /usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-png.so
 /usr/lib/gtk-2.0/2.10.0/loader-files.d/libgtk2.0-0.loaders
 /usr/lib/gtk-2.0/2.10.0/loader-files.d/librsvg2-common.loaders
-
-# cxplorer dependencies
-/usr/lib/libpangox-1.0.so
-/usr/lib/libpangox-1.0.so.0
-/usr/lib/libpangox-1.0.so.0.2400.1
-
-# mime info
-/usr/share/mime/aliases
-#/usr/share/mime/generic-icons
-/usr/share/mime/globs
-#/usr/share/mime/globs2
-/usr/share/mime/magic
-/usr/share/mime/mime.cache
-/usr/share/mime/subclasses
-#/usr/share/mime/treemagic
-#/usr/share/mime/types
-#/usr/share/mime/XMLnamespaces
 
 [config]
 

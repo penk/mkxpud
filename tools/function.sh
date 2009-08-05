@@ -53,6 +53,12 @@ function install {
 		PACKAGE="$PACKAGE $P"
 		done
 	done
+	# add OPT packages
+	for R in `./tools/parser $MKXPUD_CONFIG opt`; do 
+		for P in `./tools/parser package/recipe/$R.recipe package`; do
+		PACKAGE="$PACKAGE $P"
+		done
+	done
 
 	if [ "$MKXPUD_PKGMGR" != 'skip' ]; then
 		sudo $MKXPUD_PKGMGR $PACKAGE

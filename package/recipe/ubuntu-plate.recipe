@@ -8,6 +8,7 @@ gnome-mplayer
 transmission-gtk
 gpicview
 geany
+pcmanfm-nohal
 #epdfview
 
 [action]
@@ -23,6 +24,8 @@ geany
 /usr/bin/gnome-mplayer
 /usr/bin/mplayer
 
+/usr/bin/pcmanfm
+
 [data]
 
 #/usr/share/epdfview
@@ -32,8 +35,52 @@ geany
 /usr/share/icons/gnome/index.theme
 /usr/share/icons/gnome/22x22/status/audio-volume-high.png
 
+# MIME info
+/usr/share/mime/aliases
+#/usr/share/mime/generic-icons
+/usr/share/mime/globs
+#/usr/share/mime/globs2
+/usr/share/mime/magic
+/usr/share/mime/mime.cache
+/usr/share/mime/subclasses
+#/usr/share/mime/treemagic
+#/usr/share/mime/types
+#/usr/share/mime/XMLnamespaces
+
+/usr/share/mime/packages/libmimetype.xml
+#/usr/share/pcmanfm/icons/file.png
+#/usr/share/pcmanfm/icons/folder.png
+/usr/share/pcmanfm/mount.rules
+/usr/share/pcmanfm/ui/about-dlg.glade
+/usr/share/pcmanfm/ui/appchooserdlg.glade
+/usr/share/pcmanfm/ui/file_properties.glade
+/usr/share/pcmanfm/ui/find-files.glade
+/usr/share/pcmanfm/ui/prefdlg.glade
+/usr/share/pixmaps/pcmanfm.png
+
+/usr/lib/gamin
+/usr/lib/libgamin-1.so.0
+/usr/lib/libgamin-1.so.0.1.9
+/etc/gamin
+/etc/gamin/gaminrc
+
+/usr/share/icons/hicolor/
+
+#/usr/share/icons/gnome/8x8
+#/usr/share/icons/gnome/16x16
+#/usr/share/icons/gnome/22x22
+#/usr/share/icons/gnome/24x24
+#/usr/share/icons/gnome/32x32
+#/usr/share/icons/gnome/48x48
+
+/usr/share/icons/gnome/16x16/mimetypes
+/usr/share/icons/gnome/16x16/places
+/usr/share/icons/gnome/32x32/mimetypes
+/usr/share/icons/gnome/32x32/places
+
 [config]
 
+/.gtkrc-2.0
 /.config/geany 
 /.mplayer
 

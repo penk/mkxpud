@@ -116,7 +116,7 @@ plate/pud6:pud6:xPUD wrapper file
         repeat noisy swallow(epdfview): epdfview
 
 plate/pud7:pud7:xPUD wrapper file
-		repeat noisy swallow(cxplorer): cxplorer
+		repeat noisy swallow(pcmanfm): pcmanfm
 
 ###################
 ### Video       ###
