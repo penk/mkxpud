@@ -55,7 +55,7 @@ rm -f $MKXPUD_TARGET/usr/share/firefox/components/libnkgnomevfs.so;
 /tmp/sysinfo-s
 
 /etc/mozpluggerrc
-/etc/bootchart-lite
+#/etc/bootchart-lite
 /etc/pulse
 /etc/fonts
 /.mozilla
