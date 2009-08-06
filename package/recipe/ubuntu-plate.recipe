@@ -65,14 +65,6 @@ pcmanfm-nohal
 /etc/gamin/gaminrc
 
 /usr/share/icons/hicolor/
-
-#/usr/share/icons/gnome/8x8
-#/usr/share/icons/gnome/16x16
-#/usr/share/icons/gnome/22x22
-#/usr/share/icons/gnome/24x24
-#/usr/share/icons/gnome/32x32
-#/usr/share/icons/gnome/48x48
-
 /usr/share/icons/gnome/16x16/mimetypes
 /usr/share/icons/gnome/16x16/places
 /usr/share/icons/gnome/32x32/mimetypes
@@ -80,7 +72,6 @@ pcmanfm-nohal
 
 [config]
 
-/.gtkrc-2.0
 /.config/geany 
 /.mplayer
 

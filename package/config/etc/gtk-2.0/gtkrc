@@ -4,6 +4,8 @@ gtk_color_scheme = "fg_color:#000\nbg_color:#EDECEB\nbase_color:#fff\ntext_color
 
 gtk-font-name="Sans 12"
 
+gtk-icon-theme-name="gnome"
+
 style "clearlooks-default"
 {
 	########
