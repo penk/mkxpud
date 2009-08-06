@@ -62,8 +62,6 @@ rm -f $MKXPUD_TARGET/usr/share/firefox/components/libnkgnomevfs.so;
 
 /etc/gtk-2.0
 
-/usr/share/cxplorer/cxplorer-ui.xml
-
 [overwrite]
 
 /usr/share/themes/Human/cursor.theme
