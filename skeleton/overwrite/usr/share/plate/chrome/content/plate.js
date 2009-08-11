@@ -5,9 +5,7 @@ function initail_plate_ui() {
 	do_i18n();
 }
 
-// Get the root branch
-var xpudPrefs = Components.classes["@mozilla.org/preferences-service;1"]
-                    .getService(Components.interfaces.nsIPrefBranch);
+var xpudPrefs = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch);
 
 function check_enc(num) {
 	if (document.getElementById('wifi_connect')) {
@@ -380,3 +378,88 @@ function top_task_show() {
 		document.getElementById('programs').className = 'maximized';
 	}
 } 
+
+function plate_reboot() {
+	if (document.getElementById('do-backup').checked) { 
+		var backupDir = prefRead('backup-dir');
+		if (backupDir != '') {
+			document.getElementById('shutdown-popup').innerHTML = '<h3>Restart</h3><img src="image/load.gif"> Saving your data...<br />Please wait...';
+			system('xpud-backup '+backupDir+' -r');
+		}
+		else {
+			alert('Please set directory for backup');
+			cover();
+		}
+	}
+	else {
+	system('reboot -f');
+	}
+}
+
+function plate_poweroff() {
+	if (document.getElementById('do-backup').checked) { 
+		var backupDir = prefRead('backup-dir');
+		if (backupDir != '') {
+			document.getElementById('shutdown-popup').innerHTML = '<h3>Poweroff</h3><img src="image/load.gif"> Saving your data...<br />Please wait...';
+			system('xpud-backup '+backupDir+' -p');
+		}
+		else {
+			alert('Please set directory for backup');
+			cover();
+		}
+	}
+	else {
+	system('poweroff -f');
+	}
+}
+
+function prefRead(pref) {
+	netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
+	var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
+	file.initWithPath('~/.config/plate/'+pref);
+	var data = "";
+	if( file.exists() ) {
+		var fstream = Components.classes["@mozilla.org/network/file-input-stream;1"].createInstance(Components.interfaces.nsIFileInputStream);
+		var sstream = Components.classes["@mozilla.org/scriptableinputstream;1"].createInstance(Components.interfaces.nsIScriptableInputStream);
+		fstream.init(file, -1, 0, 0);
+		sstream.init(fstream); 
+
+		var str = sstream.read(4096);
+		while (str.length > 0) {
+			data += str;
+			str = sstream.read(4096);
+		}
+
+		sstream.close();
+		fstream.close();
+
+		var utf8Converter = Components.classes["@mozilla.org/intl/utf8converterservice;1"].getService(Components.interfaces.nsIUTF8ConverterService);
+		data = utf8Converter.convertURISpecToUTF8 (data, "UTF-8");
+	}
+	return data;
+}
+
+function prefWrite(data, pref) {
+	var saveDir = '~/.config/plate';
+	var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
+	file.initWithPath(saveDir);
+	
+	if( !file.exists() || !file.isDirectory() ) {   // if it doesn't exist, create
+		file.create(Components.interfaces.nsIFile.DIRECTORY_TYPE, 0777);
+	}
+	// init file
+	file.initWithPath(saveDir+'/'+pref);
+	// file is nsIFile, data is a string
+	var foStream = Components.classes["@mozilla.org/network/file-output-stream;1"].createInstance(Components.interfaces.nsIFileOutputStream);
+	// use 0x02 | 0x10 to open file for appending.
+	foStream.init(file, 0x02 | 0x08 | 0x20, 0666, 0); 
+	// write, create, truncate
+	// In a c file operation, we have no need to set file mode with or operation,
+	// directly using "r" or "w" usually.
+	// if you are sure there will never ever be any non-ascii text in data you can 
+	// also call foStream.writeData directly
+	var converter = Components.classes["@mozilla.org/intl/converter-output-stream;1"].createInstance(Components.interfaces.nsIConverterOutputStream);
+	converter.init(foStream, "UTF-8", 0, 0);
+	converter.writeString(data);
+	converter.close(); // this closes foStream
+}

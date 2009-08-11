@@ -1,7 +1,11 @@
+<div id="shutdown-popup">
 <h3><span class="i18n">quit_now</span></h3>
 
 <p>
-<button onclick="system('poweroff -f');" style="font-size: 100%;"><img src="image/logout.png"><br /><span class="i18n">turn_off</span></button> <button onclick="system('reboot -f');" style="font-size: 100%;"><img src="image/reload.png"><br /><span class="i18n">restart</span></button>
+<button onclick="plate_poweroff();" style="font-size: 100%;"><img src="image/logout.png"><br /><span class="i18n">turn_off</span></button> <button onclick="plate_reboot();" style="font-size: 100%;"><img src="image/reload.png"><br /><span class="i18n">restart</span></button>
+<br /><br />
+<input type=checkbox id="do-backup">Save backup
 <br /><br />
 <button style="float: right;" onclick="cover();"><!--<img src="image/cancel.png" align="top"> --> <span class="i18n">cancel_shutdown</span></button>
 </p>
+</div>

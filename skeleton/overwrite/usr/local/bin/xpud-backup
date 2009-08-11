@@ -12,4 +12,13 @@ find | cpio -H newc -o | gzip -9 > $1/xpud-data.gz
 cd -
 rm -rf /tmp/backup
 
+# if additional parameter was passed - poweroff or reboot
+	if [ $2 == '-p' ]; then
+		poweroff -f
+	fi
+	
+	if [ $2 == '-r' ]; then
+		reboot -f
+	fi
+
 fi
