@@ -10,6 +10,7 @@ gpicview
 geany
 pcmanfm-nohal
 #epdfview
+evilvte
 
 [action]
 
@@ -25,6 +26,8 @@ pcmanfm-nohal
 /usr/bin/mplayer
 
 /usr/bin/pcmanfm
+
+/usr/bin/evilvte
 
 [data]
 
@@ -69,6 +72,9 @@ pcmanfm-nohal
 /usr/share/icons/gnome/16x16/places
 /usr/share/icons/gnome/32x32/mimetypes
 /usr/share/icons/gnome/32x32/places
+
+/usr/lib/libvte.so.9
+/usr/lib/libvte.so.9.5.0
 
 [config]
 
