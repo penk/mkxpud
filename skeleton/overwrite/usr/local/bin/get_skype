@@ -18,3 +18,5 @@ echo "skype"
 echo ""
 
 cd -
+
+echo "/usr/bin/skype" >> /etc/xpud-backup.conf

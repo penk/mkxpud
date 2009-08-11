@@ -22,3 +22,9 @@ cp -a ./usr/share/gconf /usr/share
 rm -rf /tmp/usr/
 
 cd -
+
+echo "/usr/lib/codecs" >> /etc/xpud-backup.conf
+echo "/usr/lib/win32" >> /etc/xpud-backup.conf
+echo "/usr/lib/libdvdcss.so.2" >> /etc/xpud-backup.conf
+echo "/usr/lib/libdvdcss.so.2.1.0" >> /etc/xpud-backup.conf
+echo "/usr/share/gconf/schemas/gecko-mediaplayer.schemas" >> /etc/xpud-backup.conf

@@ -83,6 +83,7 @@ scim-anthy
 
 /usr/share/libchewing3
 /usr/lib/libchewing.so.3
+/usr/lib/libchewing.so.3.0.1
 
 /usr/lib/gtk-2.0/2.10.0/immodule-files.d/scim-bridge-client-gtk.immodules
 /usr/lib/gtk-2.0/2.10.0/immodule-files.d/scim-gtk2-immodule.immodules
@@ -111,7 +112,9 @@ scim-anthy
 ## FIXME
 
 /usr/lib/libscim-gtkutils-1.0.so.8
+/usr/lib/libscim-gtkutils-1.0.so.8.2.3
 /usr/lib/libscim-x11utils-1.0.so.8
+/usr/lib/libscim-x11utils-1.0.so.8.2.3
 
 [config]
 

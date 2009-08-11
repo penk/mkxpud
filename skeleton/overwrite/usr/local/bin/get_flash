@@ -9,3 +9,5 @@ cd /tmp
 wget "http://fpdownload.macromedia.com/get/flashplayer/current/install_flash_player_10_linux.tar.gz"
 tar xzf install_flash_player_10_linux.tar.gz -C $DESTINATION
 rm install_flash_player_10_linux.tar.gz
+
+echo "/usr/share/firefox/plugins/" >> /etc/xpud-backup.conf

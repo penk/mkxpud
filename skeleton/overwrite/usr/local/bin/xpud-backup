@@ -13,11 +13,11 @@ cd -
 rm -rf /tmp/backup
 
 # if additional parameter was passed - poweroff or reboot
-	if [ $2 == '-p' ]; then
+	if [ "$2" == "-p" ]; then
 		poweroff -f
 	fi
 	
-	if [ $2 == '-r' ]; then
+	if [ "$2" == "-r" ]; then
 		reboot -f
 	fi
 
