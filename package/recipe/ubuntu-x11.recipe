@@ -40,7 +40,7 @@ xbacklight
 #/usr/bin/lxterminal
 
 /usr/bin/notify-send
-/usr/lib/notify-osd/notify-osd
+#/usr/lib/notify-osd/notify-osd
 
 [data]
 
@@ -59,6 +59,11 @@ xbacklight
 /usr/share/X11/XKeysymDB
 
 /usr/lib/notify-osd/notify-osd
+/usr/lib/libgconf-2.so
+/usr/lib/libgconf-2.so.4
+/usr/lib/libgconf-2.so.4.1.5
+/usr/lib/libgthread-2.0.so.0
+/usr/lib/libgthread-2.0.so.0.2000.1
 
 /usr/lib/libXxf86misc.so
 /usr/lib/libXxf86misc.so.1

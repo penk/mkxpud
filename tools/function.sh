@@ -104,7 +104,7 @@ function strip {
 				config) 
 						## package/config/*
 						[ -d $MKXPUD_TARGET/`dirname $A` ] || mkdir -p $MKXPUD_TARGET/`dirname $A` 
-						cp -rfpL --remove-destination package/config/$A $MKXPUD_TARGET/$A
+						cp -rfp --remove-destination package/config/$A $MKXPUD_TARGET/$A
 					;;
 				alternative) 
 						## package/alternative/$MKXPUD_CODENAME
@@ -157,7 +157,7 @@ function opt {
 				binary) 
 						##  host
 						[ -d $MKXPUD_TARGET/opt/$NAME/`dirname $A` ] || mkdir -p $MKXPUD_TARGET/opt/$NAME/`dirname $A`
-						cp -rfpL --remove-destination $A $MKXPUD_TARGET/opt/$NAME/$A
+						cp -rfpl --remove-destination $A $MKXPUD_TARGET/opt/$NAME/$A
 						## ldd-helper
 						for i in `./tools/ldd-helper $A`; do 
 							
@@ -175,12 +175,12 @@ function opt {
 				data) 
 						## host 
 						[ -d $MKXPUD_TARGET/opt/$NAME/`dirname $A` ] || mkdir -p $MKXPUD_TARGET/opt/$NAME/`dirname $A` 
-						cp -rfpL --remove-destination $A $MKXPUD_TARGET/opt/$NAME/$A
+						cp -rfpl --remove-destination $A $MKXPUD_TARGET/opt/$NAME/$A
 					;;
 				config) 
 						## package/config/*
 						[ -d $MKXPUD_TARGET/opt/$NAME/`dirname $A` ] || mkdir -p $MKXPUD_TARGET/opt/$NAME/`dirname $A` 
-						cp -rfpL --remove-destination package/config/$A $MKXPUD_TARGET/opt/$NAME/$A
+						cp -rfp --remove-destination package/config/$A $MKXPUD_TARGET/opt/$NAME/$A
 					;;
 				overwrite) 
 						## skeleton/overwrite/
