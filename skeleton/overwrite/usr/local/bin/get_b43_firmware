@@ -1,0 +1,23 @@
+#!/bin/bash -e
+# get b43 firmware for Broadcom 1390 Wireless
+
+dir=$(mktemp -d)
+cd $dir
+
+wget "http://mirrors.kernel.org/ubuntu/pool/main/b/b43-fwcutter/b43-fwcutter_011-1_i386.deb"
+ar p b43-fwcutter*.deb data.tar.gz | zcat | tar xv
+
+cp -a ./usr/bin /usr
+
+wget http://downloads.openwrt.org/sources/wl_apsta-3.130.20.0.o
+wget http://downloads.openwrt.org/sources/broadcom-wl-4.80.53.0.tar.bz2
+b43-fwcutter -w /lib/firmware wl_apsta-3.130.20.0.o
+tar xvjf broadcom-wl-4.80.53.0.tar.bz2
+b43-fwcutter --unsupported -w /lib/firmware broadcom-wl-4.80.53.0/kmod/wl_apsta_mimo.o
+rm -rf /$dir
+chmod o+rx /lib/firmware/b43 /lib/firmware/b43legacy
+
+#/etc/init.d/dbus restart
+
+echo "/lib/firmware/b43" >> /etc/xpud-backup.conf
+echo "/lib/firmware/b43legacy" >> /etc/xpud-backup.conf
