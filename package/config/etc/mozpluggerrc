@@ -117,6 +117,9 @@ plate/pud6:pud6:xPUD wrapper file
 
 plate/pud7:pud7:xPUD wrapper file
 		repeat noisy swallow(pcmanfm): pcmanfm
+		
+plate/pud8:pud8:xPUD wrapper file
+		repeat noisy swallow(viewnior): viewnior
 
 ###################
 ### Video       ###

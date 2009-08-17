@@ -6,17 +6,19 @@ apps
 [package]
 gnome-mplayer
 transmission-gtk
-gpicview
+#gpicview
 geany
 pcmanfm-nohal
 #epdfview
 
 [action]
+#unpack viewnior
+tar jxf skeleton/archive/viewnior* -C $MKXPUD_TARGET;
 
 [binary]
 
 #/usr/bin/epdfview
-/usr/bin/gpicview
+#/usr/bin/gpicview
 /usr/bin/geany
 ## FIXME: mime file
 /usr/bin/transmission
