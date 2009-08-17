@@ -13,6 +13,10 @@ Options:
 For further informations please refer to README file."
 }
 
+function clean {
+	sudo rm -rf working/$MKXPUD_CODENAME
+}
+
 function setup {
 
 	echo "[mkxpud] Setup Project: $1"

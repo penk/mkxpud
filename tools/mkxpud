@@ -17,6 +17,7 @@ else
 	
 	case $1 in
 		all)
+			clean
 			setup $MKXPUD_CODENAME	
 			echo "[mkxpud] Project Name: $MKXPUD_NAME"
 			install && strip 
@@ -27,7 +28,7 @@ else
 			echo "[mkxpud] $MKXPUD_CODENAME Done"
 			;;
 		clean)
-			sudo rm -rf working/$MKXPUD_CODENAME
+			clean
 			;;
 		image)
 			image $MKXPUD_CODENAME
