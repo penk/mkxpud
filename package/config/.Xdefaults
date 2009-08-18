@@ -1,2 +1,4 @@
 XTerm*background: black
 XTerm*foreground: grey
+XTerm*faceName: Droid Sans Mono
+XTerm*faceSize: 10
