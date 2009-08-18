@@ -72,6 +72,12 @@ tar jxf skeleton/archive/viewnior* -C $MKXPUD_TARGET;
 /usr/share/icons/gnome/32x32/mimetypes
 /usr/share/icons/gnome/32x32/places
 
+# desktop files
+/usr/share/applications/transmission.desktop
+/usr/share/applications/pcmanfm.desktop
+/usr/share/applications/gnome-mplayer.desktop
+/usr/share/applications/geany.desktop
+
 [config]
 
 /.config/geany 

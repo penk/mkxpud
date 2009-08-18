@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# generate menu
+/usr/local/bin/generate_menu
+
 /usr/bin/xmodmap ~/.Xmodmap
 
 # set mouse acceleration and threshold (pointer is too fast with new Xvesa build)

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=xterm
+GenericName=Terminal
+Comment=Use the command line
+TryExec=xterm
+Exec=xterm
+Icon=konsole
+Type=Application
+Categories=Utility;TerminalEmulator;
+StartupNotify=true

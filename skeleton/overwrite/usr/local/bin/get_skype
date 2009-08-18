@@ -13,10 +13,12 @@ mv skype_static-*/ /opt/
 find /opt -name skype -exec ln -s {} /usr/bin/ \;
 
 echo "Skype has been installed successfully."
-echo "Launch it with:"
-echo "skype"
-echo ""
 
 cd -
 
 echo "/usr/bin/skype" >> /etc/xpud-backup.conf
+
+# create .desktop file and copy icon
+echo "[Desktop Entry]\nName=Skype\nGenericName=Internet Telephony" > /usr/share/applications/skype.desktop
+
+generate_menu

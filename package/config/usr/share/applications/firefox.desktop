@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=Firefox Web Browser
+Comment=Browse the World Wide Web
+GenericName=Web Browser
+Exec=firefox %u
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=firefox4
+Categories=Application;Network;
+StartupWMClass=Firefox
+StartupNotify=true

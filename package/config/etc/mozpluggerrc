@@ -94,33 +94,12 @@ define(GV_FLAGS,[repeat noisy swallow(gv) fill])
 define(GV,[GV_FLAGS(): gv GV_OPTS() "$file"])
 
 ###################
-### Dirty hack  ###
+### xPUD apps   ###
 ###################
 
-plate/pud1:pud1:xPUD wrapper file
-	repeat noisy swallow(xterm): xterm -bg black -fg gray
-
-plate/pud2:pud2:xPUD wrapper file
-	repeat noisy swallow(transmission): transmission 
-
-plate/pud3:pud3:xPUD wrapper file
-	repeat noisy swallow(gnome-mplayer): gnome-mplayer
-
-plate/pud4:pud4:xPUD wrapper file
-        repeat noisy swallow(geany): geany
-
-plate/pud5:pud5:xPUD wrapper file
-	repeat noisy swallow(Firefox): firefox 
-
-plate/pud6:pud6:xPUD wrapper file
-        repeat noisy swallow(epdfview): epdfview
-
-plate/pud7:pud7:xPUD wrapper file
-		repeat noisy swallow(pcmanfm): pcmanfm
+plate/pud:pud:xPUD wrapper file
+		repeat noisy swallow(): /bin/sh -c "$VAR_command"
 		
-plate/pud8:pud8:xPUD wrapper file
-		repeat noisy swallow(viewnior): viewnior
-
 ###################
 ### Video       ###
 ###################

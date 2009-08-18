@@ -131,7 +131,7 @@ function show_program( input ) {
 	if( document.getElementById("exec." + input) == null ) {
 		var new_element = document.createElement("div");
 		new_element.id = "exec."+input;
-		new_element.innerHTML = "<embed src=chrome://plate/content/utils/"+input+" width=100% height=100% />";
+		new_element.innerHTML = "<embed src=chrome://plate/content/utils/app.pud width=100% height=100% command="+input+" />";
 		document.getElementById('programs').appendChild(new_element);
 	}
 	var programs = document.getElementById('programs').getElementsByTagName('div');
