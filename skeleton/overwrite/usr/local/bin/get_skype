@@ -16,9 +16,13 @@ echo "Skype has been installed successfully."
 
 cd -
 
-echo "/usr/bin/skype" >> /etc/xpud-backup.conf
-
-# create .desktop file and copy icon
-echo "[Desktop Entry]\nName=Skype\nGenericName=Internet Telephony" > /usr/share/applications/skype.desktop
+# create custom .desktop file and symlink to icon
+echo -e "[Desktop Entry]\nName=Skype\nGenericName=Internet Telephony" > /usr/share/applications/skype.desktop
+ln -s /opt/skype*/icons/SkypeBlue_48x48.png /usr/share/plate/chrome/content/image/skype.png
 
 generate_menu
+
+echo "/usr/bin/skype" >> /etc/xpud-backup.conf
+echo "~/.Skype/" >> /etc/xpud-backup.conf
+echo "/usr/share/applications/skype.desktop" /etc/xpud-backup.conf
+echo "/usr/share/plate/chrome/content/image/skype.png" >> /etc/xpud-backup.conf

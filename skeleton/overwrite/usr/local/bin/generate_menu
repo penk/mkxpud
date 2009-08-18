@@ -19,7 +19,12 @@ for i in $list; do
 	# get application icon
 	#app_icon=`grep Icon= $i | cut -d '=' -f 2`
 	
-	echo "<td><a href='#' id='browser' onclick='show_program(&quot;"$app_command"&quot;);' onfocus = 'this.blur()'>"
+	# FIXME: support for multiple applications
+	if [ $app_command == "skype" ]; then
+		echo "<td><a href='#' id='browser' onclick='system(&quot;"$app_command"&quot;);' onfocus = 'this.blur()'>"
+	else
+		echo "<td><a href='#' id='browser' onclick='show_program(&quot;"$app_command"&quot;);' onfocus = 'this.blur()'>"
+	fi
 	echo "<table><tr><td class='image'>"
 	echo "<img src='image/"$app_command".png' onload=\"resume_notify(this,'"$app_command"');\" />"
 	echo "<div class='notify_hide'><div></div></div>"
