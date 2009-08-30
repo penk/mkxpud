@@ -85,6 +85,7 @@ rm -f $MKXPUD_TARGET/usr/share/firefox/components/libnkgnomevfs.so;
 /usr/local/bin/audio_volume
 /usr/local/bin/get_b43_firmware
 /usr/local/bin/generate_menu
+/usr/local/bin/xopt-get
 
 /tmp/sysinfo
 
@@ -95,3 +96,5 @@ rm -f $MKXPUD_TARGET/usr/share/firefox/components/libnkgnomevfs.so;
 /usr/local/bin/post-boot.sh
 /usr/local/bin/jswrapper
 /usr/share/plate
+
+/opt/packages
