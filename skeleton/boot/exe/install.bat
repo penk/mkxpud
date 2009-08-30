@@ -19,6 +19,11 @@ if %ERRORLEVEL% == 0 goto END
 :: Add boot entry
 echo C:\grldr="xPUD" >> "c:\boot.ini"
 
+:: create restore.bat file for XP
+echo attrib -R -H -S "c:\boot.ini" >> restore.bat
+echo sed -ri "/grldr/d" "c:\boot.ini" >> restore.bat
+echo sed -ri "s/$/\r/" "c:\boot.ini" >> restore.bat
+
 goto END
 
 :: Windows Vista
@@ -40,8 +45,12 @@ sed -ri "s/[^{]*([^}]+}).*/\1/" %GUIDFILE%
 set /p GUID= < %GUIDFILE%
 
 %BCDEDIT% /set %GUID% device boot
+%BCDEDIT% /set %GUID% device partition=%SYSTEMDRIVE%
 %BCDEDIT% /set %GUID% path \grldr.mbr
 %BCDEDIT% /displayorder %GUID% /addlast
+
+:: create restore.bat file for Vista
+echo %BCDEDIT% /delete %GUID% >> restore.bat
 
 goto END
 

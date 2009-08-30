@@ -3,14 +3,17 @@
 # Copyright 2009 by Ping-Hsun Chen <penkia@gmail.com>
 
 !include "MUI.nsh"
-!define NAME "xpud"
-!define VERSION "installer"
+!define NAME "xPUD"
+!define VERSION "0.9.5-dev"
+!define DRIVE "C:"
+!define XPUDDIR "xpud"
 
-Name " ${NAME} ${VERSION}"
-OutFile "${NAME}-${VERSION}.exe"
+Name "${NAME} ${VERSION}"
+# mkxpud script expects that ouput file is named exactly like below
+OutFile "xpud-installer.exe"
 
 # ShowInstDetails show 
-InstallDir "$PROGRAMFILES\${NAME}"
+InstallDir "${DRIVE}\${XPUDDIR}"
 
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_LICENSE "license.txt"
@@ -30,29 +33,27 @@ FunctionEnd
 
 Section "${NAME}"
 
-    SetOutPath "C:\"
+    SetOutPath "${DRIVE}"
 	File "grldr"
 	File "grldr.mbr"
 	File "menu.lst"
 	
+	CreateDirectory "$INSTDIR"
+	SetOutPath "$INSTDIR"
 	File "bzImage"
 	File "core"
 	File /nonfatal "font"
 	File /nonfatal "apps"
 	File /nonfatal "scim"
 
-    SetOutPath "$INSTDIR"
     File "license.txt"
-	
-    CreateDirectory "$INSTDIR"
-    SetOutPath "$INSTDIR"
     File "install.bat"
-    File "restore.bat"
+    #File "restore.bat"
     File "libiconv2.dll"
     File "libintl3.dll"
     File "sed.exe"
 
-	Exec "$INSTDIR\install.bat"
+	ExecWait "$INSTDIR\install.bat"
     WriteUninstaller "$INSTDIR\Uninstall.exe"
 
     SetOutPath "$INSTDIR"
@@ -63,16 +64,23 @@ SectionEnd
 
 Section "un.Uninstaller Section"
 
-	Exec "$INSTDIR\restore.bat"
+	ExecWait "$INSTDIR\restore.bat"
 	
-	Delete "C:\grldr"
-	Delete "C:\grldr.mbr"
-	Delete "C:\menu.lst"
-	Delete "C:\bzImage"
-	Delete "C:\core"
-	Delete "C:\font"
-	Delete "C:\apps"
-	Delete "C:\scim"
+	Delete "${DRIVE}\grldr"
+	Delete "${DRIVE}\grldr.mbr"
+	Delete "${DRIVE}\menu.lst"
+	
+	Delete "$INSTDIR\bzImage"
+	Delete "$INSTDIR\core"
+	Delete "$INSTDIR\font"
+	Delete "$INSTDIR\apps"
+	Delete "$INSTDIR\scim"
+	
+	Delete "$INSTDIR\bcdguid.txt"
+	Delete "$INSTDIR\install.bat"
+	Delete "$INSTDIR\libiconv2.dll"
+	Delete "$INSTDIR\libintl3.dll"
+	Delete "$INSTDIR\sed.exe"
 	
     Delete "$INSTDIR\Uninstall.exe"
     Delete "$INSTDIR\license.txt"

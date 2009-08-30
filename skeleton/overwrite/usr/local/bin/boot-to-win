@@ -1,7 +1,8 @@
 #!/bin/bash
 
-killall Xvesa
-kexec -l /usr/share/grldr/grub.exe --command-line="--config-file=find --set-root --ignore-floppies /ntldr; chainloader /ntldr"
+#killall Xvesa
+#kexec -l /usr/share/grldr/grub.exe --command-line="--config-file=find --set-root --ignore-floppies /ntldr; chainloader /ntldr"
+kexec -l /usr/share/grldr/grub.exe
 sync
 umount -a
 kexec -e
