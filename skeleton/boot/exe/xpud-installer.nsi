@@ -4,7 +4,7 @@
 
 !include "MUI.nsh"
 !define NAME "xPUD"
-!define VERSION "0.9.5-dev"
+!define VERSION "0.9.1-development"
 !define DRIVE "C:"
 !define XPUDDIR "xpud"
 

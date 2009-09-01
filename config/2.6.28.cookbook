@@ -2,16 +2,16 @@
 
 [config]
 # short project description
-MKXPUD_NAME="xPUD Ubuntu Jaunty image"
-# you can skip the apt-get install by setting this to `true'
-MKXPUD_SKIP_APT="false"
+MKXPUD_NAME="xPUD Ubuntu Intrepid image"
+# you can skip the package manager handling by setting this to `skip'
+MKXPUD_PKGMGR="apt-get install -y"
 # set to `true' if you want to include host /dev nodes
-MKXPUD_HOST_DEV="true"
+MKXPUD_HOST_DEV="false"
 
 # specified the Linux kernel version to be used
-MKXPUD_KERNEL="2.6.28-11-generic"
-MKXPUD_KERNEL_IMAGE="/boot/vmlinuz-2.6.28-11-generic"
-MKXPUD_MOD_PATH="/lib/modules/2.6.28-11-generic"
+MKXPUD_KERNEL="2.6.28"
+MKXPUD_KERNEL_IMAGE="deploy/vmlinuz-2.6.28"
+MKXPUD_MOD_PATH="/lib/modules/2.6.28"
 
 [module]
 # kernel modules to be included into rootfs
@@ -31,8 +31,9 @@ ne2k-pci pcnet32
 sky2
 usbserial hso nozomi sierra option
 uvcvideo
-acpi-cpufreq cpufreq_ondemand video
-psmouse
+acpi-cpufreq cpufreq_ondemand video button
+snd-intel8x0
+tulip
 
 [recipe]
 # packages and files to be included into rootfs
@@ -42,13 +43,16 @@ ubuntu-sound
 ubuntu-network
 ubuntu-wireless-tools
 ubuntu-artwork
+ubuntu-plate-core
+ubuntu-dbus
+
+[opt]
+ubuntu-cjkfont
 ubuntu-scim-chewing
 ubuntu-plate
 
 [action]
 #rm -rf $MKXPUD_TARGET/lib/udev/devices/*
-# FIXME: remove firefox updater
-rm -f $MKXPUD_TARGET/usr/share/firefox/updater
 
 [overwrite]
 # files to be overwritten
@@ -62,11 +66,11 @@ rm -f $MKXPUD_TARGET/usr/share/firefox/updater
 /bin/bash
 /bin/busybox
 /bin/mount
-/usr/bin/mplayer
-/usr/share/firefox/firefox-bin
+/opt/apps/usr/bin/mplayer
+#/usr/share/firefox/firefox-bin
 
 [remove]
 # files to be removed after rootfs extraction
 
 [image]
-gz iso
+gz iso exe
