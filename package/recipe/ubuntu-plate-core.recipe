@@ -5,6 +5,7 @@ plate-core
 
 [package]
 mozplugger 
+libgpgme11
 
 [action]
 
@@ -17,6 +18,9 @@ rm -f $MKXPUD_TARGET/usr/share/firefox/updater;
 rm -f $MKXPUD_TARGET/usr/share/firefox/crashreporter;
 rm -f $MKXPUD_TARGET/usr/share/firefox/components/libmozgnome.so;
 rm -f $MKXPUD_TARGET/usr/share/firefox/components/libnkgnomevfs.so;
+
+# extract Opkg
+tar jxf skeleton/archive/opkg* -C $MKXPUD_TARGET;
 
 [binary]
 
@@ -50,6 +54,10 @@ rm -f $MKXPUD_TARGET/usr/share/firefox/components/libnkgnomevfs.so;
 /usr/lib/gtk-2.0/2.10.0/loader-files.d/libgtk2.0-0.loaders
 /usr/lib/gtk-2.0/2.10.0/loader-files.d/librsvg2-common.loaders
 
+# Opkg libraries
+/usr/lib/libgpgme.so.11
+/usr/lib/libgpgme.so.11.6.6
+
 [config]
 
 /tmp/sysinfo-s
@@ -64,6 +72,8 @@ rm -f $MKXPUD_TARGET/usr/share/firefox/components/libnkgnomevfs.so;
 
 /usr/share/applications/firefox.desktop
 /usr/share/applications/xterm.desktop
+
+/etc/opkg/opkg.conf
 
 [overwrite]
 
@@ -98,3 +108,5 @@ rm -f $MKXPUD_TARGET/usr/share/firefox/components/libnkgnomevfs.so;
 /usr/share/plate
 
 /opt/packages
+
+/usr/lib/opkg/
