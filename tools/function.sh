@@ -306,6 +306,7 @@ function image {
 				cp deploy/$MKXPUD_CODENAME/* deploy/$MKXPUD_CODENAME/iso/boot/
 				mkisofs -R -l -V 'xPUD' -input-charset utf-8 -b isolinux.bin -c boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o deploy/$MKXPUD_CODENAME.iso deploy/$MKXPUD_CODENAME/iso/
 				rm -rf deploy/$MKXPUD_CODENAME/iso/
+				./tools/isohybrid deploy/$MKXPUD_CODENAME.iso
 				du -h deploy/$MKXPUD_CODENAME.iso
 			;;
 			exe)
