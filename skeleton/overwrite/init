@@ -1,7 +1,5 @@
 #!/bin/sh
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-export DISPLAY=:0
-export GTK_IM_MODULE="scim"
 
 	/bin/mount -t sysfs none /sys -onodev,noexec,nosuid
 	/bin/mount -t proc none /proc -onodev,noexec,nosuid
@@ -51,13 +49,11 @@ export GTK_IM_MODULE="scim"
 	# init hook
 	find /etc/init.d/ -type f -exec {} \; 
 	
-	# Get information from EDID, 915resolution and Xvesa
-	/usr/bin/get-edid 1> /tmp/edid.out 2> /tmp/edid.log
-	/usr/sbin/915resolution -l &> /tmp/915res.log
-	/usr/local/bin/Xvesa -listmodes 2> /tmp/xvmodes.log
 	# Try to find correct screen resolution
 	echo "Trying to detect your screen resolution..."
 	if [ -z $RES ]; then
+		# detect screen resolution using EDID
+		/usr/bin/get-edid 1> /tmp/edid.out 2> /tmp/edid.log
 		# parse edid
 		VMODE=`/usr/bin/parse-edid < /tmp/edid.out | grep [0-9].*x[0-9]* | cut -d \" -f 2`
 		# if panel size was found - set the screen resolution
@@ -71,12 +67,14 @@ export GTK_IM_MODULE="scim"
 	else
 		# be sure to set resolution - it will be used in patching
 		echo "Resolution was set on boot: "$RES
-		VRES=$RES	
+		VRES=$RES
 	fi
 	# Patch resolution if needed
+	/usr/local/bin/Xvesa -listmodes 2> /tmp/xvmodes.log
 	# if resolution is not in Xvesa modes
 	if ! grep $VRES /tmp/xvmodes.log ; then
 		# if resolution is available in 915resolution modes
+		/usr/sbin/915resolution -l &> /tmp/915res.log
 		if grep Mode /tmp/915res.log ; then
 			echo "Trying to patch..."
 			# try to patch needed video mode
@@ -102,15 +100,10 @@ export GTK_IM_MODULE="scim"
 	export RES=$VRES
 	echo "pref(\"xpud.videomode\", \""$RES"\");" >> /usr/share/plate/defaults/preferences/prefs.js
 	echo "Resolution will be set as "$RES
-	
+
 	if ! grep -q nox /proc/cmdline ; then
-	# start X server
-	/usr/local/bin/Xvesa :0 -ac -dpi 96 -shadow -screen $RES -br -mouse mouse,/dev/input/mice -keybd keyboard &
-	/bin/sleep 0.1
-	
-	# start plate
-	/usr/bin/firefox -app /usr/share/plate/application.ini &
-	/sbin/session &
+		# start X server
+		/bin/startx
 	fi
-	
+
 	/bin/sh
