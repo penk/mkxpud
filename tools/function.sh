@@ -46,7 +46,9 @@ function setup {
 	fi
 
 	echo "[mkxpud] Project Target: $MKXPUD_TARGET"
-
+	
+	echo "[mkxpud] Executing pre-build scripts:"
+	eval `./tools/parser $MKXPUD_CONFIG prepare`
 }
 
 function install {
