@@ -1,0 +1,3 @@
+deb http://ftp.litnet.lt/ubuntu jaunty main universe multiverse restricted
+deb http://ftp.litnet.lt/ubuntu jaunty-updates main universe multiverse restricted
+deb http://ftp.litnet.lt/ubuntu jaunty-security main universe multiverse restricted

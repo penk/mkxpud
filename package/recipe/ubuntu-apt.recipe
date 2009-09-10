@@ -1,0 +1,84 @@
+#recipe file
+[name]
+apt-get
+
+[package]
+apt
+dpkg
+
+[action]
+mkdir -p $MKXPUD_TARGET/var/lib/apt/lists/partial
+mkdir -p $MKXPUD_TARGET/var/cache/apt/archives/partial
+
+[binary]
+# dpkg
+/usr/bin/dpkg
+/usr/bin/dpkg-deb
+/usr/bin/dpkg-query
+/usr/bin/dpkg-split
+/usr/bin/dpkg-trigger
+
+# apt
+/usr/bin/apt-cache
+/usr/bin/apt-cdrom
+/usr/bin/apt-config
+/usr/bin/apt-get
+/usr/bin/apt-key
+/usr/bin/apt-mark
+
+[data]
+# dpkg
+/etc/dpkg/dpkg.cfg
+/etc/dpkg/origins/debian
+/etc/logrotate.d/dpkg
+/sbin/start-stop-daemon
+/usr/lib/dpkg/mksplit
+/usr/sbin/cleanup-info
+/usr/sbin/dpkg-divert
+/usr/sbin/dpkg-statoverride
+/usr/sbin/install-info
+/usr/sbin/update-alternatives
+/usr/share/dpkg/archtable
+/usr/share/dpkg/cputable
+/usr/share/dpkg/ostable
+/usr/share/dpkg/triplettable
+/usr/share/lintian/overrides/dpkg
+/usr/share/perl5/Dpkg.pm
+/usr/share/perl5/Dpkg/Gettext.pm
+
+# apt
+/etc/apt/apt.conf.d/01autoremove
+/etc/apt/apt.conf.d/01ubuntu
+/etc/cron.daily/apt
+/etc/logrotate.d/apt
+/usr/lib/apt/apt-report-mirror-failure
+/usr/lib/apt/methods/bzip2
+/usr/lib/apt/methods/cdrom
+/usr/lib/apt/methods/copy
+/usr/lib/apt/methods/file
+/usr/lib/apt/methods/ftp
+/usr/lib/apt/methods/gpgv
+/usr/lib/apt/methods/gzip
+/usr/lib/apt/methods/http
+/usr/lib/apt/methods/lzma
+/usr/lib/apt/methods/mirror
+/usr/lib/apt/methods/rred
+/usr/lib/apt/methods/rsh
+/usr/lib/apt/methods/ssh
+/usr/lib/dpkg/methods/apt/desc.apt
+/usr/lib/dpkg/methods/apt/install
+/usr/lib/dpkg/methods/apt/names
+/usr/lib/dpkg/methods/apt/setup
+/usr/lib/dpkg/methods/apt/update
+/usr/lib/libapt-pkg-libc6.9-6.so.4.7
+/usr/lib/libapt-pkg-libc6.9-6.so.4.7.0
+/usr/share/apt/apt-auth-failure.note
+/usr/share/apt/ubuntu-archive.gpg
+/usr/share/bug/apt/script
+/usr/share/lintian/overrides/apt
+
+[config]
+/etc/apt/sources.list
+
+[overwrite]
+/var/lib/dpkg/status
