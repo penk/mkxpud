@@ -16,8 +16,13 @@ for i in $list; do
 	app_command=`basename $i .desktop`
 	# get application generic name
 	app_name=`grep GenericName= $i | cut -d '=' -f 2`
+	if [ -z "$app_name" ]; then
+		app_name=`grep Comment= $i | cut -d '=' -f 2`
+	fi
 	# get application icon
-	#app_icon=`grep Icon= $i | cut -d '=' -f 2`
+	app_icon=`grep Icon= $i | cut -d '=' -f 2`
+	# generate icon path
+	icon_file="/usr/share/pixmaps/"$app_icon".png"
 	
 	# FIXME: support for multiple applications
 	if [ $app_command == "skype" ]; then
@@ -26,7 +31,11 @@ for i in $list; do
 		echo "<td><a href='#' id='browser' onclick='show_program(&quot;"$app_command"&quot;);' onfocus = 'this.blur()'>"
 	fi
 	echo "<table><tr><td class='image'>"
-	echo "<img src='image/"$app_command".png' onload=\"resume_notify(this,'"$app_command"');\" />"
+	if [ -e $icon_file ]; then
+		echo "<img src='file://"$icon_file"' width=64 onload=\"resume_notify(this,'"$app_command"');\" />"
+	else
+		echo "<img src='image/"$app_command".png' onload=\"resume_notify(this,'"$app_command"');\" />"	
+	fi
 	echo "<div class='notify_hide'><div></div></div>"
 	echo "</td><td>"
 	echo "<strong><span class='i18n'>"$app_name"</span></strong><br />"

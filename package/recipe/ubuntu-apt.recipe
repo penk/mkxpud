@@ -9,6 +9,9 @@ dpkg
 [action]
 mkdir -p $MKXPUD_TARGET/var/lib/apt/lists/partial
 mkdir -p $MKXPUD_TARGET/var/cache/apt/archives/partial
+mkdir -p $MKXPUD_TARGET/var/log/apt
+mkdir -p $MKXPUD_TARGET/var/lib/dpkg/updates
+mkdir -p $MKXPUD_TARGET/var/lib/dpkg/info
 
 [binary]
 # dpkg
@@ -77,8 +80,12 @@ mkdir -p $MKXPUD_TARGET/var/cache/apt/archives/partial
 /usr/share/bug/apt/script
 /usr/share/lintian/overrides/apt
 
+/sbin/ldconfig
+/usr/sbin/update-rc.d
+
 [config]
 /etc/apt/sources.list
 
 [overwrite]
+/var/lib/dpkg/available
 /var/lib/dpkg/status
