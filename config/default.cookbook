@@ -18,6 +18,7 @@ MKXPUD_MOD_PATH="/lib/modules/2.6.30.2"
 ata_piix isofs
 sr_mod cdrom sg
 pppoe
+wl
 atl1 atl2 atl1e 
 iwl3945 iwlagn
 ath5k ath9k
