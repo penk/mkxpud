@@ -20,6 +20,8 @@ notify-osd
 
 xbacklight
 
+trayer
+
 [binary]
 
 /usr/bin/openbox
@@ -41,6 +43,8 @@ xbacklight
 
 /usr/bin/notify-send
 #/usr/lib/notify-osd/notify-osd
+
+/usr/bin/trayer
 
 [data]
 

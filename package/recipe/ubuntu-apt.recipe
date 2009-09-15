@@ -11,7 +11,9 @@ mkdir -p $MKXPUD_TARGET/var/lib/apt/lists/partial
 mkdir -p $MKXPUD_TARGET/var/cache/apt/archives/partial
 mkdir -p $MKXPUD_TARGET/var/log/apt
 mkdir -p $MKXPUD_TARGET/var/lib/dpkg/updates
-mkdir -p $MKXPUD_TARGET/var/lib/dpkg/info
+mkdir -p $MKXPUD_TARGET/var/lib/dpkg/info;
+# unpack synaptic
+tar jxf skeleton/archive/synaptic* -C $MKXPUD_TARGET;
 
 [binary]
 # dpkg
@@ -82,6 +84,12 @@ mkdir -p $MKXPUD_TARGET/var/lib/dpkg/info
 
 /sbin/ldconfig
 /usr/sbin/update-rc.d
+
+# synaptic libraries
+/usr/lib/libapt-inst-libc6.9-6.so.1.1
+/usr/lib/libapt-inst-libc6.9-6.so.1.1.0
+/usr/lib/libglade-2.0.so.0
+/usr/lib/libglade-2.0.so.0.0.7
 
 [config]
 /etc/apt/sources.list
