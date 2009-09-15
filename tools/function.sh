@@ -372,6 +372,9 @@ function image {
 	else 
 		MKSQF="./tools/mksquashfs"	
 	fi
+	if [ -e working/$MKXPUD_CODENAME/initramfs/opt/rootfs.sqf ]; then 
+		rm working/$MKXPUD_CODENAME/initramfs/opt/rootfs.sqf 
+	fi
 	$MKSQF $MKXPUD_TARGET/ working/$MKXPUD_CODENAME/initramfs/opt/rootfs.sqf
 
 
