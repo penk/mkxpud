@@ -57,8 +57,8 @@ ubuntu-plate
 [prepare]
 # commands executed before building
 # download kernel modules, unpack to build system
-if [ ! -e skeleton/archive/module-2.6.30.5.tgz ]; then wget http://download.xpud.org/devel/kernel/module-2.6.30.5.tgz -P skeleton/archive/; fi; 
-if [ ! -e /lib/modules/2.6.30.5 ]; then tar xzf skeleton/archive/module-2.6.30.5.tgz -C /tmp;
+# if [ ! -e skeleton/archive/module-2.6.30.5.tgz ]; then wget http://download.xpud.org/devel/kernel/module-2.6.30.5.tgz -P skeleton/archive/; fi; 
+if [ ! -e /lib/modules/2.6.30.5 ]; then wget http://download.xpud.org/devel/kernel/module-2.6.30.5.tgz -P skeleton/archive/; tar xzf skeleton/archive/module-2.6.30.5.tgz -C /tmp;
 cp -r /tmp/module-2.6.30.5/lib/ /;
 rm -rf /tmp/module-2.6.30.5;
 fi;

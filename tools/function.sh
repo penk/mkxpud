@@ -351,31 +351,40 @@ function image {
 	eval export `./tools/parser $MKXPUD_CONFIG config`
 	export MKXPUD_TARGET=working/$MKXPUD_CODENAME/rootfs
 
-
-	## FIXME: enable multi-layered rootfs support for Opts 
-		
-	# move opt from rootfs
-	for R in `./tools/parser $MKXPUD_CONFIG opt`; do 
-		NAME=`./tools/parser package/recipe/$R.recipe name`
-		if [ -e $MKXPUD_TARGET/opt/$NAME ];then 
-		mv $MKXPUD_TARGET/opt/$NAME working/$MKXPUD_CODENAME/
-		fi
-		cd working/$MKXPUD_CODENAME/$NAME
-			find | cpio -H newc -o | gzip -9 > ../../../deploy/$MKXPUD_CODENAME/$NAME
-		cd -
-	done
-	
-	# create compressed rootfs to /opt/rootfs.sqf 
-	# temporary fix for squashfs version 
+	# temporary hook for squashfs version 
 	if [ `mksquashfs -version | grep '0.4'` ]; then 
 		MKSQF="/usr/bin/mksquashfs" 
 	else 
-		MKSQF="./tools/mksquashfs"	
+		MKSQF="`pwd`/tools/mksquashfs"	
 	fi
-	if [ -e working/$MKXPUD_CODENAME/initramfs/opt/rootfs.sqf ]; then 
-		rm working/$MKXPUD_CODENAME/initramfs/opt/rootfs.sqf 
-	fi
-	$MKSQF $MKXPUD_TARGET/ working/$MKXPUD_CODENAME/initramfs/opt/rootfs.sqf
+		
+	# enable multi-layered rootfs support for Opts 
+	for R in `./tools/parser $MKXPUD_CONFIG opt`; do 
+		NAME=`./tools/parser package/recipe/$R.recipe name`
+		
+		if [ -e $MKXPUD_TARGET/opt/$NAME ];then
+
+			# create .opt file
+			cd  $MKXPUD_TARGET/opt/
+			$MKSQF $NAME $NAME.opt -noappend 
+			cd -
+			
+			# move opt directory out from rootfs
+			mv $MKXPUD_TARGET/opt/$NAME working/$MKXPUD_CODENAME/
+
+		fi
+		
+		cd $MKXPUD_TARGET
+			# create the cpio.gz format file to be loaded at boot
+			find opt/$NAME.opt | cpio -H newc -o | gzip -9 > ../../../deploy/$MKXPUD_CODENAME/$NAME
+			# clean up .opt file 
+			rm -f opt/$NAME.opt
+		cd -
+		
+	done
+	
+	# create compressed rootfs to /opt/rootfs.sqf 
+	$MKSQF $MKXPUD_TARGET/ working/$MKXPUD_CODENAME/initramfs/opt/rootfs.sqf -noappend 
 
 
 	## FIXME: use variable instead of actual initramfs path

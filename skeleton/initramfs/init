@@ -1,12 +1,20 @@
 #!/bin/sh
 export PATH="/sbin:/bin"
 
-/bin/mount -o loop /opt/rootfs.sqf /ro
-/bin/mount -t tmpfs tmpfs /rw
-/bin/mount -t aufs -o br=/rw:/ro=ro none /newroot
+mount -o loop /opt/rootfs.sqf /ro
+mount -t tmpfs tmpfs /rw
+mount -t aufs -o br=/rw:/ro=ro none /newroot
 
-/bin/mkdir -p /newroot/rofs /newroot/cow
-/bin/mount --bind /ro /newroot/rofs
-/bin/mount --bind /rw /newroot/cow
+mkdir -p /newroot/rofs /newroot/cow
+mount --bind /ro /newroot/rofs
+mount --bind /rw /newroot/cow
 
-/bin/switch_root /newroot /init
+for o in `ls /opt/*.opt`; do
+	if [ -e $o ]; then
+	mkdir -p $o.d
+	mount -o loop $o $o.d 
+	mount -o remount,append:$o.d /newroot
+	fi
+done
+
+switch_root /newroot /init
