@@ -20,6 +20,8 @@ else
 			clean
 			setup $MKXPUD_CODENAME	
 			echo "[mkxpud] Project Name: $MKXPUD_NAME"
+			
+			## FIXME: merge init, strip and opt function
 			install && init && strip 
 			opt
 			kernel $MKXPUD_CODENAME

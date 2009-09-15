@@ -26,8 +26,6 @@ function setup {
 	export MKXPUD_CONFIG=config/$MKXPUD_CODENAME.cookbook
 	eval export `./tools/parser $MKXPUD_CONFIG config`
 
-	## FIXME: alias cp='cp -rfpL --remove-destination'
-
 	# copy initramfs skeleton
 	cp -rfp --remove-destination skeleton/initramfs/ working/$MKXPUD_CODENAME/initramfs
 
@@ -320,6 +318,7 @@ function post {
 
 	echo "[mkxpud] Post-install scripts"
 
+	# create symbolic links for /bin/*
 	./tools/busybox-helper
 
 	# check dependencies of each files under usr/lib
@@ -335,6 +334,7 @@ function post {
 
 	eval `./tools/parser $MKXPUD_CONFIG action`
 	
+	# pack binaries with upx 
 	if [ -e /usr/bin/upx ]; then 
 		for o in `./tools/parser $MKXPUD_CONFIG obfuscate`; do
 			upx $MKXPUD_TARGET/$o
@@ -350,7 +350,10 @@ function image {
 	export MKXPUD_CONFIG=config/$MKXPUD_CODENAME.cookbook
 	eval export `./tools/parser $MKXPUD_CONFIG config`
 	export MKXPUD_TARGET=working/$MKXPUD_CODENAME/rootfs
-	
+
+
+	## FIXME: enable multi-layered rootfs support for Opts 
+		
 	# move opt from rootfs
 	for R in `./tools/parser $MKXPUD_CONFIG opt`; do 
 		NAME=`./tools/parser package/recipe/$R.recipe name`
@@ -362,6 +365,7 @@ function image {
 		cd -
 	done
 	
+	# create compressed rootfs to /opt/rootfs.sqf 
 	# temporary fix for squashfs version 
 	if [ `mksquashfs -version | grep '0.4'` ]; then 
 		MKSQF="/usr/bin/mksquashfs" 
@@ -370,6 +374,8 @@ function image {
 	fi
 	$MKSQF $MKXPUD_TARGET/ working/$MKXPUD_CODENAME/initramfs/opt/rootfs.sqf
 
+
+	## FIXME: use variable instead of actual initramfs path
 	cd working/$MKXPUD_CODENAME/initramfs
 	find | cpio -H newc -o > ../../../deploy/$MKXPUD_CODENAME.cpio
 	cd -
