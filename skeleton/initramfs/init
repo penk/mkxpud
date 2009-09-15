@@ -1,0 +1,12 @@
+#!/bin/sh
+export PATH="/sbin:/bin"
+
+/bin/mount -o loop /opt/rootfs.sqf /ro
+/bin/mount -t tmpfs tmpfs /rw
+/bin/mount -t aufs -o br=/rw:/ro=ro none /newroot
+
+/bin/mkdir -p /newroot/rofs /newroot/cow
+/bin/mount --bind /ro /newroot/rofs
+/bin/mount --bind /rw /newroot/cow
+
+/bin/switch_root /newroot /init
