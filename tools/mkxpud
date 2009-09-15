@@ -20,7 +20,7 @@ else
 			clean
 			setup $MKXPUD_CODENAME	
 			echo "[mkxpud] Project Name: $MKXPUD_NAME"
-			install && strip 
+			install && init && strip 
 			opt
 			kernel $MKXPUD_CODENAME
 			post

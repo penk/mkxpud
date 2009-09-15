@@ -8,6 +8,9 @@ core-utils
 [package]
 
 # tools for mkxpud
+squashfs-tools
+#aufs-tools
+
 genisoimage
 upx-ucl
 wget 

@@ -14,7 +14,7 @@ For further informations please refer to README file."
 }
 
 function clean {
-	sudo rm -rf working/$MKXPUD_CODENAME
+	sudo rm -rf working/$MKXPUD_CODENAME deploy/$MKXPUD_CODENAME
 }
 
 function setup {
@@ -27,7 +27,10 @@ function setup {
 	eval export `./tools/parser $MKXPUD_CONFIG config`
 
 	## FIXME: alias cp='cp -rfpL --remove-destination'
-	#cp -rfpL --remove-destination skeleton/rootfs/ working/$MKXPUD_CODENAME/rootfs
+
+	# copy initramfs skeleton
+	cp -rfp --remove-destination skeleton/initramfs/ working/$MKXPUD_CODENAME/initramfs
+
 	# untar rootfs skeleton
 	tar zxf skeleton/rootfs.tgz -C working/$MKXPUD_CODENAME/
 	export MKXPUD_TARGET=working/$MKXPUD_CODENAME/rootfs
@@ -77,7 +80,7 @@ function install {
 
 function strip {
 
-	echo "    Stripping binaries..."
+	echo "    Stripping rootfs..."
 	for R in `./tools/parser $MKXPUD_CONFIG recipe`; do 
 		
 		# action 
@@ -140,6 +143,73 @@ function strip {
 		done 
 		
 	done
+
+}
+
+function init {
+
+	echo "    Creating initramfs..."
+	
+		R="initramfs"
+		COPY_DESTINATION="working/$MKXPUD_CODENAME/initramfs"
+		# action 
+		eval `./tools/parser package/recipe/$R.recipe action`
+
+		for S in binary data config overwrite; do
+		
+			for A in `./tools/parser package/recipe/$R.recipe $S`; do
+	
+			case $S in
+				binary) 
+						##  host
+						cp -rfpl --remove-destination $A $COPY_DESTINATION/$A
+						## ldd-helper
+						for i in `./tools/ldd-helper $A`; do 
+						
+						if [ ! -e $COPY_DESTINATION/usr/lib/`basename $i` ] && [ ! -e $COPY_DESTINATION/lib/`basename $i` ]; then
+							if [ `dirname $i` == '/usr/lib' ]; then 
+							cp -rfpL --remove-destination $i $COPY_DESTINATION/usr/lib ; 
+							else cp -rfpL --remove-destination $i $COPY_DESTINATION/lib ; fi
+						fi
+						
+						done
+					;;
+				data) 
+						## host 
+						[ -d $COPY_DESTINATION/`dirname $A` ] || mkdir -p $COPY_DESTINATION/`dirname $A` 
+						cp -rfpl --remove-destination $A $COPY_DESTINATION/$A
+					;;
+				config) 
+						## package/config/*
+						[ -d $COPY_DESTINATION/`dirname $A` ] || mkdir -p $COPY_DESTINATION/`dirname $A` 
+						cp -rfp --remove-destination package/config/$A $COPY_DESTINATION/$A
+					;;
+				alternative) 
+						## package/alternative/$MKXPUD_CODENAME
+						[ -d $COPY_DESTINATION/`dirname $A` ] || mkdir -p $COPY_DESTINATION/`dirname $A` 
+						cp -rfpL --remove-destination package/alternative/$MKXPUD_CODENAME/$A $COPY_DESTINATION/$A
+					;;
+				overwrite) 
+						## skeleton/overwrite/
+						
+						# check binary dependency if the overwrite file is an execute
+						if [ -x skeleton/overwrite/$A ] && [ ! -d skeleton/overwrite/$A ]; then
+						for i in `./tools/ldd-helper skeleton/overwrite/$A`; do 
+						if [ ! -e $COPY_DESTINATION/usr/lib/`basename $i` ] && [ ! -e $COPY_DESTINATION/lib/`basename $i` ]; then
+							if [ `dirname $i` == '/usr/lib' ]; then 
+							cp -rfpL --remove-destination $i $COPY_DESTINATION/usr/lib ; 
+							else cp -rfpL --remove-destination $i $COPY_DESTINATION/lib ; fi
+						fi
+						done
+						fi
+						
+						[ -d $COPY_DESTINATION/`dirname $A` ] || mkdir -p $COPY_DESTINATION/`dirname $A` 
+						cp -rfp skeleton/overwrite/$A $COPY_DESTINATION/$A
+					;;
+			esac 
+			
+			done 
+		done 
 
 }
 
@@ -270,6 +340,7 @@ function post {
 			upx $MKXPUD_TARGET/$o
 		done
 	fi
+
 }
 
 function image {
@@ -291,7 +362,15 @@ function image {
 		cd -
 	done
 	
-	cd $MKXPUD_TARGET
+	# temporary fix for squashfs version 
+	if [ `mksquashfs -version | grep '0.4'` ]; then 
+		MKSQF="/usr/bin/mksquashfs" 
+	else 
+		MKSQF="./tools/mksquashfs"	
+	fi
+	$MKSQF $MKXPUD_TARGET/ working/$MKXPUD_CODENAME/initramfs/opt/rootfs.sqf
+
+	cd working/$MKXPUD_CODENAME/initramfs
 	find | cpio -H newc -o > ../../../deploy/$MKXPUD_CODENAME.cpio
 	cd -
 

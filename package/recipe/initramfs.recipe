@@ -1,0 +1,34 @@
+# recipe file
+
+[name]
+initramfs
+
+#---------------------------
+
+[package]
+
+#---------------------------
+
+[action]
+
+sudo tar zxf skeleton/archive/dev.tgz -C working/$MKXPUD_CODENAME/initramfs/
+
+#---------------------------
+
+[binary]
+
+/bin/mount
+
+#---------------------------
+
+[data]
+
+#---------------------------
+
+[config]
+
+#---------------------------
+
+[overwrite]
+
+/bin/busybox

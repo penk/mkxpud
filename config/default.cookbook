@@ -9,9 +9,9 @@ MKXPUD_PKGMGR="apt-get install -y"
 MKXPUD_HOST_DEV="false"
 
 # specified the Linux kernel version to be used
-MKXPUD_KERNEL="2.6.30.2"
-MKXPUD_KERNEL_IMAGE="deploy/vmlinuz-2.6.30.2"
-MKXPUD_MOD_PATH="/lib/modules/2.6.30.2"
+MKXPUD_KERNEL="2.6.30.5"
+MKXPUD_KERNEL_IMAGE="deploy/vmlinuz-2.6.30.5"
+MKXPUD_MOD_PATH="/lib/modules/2.6.30.5"
 
 [module]
 # kernel modules to be included into rootfs
@@ -38,6 +38,7 @@ tulip
 
 [recipe]
 # packages and files to be included into rootfs
+initramfs
 ubuntu-core-utils
 ubuntu-x11
 ubuntu-sound
@@ -56,10 +57,10 @@ ubuntu-plate
 [prepare]
 # commands executed before building
 # download kernel modules, unpack to build system
-if [ ! -e skeleton/archive/module-2.6.30.2.tgz ]; then wget http://download.xpud.org/devel/kernel/module-2.6.30.2.tgz -P skeleton/archive/; fi; 
-if [ ! -e /lib/modules/2.6.30.2 ]; then tar xzf skeleton/archive/module-2.6.30.2.tgz -C /tmp;
-cp -r /tmp/module-2.6.30.2/lib/ /;
-rm -rf /tmp/module-2.6.30.2;
+if [ ! -e skeleton/archive/module-2.6.30.5.tgz ]; then wget http://download.xpud.org/devel/kernel/module-2.6.30.5.tgz -P skeleton/archive/; fi; 
+if [ ! -e /lib/modules/2.6.30.5 ]; then tar xzf skeleton/archive/module-2.6.30.5.tgz -C /tmp;
+cp -r /tmp/module-2.6.30.5/lib/ /;
+rm -rf /tmp/module-2.6.30.5;
 fi;
 
 [action]
