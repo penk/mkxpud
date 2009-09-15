@@ -85,3 +85,4 @@ tar jxf skeleton/archive/viewnior* -C $MKXPUD_TARGET;
 
 [overwrite]
 
+/usr/share/firefox/plugins/libflashplayer.so
