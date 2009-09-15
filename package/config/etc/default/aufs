@@ -1,0 +1,78 @@
+# aufs variables for shell scripts
+AUFS_VERSION=2-standalone.tree-30-20090831
+AUFS_SUPER_MAGIC=1635083891
+AUFS_SUPER_MAGIC_HEX=0x61756673
+AUFS_WH_PFX=.wh.
+AUFS_WH_PFX2=.wh..wh.
+AUFS_WKQ_NAME=aufsd
+AUFS_WH_DIROPQ=.wh..wh..opq
+AUFS_WH_BASE=.wh..wh.aufs
+AUFS_WH_PLINKDIR=.wh..wh.plnk
+AUFS_WH_ORPHDIR=.wh..wh.orph
+
+# library functions for aufs shell scripts
+
+# path in canonical representation
+SetDir() # var dir
+{
+	cd "$2"
+	eval "$1=\"$PWD\""
+	cd "$OLDPWD"
+}
+
+# escape the unprintable characters, mainly for grep-ping /proc/mounts
+Esc() # [-e]
+{
+	sed -r -e '
+	s/\\/\\134/g
+	s/$/\\012/
+	' |
+	tr -d '\n' |
+	sed -r -e '
+	s/ /\\040/g
+	s/\t/\\011/g
+	s/\r/\\015/g
+	s/\\012$//
+	' |
+	{ test $# -eq 1 &&
+	test "$1" = "-e" &&
+	sed -r -e 's/\\/\\\\/g' ||
+	cat; }
+	echo
+}
+
+# find a mount-entry by its mount-point
+FindMntEnt() # mntpnt
+{
+	proc_mounts=/proc/self/mounts
+	test ! -e $proc_mounts && proc_mounts=/proc/$$/mounts
+	test ! -e $proc_mounts && proc_mounts=/proc/mounts
+	fgrep \ $(echo "$1" | Esc)\ aufs\  $proc_mounts |
+	tail -n 1
+}
+
+# current mount options
+MntOpts() # mntpnt
+{
+	FindMntEnt "$1" |
+	cut -f4 -d' '
+}
+
+########################################
+
+AuDebug() # 1 | 0 [sec]
+{
+	test $1 -eq 0 && set +x
+	aufs_debug=/sys/module/aufs/parameters/debug
+	if [ -f $aufs_debug ]
+	then
+		echo $1 | sudo dd of=$aufs_debug 2> /dev/null
+		test $# -eq 2 && sleep $2
+	fi
+	test $1 -eq 1 && set -x
+	true
+}
+
+# Local variables: ;
+# mode: text;
+# End: ;

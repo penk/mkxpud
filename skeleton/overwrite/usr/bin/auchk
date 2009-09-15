@@ -1,0 +1,130 @@
+#!/bin/sh -
+
+# Copyright (C) 2005-2009 Junjiro Okajima
+#
+# This program, aufs is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+set -eu
+#set -x
+
+EEcho() # str
+{
+	echo $0: $@ 1>&2
+}
+
+f=/etc/default/aufs
+. $f
+
+Usage()
+{
+	echo $0 writable_branch '[...]'
+}
+
+Pass() # title
+{
+	pass=$(($pass + 1))
+	EEcho \[Pass $pass\] $@
+}
+
+Remove() # file
+{
+	if [ -d "$1" ]
+	then
+		rm -ir "$1" || :
+	else
+		rm -v "$1" || :
+	fi
+}
+
+for i
+do
+	EEcho Checking "$i" for aufs
+
+	cd "$i"
+	case $(stat -f -c %T .) in
+	aufs|UNKNOWN*${AUFS_SUPER_MAGIC_HEX}*)
+		EEcho $i must not be aufs
+		cd $OLDPWD
+		continue
+		;;
+	esac
+
+	########################################
+	pass=0
+	Pass Illegal whiteout
+	find . -name '.wh.*' ! -name '.wh..wh.*' -printf '%h\0%f\0' |
+	xargs -r0n2 |
+	while read dir wh
+	do
+		#echo \""$dir"\" \""$wh"\"
+		base=$(echo "$wh" | cut -c5-)
+		test ! -e "$dir/$base" && continue
+
+		ls -ld "$dir/$wh" "$dir/$base"
+		read -p 'Which to remove [whiteout/real/skip]? ' ans \
+			< /dev/tty > /dev/tty 2>&1
+		case "$ans" in
+		[wW]*)	Remove "$dir/$wh" || :;;
+		[rR]*)	Remove "$dir/$base" || :;;
+		*)	echo skipped;;
+		esac
+	done
+
+	########################################
+	Pass Remained pseudo-links
+	did=0
+	for plink in ${AUFS_WH_PLINKDIR}/*
+	do
+		test ! -e "$plink" && break
+		if [ -d "$plink" ]
+		then
+			EEcho illegal "$plink"
+			continue
+		fi
+
+		did=1
+		#ls -l "$plink" || :
+		find . -inum $(basename "$plink" | cut -f2 -d .) -ls || :
+	done
+	if [ $did -ne 0 ]
+	then
+		cat <<- EOF
+		They will be maintained at remount or umount time,
+		if you installed aufs helper scripts (See README
+		in detail).
+		If "$i" is not a writeble branch of CURRENTLY mounted
+		aufs, you need to maintain them by yourself.
+		EOF
+	fi
+
+	########################################
+	Pass Remained temp files
+	for tmp in ${AUFS_WH_TMPDIR}/*
+	do
+		test ! -e "$tmp" && break
+		if [ -d "$tmp" ]
+		then
+			EEcho illegal "$tmp"
+			continue
+		fi
+
+		ls -l "$tmp" || :
+		rm -i "$tmp" || :
+	done
+
+	# nothing to do for xinodir
+
+	cd $OLDPWD
+done

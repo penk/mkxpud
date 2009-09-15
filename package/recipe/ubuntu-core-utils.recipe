@@ -123,6 +123,8 @@ acpi-support
 
 /etc/acpi/
 
+/etc/default/aufs
+
 #---------------------------
 
 [overwrite]
@@ -137,3 +139,9 @@ acpi-support
 /usr/local/bin/boot-to-win
 
 /usr/share/grldr
+
+/sbin/mount.aufs
+/sbin/umount.aufs
+/sbin/auplink
+/usr/bin/auchk
+/usr/bin/aubrsync
