@@ -64,6 +64,7 @@ rm -rf /tmp/module-2.6.30.5;
 fi;
 
 [action]
+tar xzf kernel/module/wl-module.tar.gz -C $MKXPUD_TARGET/lib/modules/2.6.30.5/ ;
 #rm -rf $MKXPUD_TARGET/lib/udev/devices/*
 
 [overwrite]
