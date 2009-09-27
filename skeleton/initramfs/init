@@ -9,6 +9,7 @@ mkdir -p /newroot/rofs /newroot/cow
 mount --bind /ro /newroot/rofs
 mount --bind /rw /newroot/cow
 
+if [ -e /opt/*.opt ]; then 
 for o in `ls /opt/*.opt`; do
 	if [ -e $o ]; then
 	mkdir -p $o.d
@@ -16,5 +17,6 @@ for o in `ls /opt/*.opt`; do
 	mount -o remount,append:$o.d /newroot
 	fi
 done
+fi
 
 switch_root /newroot /init
