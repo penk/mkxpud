@@ -362,7 +362,11 @@ function image {
 	for R in `./tools/parser $MKXPUD_CONFIG opt`; do 
 		NAME=`./tools/parser package/recipe/$R.recipe name`
 		
-		if [ -e $MKXPUD_TARGET/opt/$NAME ];then
+		if [ ! -e $MKXPUD_TARGET/opt/$NAME ];then
+
+			mv working/$MKXPUD_CODENAME/$NAME $MKXPUD_TARGET/opt/
+			
+		fi
 
 			# create .opt file
 			cd  $MKXPUD_TARGET/opt/
@@ -371,8 +375,6 @@ function image {
 			
 			# move opt directory out from rootfs
 			mv $MKXPUD_TARGET/opt/$NAME working/$MKXPUD_CODENAME/
-
-		fi
 		
 		cd $MKXPUD_TARGET
 			# create the cpio.gz format file to be loaded at boot
