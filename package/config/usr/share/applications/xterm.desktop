@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=xterm
-GenericName=Terminal
+GenericName=terminal_emulator
 Comment=Use the command line
 TryExec=xterm
 Exec=xterm

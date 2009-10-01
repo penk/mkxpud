@@ -35,10 +35,11 @@ gnome-mplayer
 
 /usr/share/mime/packages/libmimetype.xml
 
-/usr/share/applications/gnome-mplayer.desktop
+
 
 [config]
 
+/usr/share/applications/gnome-mplayer.desktop
 /.mplayer
 
 [overwrite]
