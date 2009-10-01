@@ -1,0 +1,11 @@
+#!/bin/bash
+# opt-get - command line interface for opt plugin
+# usage: opt-get /path/to/file.opt
+
+if [ -e $1 ]; then 
+	TARGET="/opt/`basename $1`.d"
+	echo $TARGET
+	mkdir -p $TARGET
+	mount -o loop $1 $TARGET 
+	mount -o remount,append:$TARGET /rofs
+fi
