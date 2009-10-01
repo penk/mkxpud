@@ -48,11 +48,11 @@ ubuntu-artwork
 ubuntu-plate-core
 ubuntu-dbus
 ubuntu-apt
-
-[opt]
 ubuntu-cjkfont
 ubuntu-scim-chewing
-ubuntu-plate
+
+[opt]
+ubuntu-media
 
 [prepare]
 # commands executed before building
@@ -79,7 +79,7 @@ tar xzf kernel/module/wl-module.tar.gz -C $MKXPUD_TARGET/lib/modules/2.6.30.5/ ;
 /bin/bash
 /bin/busybox
 /bin/mount
-/opt/apps/usr/bin/mplayer
+#/opt/apps/usr/bin/mplayer
 #/usr/share/firefox/firefox-bin
 
 [remove]

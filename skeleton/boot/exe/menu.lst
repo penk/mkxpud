@@ -1,20 +1,15 @@
-timeout 3
-default 0
+timeout 5
+default 1
 
 title xPUD - Multimedia (with additional applications)
 find --set-root /xpud/bzImage
 kernel /xpud/bzImage loglevel=0 noisapnp
-initrd /xpud/core /xpud/apps /xpud/font
+initrd /xpud/core /xpud/media
 
 title xPUD - Cloud (browser only)
 find --set-root /xpud/bzImage
 kernel /xpud/bzImage loglevel=0 noisapnp
 initrd /xpud/core
-
-title xPUD - Full (with additional applications and SCIM)
-find --set-root /xpud/bzImage
-kernel /xpud/bzImage loglevel=0 noisapnp
-initrd /xpud/core /xpud/apps /xpud/font /xpud/scim
 
 title Boot to Windows XP
 find --set-root --ignore-floppies /ntldr
