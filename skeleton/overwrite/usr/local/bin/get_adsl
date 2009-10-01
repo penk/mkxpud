@@ -81,5 +81,3 @@ echo "nameserver 168.95.192.1" >> /etc/resolv.conf
 echo "nameserver 168.95.1.1" >> /etc/resolv.conf
 
 pon dsl-provider
-
-/usr/local/bin/set_postconnect
