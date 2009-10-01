@@ -74,9 +74,6 @@ iwconfig $nic mode Managed \n";
 system "dhclient $nic";
 print PF "dhclient $nic \n";
 
-# FIXME: post-connect hook
-system "/usr/local/bin/set_postconnect";
-
 if ( ! `ifconfig|grep "inet addr"`) { system "dhclient $nic; rm -f /tmp/netstat.tmp"; } 
 else { system "rm -f /tmp/netstat.tmp"; }
 
