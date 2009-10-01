@@ -1,0 +1,25 @@
+#!/bin/bash
+
+PREFIX=$(cd "$(dirname "${0}")" && pwd)
+
+TARGET="/cpiogz"
+
+if [ ! -e "$PREFIX/cpio" ]; then
+    echo ""
+    echo "$PREFIX/cpio is missing"
+    echo ""
+    exit 1
+fi
+
+if [ "$1" != "." ]; then
+    echo "Determining which files have been changed..."
+    find /bin/ /etc/ /init /lib/ /sbin/ /usr/ /var/ \
+    -newer /proc/1 | "$PREFIX/cpio" -v -o -H newc | gzip -9 > "${TARGET}"
+else
+    find . | "$PREFIX/cpio" -v -o -H newc | gzip -9 > "${TARGET}"
+fi
+
+echo ""
+echo "Created ${TARGET}."
+echo "Please move it to your boot disk and append it as an initrd in your bootloader."
+echo ""
