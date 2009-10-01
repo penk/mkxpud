@@ -4,7 +4,6 @@
 apps
 
 [package]
-gnome-mplayer
 transmission-gtk
 #gpicview
 geany
@@ -23,19 +22,11 @@ tar jxf skeleton/archive/viewnior* -C $MKXPUD_TARGET;
 ## FIXME: mime file
 /usr/bin/transmission
 
-/usr/bin/gnome-mplayer
-/usr/bin/mplayer
-
 /usr/bin/pcmanfm
 
 [data]
 
 #/usr/share/epdfview
-/usr/share/mplayer/subfont.ttf
-
-## FIXME
-/usr/share/icons/gnome/index.theme
-/usr/share/icons/gnome/22x22/status/audio-volume-high.png
 
 # MIME info
 /usr/share/mime/aliases
@@ -75,14 +66,11 @@ tar jxf skeleton/archive/viewnior* -C $MKXPUD_TARGET;
 # desktop files
 /usr/share/applications/transmission.desktop
 /usr/share/applications/pcmanfm.desktop
-/usr/share/applications/gnome-mplayer.desktop
 /usr/share/applications/geany.desktop
 
 [config]
 
 /.config/geany 
-/.mplayer
 
 [overwrite]
 
-/usr/share/firefox/plugins/libflashplayer.so
