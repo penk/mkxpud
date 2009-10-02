@@ -3,9 +3,15 @@
 # usage: opt-get /path/to/file.opt
 
 if [ -e $1 ]; then 
+
+	# merge opt file to /
 	TARGET="/opt/`basename $1`.d"
-	echo $TARGET
 	mkdir -p $TARGET
 	mount -o loop $1 $TARGET 
-	mount -o remount,append:$TARGET /rofs
+	mount -o remount,append:$TARGET /
+	
+	# execute post.sh if exist
+	if [ -e $TARGET/post.sh ]; then 
+	exec $TARGET/post.sh 
+	fi
 fi
