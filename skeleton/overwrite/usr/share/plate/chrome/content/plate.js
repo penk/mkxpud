@@ -332,12 +332,16 @@ function do_i18n() {
 	var lang = xpudPrefs.getCharPref("xpud.locale");
 	$(".i18n").each(
 	   		function(i){
-	   			if(typeof i18n[$(this).text()][lang]  == "undefined")
-	   				$(this).replaceWith(i18n[$(this).text()]["en"]);
-	   			else
+	   			if(i18n[$(this).text()]) {
+
+	   			if(i18n[$(this).text()][lang]) 
 	   				$(this).replaceWith(i18n[$(this).text()][lang]);
+	   			if((typeof i18n[$(this).text()][lang]  == "undefined") && (i18n[$(this).text()]["en"]))
+	   				$(this).replaceWith(i18n[$(this).text()]["en"]);
 	   			}
-	);	   		         
+	   			
+	   			}
+	);
 }    
 
 function save_preferences() {
