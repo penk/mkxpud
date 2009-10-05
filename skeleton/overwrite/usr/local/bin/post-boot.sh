@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # generate menu
-/usr/local/bin/generate_menu
+/usr/local/bin/update-menus
 
 /usr/bin/xmodmap ~/.Xmodmap
 
