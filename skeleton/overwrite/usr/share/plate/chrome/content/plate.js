@@ -382,7 +382,7 @@ function top_task_show() {
 		document.getElementById('programs').className = 'maximized';
 	}
 } 
-
+// FIXME: combine plate_reboot, plate_poweroff and plate_switch_mode functions into one
 function plate_reboot() {
 	if (document.getElementById('do-backup').checked) { 
 		var backupDir = prefRead('backup-dir');
@@ -416,6 +416,24 @@ function plate_poweroff() {
 	system('poweroff -f');
 	}
 }
+
+function plate_switch_mode() {
+	if (document.getElementById('do-backup').checked) { 
+		var backupDir = prefRead('backup-dir');
+		if (backupDir != '') {
+			document.getElementById('shutdown-popup').innerHTML = '<h3>Switch OS</h3><img src="image/load.gif"> Saving your data...<br />Please wait...';
+			system('xpud-backup '+backupDir+' -s');
+		}
+		else {
+			alert('Please set directory for backup');
+			cover();
+		}
+	}
+	else {
+	system('boot-to-win');
+	}
+}
+
 
 function prefRead(pref) {
 	netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 

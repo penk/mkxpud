@@ -20,5 +20,9 @@ rm -rf /tmp/backup
 	if [ "$2" == "-r" ]; then
 		reboot -f
 	fi
+	
+	if [ "$2" == "-s" ]; then
+		boot-to-win
+	fi 
 
 fi
