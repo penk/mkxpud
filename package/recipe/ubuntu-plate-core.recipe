@@ -61,9 +61,12 @@ rm -f $MKXPUD_TARGET/usr/share/firefox/components/libnkgnomevfs.so;
 
 /etc/gtk-2.0
 
-#/usr/share/applications/firefox.desktop
-#/usr/share/applications/xterm.desktop
-/usr/share/applications/
+/usr/share/applications/firefox.desktop
+/usr/share/applications/xterm.desktop
+/usr/share/applications/gcalendar.desktop
+/usr/share/applications/gmail.desktop
+/usr/share/applications/meebo.desktop
+/usr/share/applications/youtube.desktop
 /usr/share/pixmaps
 
 [overwrite]
