@@ -1,1 +1,57 @@
-generate_menu
+#!/bin/sh
+# script generates exec.html applications menu template
+# from .desktop files in /usr/share/applications
+
+output=$(
+
+echo "<h2><span class='i18n'>application</span></h2>"
+echo "<table class='soft_background orange'>"
+echo "<tr>"
+counter="0"
+# for all *.desktop files in "applications" directory do
+list=`find /usr/share/applications -name *.desktop`
+for i in $list; do
+
+	# create entry in exec.html template
+	app_command=`basename $i .desktop`
+	# get application generic name
+	app_name=`grep GenericName= $i | cut -d '=' -f 2`
+	if [ -z "$app_name" ]; then
+		app_name=`grep Comment= $i | cut -d '=' -f 2`
+	fi
+	# get application icon
+	app_icon=`grep Icon= $i | cut -d '=' -f 2`
+	# generate icon path
+	icon_file="/usr/share/pixmaps/"$app_icon".png"
+	
+	# FIXME: support for multiple applications
+	if [ $app_command == "skype" ]; then
+		echo "<td><a href='#' id='browser' onclick='system(&quot;"$app_command"&quot;);' onfocus = 'this.blur()'>"
+	else
+		echo "<td><a href='#' id='browser' onclick='show_program(&quot;"$app_command"&quot;);' onfocus = 'this.blur()'>"
+	fi
+	echo "<table><tr><td class='image'>"
+	if [ -e $icon_file ]; then
+		echo "<img src='file://"$icon_file"' width=64 onload=\"resume_notify(this,'"$app_command"');\" />"
+	else
+		echo "<img src='image/"$app_command".png' onload=\"resume_notify(this,'"$app_command"');\" />"	
+	fi
+	echo "<div class='notify_hide'><div></div></div>"
+	echo "</td><td>"
+	echo "<strong><span class='i18n'>"$app_name"</span></strong><br />"
+	echo $app_command
+	echo  "</td></tr></table></a></td>"
+	
+	if [ $counter -eq "1" ]; then
+		echo "</tr><tr>"
+		counter="0"
+	else
+		counter="1"
+	fi		
+done
+
+echo "</tr></table>"
+
+)
+
+echo $output > /usr/share/plate/chrome/content/template/exec.html

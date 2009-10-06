@@ -83,9 +83,9 @@ rm -f $MKXPUD_TARGET/usr/share/firefox/components/libnkgnomevfs.so;
 /usr/local/bin/get_mnt
 /usr/local/bin/audio_volume
 /usr/local/bin/get_b43_firmware
-/usr/local/bin/generate_menu
+#/usr/local/bin/generate_menu
 /usr/local/bin/update-menus
-/usr/local/bin/xopt-get
+#/usr/local/bin/xopt-get
 /usr/local/bin/update_modules
 
 /usr/local/bin/opt-get
@@ -100,4 +100,4 @@ rm -f $MKXPUD_TARGET/usr/share/firefox/components/libnkgnomevfs.so;
 /usr/local/bin/jswrapper
 /usr/share/plate
 
-/opt/packages
+#/opt/packages
