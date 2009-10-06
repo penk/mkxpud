@@ -21,8 +21,8 @@ echo C:\grldr="xPUD" >> "c:\boot.ini"
 
 :: create restore.bat file for XP
 echo attrib -R -H -S "c:\boot.ini" >> restore.bat
-echo sed -ri "/grldr/d" "c:\boot.ini" >> restore.bat
-echo sed -ri "s/$/\r/" "c:\boot.ini" >> restore.bat
+echo %CD%\sed -ri "/grldr/d" "c:\boot.ini" >> restore.bat
+echo %CD%\sed -ri "s/$/\r/" "c:\boot.ini" >> restore.bat
 
 goto END
 
