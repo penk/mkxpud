@@ -23,16 +23,24 @@ for i in $list; do
 	app_icon=`grep Icon= $i | cut -d '=' -f 2`
 	# generate icon path
 	icon_file="/usr/share/pixmaps/"$app_icon".png"
+	# application type
+	app_type=`grep Type= $i | cut -d '=' -f 2`
+	if [ $app_type == "WebApp" ]; then
+		webapp="true"
+		app_command=`grep URL= $i | cut -d '=' -f 2`
+	else
+		webapp="false"
+	fi
 	
-	# FIXME: support for multiple applications
-	if [ $app_command == "skype" ]; then
+	# show application in popup, if needed
+	if [ $app_type == "AppPopup" ]; then
 		echo "<td><a href='#' id='browser' onclick='system(&quot;"$app_command"&quot;);' onfocus = 'this.blur()'>"
 	else
-		echo "<td><a href='#' id='browser' onclick='show_program(&quot;"$app_command"&quot;);' onfocus = 'this.blur()'>"
+		echo "<td><a href='#' id='browser' onclick='show_program(&quot;"$app_command"&quot;,$webapp);' onfocus = 'this.blur()'>"
 	fi
 	echo "<table><tr><td class='image'>"
 	if [ -e $icon_file ]; then
-		echo "<img src='file://"$icon_file"' width=64 onload=\"resume_notify(this,'"$app_command"');\" />"
+		echo "<img src='file://"$icon_file"' style='max-width:64px' onload=\"resume_notify(this,'"$app_command"');\" />"
 	else
 		echo "<img src='image/"$app_command".png' onload=\"resume_notify(this,'"$app_command"');\" />"	
 	fi

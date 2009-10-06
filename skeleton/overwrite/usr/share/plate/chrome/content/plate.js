@@ -121,7 +121,7 @@ function resume_notify( this_obj, program_name ) {
 		this_obj.className = 'notify_hide';
 }
 
-function show_program( input ) {
+function show_program( input, webapp ) {
 	//document.getElementById('close_button').style.display = "inline";
 	//document.getElementById('maximize_button').style.display = "inline";
 	//document.getElementById('minimize_button').style.display = "inline";
@@ -131,7 +131,12 @@ function show_program( input ) {
 	if( document.getElementById("exec." + input) == null ) {
 		var new_element = document.createElement("div");
 		new_element.id = "exec."+input;
-		new_element.innerHTML = "<embed src=chrome://plate/content/utils/app.pud width=100% height=100% command="+input+" />";
+		if (webapp == true) { 
+			new_element.innerHTML = "<iframe src="+input+" width=100% height=100% />";
+		}
+		else {
+			new_element.innerHTML = "<embed src=chrome://plate/content/utils/app.pud width=100% height=100% command="+input+" />";
+		}
 		document.getElementById('programs').appendChild(new_element);
 	}
 	var programs = document.getElementById('programs').getElementsByTagName('div');

@@ -17,7 +17,7 @@ echo "Skype has been installed successfully."
 cd -
 
 # create custom .desktop file and symlink to icon
-echo -e "[Desktop Entry]\nName=Skype\nGenericName=Internet Telephony" > /usr/share/applications/skype.desktop
+echo -e "[Desktop Entry]\nName=Skype\nGenericName=Internet Telephony\nType=AppPopup" > /usr/share/applications/skype.desktop
 ln -s /opt/skype*/icons/SkypeBlue_48x48.png /usr/share/plate/chrome/content/image/skype.png
 
 update-menus
