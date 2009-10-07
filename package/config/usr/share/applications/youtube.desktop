@@ -2,7 +2,7 @@
 Version=1.0
 Name=YouTube
 Comment=Online videos
-GenericName=Online videos
+GenericName=YouTube
 Type=WebApp
 Icon=youtube
 URL=http://www.youtube.com/

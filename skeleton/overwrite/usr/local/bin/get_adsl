@@ -3,6 +3,8 @@
 USERNAME=$1
 PASSWORD=$2
 
+modprobe pppoe
+
 cat > "/etc/ppp/pap-secrets" <<EOF
 #
 # /etc/ppp/pap-secrets
