@@ -35,14 +35,19 @@ for i in $list; do
 	app_type=`grep Type= $i | cut -d '=' -f 2`
 	if [ $app_type == "WebApp" ]; then
 		webapp="true"
-		app_command=`grep URL= $i | cut -d '=' -f 2`
+		app_command=`grep Comment= $i | cut -d '=' -f 2`
+		app_url=`grep URL= $i | cut -d '=' -f 2`
 	else
 		webapp="false"
 	fi
 	
 	# find icon and set img src
 	if [ -e $icon_file ]; then
+		if [ $app_type == "WebApp" ]; then
+		img_src="<img src='file://"$icon_file"' style='max-width:64px' onload=\"resume_notify(this,'"$app_url"');\" />"
+		else
 		img_src="<img src='file://"$icon_file"' style='max-width:64px' onload=\"resume_notify(this,'"$app_command"');\" />"
+		fi
 	else
 		img_src="<img src='image/"$app_command".png' onload=\"resume_notify(this,'"$app_command"');\" />"	
 	fi
@@ -72,7 +77,7 @@ $desc_line"
 			fi
 		;;
 		"WebApp")
-			web_table=$web_table"<td><a href='#' onclick='show_program(&quot;""$app_command""&quot;,$webapp);' onfocus = 'this.blur()'>
+			web_table=$web_table"<td><a href='#' onclick='show_program(&quot;""$app_url""&quot;,$webapp);' onfocus = 'this.blur()'>
 <table><tr><td class='image'>
 $img_src
 $desc_line"
