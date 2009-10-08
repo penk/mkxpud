@@ -14,6 +14,10 @@ net-tools
 dropbear
 rdesktop
 
+[action]
+# extract connman
+tar jxf skeleton/archive/connman-0.43.tar.bz2 -C $MKXPUD_TARGET;
+
 [binary]
 
 /usr/bin/rdesktop
