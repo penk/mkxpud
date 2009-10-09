@@ -9,12 +9,15 @@
 <script type="text/javascript" src="../plate.js"></script>
 <script type="text/javascript">
 
-function set_locale() {
+function set_locale(x) {
 	xpudPrefs.setCharPref("xpud.locale", $('#uilang').val());
 	xpudPrefs.setCharPref("xpud.keymap", $('#kmap').val());
 	save_preferences();
 	// might be possible to change locale without restarting X, just need to find how to run do_i18n() on main tabs
+	
+	if (x === true) {
 	system('/usr/local/bin/set_locale ' + $('#uilang').val() + ' ' + $('#kmap').val());
+	}
 }
 
 </script>
@@ -69,7 +72,7 @@ function set_locale() {
 </select>
 
 <p>
-<input type="button" value="Change" onclick="set_locale(); $(this).attr('disabled', 'disabled'); $(this).attr('value', 'Done.');" />
+<input type="button" value="Change" onclick="set_locale(true); $(this).attr('disabled', 'disabled'); $(this).attr('value', 'Done.');" />
 </p>
 </div>
 
