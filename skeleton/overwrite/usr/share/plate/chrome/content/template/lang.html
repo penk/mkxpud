@@ -5,6 +5,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
+<link rel="stylesheet" type="text/css" href="../custom-buttons-3.1.css" />
 <script type="text/javascript" src="../jquery-1.3.2.min.js"></script>
 <script type="text/javascript" src="../plate.js"></script>
 <script type="text/javascript">
@@ -15,10 +16,14 @@ function set_locale(x) {
 	save_preferences();
 	// might be possible to change locale without restarting X, just need to find how to run do_i18n() on main tabs
 	
-	if (x === true) {
+	if (x % 2 === 1) {
 	system('/usr/local/bin/set_locale ' + $('#uilang').val() + ' ' + $('#kmap').val());
+	} else {
+	window.parent.location.reload();
 	}
 }
+
+var keymap_flag=0;
 
 </script>
 </head>
@@ -48,7 +53,12 @@ function set_locale(x) {
 <option value="zh_cn">Chinese (Simplified)</option>
 </select>
 
-<p>Keyboard layout:</p>
+<p style="font-size: 80%;">
+<a href="#" onclick="$('#keymap').toggle(); keymap_flag++;" style="color: gray;">Advanced options</a>
+</p>
+
+<div id="keymap" style="display: none;">
+<p>Change keyboard layout:</p>
 
 <select id="kmap" name="kmap">
 <option value="en">English (en)</option>
@@ -64,15 +74,18 @@ function set_locale(x) {
 <option value="it">Italian (it)</option>
 <option value="jp">Japanese (jp)</option>
 <option value="no">Norwegian (no)</option>
-<option value="pl">Polish</option>
+<option value="pl">Polish (pl)</option>
 <option value="pt-latin1">Portuguese (pt)</option>
 <option value="ru">Russian (ru)</option>
 <option value="sv-latin1">Swedish (sv)</option>
 <option value="es">Spanish (es)</option>
 </select>
 
+<p style="font-size: 80%;">The current GUI session will restart.</p>
+</div>
+
 <p>
-<input type="button" value="Change" onclick="set_locale(true); $(this).attr('disabled', 'disabled'); $(this).attr('value', 'Done.');" />
+<a href="#" class="btn primary" onclick="set_locale(keymap_flag++);"><span><span><b>&nbsp;</b><u>Change and Save</u></span></span></a>
 </p>
 </div>
 
