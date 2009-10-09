@@ -1,0 +1,14 @@
+#!/bin/bash
+# usage: get_static <ip> <mask> <gateway> [<dns>]
+
+ip=$1
+mask=$2
+gateway=$3
+dns=$4
+
+ifconfig eth0 $ip netmask $mask
+route add default gw $gateway
+
+if [ ! -z $dns ]; then
+echo "nameserver $dns" # >> /etc/resolv.conf
+fi

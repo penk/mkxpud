@@ -71,3 +71,4 @@ tar jxf skeleton/archive/connman-0.43.tar.bz2 -C $MKXPUD_TARGET;
 # FIXME
 /usr/local/bin/auto-reconnect.pl
 /usr/local/bin/get_adsl
+/usr/local/bin/get_static
