@@ -1,7 +1,11 @@
 #!/usr/bin/perl
 
+if (defined $ARGV[0]) {
+
 $ARGV[0] =~ s/opt-get/http/;
 chomp ($pkg_name = `basename $ARGV[0]`);
 
 system("wget $ARGV[0] -P /opt") if ! -e "/opt/$pkg_name";
 system("opt-get /opt/$pkg_name");
+
+}
