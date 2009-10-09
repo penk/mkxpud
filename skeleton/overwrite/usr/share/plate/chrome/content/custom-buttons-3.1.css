@@ -1,0 +1,94 @@
+/* Start custom button CSS here
+http://stopdesign.com/eg/buttons/3.1/code.html
+---------------------------------------- */
+.btn {
+  display:inline-block;
+  background:none;
+  margin:0;
+  padding:3px 0;
+  border-width:0;
+  overflow:visible;
+  font:100%/1.2 Arial,Sans-serif;
+  text-decoration:none;
+  color:#333;
+  }
+* html button.btn {
+  padding-bottom:1px;
+  }
+/* Immediately below is a temporary hack to serve the 
+   following margin values only to Gecko browsers
+   Gecko browsers add an extra 3px of left/right 
+   padding to button elements which can't be overriden.
+   Thus, we use -3px of left/right margin to overcome this. */
+html:not([lang*=""]) button.btn {
+  margin:0 -3px;
+  }
+.btn span {
+  background:#f9f9f9;
+  z-index:1;
+  margin:0;
+  padding:3px 0;
+  border-left:1px solid #ccc;
+  border-right:1px solid #bbb;
+  }
+* html .btn span {
+  padding-top:0;
+  }
+.btn span span {
+  background:none;
+  position:relative;
+  padding:3px .4em;
+  border-width:0;
+  border-top:1px solid #ccc;
+  border-bottom:1px solid #bbb;
+  }
+.btn b {
+  background:#e3e3e3;
+  position:absolute;
+  z-index:2;
+  bottom:0;
+  left:0;
+  width:100%;
+  overflow:hidden;
+  height:40%;
+  border-top:3px solid #eee;
+  }
+* html .btn b {
+  top:1px;
+  }
+.btn u {
+  text-decoration:none;
+  position:relative;
+  z-index:3;
+  }
+
+/* pill classes only needed if using pill style buttons ( LEFT | CENTER | RIGHT ) */
+button.pill-l span {
+  border-right-width:0;
+  }
+button.pill-l span span {
+  border-right:1px solid #ccc;
+  }
+button.pill-c span {
+  border-right-style:none;
+  border-left-color:#fff;
+  }
+button.pill-c span span {
+  border-right:1px solid #ccc;
+  }
+button.pill-r span {
+  border-left-color:#fff;
+  }
+
+/* only needed if implementing separate hover state for buttons */
+.btn:hover span, .btn:hover span span {
+  cursor:pointer;
+  border-color:#9cf !important;
+  color:#000;
+  }
+
+/* use if one button should be the 'primary' button */
+.primary {
+  font-weight:bold;
+  color:#000;
+  }
