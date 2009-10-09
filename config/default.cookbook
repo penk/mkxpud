@@ -9,9 +9,9 @@ MKXPUD_PKGMGR="apt-get install -y"
 MKXPUD_HOST_DEV="false"
 
 # specified the Linux kernel version to be used
-MKXPUD_KERNEL="2.6.30.5"
-MKXPUD_KERNEL_IMAGE="deploy/vmlinuz-2.6.30.5"
-MKXPUD_MOD_PATH="/lib/modules/2.6.30.5"
+MKXPUD_KERNEL="2.6.31.2"
+MKXPUD_KERNEL_IMAGE="deploy/vmlinuz-2.6.31.2"
+MKXPUD_MOD_PATH="/lib/modules/2.6.31.2"
 
 [module]
 # kernel modules to be included into rootfs
@@ -35,6 +35,7 @@ uvcvideo
 acpi-cpufreq cpufreq_ondemand video button
 snd-intel8x0
 tulip
+wl lib80211_crypt_ccmp lib80211_crypt_tkip lib80211_crypt_wep
 
 [recipe]
 # packages and files to be included into rootfs
@@ -57,14 +58,11 @@ ubuntu-media
 [prepare]
 # commands executed before building
 # download kernel modules, unpack to build system
-# if [ ! -e skeleton/archive/module-2.6.30.5.tgz ]; then wget http://download.xpud.org/devel/kernel/module-2.6.30.5.tgz -P skeleton/archive/; fi; 
-if [ ! -e /lib/modules/2.6.30.5 ]; then wget http://download.xpud.org/devel/kernel/module-2.6.30.5.tgz -P skeleton/archive/; tar xzf skeleton/archive/module-2.6.30.5.tgz -C /tmp;
-cp -r /tmp/module-2.6.30.5/lib/ /;
-rm -rf /tmp/module-2.6.30.5;
+if [ ! -e /lib/modules/2.6.31.2 ]; then wget http://download.xpud.org/xpud-2.6.31.2-mod.tgz -P skeleton/archive/; tar xzf skeleton/archive/xpud-2.6.31.2-mod.tgz -C /;
 fi;
 
 [action]
-tar xzf kernel/module/wl-module.tar.gz -C $MKXPUD_TARGET/lib/modules/2.6.30.5/ ;
+#tar xzf kernel/module/wl-module.tar.gz -C $MKXPUD_TARGET/lib/modules/2.6.30.5/ ;
 #rm -rf $MKXPUD_TARGET/lib/udev/devices/*
 
 [overwrite]
