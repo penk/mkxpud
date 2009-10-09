@@ -30,6 +30,7 @@ udev udev-extras
 module-init-tools
 acpid
 acpi-support
+bc
 
 #---------------------------
 
@@ -42,6 +43,7 @@ acpi-support
 /bin/cpio
 /bin/mount
 /bin/bash
+/usr/bin/bc
 
 /sbin/depmod
 
