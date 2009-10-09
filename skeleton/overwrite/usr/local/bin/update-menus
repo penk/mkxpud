@@ -69,11 +69,11 @@ $app_command
 $img_src
 $desc_line"
 
-			if [ $app_counter -eq "1" ]; then
+			if [ $app_counter -eq "2" ]; then
 				app_table=$app_table"</tr><tr>"
 				app_counter="0"
 			else
-				app_counter="1"
+				app_counter=`echo $app_counter + 1 | bc`
 			fi
 		;;
 		"WebApp")
@@ -82,11 +82,11 @@ $desc_line"
 $img_src
 $desc_line"
 
-			if [ $web_counter -eq "1" ]; then
+			if [ $web_counter -eq "2" ]; then
 				web_table=$web_table"</tr><tr>"
 				web_counter="0"
 			else
-				web_counter="1"
+				web_counter=`echo $web_counter + 1 | bc`
 			fi	
 		;;
 		"Application")
@@ -95,17 +95,14 @@ $desc_line"
 $img_src
 $desc_line"
 
-			if [ $app_counter -eq "1" ]; then
+			if [ $app_counter -eq "2" ]; then
 				app_table=$app_table"</tr><tr>"
 				app_counter="0"
 			else
-				app_counter="1"
+				app_counter=`echo $app_counter + 1 | bc`
 			fi
 		;;
 	esac
-
-	
-
 
 done
 
