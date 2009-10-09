@@ -36,9 +36,8 @@ system('/usr/local/bin/get_adsl ' + $('#username').val() + ' ' + $('#password').
 
 <p id="dhcp-info" style="display: none;" class="info">
 
-<p>
-<a href="#" class="btn primary" onclick="system('dhclient eth0'); window.parent.location.reload();" /><span><span><b>&nbsp;</b><u>Connect</u></span></span></a>
-</p>
+<br />
+<a href="#" class="btn primary" onclick="system('dhclient'); window.parent.location.reload();" /><span><span><b>&nbsp;</b><u>Connect</u></span></span></a>
 
 </p>
 
@@ -51,19 +50,18 @@ system('/usr/local/bin/get_adsl ' + $('#username').val() + ' ' + $('#password').
 <input id="gateway" type="text" size="14" /><br />
 <label for="dns">DNS Server</label><br />
 <input id="dns" type="text" size="14" value="168.95.1.1" /><br />
-<p>
+<br />
 <a href="#" class="btn primary" onclick="send_static(); window.parent.location.reload();" /><span><span><b>&nbsp;</b><u>Connect</u></span></span></a>
-</p>
 </p>
 
 <p id="adsl-info" style="display: none;" class="info">
 <label for="username">Username</label><br />
-<input id="username" type="text" size="18" /><br />
+<input id="username" type="text" size="22" /><br />
 <label for="password">Password</label><br />
-<input id="password" type="password" size="18" /><br />
-<p>
+<input id="password" type="password" size="22" /><br />
+<br />
 <a href="#" class="btn primary" onclick="send_adsl(); window.parent.location.reload();"><span><span><b>&nbsp;</b><u>Connect</u></span></span></a>
-</p>
+
 </p>
 
 <br />
