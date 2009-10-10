@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# for aufs to merge opt-get plugin
+mount -t tmpfs none /opt
+
 # generate menu
 /usr/local/bin/update-menus
 
