@@ -130,7 +130,7 @@ bc
 
 /etc/default/aufs
 
-/etc/udev
+/etc/udev/rules.d/62-persistent-storage-mount.rules
 
 #---------------------------
 
