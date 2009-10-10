@@ -130,6 +130,8 @@ bc
 
 /etc/default/aufs
 
+/etc/udev
+
 #---------------------------
 
 [overwrite]

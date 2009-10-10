@@ -1,0 +1,8 @@
+ACTION!="add|remove", GOTO="persistent_storage_edd_end"
+SUBSYSTEM!="block", GOTO="persistent_storage_edd_end"
+KERNEL!="sd*|hd*", GOTO="persistent_storage_edd_end"
+
+# execute hotplug script
+RUN+="/sbin/hotplug"
+
+LABEL="persistent_storage_edd_end"
