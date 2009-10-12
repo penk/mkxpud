@@ -32,7 +32,7 @@ for i in $list; do
 	# generate icon path
 	icon_file="/usr/share/pixmaps/"$app_icon".png"
 	# application type
-	app_type=`grep Type= $i | cut -d '=' -f 2`
+	app_type=`grep ^Type= $i | cut -d '=' -f 2`
 	if [ $app_type == "WebApp" ]; then
 		webapp="true"
 		app_command=`grep Comment= $i | cut -d '=' -f 2`
