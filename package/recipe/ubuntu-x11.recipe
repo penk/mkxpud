@@ -17,6 +17,7 @@ read-edid
 
 libnotify-bin
 notify-osd
+gtkdialog
 
 xbacklight
 
@@ -43,6 +44,7 @@ trayer
 
 /usr/bin/notify-send
 #/usr/lib/notify-osd/notify-osd
+/usr/bin/gtkdialog
 
 /usr/bin/trayer
 
