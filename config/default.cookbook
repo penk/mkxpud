@@ -20,7 +20,7 @@ sr_mod cdrom sg
 pppoe
 atl1 atl2 atl1e 
 iwl3945 iwlagn
-ath5k ath9k
+ath ath5k ath9k
 sis190 sis900
 lib80211
 rtl8180 rtl8187
