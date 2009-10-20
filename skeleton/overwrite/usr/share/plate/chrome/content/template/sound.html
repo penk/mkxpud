@@ -1,59 +1,61 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link type="text/css" href="../jquery-ui-1.7.1.custom.css" rel="stylesheet" />
+  <style type="text/css">
+		#eq span {width:120px; float:left; margin:15px}
+ </style> 
 <script type="text/javascript" src="../jquery-1.3.2.min.js"></script>
 <script type="text/javascript" src="../jquery-ui-1.7.1.custom.min.js"></script>
 <script type="text/javascript" src="../plate.js"></script>
 <script type="text/javascript">
-
-function module() {
-system('/usr/local/bin/load_module ' + $('#f').val());
+ function after_load() {
+	$(function() {
+		// change defaults for range, animate and orientation
+		$.extend($.ui.slider.defaults, {
+			range: 'min',
+			animate: true,
+			orientation: "horizontal"
+		});
+		// setup sliders
+		$('#eq span').each(function() {
+			// read initial values from markup and remove that
+			var value = parseInt($(this).text());
+			var imin = parseInt($(this).attr('min'));
+			var imax = parseInt($(this).attr('max'));
+			var numid = parseInt($(this).attr('numid'));
+			$(this).empty();
+			$(this).slider({
+				value: value,
+				min: imin,
+				max: imax
+			});
+			$(this).bind('slidestop', function(event, ui) {
+				var command = '/usr/bin/amixer cset numid=' + numid + ' ' + $(this).slider('option', 'value');
+				system(command);
+			});
+		});
+	});
 }
 
-$(document).ready(function(){
-    
-    $("#slider").slider({ value: 95 });
+function toggle_switch(checkbox, numid) {
+	var command = '/usr/bin/amixer cset numid=' + numid + ' ' +((checkbox.checked)?"1":"0");
+	system(command);
+}
 
-	$('#slider').bind('slidestop', function(event, ui) {
-	  system('/usr/bin/amixer set Master ' + $('#slider').slider('option', 'value') + '%');
-	});
-
-	$("#mute").click(function() { 
-		
-		if ( $("#mute").attr('checked') ) {
-		// true
-		$('#slider').slider('disable');
-		system('/usr/bin/amixer set Master mute' );
-
-	} else { 
-
-		system('/usr/bin/amixer set Master unmute' );
-		$('#slider').slider('enable');
-	}
-	
-	});
-	
-  });
+function toggle_option(select, numid) {
+	var command = '/usr/bin/amixer cset numid=' + numid + ' ' +select.selectedIndex;
+	system(command);
+}
 
 </script>
 </head>
 
-<body>
+<body onload="system('/usr/local/bin/get_mixer_ctls'); update_div_ife('mixer-options', '/tmp/amixer.out'); system('rm /tmp/amixer.out'); after_load();">
 <div style="margin: 20px auto; width: 400px;">
 <h2 style="border-bottom: 1px gray solid;">Adjust sound volume</h2>
-
-<div style="margin-left: 20px;">
-
-<div id="slider"></div>
-<p>
-<input type="checkbox" id="mute" value="Mute">Mute
-</p>
-
-</div>
-
+<div id="mixer-options"></div>
 </body>
 </html>

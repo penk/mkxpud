@@ -1,0 +1,51 @@
+#!/usr/bin/perl
+
+$amixer_contents = `amixer contents`;
+$out= "<div id='eq'><table>";
+
+foreach $item (split(/numid/,$amixer_contents)) {	
+
+	my ($numid, $iface, $name,$type,$access,$cvalues) =
+		$item =~ /.*=(.+?),.*iface=(.+?),.*name='(.+?)'.*type=(.+?),.*access=(.+?),values=(.+?)/si;
+		$out .= "<tr><td>";
+		
+		if ($name ne "") {
+			#$out .= "ID:$numid ";
+			$out .= "$name</td><td>";
+			# INTEGER type ( min, max, step, values[] )
+			if ($type=~"INTEGER") {
+				my ($min, $max, $step, $values) = 
+					$item =~ /.*min=(.+?),max=(.+?),step=(.+?).*values=(.+?)[,:|]/si;
+				$out .= "<span min='$min' max='$max' numid='$numid' >$values</span>\n";
+			}
+			# BOOLEAN type ( values [off, on] )
+			if ($type=~"BOOLEAN") {
+				$value="";
+				$value="checked" if $item =~ /values=on/;
+				$out .= "$values<input type='checkbox' onChange=\"toggle_switch(this, $numid);\" $value /></td>\n";
+			}
+			# ENUMERATED type ( items, items[] )
+			if ($type=~"ENUMERATED") {
+				my (@values) =
+					$item =~ /.*; Item #\d+ \'(.+?)\'.*/g;
+				$options = "";
+				$b=0;
+				foreach $val (@values) {
+					my ($sel_value) = 
+						$item =~ /.*[:] values=(.+?)/si;
+					$selected = "";
+					$selected = "selected" if $b == $sel_value;
+					$options .= "<option value='$b' $selected >$val</option>";
+					$b++;
+				}
+				$out .= "<select onChange=\"toggle_option(this, $numid);\">$options</select>\n";
+			}
+		}
+
+		$out .=  "</td></tr>";
+}
+
+$out .= "</table></div>";
+
+open(OUT, ">/tmp/amixer.out");
+print OUT $out;
