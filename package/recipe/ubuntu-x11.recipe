@@ -17,7 +17,7 @@ read-edid
 
 libnotify-bin
 notify-osd
-gtkdialog
+zenity
 
 xbacklight
 
@@ -44,7 +44,8 @@ trayer
 
 /usr/bin/notify-send
 #/usr/lib/notify-osd/notify-osd
-/usr/bin/gtkdialog
+
+/usr/bin/zenity
 
 /usr/bin/trayer
 
@@ -77,6 +78,8 @@ trayer
 #/usr/lib/libXxf86misc.so
 /usr/lib/libXxf86misc.so.1
 /usr/lib/libXxf86misc.so.1.1.0
+
+/usr/share/zenity/zenity.glade
 
 [config]
 
