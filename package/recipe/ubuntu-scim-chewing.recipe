@@ -76,9 +76,9 @@ scim-tables-zh
 ## FIXME
 
 /usr/lib/libscim-gtkutils-1.0.so.8
-/usr/lib/libscim-gtkutils-1.0.so.8.2.3
+/usr/lib/libscim-gtkutils-1.0.so.8.2.4
 /usr/lib/libscim-x11utils-1.0.so.8
-/usr/lib/libscim-x11utils-1.0.so.8.2.3
+/usr/lib/libscim-x11utils-1.0.so.8.2.4
 
 [config]
 

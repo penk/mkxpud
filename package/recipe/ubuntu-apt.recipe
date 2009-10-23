@@ -39,7 +39,7 @@ mkdir -p $MKXPUD_TARGET/var/lib/dpkg/info;
 /etc/logrotate.d/dpkg
 /sbin/start-stop-daemon
 /usr/lib/dpkg/mksplit
-/usr/sbin/cleanup-info
+#/usr/sbin/cleanup-info
 /usr/sbin/dpkg-divert
 /usr/sbin/dpkg-statoverride
 /usr/sbin/install-info
@@ -76,8 +76,8 @@ mkdir -p $MKXPUD_TARGET/var/lib/dpkg/info;
 /usr/lib/dpkg/methods/apt/names
 /usr/lib/dpkg/methods/apt/setup
 /usr/lib/dpkg/methods/apt/update
-/usr/lib/libapt-pkg-libc6.9-6.so.4.7
-/usr/lib/libapt-pkg-libc6.9-6.so.4.7.0
+/usr/lib/libapt-pkg-libc6.10-6.so.4.8
+/usr/lib/libapt-pkg-libc6.10-6.so.4.8.1
 /usr/share/apt/apt-auth-failure.note
 /usr/share/apt/ubuntu-archive.gpg
 /usr/share/bug/apt/script

@@ -15,7 +15,7 @@ gnome-mplayer
 
 [data]
 
-/usr/share/mplayer/subfont.ttf
+# /usr/share/mplayer/subfont.ttf
 
 ## FIXME
 /usr/share/icons/gnome/index.theme
@@ -32,10 +32,6 @@ gnome-mplayer
 #/usr/share/mime/treemagic
 #/usr/share/mime/types
 #/usr/share/mime/XMLnamespaces
-
-/usr/share/mime/packages/libmimetype.xml
-
-
 
 [config]
 

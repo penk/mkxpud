@@ -2,7 +2,7 @@
 
 [config]
 # short project description
-MKXPUD_NAME="xPUD Ubuntu Karmic image"
+MKXPUD_NAME="xPUD Ubuntu Jaunty image"
 # you can skip the package manager handling by setting this to `skip'
 MKXPUD_PKGMGR="apt-get install -y"
 # set to `true' if you want to include host /dev nodes
