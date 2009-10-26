@@ -5,6 +5,7 @@ dbus
 
 [package]
 dbus
+gconf-defaults-service
 
 [action]
 if [ ! -e /var/lib/dbus/machine-id ]; then dbus-uuidgen > /var/lib/dbus/machine-id; fi; 
@@ -24,8 +25,7 @@ if [ ! -e /var/lib/dbus/machine-id ]; then dbus-uuidgen > /var/lib/dbus/machine-
 #/etc/dbus-1/event.d/
 /etc/dbus-1/session.d/
 #/etc/dbus-1/system.d/
-# install gconf-defaults-service for this:
-# /etc/dbus-1/system.d/org.gnome.GConf.Defaults.conf
+/etc/dbus-1/system.d/org.gnome.GConf.Defaults.conf
 /etc/dbus-1/system.d/wpa_supplicant.conf
 /etc/dbus-1/system.d/ConsoleKit.conf
 #/etc/dbus-1/system.d/hal.conf
@@ -37,6 +37,10 @@ if [ ! -e /var/lib/dbus/machine-id ]; then dbus-uuidgen > /var/lib/dbus/machine-
 /lib/dbus-1.0
 /var/run/dbus
 /usr/lib/libgconf2-4
+
+#/etc/gconf
+#/usr/lib/libpolkit-gobject-1.so.0
+#/usr/lib/libpolkit-gobject-1.so.0.0.0
 
 [config]
 

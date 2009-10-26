@@ -8,11 +8,15 @@ chomp ($pkg_name = `basename $ARGV[0]`);
 $/ = "\015";
 $| = 1;
 # setup progress bar
-open UI, "| zenity --progress --text='Downloading $pkg_name ...' --auto-close --auto-kill";
+open UI, "| zenity --progress --title='remote-opt-get' --text='Downloading $pkg_name ...' --auto-close --auto-kill";
 # setup download command
 open WGET, "wget -c $ARGV[0] -P /opt 2>&1 |";
 # download OPT package
 while (<WGET>)  {
+	 if ($_ =~ 'error') { 	
+		 system("zenity --error --title='Download error' --text '$_'");
+		 die;
+		  };
 	my ($progress) =
 	$_ =~ /.* (.+?)%/si;
 	$progress .= "\n";
@@ -24,6 +28,6 @@ close UI;
 
 # install OPT package
 system("opt-get /opt/$pkg_name");
-# FIXME: show only after successfull installation, implement error catching
+
 system("zenity --info --text='$pkg_name has been installed'");
 }
