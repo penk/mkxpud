@@ -11,7 +11,7 @@ if [ -e $1 ]; then
 	mount -o remount,append:$TARGET /
 	
 	# execute post.sh if exist
-	if [ -e $TARGET/post.sh ]; then 
-	exec $TARGET/post.sh 
+	if [ -e $TARGET/tmp/post.sh ]; then 
+	exec $TARGET/tmp/post.sh 
 	fi
 fi
