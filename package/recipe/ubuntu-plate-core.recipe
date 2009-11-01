@@ -67,6 +67,7 @@ rm -f $MKXPUD_TARGET/usr/share/firefox/components/libnkgnomevfs.so;
 /usr/share/applications/facebook.desktop
 /usr/share/applications/meebo.desktop
 /usr/share/applications/youtube.desktop
+/usr/share/applications/plurk.desktop
 /usr/share/pixmaps
 
 [overwrite]
