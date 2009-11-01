@@ -43,18 +43,19 @@ epdfview
 #/usr/share/pcmanfm/icons/file.png
 #/usr/share/pcmanfm/icons/folder.png
 /usr/share/pcmanfm/mount.rules
-/usr/share/pcmanfm/ui/about-dlg.glade
-/usr/share/pcmanfm/ui/appchooserdlg.glade
-/usr/share/pcmanfm/ui/file_properties.glade
-/usr/share/pcmanfm/ui/find-files.glade
-/usr/share/pcmanfm/ui/prefdlg.glade
+/usr/share/pcmanfm/ui/find-files.ui
+/usr/share/pcmanfm/ui/appchooserdlg.ui
+/usr/share/pcmanfm/ui/prefdlg.ui
+/usr/share/pcmanfm/ui/godlg.ui
+/usr/share/pcmanfm/ui/file_properties.ui
+/usr/share/pcmanfm/ui/about-dlg.ui
 /usr/share/pixmaps/pcmanfm.png
 
 /usr/share/pixmaps/gpicview.png
 
 /usr/lib/gamin
 /usr/lib/libgamin-1.so.0
-/usr/lib/libgamin-1.so.0.1.9
+/usr/lib/libgamin-1.so.0.1.10
 /etc/gamin
 /etc/gamin/gaminrc
 

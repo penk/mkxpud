@@ -79,9 +79,14 @@ bc
 /usr/bin/acpi_listen
 /usr/bin/acpi_fakekey
 
+/usr/bin/file
+
 #---------------------------
 
 [data]
+
+/etc/magic
+/etc/magic.mime
 
 /usr/share/os-prober
 /usr/lib/linux-boot-probes
