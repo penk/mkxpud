@@ -1,0 +1,24 @@
+[Desktop Entry]
+Encoding=UTF-8
+Categories=Graphics;Utility;Core;GTK;Viewer;RasterGraphics;2DGraphics;Photography;
+Exec=gpicview %f
+Icon=gpicview
+StartupNotify=true
+Type=AppPopup
+Terminal=false
+MimeType=image/bmp;image/gif;image/jpeg;image/jpg;image/png;image/tiff;image/x-bmp;image/x-pcx;image/x-tga;image/x-portable-pixmap;image/x-portable-bitmap;image/x-targa;image/x-portable-greymap;application/pcx;image/svg+xml;image/svg-xml;
+Name=Image Viewer
+Name[fr]=Visionneur d'images
+Name[zh_CN]=图片查看器
+Name[zh_TW]=圖片檢視器
+Name[fi]=Kuvankatselin
+GenericName=Image Viewer
+GenericName[fr]=Visionneur d'images
+GenericName[zh_CN]=图片查看器
+GenericName[zh_TW]=圖片檢視器
+GenericName[fi]=Kuvankatselin
+Comment=View your images easily
+Comment[fr]=Visionner des images facilement
+Comment[zh_CN]=轻松查看数码相片和图片
+Comment[zh_TW]=輕鬆檢視數位相片和圖片
+Comment[fi]=Katsele kuviasi helposti

@@ -1,0 +1,17 @@
+[Desktop Entry]
+Categories=Viewer;Office;GTK
+Comment=Lightweight PDF document viewer
+Comment[ca]=Visor de documents PDF lleuger
+Comment[es]=Visor de documentos PDF ligero
+Encoding=UTF-8
+Exec=epdfview %f
+GenericName=pdf_viewer
+GenericName[ca]=Visor PDF
+GenericName[es]=Visor PDF
+Icon=postscript-viewer.png
+Name=ePDFViewer
+Name[ca]=ePDFViewer
+Name[es]=ePDFViewer
+MimeType=application/pdf
+Terminal=false
+Type=Application

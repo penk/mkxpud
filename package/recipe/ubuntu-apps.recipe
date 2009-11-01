@@ -5,28 +5,27 @@ apps
 
 [package]
 transmission-gtk
-#gpicview
+gpicview
 geany
 pcmanfm-nohal
-#epdfview
+epdfview
 
 [action]
 #unpack viewnior
-tar jxf skeleton/archive/viewnior* -C $MKXPUD_TARGET;
+#tar jxf skeleton/archive/viewnior* -C $MKXPUD_TARGET;
 
 [binary]
 
-#/usr/bin/epdfview
-#/usr/bin/gpicview
+/usr/bin/epdfview
+/usr/bin/gpicview
 /usr/bin/geany
-## FIXME: mime file
 /usr/bin/transmission
 
 /usr/bin/pcmanfm
 
 [data]
 
-#/usr/share/epdfview
+/usr/share/epdfview
 
 # MIME info
 /usr/share/mime/aliases
@@ -68,9 +67,12 @@ tar jxf skeleton/archive/viewnior* -C $MKXPUD_TARGET;
 /usr/share/applications/pcmanfm.desktop
 /usr/share/applications/geany.desktop
 
+
 [config]
 
 /.config/geany 
+/usr/share/applications/gpicview.desktop
+/usr/share/applications/epdfview.desktop
 
 [overwrite]
 
