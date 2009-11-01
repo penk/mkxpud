@@ -50,6 +50,8 @@ epdfview
 /usr/share/pcmanfm/ui/prefdlg.glade
 /usr/share/pixmaps/pcmanfm.png
 
+/usr/share/pixmaps/gpicview.png
+
 /usr/lib/gamin
 /usr/lib/libgamin-1.so.0
 /usr/lib/libgamin-1.so.0.1.9
@@ -65,14 +67,13 @@ epdfview
 # desktop files
 /usr/share/applications/transmission.desktop
 /usr/share/applications/pcmanfm.desktop
-/usr/share/applications/geany.desktop
-
 
 [config]
 
 /.config/geany 
 /usr/share/applications/gpicview.desktop
 /usr/share/applications/epdfview.desktop
+/usr/share/applications/geany.desktop
 
 [overwrite]
 
