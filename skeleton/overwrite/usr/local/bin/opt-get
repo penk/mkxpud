@@ -10,7 +10,7 @@ if [ -e $1 ]; then
 		cat $1 | gzip -d | cpio -id
 		OPT="/opt/`basename $1`.opt"
 	else
-		OPT="/opt/`basename $1`"
+		OPT=$1
 	fi
 	
 	# merge opt file to /
