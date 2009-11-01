@@ -17,6 +17,16 @@ xinit
 /usr/bin/mcookie
 /usr/bin/startx
 
+/usr/bin/cpp
+
+/usr/bin/setxkbmap
+/usr/bin/xkbbell
+/usr/bin/xkbcomp
+/usr/bin/xkbevd
+/usr/bin/xkbprint
+/usr/bin/xkbvleds
+/usr/bin/xkbwatch
+
 [data]
 
 /etc/X11
