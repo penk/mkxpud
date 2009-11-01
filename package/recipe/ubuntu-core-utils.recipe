@@ -79,16 +79,16 @@ bc
 /usr/bin/acpi_listen
 /usr/bin/acpi_fakekey
 
-#/usr/bin/file
+/usr/bin/file
 
 #---------------------------
 
 [data]
 
-#/etc/magic
-#/etc/magic.mime
-#/usr/share/misc
-#/usr/share/file
+/usr/share/misc
+/usr/share/file/magic.mime
+/usr/share/file/magic
+
 
 /usr/share/os-prober
 /usr/lib/linux-boot-probes

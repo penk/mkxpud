@@ -1,17 +1,29 @@
 #!/bin/bash
 # opt-get - command line interface for opt plugin
-# usage: opt-get /path/to/file.opt
+# usage: opt-get /path/to/opt-file
 
 if [ -e $1 ]; then 
 
+	# check if opt file in cpio/gz format
+	if [ "$(file $1|grep gzip)" ]; then 
+		cd /
+		cat $1 | gzip -d | cpio -id
+		OPT="/opt/`basename $1`.opt"
+	else
+		OPT="/opt/`basename $1`"
+	fi
+	
 	# merge opt file to /
 	TARGET="/opt/`basename $1`.d"
 	mkdir -p $TARGET
-	mount -o loop $1 $TARGET 
+	mount -o loop $OPT $TARGET 
 	mount -o remount,append:$TARGET /
 	
 	# execute post.sh if exist
 	if [ -e $TARGET/tmp/post.sh ]; then 
 	exec $TARGET/tmp/post.sh 
 	fi
+	
+
+
 fi
