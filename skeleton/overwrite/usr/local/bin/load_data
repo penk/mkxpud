@@ -1,5 +1,6 @@
 #!/bin/bash
-# load user data, default name "xpud-data.gz", gzipped CPIO 
+# load user data and opt files 
+# by default it will load file named "xpud-data.gz", gzipped CPIO 
 # load_data [<path>]
 
 if [ -z $1 ]; then
@@ -13,7 +14,17 @@ if [ -z $1 ]; then
 			cd -
 		fi
 
+		# install opt file if exist 
+		if [ -d /mnt/$p/opt ] && [ -e /mnt/$p/opt/*.opt ]; then
+
+			for o in `ls /mnt/$p/opt/*.opt`; do
+			opt-get $o
+			done
+			
+		fi
+
 	done
+
 else
 		if [ -e $1 ]; then
 			cd /
