@@ -7,7 +7,7 @@ print F "<div style='float: left;'>";
 print F "Time: ", `LC_ALL=C date +%a\\ %I:%M\\ %p`, "<br />\n";
 chomp($time = `LC_ALL=C date +%I:%M\\ %p`);
 
-if (`ifconfig|grep "inet addr"`) { # online
+if (`ifconfig | grep -v 127.* | grep "inet addr"`) { # online
 $netstat = "Online"; 
 $net_short = $netstat;
 
