@@ -11,7 +11,8 @@ pppoeconf
 pppconfig
 net-tools
 #iptables
-dropbear
+#dropbear
+openssh-client
 rdesktop
 
 [action]
@@ -22,9 +23,11 @@ tar jxf skeleton/archive/connman-0.43.tar.bz2 -C $MKXPUD_TARGET;
 
 /usr/bin/rdesktop
 
-/usr/sbin/dropbear
-/usr/bin/dbclient
-/usr/bin/dropbearkey
+#/usr/sbin/dropbear
+#/usr/bin/dbclient
+#/usr/bin/dropbearkey
+
+/usr/bin/ssh
 
 #/sbin/iptables
 #/sbin/iptables-save
