@@ -42,7 +42,7 @@ if [ ! -e /tmp/firsttime ]; then
 
 	# auto load user data if exist
 	if [ ! "$(cat /proc/cmdline | grep xpud-data )" ]; then
-		/usr/local/bin/load_data
+		/usr/local/bin/load_data &
 	fi
 
 	# auto reconnect

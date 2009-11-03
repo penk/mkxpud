@@ -15,12 +15,8 @@ if [ -z $1 ]; then
 		fi
 
 		# install opt file if exist 
-		if [ -d /mnt/$p/opt ] && [ -e /mnt/$p/opt/*.opt ]; then
-
-			for o in `ls /mnt/$p/opt/*.opt`; do
-			opt-get $o
-			done
-			
+		if [ -d /mnt/$p/opt ]; then
+			find /mnt/$p/opt -name *.opt -exec opt-get {} \;
 		fi
 
 	done
