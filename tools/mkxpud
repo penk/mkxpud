@@ -36,7 +36,7 @@ else
 			image $MKXPUD_CODENAME
 			;;
 		test)
-			sudo qemu -kernel $MKXPUD_KERNEL_IMAGE -initrd deploy/$MKXPUD_CODENAME.cpio -hda /dev/zero -m 512
+			sudo qemu -kernel $MKXPUD_KERNEL_IMAGE -initrd deploy/$MKXPUD_CODENAME.cpio -hda /dev/zero -m 512 -net nic,model=ne2k_pci -net user
 			;;
 		help|usage)
 			usage
