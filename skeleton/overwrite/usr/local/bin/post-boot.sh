@@ -48,11 +48,16 @@ if [ ! -e /tmp/firsttime ]; then
 
 	# auto load user data if exist
 	if [ ! "$(cat /proc/cmdline | grep xpud-data )" ]; then
-		/usr/local/bin/load_data &
+		/usr/local/bin/load_data
 	fi
 
 	# auto reconnect
 	/usr/local/bin/auto-reconnect.pl &
+	
+	# install opt file if exist 
+	if [ ! "$(cat /proc/cmdline | grep opt=no )" ]; then
+		find /mnt -maxdepth 3 -name *.opt -exec opt-get {} \;
+	fi
 
 	# start hotplug script
 	/bin/cp /sbin/hotplug-x /sbin/hotplug

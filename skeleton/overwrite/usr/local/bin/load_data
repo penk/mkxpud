@@ -1,13 +1,10 @@
 #!/bin/bash
-# load user data and opt files 
+# load user data 
 # by default it will load file named "xpud-data.gz", gzipped CPIO 
 # load_data [<path>]
 
 if [ -z $1 ]; then
 
-	# install opt file if exist 
-	find /mnt -maxdepth 3 -name *.opt -exec opt-get {} \;
-	
 	# load user data if exist 
 	for i in `find /mnt -maxdepth 2 -name xpud-data.gz`; do 
 		cd /
