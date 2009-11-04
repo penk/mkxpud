@@ -6,6 +6,7 @@ dbus
 [package]
 dbus
 gconf-defaults-service
+libgnome2-common
 
 [action]
 if [ ! -e /var/lib/dbus/machine-id ]; then dbus-uuidgen > /var/lib/dbus/machine-id; fi; 
@@ -18,6 +19,8 @@ if [ ! -e /var/lib/dbus/machine-id ]; then dbus-uuidgen > /var/lib/dbus/machine-
 /bin/dbus-daemon
 /bin/dbus-cleanup-sockets
 /bin/dbus-uuidgen
+
+#/usr/bin/gconf-editor
 
 [data]
 # BUG: when copying whole dbus-1 directory, if one already exists in rootfs - new directory is copied to existing directory
@@ -36,11 +39,14 @@ if [ ! -e /var/lib/dbus/machine-id ]; then dbus-uuidgen > /var/lib/dbus/machine-
 /usr/share/dbus-1
 /lib/dbus-1.0
 /var/run/dbus
-/usr/lib/libgconf2-4
+#/usr/lib/libgconf2-4
+#/var/lib/gconf
 
+#/usr/share/gconf
 #/etc/gconf
 #/usr/lib/libpolkit-gobject-1.so.0
 #/usr/lib/libpolkit-gobject-1.so.0.0.0
+#/usr/share/polkit-1/actions/org.gnome.gconf.defaults.policy
 
 [config]
 

@@ -80,4 +80,4 @@ else { system "rm -f /tmp/netstat.tmp"; }
 # show wifi connected notification message
 $iw = `iwconfig`;
 $ssid = $1 if $iw =~ /ESSID:"(.*?)"/;
-system "notify-send '$ssid' 'Connection established' -i /usr/share/plate/chrome/content/image/wlassistant.png"
+system "notify-send '$ssid' 'Connection established' -i /usr/share/plate/chrome/content/image/wlassistant.png -u critical"
