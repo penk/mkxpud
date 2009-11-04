@@ -5,20 +5,14 @@
 
 if [ -z $1 ]; then
 
-	for p in `ls /mnt/`; do 
-
-		# load user data if exist 
-		if [ -e /mnt/$p/xpud-data.gz ]; then
-			cd /
-			cat /mnt/$p/xpud-data.gz | gzip -d | cpio -i
-			cd -
-		fi
-
-		# install opt file if exist 
-		if [ -d /mnt/$p/opt ]; then
-			find /mnt/$p/opt -name *.opt -exec opt-get {} \;
-		fi
-
+	# install opt file if exist 
+	find /mnt -maxdepth 3 -name *.opt -exec opt-get {} \;
+	
+	# load user data if exist 
+	for i in `find /mnt -maxdepth 2 -name xpud-data.gz`; do 
+		cd /
+		cat $i | gzip -d | cpio -i
+		cd -
 	done
 
 else
