@@ -49,6 +49,10 @@ rm -f $MKXPUD_TARGET/usr/share/firefox/components/libnkgnomevfs.so;
 /usr/lib/gtk-2.0/2.10.0/loader-files.d/libgtk2.0-0.loaders
 /usr/lib/gtk-2.0/2.10.0/loader-files.d/librsvg2-common.loaders
 
+# required by dbusservice.so
+/usr/lib/libnspr4.so
+/usr/lib/libplds4.so
+
 [config]
 
 /tmp/sysinfo-s

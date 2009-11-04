@@ -20,6 +20,12 @@ if [ ! -e /tmp/firsttime ]; then
 	udevd --daemon
 	udevadm trigger
 
+	# start system bus
+	dbus-launch --config-file=/etc/dbus-1/system.conf
+	
+	# start connman
+	#connmand
+
 	# work through NIC and wake them up
 	/bin/ifconfig lo 127.0.0.1 netmask 255.0.0.0
 

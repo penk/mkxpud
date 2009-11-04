@@ -66,6 +66,7 @@ tar jxf skeleton/archive/connman-0.43.tar.bz2 -C $MKXPUD_TARGET;
 /etc/ppp
 
 [overwrite]
+/usr/local/bin/connman-test.sh
 
 /var/run/network
 /var/lib/dhcp3
