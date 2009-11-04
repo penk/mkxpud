@@ -53,7 +53,7 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 	#echo "Trying to detect your screen resolution..."
 	if [ -z $RES ]; then
 		# detect screen resolution using EDID
-		/usr/bin/get-edid 1> /tmp/edid.out 2> /tmp/edid.log
+		/usr/sbin/get-edid 1> /tmp/edid.out 2> /tmp/edid.log
 		# parse edid
 		VMODE=`/usr/bin/parse-edid 2>> /tmp/edid.log < /tmp/edid.out | grep [0-9].*x[0-9]* | cut -d \" -f 2`
 		# if panel size was found - set the screen resolution
