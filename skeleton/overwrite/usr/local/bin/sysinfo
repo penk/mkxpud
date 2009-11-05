@@ -42,7 +42,7 @@ $info = `cat /proc/acpi/battery/*/state`;
 
 if ( $info ne '' ) {
 
-	$batstat = "Battery: ";
+	$batstat = "";
 	if ($info =~ /discharging/) {
 		$r = $1 if $info =~ /present rate:\s+(\d+)\s/;
 		$c = $1 if $info =~ /remaining capacity:\s+(\d+)\s/;
@@ -87,12 +87,12 @@ if ( $info ne '' ) {
 print F <<EOF;
 
 <div style="float: left; width: 170px; margin-right: 10px;">
-<img src="image/$net_icon" style="margin-right: 70px;" />
-<span>Network: $netstat</span>
+<img src="image/$net_icon" /><br />
+<span>$netstat</span>
 </div>
 
 <div style="float: left; width: 160px; margin-right: 15px;">
-<img src="image/$bat_icon" style="margin-right: 70px;" />
+<img src="image/$bat_icon" /><br />
 <span>$batstat</span>
 </div>
 
