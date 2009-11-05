@@ -1,10 +1,4 @@
-# unofficial xPUD repository
-deb http://soldat.gr/xpud/packages xpud main
-# Ubuntu repositories
-#deb http://archive.ubuntu.com/ubuntu jaunty main universe multiverse restricted
-#deb http://archive.ubuntu.com/ubuntu jaunty-updates main universe multiverse restricted
-#deb http://archive.ubuntu.com/ubuntu jaunty-security main universe multiverse restricted
-# nearby Ubuntu mirror for quick testing
-#deb http://ftp.litnet.lt/ubuntu jaunty main universe multiverse restricted
-#deb http://ftp.litnet.lt/ubuntu jaunty-updates main universe multiverse restricted
-#deb http://ftp.litnet.lt/ubuntu jaunty-security main universe multiverse restricted
+deb http://us.archive.ubuntu.com/ubuntu karmic main universe multiverse restricted
+deb http://us.archive.ubuntu.com/ubuntu karmic-updates main universe multiverse restricted
+deb http://us.archive.ubuntu.com/ubuntu karmic-security main universe multiverse restricted
+#deb-src http://us.archive.ubuntu.com/ubuntu karmic main universe multiverse restricted
