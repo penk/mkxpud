@@ -56,16 +56,13 @@ if ( $info ne '' ) {
 		$batstat .= "Charging"; 
 	}
 	
-	$power_supply_target = `find /sys/bus/acpi/drivers/battery/*/power_supply/*/uevent`;
-	$power_info = `cat $power_supply_target`;
-	$full = $1 if $power_info=~/CHARGE_FULL=(.*)$/;
-	$now = $1 if $power_info=~/CHARGE_NOW=(.*)$/;
-
-	unless ($full) {
-			$full = $1 if $power_info=~/ENERGY_FULL=(.*)$/;
-			$now = $1 if $power_info=~/ENERGY_NOW=(.*)$/;
+	$power_info = `find /sys/bus/acpi/drivers/battery/*/power_supply/*/uevent`;
+	
+	for (`cat $power_info`) {
+	$full = $2 if /(ENERGY|CHARGE)_FULL=(.*)$/;
+	$now = $2 if /(ENERGY|CHARGE)_NOW=(.*)$/;
 	}
-
+	
 	if ($full) {
 		$bat_percent = $now / $full * 100;
 		$batstat .= sprintf " (%.2d%) <br />\n", $bat_percent ;
