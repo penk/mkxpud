@@ -22,7 +22,7 @@ if (`ifconfig | grep -v 127.* | grep "inet addr"`) { # online
 	if ($str != '') {
 		if ($str >= 75) { $net_icon = "wireless-signal-excellent.png"; } 
 		elsif ($str >= 50 && $str < 75) { $net_icon = "wireless-signal-good.png"; } 
-		elsif ($str >= 25 && $str < 50) { $net_icon = "wireless-signal-okay.png"; }
+		elsif ($str >= 25 && $str < 50) { $net_icon = "wireless-signal-ok.png"; }
 		else { $net_icon = "wireless-signal-weak.png"; }
 	} else { $net_icon = "wireless-signal-excellent.png"; } 
 
