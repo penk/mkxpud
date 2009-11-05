@@ -371,7 +371,7 @@ h2 {
 	height: 30px;
 	border: 0px;
 	z-index: 5;
-	overflow: hedden;
+	overflow: hidden;
 }
 
 #top_task.maximized {
