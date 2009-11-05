@@ -48,7 +48,7 @@ ubuntu-wireless-tools
 ubuntu-artwork
 ubuntu-plate-core
 ubuntu-dbus
-ubuntu-apt
+#ubuntu-apt
 ubuntu-cjkfont
 ubuntu-scim-chewing
 

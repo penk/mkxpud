@@ -92,9 +92,13 @@ mkdir -p $MKXPUD_TARGET/var/lib/dpkg/info;
 ## /usr/lib/libglade-2.0.so.0
 ## /usr/lib/libglade-2.0.so.0.0.7
 
+# use installed packages list from build system
+/var/lib/dpkg/available
+/var/lib/dpkg/status
+
 [config]
 /etc/apt/sources.list
 
 [overwrite]
-/var/lib/dpkg/available
-/var/lib/dpkg/status
+#/var/lib/dpkg/available
+#/var/lib/dpkg/status
