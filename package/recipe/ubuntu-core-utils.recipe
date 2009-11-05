@@ -132,6 +132,7 @@ bc
 /etc/hostname
 /etc/passwd
 /etc/group
+/etc/shells
 
 #/etc/modules
 
