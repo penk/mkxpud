@@ -315,6 +315,15 @@ function cover() {
 		vis=0;
 		document.getElementById('cover').style.display='block';
 		document.getElementById('popup').style.display='block';
+		// close dialog with ESCape key
+		$(document).keyup(function(e) {
+			if(e.keyCode == 27) {
+				$('#cover').hide();
+				$('#popup').hide();
+				vis=1;
+			}
+		});
+		
 	}
 	else {  
 		vis=1;
