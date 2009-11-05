@@ -17,7 +17,7 @@ rdesktop
 
 [action]
 # extract connman
-tar jxf skeleton/archive/connman-0.43.tar.bz2 -C $MKXPUD_TARGET;
+tar jxf skeleton/archive/connman-0.46.tar.bz2 -C $MKXPUD_TARGET;
 
 [binary]
 
