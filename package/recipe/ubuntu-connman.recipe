@@ -4,27 +4,15 @@
 connman
 
 [package]
-connman-gnome
-dbus
+connman
 
 [binary]
 
 /usr/sbin/connmand
-/usr/bin/connman-applet
-/usr/bin/connman-properties
-
-/usr/bin/dbus-launch  
-/usr/bin/dbus-monitor  
-/usr/bin/dbus-send
-/bin/dbus-daemon
-/bin/dbus-cleanup-sockets
-/bin/dbus-uuidgen
 
 [data]
 
-/etc/dbus-1
-/usr/share/dbus-1
-/lib/dbus-1.0
-/var/lib/dbus
-/var/run/dbus
-
+/usr/lib/connman/plugins
+/usr/lib/connman/scripts
+/etc/default/connman
+/etc/dbus-1/system.d/connman.conf
