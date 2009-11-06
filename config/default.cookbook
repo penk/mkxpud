@@ -19,6 +19,7 @@ ata_piix isofs
 sr_mod cdrom sg
 pppoe
 atl1 atl2 atl1e 
+tg3
 iwl3945 iwlagn
 ath ath5k ath9k
 sis190 sis900
