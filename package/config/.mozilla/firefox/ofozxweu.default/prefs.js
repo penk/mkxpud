@@ -24,7 +24,7 @@ user_pref("browser.places.importBookmarksHTML", false);
 user_pref("browser.places.smartBookmarksVersion", 2);
 user_pref("browser.rights.3.shown", true);
 user_pref("browser.startup.homepage", "about:blank");
-user_pref("browser.startup.homepage_override.mstone", "rv:1.9.1.4");
+user_pref("browser.startup.homepage_override.mstone", "rv:1.9.1.5");
 user_pref("browser.startup.page", 0);
 //user_pref("extensions.enabledItems", "{972ce4c6-7e08-4474-a285-3208198ce6fd}:3.5.3");
 //user_pref("extensions.lastAppVersion", "3.5.3");

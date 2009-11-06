@@ -92,25 +92,26 @@ $mem = sprintf "%.2d%", $memfree / $memtotal * 100;
 $mem_f = sprintf "free memory (%d MB)", $memfree/1024;
 
 print F <<EOF;
-<div style="float: left; width: 24%; margin-left: 1%; margin-right: 2%;">
+<div style="float: left; width: 20%; margin-left: 1%; margin-right: 1%;">
+<h3>$time</h3>
+<span>$date</span>
+</div>
+
+<div style="float: left; width: 24%; margin-right: 2%;">
 <img src="image/$net_icon" /><br />
 <span>$netstat</span>
 </div>
 
 <div style="float: left; width: 20%; margin-right: 1%;">
-<h3>$time</h3>
-<span>$date</span>
+<h3>$mem</h3>
+<span>$mem_f</span>
 </div>
 
-<div style="float: left; width: 24%; margin-right: 3%;">
+<div style="float: left; width: 24%;">
 <img src="image/$bat_icon" /><br />
 <span>$batstat</span>
 </div>
 
-<div style="float: left; width: 20%;">
-<h3>$mem</h3>
-<span>$mem_f</span>
-</div>
 EOF
 
 if ($batstat) { print FS "$net_short | $time_s | $batstat\n"; } 
