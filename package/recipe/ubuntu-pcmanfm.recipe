@@ -50,7 +50,7 @@ pcmanfm-nohal
 /usr/share/icons/gnome/32x32/mimetypes
 /usr/share/icons/gnome/32x32/places
 
-/usr/share/applications/pcmanfm.desktop
+#/usr/share/applications/pcmanfm.desktop
 
 [config]
 
