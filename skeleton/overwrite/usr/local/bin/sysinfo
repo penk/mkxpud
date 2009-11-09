@@ -27,7 +27,7 @@ if (`ifconfig | grep -v 127.* | grep "inet addr"`) { # online
 	} else { $net_icon = "wireless-signal-excellent.png"; } 
 
 	if ($ssid ne '' && $str ne '') {
-		$netstat .= " ($ssid - $str%)";
+		$netstat_desc .= "$ssid - $str%";
 		$net_short .= " ($ssid)";
 	}
 } 
@@ -50,11 +50,11 @@ if ( $info ne '' ) {
 		if ($r != 0) {
 		$h = sprintf "%d", $c/$r;
 		$m = sprintf "%.2d", 60*$c/$r-$h*60;
-		$batstat .= "$h:$m";
+		$batstat_desc = "$h:$m";
 		}
 
 	} else {
-		$batstat .= "Charging"; 
+		$batstat_desc = "Charging"; 
 	}
 	
 	$power_info = `find /sys/bus/acpi/drivers/battery/*/power_supply/*/uevent`;
@@ -66,10 +66,10 @@ if ( $info ne '' ) {
 	
 	if ($full) {
 		$bat_percent = $now / $full * 100;
-		$batstat .= sprintf " (%.2d%) <br />\n", $bat_percent ;
+		$batstat .= sprintf "%.2d%", $bat_percent ;
 	}
 	
-	if ( $batstat =~ /Charging/) { $bat_icon = "battery-charging.png"; }  
+	if ( $batstat_desc =~ /Charging/) { $bat_icon = "battery-charging.png"; }  
 	
 	elsif ($bat_percent ne '') {
 
@@ -82,6 +82,7 @@ if ( $info ne '' ) {
 
 }
 
+=pod
 $meminfo = `cat /proc/meminfo`;
 
 $memtotal = $1 if $meminfo =~ /MemTotal:\s+(\d+?) kB/;
@@ -89,30 +90,53 @@ $memfree = $1 if $meminfo =~ /MemFree:\s+(\d+?) kB/;
 #print "total:", $mentotal, "\n";
 
 $mem = sprintf "%.2d%", $memfree / $memtotal * 100;
-$mem_f = sprintf "free memory (%d MB)", $memfree/1024;
+$mem_f = sprintf "%d MB", $memfree/1024;
+=cut
 
 print F <<EOF;
-<div style="float: left; width: 20%; margin-left: 1%; margin-right: 1%;">
-<h3>$time</h3>
-<span>$date</span>
-</div>
 
-<div style="float: left; width: 24%; margin-right: 2%;">
-<img src="image/$net_icon" /><br />
-<span>$netstat</span>
-</div>
+<tr>
+		<td>
+			<table style="background: #E0FFE0;"><tr>
+				<td class="image">
+				<img src="image/$net_icon" />
+				</td>
+				<td>
+				<strong>$netstat</strong><br />
+				<span>$netstat_desc</span>
+				</td>
+			</tr></table>
 
-<div style="float: left; width: 20%; margin-right: 1%;">
-<h3>$mem</h3>
-<span>$mem_f</span>
-</div>
-
-<div style="float: left; width: 24%;">
-<img src="image/$bat_icon" /><br />
-<span>$batstat</span>
-</div>
-
+		</td>
+		
 EOF
 
-if ($batstat) { print FS "$net_short | $time_s | $batstat\n"; } 
+if ($batstat) {
+print F <<EOF;
+		<td>
+			<table style="background: #E0FFE0;"><tr>
+				<td class="image">
+				<img src="image/$bat_icon" />
+				</td><td>
+				<strong>$batstat</strong><br />
+				<span>$batstat_desc</span>
+				</td>
+			</tr></table>
+		</td>	
+EOF
+}
+
+print F <<EOF;
+		
+		<td>
+			<table style="background: #E0FFE0;"><tr><td>
+				<strong>$time</strong><br />
+				<span>$date</span>
+			</td>
+			</tr></table>
+		</td>
+</tr>
+EOF
+
+if ($batstat) { print FS "$net_short | $time_s | Battery: $batstat ($batstat_desc)\n"; } 
 else { print FS "$net_short | $time_s \n"; }
