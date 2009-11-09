@@ -196,6 +196,15 @@ function toggle_maximize_program() {
 	}
 }
 
+function open_file_tab() {
+
+unmaximize_program();
+document.getElementById('maximize_button').className = '';
+show_program("pcmanfm", false);
+document.getElementById('top_task').style.display = "none";
+
+}
+
 function system(input) {
 	netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
 	var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
@@ -447,7 +456,6 @@ function plate_switch_mode() {
 	system('boot-to-win');
 	}
 }
-
 
 function prefRead(pref) {
 	netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 

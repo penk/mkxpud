@@ -1,0 +1,14 @@
+[General]
+side_pane_mode=1
+terminal=xterm
+
+[Window]
+width=1267
+height=669
+splitter_pos=160
+maximized=0
+
+[Desktop]
+[Interface]
+hide_side_pane_buttons=1
+hide_folder_content_border=1
