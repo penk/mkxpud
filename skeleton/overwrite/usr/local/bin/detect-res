@@ -1,0 +1,59 @@
+#!/bin/bash
+# Screen resolution detection script for Xvesa
+
+# check if resolution was set
+if [ -e /etc/xres.conf ]; then
+	$RES=`cat /etc/xres.conf`
+fi	
+# Try to find correct screen resolution
+	#echo "Trying to detect your screen resolution..."
+	if [ -z $RES ]; then
+		# detect screen resolution using EDID
+		/usr/sbin/get-edid 1> /tmp/edid.out 2> /tmp/edid.log
+		# parse edid
+		VMODE=`/usr/bin/parse-edid 2>> /tmp/edid.log < /tmp/edid.out | grep [0-9].*x[0-9]* | cut -d \" -f 2`
+		# if panel size was found - set the screen resolution
+		if [ ! -z $VMODE ]; then
+			echo "Screen resolution was found: "$VMODE
+			VRES=`echo $VMODE"x24"`
+		else
+			echo "Screen resolution detection failed. Defaulting to 1024x600"
+			VRES=1024x600x24
+		fi
+	else
+		# be sure to set resolution - it will be used in patching
+		echo "Resolution was set on boot: "$RES
+		VRES=$RES
+	fi
+	# Patch resolution if needed
+	/usr/local/bin/Xvesa -listmodes 2> /tmp/xvmodes.log
+	# if resolution is not in Xvesa modes
+	if ! grep $VRES /tmp/xvmodes.log ; then
+		# if resolution is available in 915resolution modes
+		/usr/sbin/915resolution -l &> /tmp/915res.log
+		if grep Mode /tmp/915res.log ; then
+			echo "Possibly Intel chip. Trying to patch..."
+			# try to patch needed video mode
+			/usr/sbin/915resolution 38 `echo ${VRES/x/ }`
+			/usr/sbin/915resolution -l > /tmp/915.tmp
+			# if resolution was set successfully
+			TMPRES=`echo $VRES | cut -d x -f 1,2`
+			if ! grep -q $TMPRES /tmp/915.tmp ; then
+				echo "Patching failed, back to default resolution"
+				VRES=1024x768x24
+			fi
+		else
+			#echo "Patching is not supported"
+			VRES=1024x768x24
+		fi
+	else
+		# if resolution was not set in earlier step - set it to default
+		if [ -z $VRES ]; then
+			VRES=1024x768x24
+		fi
+	fi
+	# Set resolution
+	#export RES=$VRES
+	echo $VRES > /etc/xres.conf
+	#echo "pref(\"xpud.videomode\", \""$VRES"\");" >> /usr/share/plate/defaults/preferences/prefs.js
+	echo "Resolution will be set as "$VRES

@@ -100,6 +100,7 @@ zenity
 
 /usr/lib/libts-0.0.so.0
 /usr/local/bin/Xvesa
+/usr/local/bin/detect-res
 #/usr/bin/xhkeys
 #/usr/bin/xhkconf
 /usr/bin/xli
