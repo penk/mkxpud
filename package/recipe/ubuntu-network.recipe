@@ -35,7 +35,6 @@ tar jxf skeleton/archive/connman-0.46.tar.bz2 -C $MKXPUD_TARGET;
 #/sbin/iptables-xml
 
 /sbin/dhclient
-/sbin/dhclient-script
 /sbin/dhclient3
 
 /usr/bin/poff
@@ -78,6 +77,7 @@ tar jxf skeleton/archive/connman-0.46.tar.bz2 -C $MKXPUD_TARGET;
 /var/run/network
 /var/lib/dhcp3
 #/usr/local/bin/netdaemon
+/sbin/dhclient-script
 
 # FIXME
 /usr/local/bin/auto-reconnect.pl
