@@ -53,6 +53,9 @@ tar jxf skeleton/archive/connman-0.46.tar.bz2 -C $MKXPUD_TARGET;
 /etc/dhcp3
 /etc/ppp
 /etc/resolv.conf
+/etc/protocols
+/etc/services
+/etc/rpc
 /usr/lib/pppd
 #/lib/iptables
 /usr/lib/dropbear
@@ -64,6 +67,10 @@ tar jxf skeleton/archive/connman-0.46.tar.bz2 -C $MKXPUD_TARGET;
 
 /etc/wvdial.conf
 /etc/ppp
+/etc/hosts
+/etc/nsswitch.conf
+/etc/networks
+/etc/shadow
 
 [overwrite]
 /usr/local/bin/connman-test.sh

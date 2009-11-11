@@ -48,7 +48,7 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 	fi 
 	
 	# init hook
-	find /etc/init.d/ -type f -exec {} \; 
+	find /etc/init.d/ -type f -exec {} start \;
 
 	if ! grep -q nox /proc/cmdline ; then
 		# start X server
