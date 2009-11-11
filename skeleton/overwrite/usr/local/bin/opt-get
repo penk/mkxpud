@@ -23,7 +23,5 @@ if [ -e $1 ]; then
 	if [ -e $TARGET/tmp/post.sh ]; then 
 	exec $TARGET/tmp/post.sh 
 	fi
-	
-
 
 fi

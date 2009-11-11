@@ -29,5 +29,6 @@ close UI;
 # install OPT package
 system("opt-get /opt/$pkg_name");
 
-system("zenity --info --text='$pkg_name has been installed'");
+#system("zenity --info --text='$pkg_name has been installed'");
+system("notify-send '$pkg_name has been installed' -i /usr/share/plate/chrome/content/image/kthememgr.png -u critical");
 }
