@@ -21,18 +21,6 @@ gnome-mplayer
 /usr/share/icons/gnome/index.theme
 /usr/share/icons/gnome/22x22/status/audio-volume-high.png
 
-# MIME info
-/usr/share/mime/aliases
-#/usr/share/mime/generic-icons
-/usr/share/mime/globs
-#/usr/share/mime/globs2
-/usr/share/mime/magic
-/usr/share/mime/mime.cache
-/usr/share/mime/subclasses
-#/usr/share/mime/treemagic
-#/usr/share/mime/types
-#/usr/share/mime/XMLnamespaces
-
 [config]
 
 /usr/share/applications/gnome-mplayer.desktop
