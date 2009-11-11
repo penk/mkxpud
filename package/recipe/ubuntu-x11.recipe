@@ -11,7 +11,7 @@ xterm
 openbox
 wmctrl
 #lxterminal
-xresprobe
+#xresprobe
 ttf-droid
 read-edid
 
@@ -31,7 +31,7 @@ zenity
 /usr/bin/xterm
 /usr/bin/xrandr
 /usr/bin/lxrandr
-/usr/sbin/ddcprobe
+#/usr/sbin/ddcprobe
 /usr/sbin/get-edid
 /usr/bin/parse-edid
 
