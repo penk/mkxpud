@@ -18,7 +18,6 @@ gnome-mplayer
 # /usr/share/mplayer/subfont.ttf
 
 ## FIXME
-/usr/share/icons/gnome/index.theme
 /usr/share/icons/gnome/22x22/status/audio-volume-high.png
 
 [config]

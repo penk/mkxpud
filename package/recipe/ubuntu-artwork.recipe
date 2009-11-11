@@ -32,6 +32,7 @@ sudo gtk-update-icon-cache -f /usr/share/icons/Human
 /usr/share/icons/Human/icon-theme.cache
 /usr/share/icons/Human/index.theme
 /usr/share/icons/hicolor/index.theme
+/usr/share/icons/gnome/index.theme
 
 /usr/share/themes/Default
 /usr/share/themes/Human
