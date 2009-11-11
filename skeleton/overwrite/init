@@ -1,6 +1,8 @@
 #!/bin/sh
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
+echo "xPUD is loading..."
+
 	/bin/mount -t sysfs none /sys -onodev,noexec,nosuid
 	/bin/mount -t proc none /proc -onodev,noexec,nosuid
 	ln -sf /proc/mounts /etc/mtab
@@ -54,7 +56,7 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 		# start X server
 		/bin/startx
 	else
-		/usr/local/bin/post-boot.sh
+		/usr/local/bin/post-boot.sh 1> /tmp/init.log 2> /tmp/init.err
 	fi
 
 	/bin/sh
