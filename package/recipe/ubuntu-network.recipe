@@ -57,8 +57,8 @@ tar jxf skeleton/archive/connman-0.46.tar.bz2 -C $MKXPUD_TARGET;
 /etc/rpc
 /usr/lib/pppd
 #/lib/iptables
-/usr/lib/dropbear
-/etc/dropbear
+#/usr/lib/dropbear
+#/etc/dropbear
 
 /usr/share/rdesktop
 
