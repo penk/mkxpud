@@ -1,18 +1,215 @@
-#!/bin/bash
-#get available screen resolution list from xrandr
-# FIXME: doesn't work with multiple monitors
+#!/usr/bin/perl -w
+# based on a script by Stefan Becker
+# http://lists.opensuse.org/radeonhd/2007-12/msg00090.html
 
-output=$(
-xrandr -q | grep [0-9]x[0-9] | while read line; do
-	CONN=`echo $line | grep connected | cut -d ' ' -f 1`
-	if [ ! -z $CONN ]; then
-	 echo $CONN"<br /><select id=\"output\" name=\""$CONN"\" size=\"5\" style=\"width: 300px;\">"
-	else
-	 MODE=`echo $line | cut -d ' ' -f 1`
-	 echo "<option>"$MODE"</option>"
-	fi
-done
- echo "</select><p><input type=\"button\" value=\"Apply\" onclick=\"set_video();\" /></p>"
-)
+###############################################################################
+# Parse xrandr output
+###############################################################################
+sub _AddMode($$) {
+my($modes, $new) = @_;
 
-echo $output > /tmp/video.opt
+# No new mode found
+return(1) unless defined $new;
+
+# Sanity checks
+my $id = $new->{id};
+print(STDERR "Duplicate mode '$id' found!\n"), return
+if exists $modes->{modes}->{$id};
+print(STDERR "No refresh rate found for mode $new->{resolution}!\n"), return
+unless defined $new->{refresh};
+
+# Add mode
+$modes->{modes}->{$id} = "$new->{resolution} @ $new->{refresh}";
+$modes->{current} = $id if $new->{current};
+$modes->{preferred} = $id if $new->{preferred};
+return(1);
+}
+
+# Parse one output section
+sub _ParseModes($) {
+my($input) = @_;
+my $modes = {};
+
+# Scan for modes
+my $modesfound;
+my $currentmode;
+LINE:
+foreach my $line (split("\n", $input)) {
+
+# Currently processing a mode?
+if ($currentmode) {
+
+# Additional mode information?
+if (my($type, $clock) = ($line =~
+/^\s+([hv]):\s.+\s+clock\s+(\d+\.\d+\w+)/)) {
+$currentmode->{refresh} = $clock if ($type eq "v");
+next LINE;
+}
+
+# No. Current mode is complete.
+return unless _AddMode($modes, $currentmode);
+undef $currentmode;
+}
+
+# Start of new mode?
+if (my($resolution, $id, $remainder) =
+($line =~ /^\s+(\d+x\d+)\s+\(([^\)]+)\)\s*(.+)/)) {
+
+# Yes
+$currentmode = {
+id => $id,
+resolution => $resolution,
+current => ($remainder =~ /\*current/) ? 1 : 0,
+preferred => ($remainder =~ /\+preferred/) ? 1 : 0
+};
+$modesfound++;
+
+# There should not be anything after the last mode
+} elsif ($modesfound) {
+print STDERR "Expected new mode, got '$line'!\n";
+return;
+}
+}
+
+# Complete last mode
+return unless _AddMode($modes, $currentmode);
+
+# Return all modes for this output
+return($modes);
+}
+
+# Parse one screen section
+sub _ParseScreen($) {
+my($input) = @_;
+my $outputs;
+
+# Split output sections
+my @matches;
+if ((@matches = ($input =~
+/\G^(\S+)\s+(\S+)\s+[^\n]+\n((?:\s+[^\n]+\n)+)/gm)) &&
+(@matches % 3 == 0)) {
+
+# For each output
+OUTPUT:
+while (my($output, $state, $config) = splice(@matches, 0, 3)) {
+
+# Output without modes are valid
+$outputs->{$output} = undef;
+
+# Only parse information for outputs with connected display
+if ($state eq "connected") {
+if (my $modes = _ParseModes($config)) {
+$outputs->{$output} = $modes;
+next OUTPUT;
+}
+print STDERR "Can't parse output '$output'!\n";
+return;
+}
+}
+}
+return($outputs);
+}
+
+# Parse complete xrandr output
+sub _ParsexrandrOutput($) {
+my($input) = @_;
+my $screens;
+
+# Split screen sections
+my @matches;
+if ((@matches = ($input =~ /\G^Screen (\d+):.*\n((?:[^\n]+\n)*)(?=(?:Screen
+\d+|$))/gm)) &&
+(@matches % 2 == 0)) {
+
+# For each screen
+SCREEN:
+while (my($screen, $config) = splice(@matches, 0, 2)) {
+if (my $outputs = _ParseScreen($config)) {
+$screens->[$screen] = $outputs;
+next SCREEN;
+}
+print STDERR "Can't parse outputs for screen $screen!\n";
+return;
+}
+}
+return($screens);
+}
+
+###############################################################################
+# xrandr command handling
+###############################################################################
+# Query current display setup with xrandr
+sub QueryDisplaySetup() {
+my $result;
+
+# FIXME: implement error catching
+# Run xrandr query
+#if (open(my $fh, "-|", "/usr/bin/xrandr", qw(-q --verbose))) {
+$fh=`xrandr --verbose -q`;
+# Parse output
+$result = _ParsexrandrOutput($fh);
+#print(STDERR "xrandr query failed: $!\n"), return unless close($fh);
+#} else {
+#print STDERR "Can't execute " . XRANDR . ": $!\n";
+#}
+return($result);
+}
+
+###############################################################################
+# Main program
+###############################################################################
+
+#my($window, $container) = @_;
+
+# Get current setup
+my $setup = QueryDisplaySetup();
+
+# FIXME: we only support screen 0
+return unless (my $screen = $setup->[0]);
+
+# For each output on this screen
+foreach my $output (sort keys %{ $screen }) {
+
+# Skip outputs without valid modes
+next unless my $modes = $screen->{$output};
+
+# Add frame for output
+$out .= "<form><fieldset><legend class='ventry'>$output</legend>\n";
+
+# Add modes
+$out .= "Resolution: <select id='$output' class='vres'>\n";
+my $selected = $modes->{current} || "off";
+#my $callback = sub { SetOutputMode($window, $output, $modes, \$selected); };
+foreach my $mode (sort keys %{ $modes->{modes} }) {
+#$frame->Radiobutton(
+#-text => $modes->{modes}->{$mode},
+#-value => $mode,
+#-variable => \$selected,
+#($modes->{preferred} && ($modes->{preferred} eq
+#$mode)) ? (-background => "green") : (),
+#-command => $callback
+#)->pack(-anchor => 'w');
+if (($modes->{current}) eq ($mode)) { $mode_selected="selected"; } else { $mode_selected=""; }
+$out .= "<option $mode_selected value='$mode'>$modes->{modes}->{$mode}</option>\n";
+}
+$out .= "</select><br />";
+
+# Is output active?
+#$ActiveOutputs++ if $modes->{current};
+#}
+#$container->pack(-side => "top", -fill => 'both');
+
+# FIXME: get rotation info from xrandr
+$out .= "Rotation: <select class='vrot'><option>normal</option><option>left</option><option>inverted</option><option>right</option></select><br />";
+
+$out .= "</fieldset></form>";
+
+}
+
+$out .= "<p><input type=\"button\" value=\"Apply\" onclick=\"set_video();\" /></p>";
+
+open(OUT, ">/tmp/xrandr.out");
+print OUT $out;
+#print $out;
+
+exit 0;

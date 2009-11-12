@@ -5,7 +5,7 @@ x11
 
 [package]
 x11-apps
-lxrandr
+#lxrandr
 x11-xserver-utils
 xterm
 openbox
@@ -30,7 +30,7 @@ zenity
 /usr/bin/xwd
 /usr/bin/xterm
 /usr/bin/xrandr
-/usr/bin/lxrandr
+#/usr/bin/lxrandr
 #/usr/sbin/ddcprobe
 /usr/sbin/get-edid
 /usr/bin/parse-edid

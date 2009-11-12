@@ -7,20 +7,21 @@
 <script type="text/javascript">
 
 function set_video() {
-	var output = document.getElementById('output').name;
-	var mode = document.getElementById('output').value;
-	system('/usr/bin/xrandr --output ' + output + ' --mode ' + mode);
+	$('.ventry').each(function() {
+			output=$(this).text();
+			mode=$('.vres option:selected').val();
+			rotation=$('.vrot option:selected').text();
+			system('/usr/bin/xrandr --output ' + output + ' --mode ' + mode + ' --rotation ' + rotation);
+	});
 }
 
 </script>
 </head>
-<body onload="system('/usr/local/bin/get_video'); update_div_ife('video-option', '/tmp/video.opt');">
+<body onload="system('/usr/local/bin/get_video'); update_div_ife('video-option', '/tmp/xrandr.out'); system('rm /tmp/xrandr.out');">
 
 <div style="margin: 20px auto; width: 400px;">
 <h2 style="border-bottom: 1px gray solid;">Video settings</h2>
-
-<p>Choose screen resolution:</p>
-
+<p>The following monitors were detected:</p>
 <div id="video-option"></div>
 
 </div>
