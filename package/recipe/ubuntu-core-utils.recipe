@@ -136,7 +136,7 @@ bc
 
 #/etc/modules
 
-/etc/xpud-backup.conf
+#/etc/xpud-backup.conf
 
 /etc/acpi/
 

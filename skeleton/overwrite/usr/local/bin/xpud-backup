@@ -1,28 +1,22 @@
 #!/bin/bash
-# xpud-backup <path>
+# xpud-backup <path> [-p|-r|-s]
 
 if [ -d $1 ]; then
 
-mkdir -p /tmp/backup
-cd /tmp/backup
-
-tar cpvf - -T /etc/xpud-backup.conf | tar xvf -;
-find | cpio -H newc -o | gzip -9 > $1/xpud-data.gz
-
-cd -
-rm -rf /tmp/backup
+# FIXME: maybe exclude /dev, /mnt, /var directories?
+find /cow | cpio -H newc -o | gzip -9 > $1/xpud-data.gz
 
 # if additional parameter was passed - poweroff or reboot
-	if [ "$2" == "-p" ]; then
-		poweroff -f
-	fi
-	
-	if [ "$2" == "-r" ]; then
-		reboot -f
-	fi
-	
-	if [ "$2" == "-s" ]; then
-		boot-to-win
-	fi 
+case "$2" in
+	'-p')
+		poweroff -f;
+	;;
+	'-r')
+		reboot -f;
+	;;
+	'-s')
+		boot-to-win;
+	;;
+esac
 
 fi
