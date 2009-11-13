@@ -7,22 +7,42 @@
 
 <script type="text/javascript" src="../jquery-1.3.2.min.js"></script>
 <script type="text/javascript" src="../plate.js"></script>
+<script type="text/javascript">
+	var tempImage;
+
+	function checkOnlineStatus() {
+		tempImage = new Image();
+		tempImage.onload = returnOnlineStatus;
+		tempImage.onerror = returnOfflineStatus;
+		// FIXME: put some small image on server which won't get deleted in the development process
+		var imgSrc = 'http://www.xpud.org/opt/icons/hardware.png';        // this must point to the url of a valid image.
+		tempImage.src = imgSrc + '?randParam=' + new Date().getTime();        // add cache busting
+		}
+
+        function returnOnlineStatus() {
+            if (tempImage.width == 0 && tempImage.height == 0) {
+                returnOfflineStatus();
+            } else {
+                window.location = 'http://www.xpud.org/opt/';
+            }
+        }
+
+        function returnOfflineStatus() {
+            document.getElementById('opt-get').innerHTML = '<p>Offline OPT package installation:</p><input type="file" id="f" /><p><input type="button" value="Install" onclick="installopt();" /></p>';
+        }
+
+    function installopt() {
+		system('/usr/local/bin/opt-get ' + $('#f').val());
+}
+    </script>
 </head>
 
-<body>
+<body onload="checkOnlineStatus();">
 <div style="margin: 20px auto; width: 500px;">
 <h2 style="border-bottom: 1px gray solid;">Get more applications</h2>
 
-<div style="margin-left: 20px;">
-
-<p>The following applications are available to download and install:</p>
-<small>Application name (download size / installed size)</small>
-<p>
-<label>Adobe Flash plugin (3.8MB/9.7MB) </label><input type="button" value="Install" onclick="$(this).attr('disabled', 'disabled'); system('xterm -e get_flash');" /><br />
-<label>Skype (20.6MB/25.9MB) </label><input type="button" value="Install" onclick="$(this).attr('disabled', 'disabled'); system('xterm -e get_skype');" /><br />
-<label>Media codecs and browser plugins (15MB/33MB) </label><input type="button" value="Install" onclick="$(this).attr('disabled', 'disabled'); system('xterm -e get_codecs');" /><br />
-<label>B43 wireless firmware</label><input type="button" value="Install" onclick="$(this).attr('disabled', 'disabled'); system('xterm -e get_b43_firmware');" /><br />
-</p>
+<div id="opt-get" style="margin-left: 20px;">
+<p align="center"><img src="../image/load.gif" style="margin: 19px;" /></p>
 </div>
 
 </body>
