@@ -1,100 +1,93 @@
-	<h2><span class="i18n">application</span></h2>
-	<table class="soft_background orange">
-	<tr>
-				<td>
-				<a href="#" id="browser" onclick="show_program(&quot;firefox&quot;);" onfocus = "this.blur()">
-					<table><tr><td class="image">
-						<img src="image/firefox4.png" onload="resume_notify(this,'firefox');" />
-						<div class="notify_hide"><div></div></div>
-					</td><td>
-						<strong><span class="i18n">web_browser</span></strong><br />
-						firefox
-					</td></tr></table>
-				</a>
-				</td>
-
-				<td>
-				<a href="#" id="transmission" onclick="show_program(&quot;transmission&quot;);" onfocus = "this.blur()"> 
-					<table><tr><td class="image">
-						<img src="image/transmission.png" onload="resume_notify(this,'transmission');" />
-						<div class="notify_hide"><div></div></div>
-					</td><td>
-						<strong><span class="i18n">bt_client</span></strong><br />
-						transmission
-					</td></tr></table>
-				</a>
-				</td>
-
-	</tr>
-	<tr>
-                <td>
-                <a href="#" onclick="show_program(&quot;gnome-mplayer&quot;);" onfocus = "this.blur()">
-                        <table><tr><td class="image">
-                                <img src="image/noatun.png" onload="resume_notify(this,'gnome-mplayer');" />
-                                <div class="notify_hide"><div></div></div>
-                        </td><td>
-                                <strong><span class="i18n">media_player</span></strong><br />
-                                gnome-mplayer
-                        </td></tr></table>
-                </a>
-                </td>
-                
-                <td>
-                <a href="#" onclick="show_program(&quot;viewnior&quot;);" onfocus = "this.blur()">
-                        <table><tr><td class="image">
-                                <img src="image/colors.png" onload="resume_notify(this,'viewnior');" />
-                                <div class="notify_hide"><div></div></div>
-                        </td><td>
-                                <strong><span class="i18n">picture_viewer</span></strong><br />
-                                viewnior
-                        </td></tr></table>
-                </a>
-                </td>
-
-	</tr>	
-	<tr>
-                <td>
-                <a href="#" onclick="show_program(&quot;geany&quot;);" onfocus = "this.blur()">
-                        <table><tr><td class="image">
-                                <img src="image/kedit.png" onload="resume_notify(this,'geany');" />
-                                <div class="notify_hide"><div></div></div>
-                        </td><td>
-                                <strong><span class="i18n">text_editor</span></strong><br />
-                                geany
-                        </td></tr></table>
-                </a>
-                </td>
-
-                <td>
-                <a href="#" onclick="show_program(&quot;xterm&quot;,event);" onfocus = "this.blur()"> 
-                        <table><tr><td class="image">
-                                <img src="image/konsole.png" onload="resume_notify(this,'xterm');" />
-                                <div class="notify_hide"><div></div></div>
-                        </td><td>
-                                <strong><span class="i18n">terminal_emulator</span></strong><br />
-                                xterm 
-                        </td></tr></table>
-                </a>
-                </td>
-                
-	</tr>
-	
-	<tr>
-				<td>
-                <a href="#" onclick="show_program(&quot;pcmanfm&quot;,event);" onfocus = "this.blur()"> 
-                        <table><tr><td class="image">
-                                <img src="image/kcmdevices.png" onload="resume_notify(this,'pcmanfm');" />
-                                <div class="notify_hide"><div></div></div>
-                        </td><td>
-                                <!--<strong><span class="i18n">file_manager</span></strong><br />-->
-								<strong>File Manager</strong><br />
-                                pcmanfm
-                        </td></tr></table>
-                </a>
-                </td>
-
-	</tr>
-	
-	
-	
-	</table>
+<h2>
+  <span class='i18n'>application
+  </span></h2> 
+<table class='soft_background orange'> 
+  <tr><td>
+      <a href='#' onclick='show_program(&quot;firefox&quot;,false);' onfocus = 'this.blur()'> 
+        <table>
+          <tr>
+            <td class='image'> 
+              <img src='image/firefox.png' onload="resume_notify(this,'firefox');" /> 
+              <div class='notify_hide'>
+                <div>
+                </div>
+              </div> </td><td> <strong>
+                <span class='i18n'>web_browser
+                </span></strong><br /> firefox </td>
+          </tr>
+        </table></a></td><td>
+      <a href='#' onclick='show_program(&quot;xterm&quot;,false);' onfocus = 'this.blur()'> 
+        <table>
+          <tr>
+            <td class='image'> 
+              <img src='image/xterm.png' onload="resume_notify(this,'xterm');" /> 
+              <div class='notify_hide'>
+                <div>
+                </div>
+              </div> </td><td> <strong>
+                <span class='i18n'>terminal_emulator
+                </span></strong><br /> xterm </td>
+          </tr>
+        </table></a></td>
+  </tr>
+</table><h2>
+  <span class='i18n'>Web App
+  </span></h2> 
+<table class='soft_background green'> 
+  <tr><td>
+      <a href='#' onclick='show_program(&quot;http://facebook.com/&quot;,true);' onfocus = 'this.blur()'> 
+        <table>
+          <tr>
+            <td class='image'> 
+              <img src='file:///usr/share/pixmaps/facebook.png' style='max-width:64px' onload="resume_notify(this,'http://facebook.com/');" /> 
+              <div class='notify_hide'>
+                <div>
+                </div>
+              </div> </td><td> <strong>
+                <span class='i18n'>Facebook
+                </span></strong><br /> Web Social Utility </td>
+          </tr>
+        </table></a></td><td>
+      <a href='#' onclick='show_program(&quot;http://calendar.google.com/&quot;,true);' onfocus = 'this.blur()'> 
+        <table>
+          <tr>
+            <td class='image'> 
+              <img src='file:///usr/share/pixmaps/gcalendar.png' style='max-width:64px' onload="resume_notify(this,'http://calendar.google.com/');" /> 
+              <div class='notify_hide'>
+                <div>
+                </div>
+              </div> </td><td> <strong>
+                <span class='i18n'>Google Calendar
+                </span></strong><br /> Web Calendar </td>
+          </tr>
+        </table></a></td><td>
+      <a href='#' onclick='show_program(&quot;http://www.meebo.com/&quot;,true);' onfocus = 'this.blur()'> 
+        <table>
+          <tr>
+            <td class='image'> 
+              <img src='file:///usr/share/pixmaps/meebo.png' style='max-width:64px' onload="resume_notify(this,'http://www.meebo.com/');" /> 
+              <div class='notify_hide'>
+                <div>
+                </div>
+              </div> </td><td> <strong>
+                <span class='i18n'>Meebo
+                </span></strong><br /> Instant Messanging Everywhere </td>
+          </tr>
+        </table></a></td>
+  </tr>
+  <tr><td>
+      <a href='#' onclick='show_program(&quot;http://www.youtube.com/&quot;,true);' onfocus = 'this.blur()'> 
+        <table>
+          <tr>
+            <td class='image'> 
+              <img src='file:///usr/share/pixmaps/youtube.png' style='max-width:64px' onload="resume_notify(this,'http://www.youtube.com/');" /> 
+              <div class='notify_hide'>
+                <div>
+                </div>
+              </div> </td><td> <strong>
+                <span class='i18n'>YouTube
+                </span></strong><br /> Online videos </td>
+          </tr>
+        </table></a></td>
+  </tr>
+</table>
