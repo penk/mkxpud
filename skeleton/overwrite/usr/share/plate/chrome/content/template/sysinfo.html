@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" href="../jquery-ui-1.7.1.custom.css" rel="stylesheet" />
+<style type="text/css">
+		.infoframe {overflow: auto; height: 300px;}
+		#sysinfo-tabs ul li {font-size: 12px;}
+		code {font-family: "Droid Sans Mono";font-size:12px;}
+ </style> 
+<script type="text/javascript" src="../jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="../jquery-ui-1.7.1.custom.min.js"></script>
+<script type="text/javascript" src="../plate.js"></script>
+<script type="text/javascript">
+function after_load() {
+$(document).ready(function(){
+    $("#sysinfo-tabs").tabs();
+  });
+}
+</script>
+</head>
+
+<body onload="system('/usr/local/bin/get_sysinfo'); update_div_ife('sysinfo-tabs', '/tmp/sysinfo.out'); system('rm /tmp/sysinfo.out'); after_load();">
+<div style="margin: 0px auto; width: 600px;">
+<h2 style="border-bottom: 1px gray solid;">View system information</h2>
+
+<div>
+
+<div id="sysinfo-tabs"></div>
+
+</body>
+</html>

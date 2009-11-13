@@ -886,6 +886,12 @@ var i18n =  {
 			ru: "информация об устройствах и драйверах",
 			pl: "informacje o urzączeniu i sterownik",
 		},
+		setting_sysinfo: {
+			en: "System Information",
+		},
+		setting_sysinfo_desc: {
+			en: "check your system information",
+		},
 		
 			back_to_setting: {
 				en: "Back to Setting",

@@ -1,0 +1,29 @@
+#!/usr/bin/perl
+
+# make an array with tab name and command
+@cpu = ('CPU', 'cat /proc/cpuinfo');
+@memory = ('Memory', 'cat /proc/meminfo');
+@network = ('Network', 'ifconfig');
+@modules = ('Modules', 'lsmod');
+@processes = ('Processes', 'ps');
+@dmesg = ('dmesg', 'dmesg');
+@mounts = ('mount', 'mount');
+@filesystems = ('Filesystems', 'df -h');
+@sysinfo = (\@cpu, \@memory, \@network, \@modules, \@processes, \@dmesg, \@mounts, \@filesystems);
+
+# make tab headers
+$out = "<ul>";
+foreach $sysitem (@sysinfo) {
+ $out .= "<li><a href='#@$sysitem[0]'><span>@$sysitem[0]</span></a></li>\n";
+}
+$out .= "</ul>";
+        
+# fill tab contents
+foreach $sysitem (@sysinfo) {
+	$out .= "<div id='@$sysitem[0]' class='infoframe'>\n";
+	$info = `@$sysitem[1]`;
+	$out .= "<pre><code>$info</code></pre></div>\n";
+}
+
+open(OUT, ">/tmp/sysinfo.out");
+print OUT $out;
