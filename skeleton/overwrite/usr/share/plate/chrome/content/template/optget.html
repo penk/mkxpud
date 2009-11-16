@@ -8,28 +8,22 @@
 <script type="text/javascript" src="../jquery-1.3.2.min.js"></script>
 <script type="text/javascript" src="../plate.js"></script>
 <script type="text/javascript">
-	var tempImage;
-
-	function checkOnlineStatus() {
-		tempImage = new Image();
-		tempImage.onload = returnOnlineStatus;
-		tempImage.onerror = returnOfflineStatus;
-		// FIXME: put some small image on server which won't get deleted in the development process
-		var imgSrc = 'http://www.xpud.org/opt/icons/hardware.png';        // this must point to the url of a valid image.
-		tempImage.src = imgSrc + '?randParam=' + new Date().getTime();        // add cache busting
+	
+function checkOnlineStatus() {
+	var opt_repo =  'http://www.xpud.org/opt/'
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function() {
+		if ( xhr.readyState == 4 ) {
+			if ( xhr.status == 200 ) {
+				window.location = opt_repo;
+			} else {
+				document.getElementById('opt-get').innerHTML = '<p>Offline OPT package installation:</p><input type="file" id="f" /><p><input type="button" value="Install" onclick="installopt();" /></p>';
+			}
 		}
-
-        function returnOnlineStatus() {
-            if (tempImage.width == 0 && tempImage.height == 0) {
-                returnOfflineStatus();
-            } else {
-                window.location = 'http://www.xpud.org/opt/';
-            }
-        }
-
-        function returnOfflineStatus() {
-            document.getElementById('opt-get').innerHTML = '<p>Offline OPT package installation:</p><input type="file" id="f" /><p><input type="button" value="Install" onclick="installopt();" /></p>';
-        }
+	};
+	xhr.open("GET", opt_repo+'?randParam=' + new Date().getTime(), true);
+	xhr.send(null);
+}
 
     function installopt() {
 		system('/usr/local/bin/opt-get ' + $('#f').val());
