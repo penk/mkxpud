@@ -35,7 +35,8 @@ if [ ! -e /tmp/firsttime ]; then
 	done
 
 	# try to setup DHCP
-	/sbin/dhclient &
+	#/sbin/dhclient &
+	/bin/udhcpc &
 
 	# get wireless SSID list
 	/usr/local/bin/get_ssid &

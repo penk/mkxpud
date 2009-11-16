@@ -4,7 +4,7 @@
 network
 
 [package]
-dhcp3-client
+#dhcp3-client
 wvdial
 ppp
 pppoeconf
@@ -34,8 +34,8 @@ tar jxf skeleton/archive/connman-0.46.tar.bz2 -C $MKXPUD_TARGET;
 #/sbin/iptables-restore
 #/sbin/iptables-xml
 
-/sbin/dhclient
-/sbin/dhclient3
+#/sbin/dhclient
+#/sbin/dhclient3
 
 /usr/bin/poff
 /usr/bin/pon
@@ -49,7 +49,7 @@ tar jxf skeleton/archive/connman-0.46.tar.bz2 -C $MKXPUD_TARGET;
 /usr/sbin/pppstats
 
 [data]
-/etc/dhcp3
+#/etc/dhcp3
 /etc/ppp
 /etc/resolv.conf
 /etc/protocols
@@ -71,13 +71,15 @@ tar jxf skeleton/archive/connman-0.46.tar.bz2 -C $MKXPUD_TARGET;
 /etc/networks
 /etc/shadow
 
+/usr/share/udhcpc/default.script
+
 [overwrite]
 /usr/local/bin/connman-test.sh
 
 /var/run/network
-/var/lib/dhcp3
+#/var/lib/dhcp3
 #/usr/local/bin/netdaemon
-/sbin/dhclient-script
+#/sbin/dhclient-script
 
 # FIXME
 /usr/local/bin/auto-reconnect.pl
