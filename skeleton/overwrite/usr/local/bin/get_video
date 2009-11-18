@@ -141,25 +141,16 @@ return($screens);
 # Query current display setup with xrandr
 sub QueryDisplaySetup() {
 my $result;
-
-# FIXME: implement error catching
 # Run xrandr query
-#if (open(my $fh, "-|", "/usr/bin/xrandr", qw(-q --verbose))) {
 $fh=`xrandr --verbose -q`;
 # Parse output
 $result = _ParsexrandrOutput($fh);
-#print(STDERR "xrandr query failed: $!\n"), return unless close($fh);
-#} else {
-#print STDERR "Can't execute " . XRANDR . ": $!\n";
-#}
 return($result);
 }
 
 ###############################################################################
 # Main program
 ###############################################################################
-
-#my($window, $container) = @_;
 
 # Get current setup
 my $setup = QueryDisplaySetup();
@@ -179,25 +170,13 @@ $out .= "<form><fieldset><legend class='ventry'>$output</legend>\n";
 # Add modes
 $out .= "Resolution: <select id='$output' class='vres'>\n";
 my $selected = $modes->{current} || "off";
-#my $callback = sub { SetOutputMode($window, $output, $modes, \$selected); };
+
 foreach my $mode (sort keys %{ $modes->{modes} }) {
-#$frame->Radiobutton(
-#-text => $modes->{modes}->{$mode},
-#-value => $mode,
-#-variable => \$selected,
-#($modes->{preferred} && ($modes->{preferred} eq
-#$mode)) ? (-background => "green") : (),
-#-command => $callback
-#)->pack(-anchor => 'w');
+
 if (($modes->{current}) eq ($mode)) { $mode_selected="selected"; } else { $mode_selected=""; }
 $out .= "<option $mode_selected value='$mode'>$modes->{modes}->{$mode}</option>\n";
 }
 $out .= "</select><br />";
-
-# Is output active?
-#$ActiveOutputs++ if $modes->{current};
-#}
-#$container->pack(-side => "top", -fill => 'both');
 
 # FIXME: get rotation info from xrandr
 $out .= "Rotation: <select class='vrot'><option>normal</option><option>left</option><option>inverted</option><option>right</option></select><br />";
@@ -210,6 +189,5 @@ $out .= "<p><input type=\"button\" value=\"Apply\" onclick=\"set_video();\" /></
 
 open(OUT, ">/tmp/xrandr.out");
 print OUT $out;
-#print $out;
 
 exit 0;
