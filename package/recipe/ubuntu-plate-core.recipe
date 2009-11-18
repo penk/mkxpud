@@ -76,6 +76,8 @@ rm -f $MKXPUD_TARGET/usr/share/firefox/components/libnkgnomevfs.so;
 /usr/bin/firefox
 /sbin/hotplug-x
 /init
+/sbin/init
+/etc/inittab
 /sbin/session
 /usr/local/bin/get_flash
 /usr/local/bin/get_skype

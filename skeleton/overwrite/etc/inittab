@@ -1,0 +1,11 @@
+::sysinit:echo "Starting xPUD"
+::sysinit:/init
+::restart:/sbin/init
+#::askfirst:-/bin/sh
+tty1::respawn:-/bin/sh
+::ctrlaltdel:/sbin/reboot
+::shutdown:echo "Shutdown xPUD"
+::shutdown:/bin/umount -a -r
+
+
+
