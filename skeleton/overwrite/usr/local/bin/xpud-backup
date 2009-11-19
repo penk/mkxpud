@@ -9,10 +9,12 @@ find /cow | cpio -H newc -o | gzip -9 > $1/xpud-data.gz
 # if additional parameter was passed - poweroff or reboot
 case "$2" in
 	'-p')
-		poweroff -f;
+		#poweroff -f;
+		poweroff;
 	;;
 	'-r')
-		reboot -f;
+		#reboot -f;
+		reboot;
 	;;
 	'-s')
 		boot-to-win;
