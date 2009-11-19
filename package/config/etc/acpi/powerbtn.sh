@@ -7,4 +7,5 @@
 test -f /var/lock/acpisleep && exit 0
 
 # Initiate a plain shutdown.
-/bin/poweroff -f
+#/bin/poweroff -f
+/bin/poweroff
