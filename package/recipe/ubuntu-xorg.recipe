@@ -5,6 +5,7 @@ xorg
 
 [package]
 xserver-xorg-core
+xserver-xorg-input-kbd
 xinit
 
 [binary]
@@ -31,7 +32,7 @@ xinit
 
 /etc/X11
 /usr/lib/xorg
-/usr/lib/dri
+#/usr/lib/dri
 /usr/share/X11
 /usr/share/xserver-xorg
 /usr/bin/X11
@@ -47,7 +48,10 @@ xinit
 
 [config]
 
+/etc/X11/xorg.conf
 /etc/X11/xinit/xinitrc
+/var/log
+/usr/lib/xorg/modules/drivers/vboxvideo_drv.so
 
 [overwrite]
 
