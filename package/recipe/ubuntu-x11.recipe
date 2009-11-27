@@ -23,6 +23,12 @@ zenity
 
 # trayer
 
+xkb-data
+
+[action]
+# FIXME: make a symlink to /var/lib/xkb/
+if [ ! -e /usr/share/X11/xkb/compiled ]; then mkdir -p /usr/share/X11/xkb/compiled; fi;
+
 [binary]
 
 /usr/bin/openbox
@@ -48,6 +54,14 @@ zenity
 /usr/bin/zenity
 
 # /usr/bin/trayer
+
+/usr/bin/setxkbmap
+/usr/bin/xkbbell
+/usr/bin/xkbcomp
+#/usr/bin/xkbevd
+/usr/bin/xkbprint
+#/usr/bin/xkbvleds
+#/usr/bin/xkbwatch
 
 [data]
 
@@ -84,6 +98,8 @@ zenity
 
 /usr/share/zenity/zenity.ui
 
+/usr/share/X11/xkb
+
 [config]
 
 /etc/xdg/openbox
@@ -99,7 +115,8 @@ zenity
 /usr/sbin/915resolution
 
 /usr/lib/libts-0.0.so.0
-/usr/local/bin/Xvesa
+#/usr/local/bin/Xvesa
+/usr/bin/Xvesa
 /usr/local/bin/detect-res
 #/usr/bin/xhkeys
 #/usr/bin/xhkconf

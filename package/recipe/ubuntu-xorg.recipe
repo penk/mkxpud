@@ -25,20 +25,16 @@ mkdir $MKXPUD_TARGET/var/lib/xkb;
 
 /usr/bin/cpp
 
-/usr/bin/setxkbmap
-/usr/bin/xkbbell
-/usr/bin/xkbcomp
-#/usr/bin/xkbevd
-/usr/bin/xkbprint
-#/usr/bin/xkbvleds
-#/usr/bin/xkbwatch
-
 [data]
 
 /etc/X11
 /usr/lib/xorg
 #/usr/lib/dri
-/usr/share/X11
+/usr/share/X11/locale
+/usr/share/X11/rgb.txt
+/usr/share/X11/XErrorDB
+/usr/share/X11/XKeysymDB
+/usr/share/X11/xman.help
 /usr/share/xserver-xorg
 /usr/bin/X11
 

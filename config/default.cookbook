@@ -58,6 +58,7 @@ ubuntu-scim-chewing
 
 [opt]
 ubuntu-media
+#ubuntu-xorg
 
 [prepare]
 # commands executed before building
@@ -76,7 +77,7 @@ fi;
 
 [obfuscate]
 # files to be compressed with `upx' or `shc'
-/usr/local/bin/Xvesa
+#/usr/local/bin/Xvesa
 /usr/bin/perl
 /bin/bash
 /bin/busybox

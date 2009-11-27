@@ -2,7 +2,7 @@
 export DISPLAY=:0
 export GTK_IM_MODULE="scim"
 /usr/local/bin/detect-res
-/usr/local/bin/Xvesa :0 -ac -dpi 96 -shadow -screen `cat /etc/xres.conf` -br -mouse mouse,/dev/input/mice -keybd keyboard &
+/usr/bin/Xvesa :0 -ac -dpi 96 -shadow -screen `cat /etc/xres.conf` -br -mouse mouse,/dev/input/mice -keybd keyboard &
 /usr/bin/firefox -app /usr/share/plate/application.ini &
 /bin/sleep 0.1
 /sbin/session &
