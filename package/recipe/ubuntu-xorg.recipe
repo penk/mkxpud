@@ -28,10 +28,10 @@ mkdir $MKXPUD_TARGET/var/lib/xkb;
 /usr/bin/setxkbmap
 /usr/bin/xkbbell
 /usr/bin/xkbcomp
-/usr/bin/xkbevd
+#/usr/bin/xkbevd
 /usr/bin/xkbprint
-/usr/bin/xkbvleds
-/usr/bin/xkbwatch
+#/usr/bin/xkbvleds
+#/usr/bin/xkbwatch
 
 [data]
 
