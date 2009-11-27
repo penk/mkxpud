@@ -58,6 +58,7 @@ ubuntu-scim-chewing
 
 [opt]
 ubuntu-media
+ubuntu-xorg
 
 [prepare]
 # commands executed before building

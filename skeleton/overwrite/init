@@ -52,7 +52,7 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
 	if ! grep -q nox /proc/cmdline ; then
 		# start X server
-		/bin/startx
+		startx
 	else
 		/usr/local/bin/post-boot.sh 1> /tmp/init.log 2> /tmp/init.err
 	fi

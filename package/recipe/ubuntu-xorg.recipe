@@ -8,6 +8,11 @@ xserver-xorg-core
 xserver-xorg-input-kbd
 xinit
 
+[action]
+mkdir $MKXPUD_TARGET/var/log;
+mkdir $MKXPUD_TARGET/var/tmp;
+mkdir $MKXPUD_TARGET/var/lib/xkb;
+
 [binary]
 
 /usr/bin/X
@@ -50,8 +55,6 @@ xinit
 
 /etc/X11/xorg.conf
 /etc/X11/xinit/xinitrc
-/var/log
 /usr/lib/xorg/modules/drivers/vboxvideo_drv.so
 
 [overwrite]
-
