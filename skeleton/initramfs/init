@@ -43,8 +43,7 @@ mount --move /rw /newroot/cow
 
 if [ ! "$(cat /newroot/proc/cmdline | grep debug )" ]; then
 	# change root!
-	#chroot /newroot /init
-	exec switch_root /newroot /sbin/init
+	exec chroot /newroot /sbin/init
 else
 	/bin/sh
 fi
