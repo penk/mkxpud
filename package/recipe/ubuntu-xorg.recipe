@@ -33,8 +33,6 @@ mkdir $MKXPUD_TARGET/var/lib/xkb;
 /usr/share/X11/locale
 /usr/share/X11/rgb.txt
 /usr/share/X11/XErrorDB
-/usr/share/X11/XKeysymDB
-/usr/share/X11/xman.help
 /usr/share/xserver-xorg
 /usr/bin/X11
 

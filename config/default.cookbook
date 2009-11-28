@@ -39,12 +39,16 @@ tulip
 wl lib80211_crypt_ccmp lib80211_crypt_tkip lib80211_crypt_wep
 # experiment: SATA/PATA hard drive support
 ahci pata_cmd64x pata_hpt37x pata_mpiix pata_pdc2027x pata_sis sata_mv sata_svw ata_piix pata_cs5520 pata_hpt3x3 pata_netcell pata_pdc202xx_old pata_sl82c105 sata_nv sata_sx4 pata_acpi pata_cs5530 pata_it8213 pata_ninja32 pata_qdi pata_triflex sata_promise sata_uli pata_ali pata_cs5535 pata_it821x pata_ns87410 pata_rz1000 pata_via sata_qstor sata_via pata_amd pata_cs5536 pata_jmicron pata_ns87415 pata_sch pata_winbond sata_sil24 sata_vsc pata_artop pata_efar pata_legacy pata_oldpiix pata_serverworks pdc_adma sata_sil pata_atiixp pata_hpt366 pata_marvell pata_sil680 sata_inic162x sata_sis
+# kernel modules required by Xorg
+i915 drm intel-agp agpgart i2c-algo-bit i2c-core i2c-i801
 
 [recipe]
 # packages and files to be included into rootfs
 initramfs
 ubuntu-core-utils
 ubuntu-x11
+#ubuntu-xvesa
+ubuntu-xorg
 ubuntu-sound
 ubuntu-network
 ubuntu-wireless-tools
@@ -58,7 +62,6 @@ ubuntu-scim-chewing
 
 [opt]
 ubuntu-media
-#ubuntu-xorg
 
 [prepare]
 # commands executed before building

@@ -5,25 +5,20 @@ x11
 
 [package]
 x11-apps
-#lxrandr
 x11-xserver-utils
 xterm
+xkb-data
 openbox
 wmctrl
-#lxterminal
-#xresprobe
 ttf-droid
-read-edid
 
 libnotify-bin
 notify-osd
 zenity
 
+#lxterminal
 #xbacklight
-
-# trayer
-
-xkb-data
+#trayer
 
 [action]
 # FIXME: make a symlink to /var/lib/xkb/
@@ -36,24 +31,17 @@ if [ ! -e /usr/share/X11/xkb/compiled ]; then mkdir -p /usr/share/X11/xkb/compil
 /usr/bin/xwd
 /usr/bin/xterm
 /usr/bin/xrandr
-#/usr/bin/lxrandr
-#/usr/sbin/ddcprobe
-/usr/sbin/get-edid
-/usr/bin/parse-edid
-
 /usr/bin/xev
 /usr/bin/xmodmap
 /usr/bin/xset
-/usr/bin/xbacklight
-
-#/usr/bin/lxterminal
 
 /usr/bin/notify-send
-#/usr/lib/notify-osd/notify-osd
 
 /usr/bin/zenity
 
-# /usr/bin/trayer
+#/usr/bin/xbacklight
+#/usr/bin/lxterminal
+#/usr/bin/trayer
 
 /usr/bin/setxkbmap
 /usr/bin/xkbbell
@@ -77,8 +65,6 @@ if [ ! -e /usr/share/X11/xkb/compiled ]; then mkdir -p /usr/share/X11/xkb/compil
 #/usr/lib/libvte9
 /lib/terminfo
 
-/usr/share/X11/XKeysymDB
-
 /usr/lib/notify-osd/notify-osd
 #/usr/lib/libgconf-2.so
 /usr/lib/libgconf-2.so.4
@@ -99,6 +85,7 @@ if [ ! -e /usr/share/X11/xkb/compiled ]; then mkdir -p /usr/share/X11/xkb/compil
 /usr/share/zenity/zenity.ui
 
 /usr/share/X11/xkb
+/usr/share/X11/XKeysymDB
 
 [config]
 
@@ -110,18 +97,4 @@ if [ ! -e /usr/share/X11/xkb/compiled ]; then mkdir -p /usr/share/X11/xkb/compil
 [overwrite]
 
 #/usr/share/fonts/X11
-/bin/startx
-
-/usr/sbin/915resolution
-
-/usr/lib/libts-0.0.so.0
-#/usr/local/bin/Xvesa
-/usr/bin/Xvesa
-/usr/local/bin/detect-res
-#/usr/bin/xhkeys
-#/usr/bin/xhkconf
-/usr/bin/xli
-
-## FIXME
-/usr/local/lib/ts
-#/usr/lib/xhkeys
+#/usr/bin/xli
