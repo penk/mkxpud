@@ -21,6 +21,10 @@ scim-tables-zh
 /usr/share/scim/tables/Wubi.bin
 /usr/share/scim/icons/Wubi.png
 
+## CangJie
+/usr/share/scim/tables/CangJie.bin
+/usr/share/scim/icons/CangJie.png
+
 /usr/share/scim/icons/table.png
 /usr/lib/scim-1.0/1.4.0/IMEngine/table.so
 /usr/lib/scim-1.0/1.4.0/SetupUI/table-imengine-setup.so
