@@ -11,6 +11,7 @@ xinit
 [action]
 mkdir $MKXPUD_TARGET/var/log;
 mkdir $MKXPUD_TARGET/var/tmp;
+mkdir $MKXPUD_TARGET/var/lib/xkb;
 
 [binary]
 
