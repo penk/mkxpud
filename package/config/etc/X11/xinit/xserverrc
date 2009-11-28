@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# $Id: xserverrc 189 2005-06-11 00:04:27Z branden $
+
+exec /usr/bin/X11/X -nolisten tcp -dpi 96
