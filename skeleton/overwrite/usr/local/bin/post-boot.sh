@@ -13,6 +13,9 @@ if [ ! -e /tmp/firsttime ]; then
 	# for aufs to merge opt-get plugin
 	mount -t tmpfs none /opt
 
+	# setup keymap from kmap= parameter
+	setxkbmap -layout $KEYMAP
+
 	# generate menu
 	/usr/local/bin/update-menus
 
