@@ -28,10 +28,6 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 		loadkmap < /usr/share/keymap/$KEYMAP.kmap
 		echo "pref(\"xpud.keymap\", \""$KEYMAP"\");" >> /usr/share/plate/defaults/preferences/prefs.js
 	fi
-	
-	# start udev daemon
-	udevd --daemon
-	udevadm trigger &
 
 	PLATE=/usr/share/plate/chrome/content
 	# kiosk mode
@@ -50,6 +46,10 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 		echo "pref(\"xpud.locale\", \""$UILANG"\");" >> /usr/share/plate/defaults/preferences/prefs.js
 		export LANG=$UILANG
 	fi 
+	
+	# start udev daemon
+	udevd --daemon
+	udevadm trigger
 	
 	# init hook
 	find /etc/init.d/ -type f -exec {} start \;
