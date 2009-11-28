@@ -45,10 +45,6 @@ EndSection
 EOF
 	fi
 	
-	# start udev daemon
-	udevd --daemon
-	udevadm trigger &
-
 	PLATE=/usr/share/plate/chrome/content
 	# kiosk mode
 	if [ ! -z $URL ]; then
@@ -66,6 +62,10 @@ EOF
 		echo "pref(\"xpud.locale\", \""$UILANG"\");" >> /usr/share/plate/defaults/preferences/prefs.js
 		export LANG=$UILANG
 	fi 
+	
+	# start udev daemon
+	udevd --daemon
+	udevadm trigger
 	
 	# init hook
 	find /etc/init.d/ -type f -exec {} start \;
