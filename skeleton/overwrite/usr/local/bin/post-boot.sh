@@ -16,10 +16,6 @@ if [ ! -e /tmp/firsttime ]; then
 	# generate menu
 	/usr/local/bin/update-menus
 
-	# start udev daemon
-	udevd --daemon
-	udevadm trigger
-
 	# start system bus
 	dbus-launch --config-file=/etc/dbus-1/system.conf
 	
