@@ -13,14 +13,11 @@
 function set_locale(x) {
 	xpudPrefs.setCharPref("xpud.locale", $('#uilang').val());
 	xpudPrefs.setCharPref("xpud.keymap", $('#kmap').val());
-	save_preferences();
-	// might be possible to change locale without restarting X, just need to find how to run do_i18n() on main tabs
-	
+	save_preferences();	
 	if (x % 2 === 1) {
 	system('/usr/local/bin/set_locale ' + $('#uilang').val() + ' ' + $('#kmap').val());
-	} else {
+	} 
 	window.parent.location.reload();
-	}
 }
 
 var keymap_flag=0;
@@ -68,20 +65,18 @@ var keymap_flag=0;
 <option value="uk">English (uk)</option>
 <option value="fi">Finnish (fi)</option>
 <option value="fr">French (fr)</option>
-<option value="fr_CH">Swiss French (fr_CH)</option>
 <option value="de">German (de)</option>
 <option value="gr">Greek (gr)</option>
 <option value="it">Italian (it)</option>
 <option value="jp">Japanese (jp)</option>
 <option value="no">Norwegian (no)</option>
 <option value="pl">Polish (pl)</option>
-<option value="pt-latin1">Portuguese (pt)</option>
+<option value="pt">Portuguese (pt)</option>
 <option value="ru">Russian (ru)</option>
-<option value="sv-latin1">Swedish (sv)</option>
+<option value="se">Swedish (se)</option>
 <option value="es">Spanish (es)</option>
 </select>
 
-<p style="font-size: 80%;">The current GUI session will restart.</p>
 </div>
 
 <p>
