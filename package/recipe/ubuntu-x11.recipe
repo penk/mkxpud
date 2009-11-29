@@ -21,8 +21,10 @@ zenity
 #trayer
 
 [action]
-# FIXME: make a symlink to /var/lib/xkb/
+# FIXME: it would be better to make a symlink to /var/lib/xkb/
 if [ ! -e /usr/share/X11/xkb/compiled ]; then mkdir -p /usr/share/X11/xkb/compiled; fi;
+# generate required locales
+locale-gen en_US.UTF-8;
 
 [binary]
 
@@ -50,6 +52,9 @@ if [ ! -e /usr/share/X11/xkb/compiled ]; then mkdir -p /usr/share/X11/xkb/compil
 /usr/bin/xkbprint
 #/usr/bin/xkbvleds
 #/usr/bin/xkbwatch
+
+/usr/bin/locale
+/usr/bin/luit
 
 [data]
 
@@ -86,6 +91,8 @@ if [ ! -e /usr/share/X11/xkb/compiled ]; then mkdir -p /usr/share/X11/xkb/compil
 
 /usr/share/X11/xkb
 /usr/share/X11/XKeysymDB
+
+/usr/lib/locale/en_US.utf8
 
 [config]
 

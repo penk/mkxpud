@@ -2,5 +2,5 @@ XTerm*background: black
 XTerm*foreground: grey
 XTerm*faceName: Droid Sans Mono
 XTerm*faceSize: 12
-#XTerm*VT100.locale: true
+XTerm*VT100.locale: true
 XTerm*VT100.utf8:2 

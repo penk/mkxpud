@@ -63,6 +63,9 @@ EOF
 		export LANG=$UILANG
 	fi 
 	
+	# set locale
+	export LC_ALL="en_US.UTF-8"
+	
 	# start udev daemon
 	udevd --daemon
 	udevadm trigger
