@@ -125,6 +125,8 @@ function show_program( input, webapp ) {
 	//document.getElementById('close_button').style.display = "inline";
 	//document.getElementById('maximize_button').style.display = "inline";
 	//document.getElementById('minimize_button').style.display = "inline";
+	set_page_curl_block();
+	
 	document.getElementById('top_task').style.display = "inline";
 	document.getElementById('menu').className = '';
 	document.getElementById('programs').className = 'show';
@@ -161,6 +163,7 @@ function close_program() {
 		if( tabs[i].className == "selected" )
 			show_menu( tabs[i].id );
 	unmaximize_program();
+	close_page_curl_block();
 }
 
 function maximize_program() {
@@ -203,6 +206,20 @@ document.getElementById('maximize_button').className = '';
 show_program("pcmanfm", false);
 document.getElementById('top_task').style.display = "none";
 
+}
+
+function set_page_curl_block( html ) {
+//$.getJSON("curl.json", function(data){
+//	$('#page_curl_block').innerHTML = data.html;
+//});
+
+$('#curl_img').attr('src', 'image/curl.png');
+$('#curl').show();
+}
+
+function close_page_curl_block() {
+$('#curl_img').attr('src', '');
+$('#page_curl_block').hide();
 }
 
 function system(input) {
