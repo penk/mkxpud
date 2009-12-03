@@ -3,6 +3,6 @@
 for (split /,/, (split /functions:/, `$ENV{'MKXPUD_TARGET'}/bin/busybox --help` )[1]) {
 
 s/\s*//;
-system "ln -s /bin/busybox $ENV{'MKXPUD_TARGET'}/bin/$_" if ! /^(busybox|modprobe|cpio|mount|sh)/;
+system "ln -s /bin/busybox $ENV{'MKXPUD_TARGET'}/bin/$_" if ! /^(busybox|modprobe|cpio|mount|sh|find)/;
 
 }

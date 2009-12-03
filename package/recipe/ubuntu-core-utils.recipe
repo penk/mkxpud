@@ -31,6 +31,7 @@ module-init-tools
 acpid
 acpi-support
 bc
+findutils
 
 #---------------------------
 
@@ -44,6 +45,7 @@ bc
 /bin/mount
 /bin/bash
 /usr/bin/bc
+/usr/bin/find
 
 /sbin/depmod
 
