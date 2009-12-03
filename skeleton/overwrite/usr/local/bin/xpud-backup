@@ -4,7 +4,9 @@
 if [ -d $1 ]; then
 
 # FIXME: maybe exclude /dev, /mnt, /var directories?
-find /cow | cpio -H newc -o | gzip -9 > $1/xpud-data.gz
+find /cow ! -name ".wh.*" | grep -v "/dev" | grep -v "/mnt" | grep -v "/roopt" | grep -v "/tmp" | grep -v "/var" | cpio -H newc -o | gzip -9 > $1/xpud-data.gz
+
+if [ -d $1/opt ]; then cp -apf /opt/*.opt $1/opt/; fi
 
 # if additional parameter was passed - poweroff or reboot
 case "$2" in
