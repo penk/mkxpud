@@ -320,6 +320,7 @@ function post {
 
 	# create symbolic links for /bin/*
 	./tools/busybox-helper
+	rm $MKXPUD_TARGET/bin/busybox
 
 	# check dependencies of each files under usr/lib
 	for s in `find $MKXPUD_TARGET/usr/lib/*.so.*`; do 

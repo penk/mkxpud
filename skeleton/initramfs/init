@@ -41,9 +41,11 @@ mount --move /ro /newroot/rofs
 mkdir -p /newroot/cow
 mount --move /rw /newroot/cow
 
+# change root!
 if [ ! "$(cat /newroot/proc/cmdline | grep debug )" ]; then
-	# change root!
-	exec chroot /newroot /sbin/init
+	# move busybox link to new aufs filesystem 
+	/bin/busybox mv /bin/busybox /newroot/bin/
+	exec /newroot/bin/busybox chroot /newroot /sbin/init
 else
 	/bin/sh
 fi

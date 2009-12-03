@@ -85,7 +85,7 @@ fi;
 #/usr/local/bin/Xvesa
 /usr/bin/perl
 /bin/bash
-/bin/busybox
+#/bin/busybox
 /bin/mount
 #/opt/apps/usr/bin/mplayer
 #/usr/share/firefox/firefox-bin
