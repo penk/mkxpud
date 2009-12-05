@@ -1,0 +1,29 @@
+# recipe file
+
+[name]
+xbmc
+
+[package]
+xbmc
+
+[action]
+
+echo 'deb http://ppa.launchpad.net/team-xbmc/ppa/ubuntu karmic main' >> /etc/apt/sources.list; apt-get update; apt-get install xbmc --yes --force-yes
+
+[binary]
+
+/usr/bin/python
+/usr/bin/glxinfo
+/usr/bin/xdpyinfo
+/usr/share/xbmc/xbmc.bin
+/usr/bin/xbmc
+
+[data]
+
+/usr/share/xbmc
+/usr/lib/python2.6
+
+[config]
+
+[overwrite]
+
