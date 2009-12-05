@@ -60,10 +60,10 @@ ubuntu-pcmanfm
 ubuntu-dbus
 #ubuntu-apt
 ubuntu-cjkfont
-ubuntu-scim-chewing
 
 [opt]
 ubuntu-media
+ubuntu-scim-chewing
 
 [prepare]
 # commands executed before building
