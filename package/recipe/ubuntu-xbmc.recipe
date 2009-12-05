@@ -5,6 +5,7 @@ xbmc
 
 [package]
 xbmc
+python2.6
 
 [action]
 
@@ -13,6 +14,7 @@ echo 'deb http://ppa.launchpad.net/team-xbmc/ppa/ubuntu karmic main' >> /etc/apt
 [binary]
 
 /usr/bin/python
+/usr/bin/python2.6
 /usr/bin/glxinfo
 /usr/bin/xdpyinfo
 /usr/share/xbmc/xbmc.bin
@@ -22,6 +24,7 @@ echo 'deb http://ppa.launchpad.net/team-xbmc/ppa/ubuntu karmic main' >> /etc/apt
 
 /usr/share/xbmc
 /usr/lib/python2.6
+/usr/lib/gconv
 
 [config]
 
