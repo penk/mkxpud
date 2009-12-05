@@ -7,6 +7,7 @@ xorg
 xserver-xorg-core
 xserver-xorg-input-kbd
 xinit
+libgl1-mesa-dri
 
 [action]
 mkdir $MKXPUD_TARGET/var/log;
@@ -30,6 +31,11 @@ mkdir $MKXPUD_TARGET/var/lib/xkb;
 /etc/X11
 /usr/lib/xorg
 #/usr/lib/dri
+
+# basic GLX modules
+/usr/lib/dri/i915_dri.so
+/usr/lib/dri/swrast_dri.so
+
 /usr/share/X11/locale
 /usr/share/X11/rgb.txt
 /usr/share/X11/XErrorDB
