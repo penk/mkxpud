@@ -7,12 +7,18 @@ scim
 scim-chewing
 scim-gtk2-immodule
 scim-tables-zh
+scim-unikey
+
+[action]
+sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 81E7FE09; echo 'deb http://ppa.launchpad.net/ubuntu-vn/ppa/ubuntu karmic main' >> /etc/apt/sources.list; apt-get update; 
 
 [binary]
 /usr/bin/scim
 /usr/bin/scim-bridge
 /usr/bin/scim-config-agent
 /usr/bin/scim-setup
+
+/usr/libexec/scim-setup-unikey
 
 [data]
 
@@ -28,6 +34,17 @@ scim-tables-zh
 /usr/share/scim/icons/table.png
 /usr/lib/scim-1.0/1.4.0/IMEngine/table.so
 /usr/lib/scim-1.0/1.4.0/SetupUI/table-imengine-setup.so
+
+## Unikey
+/usr/lib/scim-1.0/1.4.0/Helper/unikey-helper.so
+/usr/lib/scim-1.0/1.4.0/IMEngine/unikey.so
+/usr/lib/libunikey-scim.so.1.0.0
+/usr/share/scim-unikey
+/usr/share/scim/icons/scim-unikey-check.png
+/usr/share/scim/icons/scim-unikey.png
+/usr/share/scim/icons/scim-unikey-configure.png
+/usr/lib/libunikey-scim.so.1
+/usr/lib/libunikey-scim.so
 
 ## FIXME
 /usr/share/scim/icons/pin-up.png
