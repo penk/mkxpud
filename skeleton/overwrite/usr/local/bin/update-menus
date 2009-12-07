@@ -8,7 +8,7 @@
 app_table="<h2><span class='i18n'>application</span></h2>
 <table class='soft_background orange'>
 <tr>"
-web_table="<h2><span class='i18n'>Web App</span></h2>
+web_table="<h2><span class='i18n'>web_app</span></h2>
 <table class='soft_background green'>
 <tr>"
 

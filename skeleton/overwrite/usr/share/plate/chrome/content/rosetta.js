@@ -125,6 +125,11 @@ var i18n =  {
 		pl: "Co chcesz zrobić?",
 	},
 	
+	quick_action: {
+		en: "Quick Action",
+		zh: "快速選單",
+	},
+	
 	power_off: {
 		en: "Power Off",
 		de: "Ausschalten",
@@ -356,6 +361,11 @@ var i18n =  {
 		zh_cn:"所有应用程序",
 		ru: "Программы",
 		pl: "Programy",
+	},
+	
+	web_app: {
+		en: "Web App",
+		zh: "網頁捷徑",
 	},
 	
 	web_browser: {
