@@ -1,10 +1,10 @@
 // Plate UI translation file
 
-var i18n =  {
+var i18n =	{
 
 // tab 
 
-    home : {
+	home : {
 		en: "Home",
 		de: "Start",
 		es: "Inicio",
@@ -19,9 +19,10 @@ var i18n =  {
 		zh_cn: "首页",
 		ru: "Главная страница",
 		pl: "Start",
-    },
-    
-    menu : {
+		vn: "Khởi động",
+	},
+	
+	menu : {
 		en: "Menu",
 		de: "Programme",
 		es: "Men&uacute;",
@@ -36,9 +37,10 @@ var i18n =  {
 		zh_cn:"应用程序",
 		ru: "Программы",
 		pl: "Menu",
-    },
+		vn: "Trình đơn"
+	},
 
-    file : {
+	file : {
 		en: "File",
 		de: "Dateien",
 		es: "Archivos",
@@ -53,9 +55,10 @@ var i18n =  {
 		zh_cn:"打开文件",
 		ru: "Файл",
 		pl: "Plik",
-    },
+		vn: "Tập tin",
+	},
 
-    setting : {
+	setting : {
 		en: "Setting",
 		de: "Einstellung",
 		es: "Preferencias",
@@ -70,11 +73,12 @@ var i18n =  {
 		zh_cn: "设置系统",
 		ru: "Настройки",
 		pl: "Ustawienia",
-    },
-    
+		vn: "Tùy chọn",
+	},
+	
 // home 
 
-    welcome : {
+	welcome : {
 		en: "Welcome to xPUD",
 		de: "Willkommen bei xPUD",
 		es: "Bienvenido a xPUD",
@@ -89,8 +93,9 @@ var i18n =  {
 		zh_cn: "欢迎使用 xPUD",
 		ru: "Добро пожаловать в xPUD",
 		pl: "Witaj w xPUD",
-    },
-    
+		vn: "Chào mừng bạn đến với xPUD"
+	},
+	
 	sys_info: {
 		en: "System Information",
 		de: "Systeminformationen",
@@ -106,6 +111,7 @@ var i18n =  {
 		zh_cn: "系统信息",
 		ru: "Системная Информация",
 		pl: "Informacje o systemie",
+		vn: "Thông tin hệ thống",
 	},
 
 	want_to: {
@@ -123,6 +129,7 @@ var i18n =  {
 		zh_cn:"你也可以：",
 		ru: "Желаете:",
 		pl: "Co chcesz zrobić?",
+		vn: "Bạn có muốn tới",
 	},
 	
 	quick_action: {
@@ -145,6 +152,7 @@ var i18n =  {
 		zh_cn:"关机",
 		ru: "Выключить",
 		pl: "Wyłącz",
+		vn: "Tắt máy",
 	},
 	
 		quit_now: {
@@ -162,6 +170,7 @@ var i18n =  {
 			zh_cn: "确定要关机?",
 			ru: "Действительно выйти?",
 			pl: "Jesteś pewien że chcesz zakończyć?",
+			vn: "Bạn có muốn thoát ra bây giờ không",
 		},
 	
 		turn_off: {
@@ -179,6 +188,7 @@ var i18n =  {
 			zh_cn: "关机",
 			ru: "Выключить",
 			pl: "Wyłącz",
+			vn: "Tắt máy",
 		},
 	
 		restart: {
@@ -196,6 +206,7 @@ var i18n =  {
 			zh_cn: "重启",
 			ru: "Перезагрузить",
 			pl: "Uruchom ponownie",
+			vn: "Khởi động lại",
 		},
 		
 		cancel_shutdown: {
@@ -213,6 +224,7 @@ var i18n =  {
 			zh_cn:"取消",
 			ru: "Отменить",
 			pl: "Anuluj",
+			vn: "Thôi",
 		},
 		
 		save_backup_to: {
@@ -235,6 +247,7 @@ var i18n =  {
 		zh_cn:"关闭这台电脑",
 		ru: "Выключить компьютер",
 		pl: "Wyłącz ten komputer",
+		vn: "Tắt máy tính này",
 	},
 	switch_mode: {
 		en: "Switch Mode",
@@ -250,6 +263,7 @@ var i18n =  {
 		zh_cn:"切换模式",
 		ru: "Переключить режим",
 		pl: "Przełącz między systemami",
+		vn: "Chuyển tài khoản",
 	},
 	switch_mode_desc: {
 		en: "toggle into other OS",
@@ -265,6 +279,7 @@ var i18n =  {
 		zh_cn:"使用其他操作系統",
 		ru: "загрузить другую ОС",
 		pl: "przełącz do innego SO",
+		vn: "Sang hệ điều hành khác",
 	},
 	get_help: {
 		en: "Get Help",
@@ -281,6 +296,7 @@ var i18n =  {
 		zh_cn:"获取帮助",
 		ru: "Помощь",
 		pl: "Pomoc",
+		vn: "Trợ giúp",
 	},
 	
 	get_help_desc: {
@@ -298,6 +314,7 @@ var i18n =  {
 		zh_cn:"了解xPUD的更多信息",
 		ru: "и контакты",
 		pl: "i informacje kontaktowe",
+		vn: "và thông tin liên lạc",
 	},
 	
 		help_about: {
@@ -314,6 +331,7 @@ var i18n =  {
 			zh_cn:"关于xPUD计划",
 			ru: "О",
 			pl: "O...",
+			vn: "Giới thiệu",
 		},
 		help_info: {
 			en: "xPUD is a rapidly developing project. <br /> For more information, please go to:",
@@ -329,6 +347,7 @@ var i18n =  {
 			zh_cn:"xPUD 是一个快速发展中的计划。请参阅：",
 			ru: "xPUD быстро развивающийся проект. <br /> Больше информации можно получить здесь:",
 			pl: "xPUD jest szybko rozwijającym się projektem. <br /> Jeśli chcesz dowiedzieć się więcej odwiedź:",
+			vn: "xPUD là dự án đang phát triển nhanh <br /> Thông tin liên hệ tại:",
 		},
 		help_done: {
 			en: "Done",
@@ -344,6 +363,7 @@ var i18n =  {
 			zh_cn:"完成",
 			ru: "Ок",
 			pl: "Zakończono",
+			vn: "Hoàn tất",
 		},
 // menu
 	application: {
@@ -361,8 +381,9 @@ var i18n =  {
 		zh_cn:"所有应用程序",
 		ru: "Программы",
 		pl: "Programy",
+		vn: "Ứng dụng",
 	},
-	
+
 	web_app: {
 		en: "Web App",
 		zh: "網頁捷徑",
@@ -383,6 +404,7 @@ var i18n =  {
 		zh_cn:"上网冲浪",
 		ru: "Веб Браузер",
 		pl: "Przeglądarka WWW",
+		vn: "Trình duyệt Web",
 	},
 	bt_client: {
 		en: "BitTorrent Client",
@@ -399,6 +421,7 @@ var i18n =  {
 		zh_cn:"BT 下载",
 		ru: "Torrent клиент",
 		pl: "Klient BitTorrent",
+		vn: "BitTorrent",
 	},
 	media_player: {
 		en: "Media Player",
@@ -415,6 +438,7 @@ var i18n =  {
 		zh_cn:"播放影音",
 		ru: "Аудио/Видео проигрыватель",
 		pl: "Odtwarzacz multimedialny",
+		vn: "Đa phương tiện",
 	},
 	picture_viewer: {
 		en: "Picture Viewer",
@@ -431,6 +455,7 @@ var i18n =  {
 		zh_cn:"浏览图片",
 		ru: "Просмотрщик изображений",
 		pl: "Przeglądarka obrazów",
+		vn: "Quản lý ảnh",
 	},
 	text_editor: {
 		en: "Text Editor",
@@ -447,6 +472,7 @@ var i18n =  {
 		zh_cn:"编辑文字",
 		ru: "Текстовый редактор",
 		pl: "Edytor tekstu",
+		vn: "Soạn thảo văn bản",
 	},
 	pdf_viewer: {
 		en: "PDF Viewer",
@@ -463,6 +489,7 @@ var i18n =  {
 		zh_cn:"阅读PDF",
 		ru: "Просмотрщик PDF",
 		pl: "Przeglądarka plików PDF",
+		vn: "PDF Viewer",
 	},
 	terminal_emulator: {
 		en: "Terminal Emulator",
@@ -479,6 +506,7 @@ var i18n =  {
 		zh_cn:"使用终端",
 		ru: "Терминал/Коммандная строка",
 		pl: "Emulator terminala",
+		vn: "Terminal Emulator",
 	},
 	
 // setting
@@ -497,6 +525,7 @@ var i18n =  {
 		zh_cn:"个人设置",
 		ru: "Персональные настройки",
 		pl: "Ustawienia osobiste",
+		vn: "Cá nhân hóa",
 	},
 	
 		setting_language: {
@@ -513,6 +542,7 @@ var i18n =  {
 			zh_cn:"语言选项",
 			ru: "Язык",
 			pl: "Język",
+			vn: "Ngôn ngữ",
 		},
 		setting_language_desc: {
 			en: "choose locale and keymap",
@@ -528,6 +558,7 @@ var i18n =  {
 			zh_cn:"切换语系和键盘",
 			ru: "Выберите язык и раскладку",
 			pl: "wybierz język i układ klawiatury",
+			vn: "Chọn địa phương và kiểu bàn phím",
 		}, 
 	
 		setting_time_date: {
@@ -545,6 +576,7 @@ var i18n =  {
 			zh_cn:"时间与日期",
 			ru: "Дата и Время",
 			pl: "Data i czas",
+			vn: "Thời gian",
 		},
 		setting_time_date_desc: {
 			en: "change system clock",
@@ -561,6 +593,7 @@ var i18n =  {
 			zh_cn:"调整系统的日期与时间",
 			ru: "Настроить часы",
 			pl: "ustaw zegar systemowy",
+			vn: "Thay đổi thời gian hệ thống",
 		},
 		setting_backup: {
 			en: "Backup",
@@ -577,6 +610,7 @@ var i18n =  {
 			zh_cn:"保存资料",
 			ru: "Резервное сохранение",
 			pl: "Kopia danych",
+			vn: "Khôi phục",
 		},
 		setting_backup_desc: {
 			en: "save your data and changes",
@@ -593,6 +627,7 @@ var i18n =  {
 			zh_cn:"保留你的设置和资料",
 			ru: "Сохранить дату и изменения",
 			pl: "Zachowaj dane i ustawienia",
+			vn: "Lưu lại",
 		},
 
 
@@ -611,6 +646,7 @@ var i18n =  {
 		zh_cn:"系统设置",
 		ru: "Система",
 		pl: "System",
+		vn: "Hệ thống",
 	},
 	
 		setting_wifi: {
@@ -627,6 +663,7 @@ var i18n =  {
 			zh_cn:"WiFi",
 			ru: "WiFi",
 			pl: "Sieć bezprzewodowa",
+			vn: "WiFi",
 		},
 		setting_wifi_desc: {
 			en: "setup wireless connection",
@@ -642,6 +679,7 @@ var i18n =  {
 			zh_cn:"使用无线网络",
 			ru: "настроить беспроводное соединение",
 			pl: "ustaw połączenia sieci bezprzewodowej",
+			vn: "Cài đặt sự kết nối không dây",
 		},
 			setting_wifi_title: {
 				en: "Setup Wireless Network",
@@ -656,6 +694,7 @@ var i18n =  {
 				zh: "連到無線網路",
 				ru: "Настроить Беспроводную Сеть",
 				pl: "Ustawienia sieci bezprzewodowej",
+				vn: "Cài đặt mạng không dây",
 			},
 			setting_wifi_device: {
 				en: "Network Device: ",
@@ -670,6 +709,7 @@ var i18n =  {
 				zh: "網路卡: ",
 				ru: "Устройство: ",
 				pl: "Urządzenie sieciowe: ",
+				vn: "Thiệt bị mạng",
 			},
 			setting_wifi_choose: {
 				en: "Choose a network: ",
@@ -685,6 +725,7 @@ var i18n =  {
 				zh: "選一個要連線的基地台: ",
 				ru: "Выберите Сеть: ",
 				pl: "Wybierz sieć: ",
+				vn: "Chọn mạng",
 			},
 			setting_wifi_refresh: {
 				en: "Refresh",
@@ -699,6 +740,7 @@ var i18n =  {
 				zh: "重新整理",
 				ru: "Обновить",
 				pl: "Odświerz",
+				vn: "Làm mới",
 			},
 			setting_wifi_password: {
 				en: "Password:",
@@ -713,6 +755,7 @@ var i18n =  {
 				zh: "密碼:",
 				ru: "Пароль:",
 				pl: "Hasło:",
+				vn: "Mật khẩu",
 			},
 			setting_wifi_connect: {
 				en: "Connect",
@@ -727,6 +770,7 @@ var i18n =  {
 				zh: "連線",
 				ru: "Соединить",
 				pl: "Połącz",
+				vn: "Kết nối",
 			},
 		setting_ethernet: {
 			en: "Ethernet",
@@ -742,6 +786,7 @@ var i18n =  {
 			zh_cn:"有线网络",
 			ru: "Локальная Сеть",
 			pl: "Sieć ethernet",
+			vn: "Mạng cục bộ",
 		},
 		setting_ethernet_desc: {
 			en: "setup wired connection",
@@ -758,6 +803,7 @@ var i18n =  {
 			zh_cn:"使用有线网络",
 			ru: "настроить проводное соединение",
 			pl: "ustaw kablowe połączenie sieci ethernet",
+			vn: "Cài đặt kết nối có dây",
 		},
 		setting_opt: {
 			en: "Opt-Get",
@@ -774,6 +820,7 @@ var i18n =  {
 			zh_cn:"Opt-Get",
 			ru: "Opt-Get",
 			pl: "Opt-Get",
+			vn: "Opt-Get",
 		},
 		setting_opt_desc: {
 			en: "get more apps",
@@ -790,6 +837,7 @@ var i18n =  {
 			zh_cn:"安装更多程序",
 			ru: "установить дополнительные программы",
 			pl: "pobierz więcej programów",
+			vn: "Thêm ứng dụng",
 		},
 	
 	setting_hardware: {
@@ -806,6 +854,7 @@ var i18n =  {
 		zh_cn:"硬件设置",
 		ru: "Оборудование",
 		pl: "Sprzęt",
+		vn: "Phần cứng",
 	},
 		setting_sound: {
 			en: "Sound",
@@ -822,6 +871,7 @@ var i18n =  {
 			zh_cn:"声音",
 			ru: "Звук",
 			pl: "Dźwięk",
+			vn: "Âm thanh",
 		},
 		setting_sound_desc: {
 			en: "adjust system sound",
@@ -838,6 +888,7 @@ var i18n =  {
 			zh_cn:"调整系统音量",
 			ru: "настроить звук",
 			pl: "dostosuj ustawienia dźwięku",
+			vn: "Điều chỉnh âm thanh",
 		},
 		setting_display: {
 			en: "Display",
@@ -854,6 +905,7 @@ var i18n =  {
 			zh_cn:"显示设置",
 			ru: "Экран",
 			pl: "Ekran",
+			vn: "Hiển thị",
 		},
 		setting_display_desc: {
 			en: "change screen resolution",
@@ -870,6 +922,7 @@ var i18n =  {
 			zh_cn:"调整屏幕分辨率",
 			ru: "Изменить разрешение экрана",
 			pl: "zmień ustawienia rozdzielczości",
+			vn: "Chỉnh độ phân giải",
 		},
 		setting_driver: {
 			en: "Driver",
@@ -885,6 +938,7 @@ var i18n =  {
 			zh_cn:"驱动管理",
 			ru: "Устройства",
 			pl: "Sterownik",
+			vn: "Driver phần cứng",
 		},
 		setting_driver_desc: {
 			en: "device info and driver",
@@ -900,12 +954,15 @@ var i18n =  {
 			zh_cn:"安装更多驱动程序",
 			ru: "информация об устройствах и драйверах",
 			pl: "informacje o urzączeniu i sterownik",
+			vn: "thiết bị và driver phần cứng",
 		},
 		setting_sysinfo: {
-			en: "System Information",
+			en: "System Info",
+			zh: "系統資訊",
 		},
 		setting_sysinfo_desc: {
-			en: "check your system information",
+			en: "check system information",
+			zh: "檢視系統狀態",
 		},
 		
 			back_to_setting: {
@@ -922,6 +979,7 @@ var i18n =  {
 				zh_cn: "返回设置",
 				ru: "Назад к Настройкам",
 				pl: "Wróć do ustawień",
+				vn: "Quay lại Tùy chọn",
 		},
 
 };
