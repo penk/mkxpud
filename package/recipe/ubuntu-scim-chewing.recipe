@@ -7,10 +7,9 @@ scim
 scim-chewing
 scim-gtk2-immodule
 scim-tables-zh
-scim-unikey
 
 [action]
-sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 81E7FE09; echo 'deb http://ppa.launchpad.net/ubuntu-vn/ppa/ubuntu karmic main' >> /etc/apt/sources.list; apt-get update; 
+sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 81E7FE09; echo 'deb http://ppa.launchpad.net/ubuntu-vn/ppa/ubuntu karmic main' >> /etc/apt/sources.list; apt-get update; apt-get install scim-unikey -y
 
 [binary]
 /usr/bin/scim
