@@ -1,16 +1,11 @@
 <div id="shutdown-popup">
 <h3><span class="i18n">quit_now</span></h3>
 
-<script type="text/javascript">
-function setBackupLocation() {
-	prefWrite($('#backup-dir').val(), "backup-dir");
-}
-</script>
 <p>
 <button onclick="plate_poweroff();" style="font-size: 100%;"><img src="image/logout.png"><br /><span class="i18n">turn_off</span></button> <button onclick="plate_reboot();" style="font-size: 100%;"><img src="image/reload.png"><br /><span class="i18n">restart</span></button> <button onclick="plate_switch_mode();" style="font-size: 100%;"><img src="image/cinemadisplay.png"><br /><span class="i18n">switch_mode</span></button>
 <br /><br />
 
-<input type=checkbox id="do-backup" onchange="system('/usr/local/bin/get_mnt'); update_div_ife('backup-dir', '/tmp/mnt.opt'); $('#backup-dir').toggle(); setBackupLocation();">Save backup to 
+<input type=checkbox id="do-backup" onchange="system('/usr/local/bin/get_mnt'); update_div_ife('backup-dir', '/tmp/mnt.opt'); $('#backup-dir').toggle(); setBackupLocation();"><span class="i18n">save_backup_to</span> 
 
 <select id="backup-dir" onchange="setBackupLocation();" style="display: none;">
 </select>

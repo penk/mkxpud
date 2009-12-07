@@ -209,6 +209,11 @@ var i18n =  {
 			ru: "Отменить",
 			pl: "Anuluj",
 		},
+		
+		save_backup_to: {
+			en: "Save backup to",
+			zh: "保留設定至",
+		},
 	
 	power_off_desc: {
 		en: "turn off this machine",

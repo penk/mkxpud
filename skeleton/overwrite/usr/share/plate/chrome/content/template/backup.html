@@ -9,12 +9,8 @@
 <script type="text/javascript" src="../plate.js"></script>
 <script type="text/javascript">
 
-function setBackupLocation() {
-	prefWrite($('#dir').val(), "backup-dir");
-}
-
 function backup() {
-system('/usr/local/bin/xpud-backup ' + $('#dir').val());
+system('/usr/local/bin/xpud-backup ' + $('#backup-dir').val());
 }
 
 function restore() {
@@ -24,14 +20,14 @@ system('/usr/local/bin/load_data ' + $('#f').val());
 </script>
 </head>
 
-<body onload="system('/usr/local/bin/get_mnt'); update_div_ife('dir', '/tmp/mnt.opt'); setBackupLocation();">
+<body onload="system('/usr/local/bin/get_mnt'); update_div_ife('backup-dir', '/tmp/mnt.opt'); setBackupLocation();">
 <div style="margin: 20px auto; width: 400px;">
 <h2 style="border-bottom: 1px gray solid;">Backup data and changes</h2>
 
 <div style="margin-left: 20px;">
 
 <p>Backup to:</p>
-<select id="dir" onchange="setBackupLocaton();"></select>
+<select id="backup-dir" onchange="setBackupLocaton();"></select>
 <p>
 <input type="button" value="Backup" onclick="backup(); $(this).attr('disabled', 'disabled'); $(this).attr('value', 'Done.');" />
 </p>

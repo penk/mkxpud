@@ -526,3 +526,7 @@ function prefWrite(data, pref) {
 	converter.writeString(data);
 	converter.close(); // this closes foStream
 }
+
+function setBackupLocation() {
+	prefWrite($('#backup-dir').val(), "backup-dir");
+}
