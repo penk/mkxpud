@@ -74,7 +74,7 @@ iwconfig $nic mode Managed \n";
 system "udhcpc -i $nic";
 print PF "udhcpc -i $nic \n";
 
-if ( ! `ifconfig|grep "inet addr"`) { system "dhclient $nic; rm -f /tmp/netstat.tmp"; } 
+if ( ! `ifconfig|grep "inet addr"`) { system "udhcpc -i  $nic; rm -f /tmp/netstat.tmp"; } 
 else { system "rm -f /tmp/netstat.tmp"; }
 
 # show wifi connected notification message
