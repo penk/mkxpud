@@ -45,7 +45,7 @@ tar jxf skeleton/archive/connman-0.46.tar.bz2 -C $MKXPUD_TARGET;
 /usr/sbin/pppd
 /usr/sbin/pppdump
 /usr/sbin/pppoe-discovery
-/usr/sbin/pppoeconf
+#/usr/sbin/pppoeconf
 /usr/sbin/pppstats
 
 [data]
