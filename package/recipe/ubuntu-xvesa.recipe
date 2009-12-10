@@ -1,0 +1,25 @@
+# recipe file
+
+[name]
+xvesa
+
+[package]
+read-edid
+
+[binary]
+/usr/sbin/get-edid
+/usr/bin/parse-edid
+
+[data]
+
+[config]
+
+[overwrite]
+
+/bin/startx
+/usr/sbin/915resolution
+
+/usr/lib/libts-0.0.so.0
+/usr/bin/Xvesa
+/usr/local/bin/detect-res
+/usr/local/lib/ts
