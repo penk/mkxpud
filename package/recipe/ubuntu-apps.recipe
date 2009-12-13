@@ -11,6 +11,9 @@ xarchiver
 zip
 p7zip-full
 
+[action]
+cp /usr/share/icons/hicolor/48x48/apps/xarchiver.png $MKXPUD_TARGET/usr/share/pixmaps/xarchiver.png.png
+
 [binary]
 /usr/bin/epdfview
 /usr/bin/gpicview
@@ -29,14 +32,9 @@ p7zip-full
 /usr/share/pixmaps/gpicview.png
 
 /usr/lib/mime/packages/xarchiver
-#/usr/lib/thunar-archive-plugin/xarchiver.tap
-/usr/share/icons/hicolor/16x16/apps/xarchiver.png
-/usr/share/icons/hicolor/24x24/apps/xarchiver.png
-/usr/share/icons/hicolor/48x48/apps/xarchiver.png
-#/usr/share/icons/hicolor/scalable/apps/xarchiver.svg
-#/usr/share/pixmaps/xarchiver.xpm
 /usr/share/pixmaps/xarchiver/xarchiver-add.png
 /usr/share/pixmaps/xarchiver/xarchiver-extract.png
+/usr/share/applications/xarchiver.desktop
 
 /usr/lib/p7zip/
 
@@ -45,7 +43,5 @@ p7zip-full
 /usr/share/applications/gpicview.desktop
 /usr/share/applications/epdfview.desktop
 /usr/share/applications/geany.desktop
-/usr/share/applications/xarchiver.desktop
-/usr/share/pixmaps/xarchiver.png
 
 [overwrite]
