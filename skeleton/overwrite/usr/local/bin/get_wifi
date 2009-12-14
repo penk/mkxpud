@@ -23,11 +23,11 @@ my $c = `echo $pass | wc -c`;
 
 if ($c == 6 || $c == 14) {
 my $passwd = $1 if $pass =~ /^"(.*)"$/;
-system qq{iwconfig $nic essid $ssid key "s:$passwd"};
-print PF qq{iwconfig $nic essid $ssid key "s:$passwd" \n};
+system qq{iwconfig $nic essid $ssid key restricted "s:$passwd"};
+print PF qq{iwconfig $nic essid $ssid key restricted "s:$passwd" \n};
 } else {
-system qq{iwconfig $nic essid $ssid key $pass};
-print PF qq{iwconfig $nic essid $ssid key $pass \n};
+system qq{iwconfig $nic essid $ssid key restricted $pass};
+print PF qq{iwconfig $nic essid $ssid key restricted $pass \n};
 }
 
 }
