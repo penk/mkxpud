@@ -9,8 +9,8 @@ mozplugger
 [action]
 
 # download firefox
-if [ ! -e skeleton/archive/firefox-3.5.5.tar.bz2 ]; then wget http://releases.mozilla.org/pub/mozilla.org/firefox/releases/3.5.5/linux-i686/en-US/firefox-3.5.5.tar.bz2 -P skeleton/archive/; fi; 
-tar jxf skeleton/archive/firefox-3.5.5.tar.bz2 -C $MKXPUD_TARGET/usr/share/;
+if [ ! -e skeleton/archive/firefox-3.5.6.tar.bz2 ]; then wget http://releases.mozilla.org/pub/mozilla.org/firefox/releases/3.5.6/linux-i686/en-US/firefox-3.5.6.tar.bz2 -P skeleton/archive/; fi; 
+tar jxf skeleton/archive/firefox-3.5.6.tar.bz2 -C $MKXPUD_TARGET/usr/share/;
 
 # FIXME: remove firefox updater and components
 rm -f $MKXPUD_TARGET/usr/share/firefox/updater;

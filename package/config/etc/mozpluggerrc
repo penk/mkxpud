@@ -308,6 +308,7 @@ text/pdf:pdf:PDF file
 text/x-pdf:pdf:PDF file
 	repeat swallow(acroread) fill: acroread7 -openInNewWindow "$file"
 	repeat swallow(documentShell) fill: acroread5 -geometry +9000+9000 +useFrontEndProgram "$file"
+	repeat noisy swallow(epdfview) fill: epdfview "$file"
 	repeat noisy swallow(evince) fill: evince "$file"
 	repeat noisy swallow(kpdf) fill: kpdf "$file"
 	repeat noisy swallow(Xpdf) fill: xpdf -g +9000+9000 "$file"
