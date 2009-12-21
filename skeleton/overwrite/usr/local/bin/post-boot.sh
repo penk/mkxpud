@@ -37,9 +37,6 @@ if [ ! -e /tmp/firsttime ]; then
 	#/sbin/dhclient &
 	/bin/udhcpc &
 
-	# get wireless SSID list
-	/usr/local/bin/get_ssid &
-
 	# mount all partitions
 	for i in `fdisk -l | grep "^/dev" | cut -d' ' -f1`; do
 	   mkdir -p /mnt/`basename $i`;
@@ -82,5 +79,8 @@ if [ ! -e /tmp/firsttime ]; then
 
 	# post hook
 	find /etc/post-boot.d/ -type f -exec {} \;  
-
+	
+	# get wireless SSID list
+	/usr/local/bin/get_ssid &
+	
 fi 
