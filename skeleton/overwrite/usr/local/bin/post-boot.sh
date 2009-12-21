@@ -68,7 +68,10 @@ if [ ! -e /tmp/firsttime ]; then
 		/usr/bin/amixer set $channel 95% on
 	done
 	fi
-
+	
+	# turn on Lenovo R61 (and maybe other systems) speaker
+	/usr/bin/amixer set Speaker on
+	
 	# Atom-related setting 
 	if [ "$(cat /proc/cpuinfo | grep Atom)" ] ; then
 		modprobe acpi_cpufreq 

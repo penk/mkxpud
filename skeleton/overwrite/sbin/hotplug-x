@@ -12,10 +12,10 @@ add() {
 			mknod /dev/$DEV b $MAJOR $MINOR
 			if [ `echo $DEV | wc -c` == 5 ]; then
 			mkdir -p /mnt/$DEV
-			mount /dev/$DEV /mnt/$DEV
+			mount -o sync /dev/$DEV /mnt/$DEV
 			if [ ! $? -eq 0 ]; 
 				then
-					notify-send 'Device Found' "ERROR: /mnt/$DEV Not mounted" -i /usr/share/plate/chrome/content/image/kcmdevices.png -u critical
+					notify-send 'Device Found' "$? ERROR: /mnt/$DEV Not mounted" -i /usr/share/plate/chrome/content/image/kcmdevices.png -u critical
 				else
 					#/usr/bin/firefox file:///media/$DEV/ &
 					notify-send 'Device Found' "/mnt/$DEV Mounted" -i /usr/share/plate/chrome/content/image/kcmdevices.png -u critical 
@@ -28,19 +28,31 @@ add() {
 }
 
 remove() {
-	umount /mnt/$DEV
-	rm /dev/$DEV
-	notify-send 'Device Removal' "/mnt/$DEV Unmounted" -i /usr/share/plate/chrome/content/image/kcmdevices.png -u critical
+	case "$SUBSYSTEM" in
+		block)
+			if [ `echo $DEV | wc -c` == 5 ]; then
+				umount /mnt/$DEV
+				rmdir /mnt/$DEV
+				notify-send 'Device Removal' "/mnt/$DEV Unmounted" -i /usr/share/plate/chrome/content/image/kcmdevices.png -u critical
+			fi
+		;;
+		*)
+		;;
+	esac
 }
 
 DEV=`basename $DEVPATH`
 
+SUBSYSTEM=$1
+
 case "$ACTION" in
 	add)
 		add
+		echo $0 $@ >> /tmp/hotplug.log
 		;;
 	remove) 
 		remove
+		echo $0 $@ >> /tmp/hotplug.log
 		;;
 	*)
 		echo $0 $@ >> /tmp/hotplug.log
