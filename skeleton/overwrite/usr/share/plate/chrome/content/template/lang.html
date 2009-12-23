@@ -10,17 +10,17 @@
 <script type="text/javascript" src="../plate.js"></script>
 <script type="text/javascript">
 
-function set_locale(x) {
+function set_locale() {
 	xpudPrefs.setCharPref("xpud.locale", $('#uilang').val());
-	xpudPrefs.setCharPref("xpud.keymap", $('#kmap').val());
-	save_preferences();	
-	if (x % 2 === 1) {
-	system('/usr/local/bin/set_locale ' + $('#uilang').val() + ' ' + $('#kmap').val());
-	} 
+	save_preferences();
 	window.parent.location.reload();
 }
 
-var keymap_flag=0;
+function set_keymap() {
+	system('setxkbmap -layout '+$('#kmap').val());
+	xpudPrefs.setCharPref("xpud.keymap", $('#kmap').val());
+	save_preferences();
+}
 
 </script>
 </head>
@@ -31,9 +31,7 @@ var keymap_flag=0;
 
 <div style="margin-left: 20px;">
 
-<p>Change language to:</p>
-
-<select id="uilang" name="uilang">
+<p>Interface language: <select id="uilang" name="uilang" onchange="set_locale();">
 <option value="en">English</option>
 <option value="zh">Chinese (Traditional)</option>
 <option value="zh_cn">Chinese (Simplified)</option>
@@ -50,40 +48,45 @@ var keymap_flag=0;
 <option value="se">Swedish</option>
 <option value="vn">Vietnamese</option>
 </select>
+<br /><small>Plate will be restarted for the changes to take effect.</small></p>
 
-<p style="font-size: 80%;">
-<a href="#" onclick="$('#keymap').toggle(); keymap_flag++;" style="color: gray;">Advanced options</a>
-</p>
-
-<div id="keymap" style="display: none;">
-<p>Change keyboard layout:</p>
-
-<select id="kmap" name="kmap">
+<!-- check /usr/share/X11/xkb/symbols.dir for more precise keymap layout names, including variants -->
+<p>Keyboard layout: <select id="kmap" name="kmap" onchange="set_keymap();">
 <option value="us">English (us)</option>
+<option value="ar">Arabic (ar)</option><!-- ara -->
 <option value="be">Belgian (be)</option>
+<option value="bg">Bulgarian (bg)</option>
 <option value="ca">Canadian (ca)</option>
+<option value="cz">Czech (cz)</option>
+<option value="dk">Danish (dk)</option>
 <option value="dvorak">Dvorak</option>
 <option value="gb">English (gb)</option>
-<option value="uk">English (uk)</option>
 <option value="fi">Finnish (fi)</option>
 <option value="fr">French (fr)</option>
 <option value="de">German (de)</option>
 <option value="gr">Greek (gr)</option>
+<option value="hr">Hungarian (hr)</option>
 <option value="it">Italian (it)</option>
 <option value="jp">Japanese (jp)</option>
+<option value="lt">Lithuanian (lt)</option>
+<option value="lv">Latvian (lv)</option>
+<option value="mk">Macedonian (mk)</option>
+<option value="mt">Maltese (mt)</option>
 <option value="no">Norwegian (no)</option>
 <option value="pl">Polish (pl)</option>
+<option value="br">Portugese (br)</option>
 <option value="pt">Portuguese (pt)</option>
+<option value="ro">Romanian (ro)</option>
 <option value="ru">Russian (ru)</option>
+<option value="sk">Slovak (sk)</option>
 <option value="se">Swedish (se)</option>
+<option value="sy">Syrian (sy)</option>
 <option value="es">Spanish (es)</option>
+<option value="th">Thai (th)</option>
+<option value="tr">Turkish (tr)</option>
+<option value="uz">Uzbek (uz)</option>
 <option value="vn">Vietnamese (vn)</option>
 </select>
-
-</div>
-
-<p>
-<a href="#" class="btn primary" onclick="set_locale(keymap_flag++);"><span><span><b>&nbsp;</b><u>Change and Save</u></span></span></a>
 </p>
 </div>
 
