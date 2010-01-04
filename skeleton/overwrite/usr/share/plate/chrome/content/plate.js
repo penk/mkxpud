@@ -436,7 +436,6 @@ function plate_reboot() {
 		}
 	}
 	else {
-	//system('reboot -f');
 	system('reboot');
 	}
 }
@@ -454,7 +453,6 @@ function plate_poweroff() {
 		}
 	}
 	else {
-	//system('poweroff -f');
 	system('poweroff');
 	}
 }
