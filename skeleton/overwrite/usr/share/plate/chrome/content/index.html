@@ -14,6 +14,14 @@
 		<script type="text/javascript">
 		$(function(){
 			$("#curl").hover(function(){
+    			//create iFrame Shim, append it and.. animate it!
+                var shim = $('<iframe id="curl_shim" frameborder="0" src="javascript:\"\";">');
+                $('body').append(shim);
+                $('#curl_shim').stop().animate({
+                        width:70,
+                        height:70
+                },400);
+                
 				$(this).stop().animate({
 						width: 135,
 						height: 70
@@ -22,9 +30,11 @@
 						width: 135,
 						height: 70
 					}, 400);
+/*
 				$('embed').each(function (i) {
 					this.style.width = '89%';
 				});
+*/				
 				$('#page_curl_block').show();
 			}, function(){	
 				$(this).stop().animate({
@@ -35,10 +45,20 @@
 						width: 55,
 						height: 25
 					}, 200);
+/*					
 				$('embed').each(function (i) {
 					this.style.width = '100%';
 				});
+*/				
+                //Animate iFrame Shim to 0pxx0px
+                $('#curl_shim').stop().animate({
+                        width:0,
+                        height:0
+                },200);
+
 				$('#page_curl_block').hide();
+				//Kill iFrame Shim
+                $('#curl_shim').remove();				
 			});
 		});
 		</script>

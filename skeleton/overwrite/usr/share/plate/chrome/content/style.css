@@ -378,6 +378,15 @@ h2 {
 	display: none;
 }
 
+#curl_shim {
+    position:absolute;
+    width:0px;
+    height:0px;
+    top:0px;
+    right:0px;
+    z-index:4;
+}
+
 #systray {
 	position: absolute;
 	bottom: 2px;
