@@ -13,6 +13,7 @@
 function set_locale() {
 	xpudPrefs.setCharPref("xpud.locale", $('#uilang').val());
 	save_preferences();
+	setLangSettings($('#uilang').val());
 	window.parent.location.reload();
 }
 
@@ -20,6 +21,7 @@ function set_keymap() {
 	system('setxkbmap -layout '+$('#kmap').val());
 	xpudPrefs.setCharPref("xpud.keymap", $('#kmap').val());
 	save_preferences();
+	setKmapSettings($('#kmap').val());
 }
 
 </script>

@@ -331,6 +331,9 @@ update_div('sysinfo', '/tmp/sysinfo');
 update_div('systray', '/tmp/sysinfo-s');
 
 system('/usr/local/bin/sysinfo');
+
+loadBackupSettings(); //should run once
+
 setTimeout('update_sysinfo()', 3500);
 }
 
@@ -528,3 +531,50 @@ function prefWrite(data, pref) {
 function setBackupLocation() {
 	prefWrite($('#backup-dir').val(), "backup-dir");
 }
+
+//TODO simple template functions:
+
+function setScreenSettings(string) {
+	prefWrite(string, "screen-conf");
+}
+
+function setLangSettings(string) {
+	prefWrite(string, "lang-conf");
+}
+
+function setKmapSettings(string) {
+	prefWrite(string, "kmap-conf");
+}
+
+
+function loadBackupSettings() {
+	var restoredFile = '/tmp/restored';
+	netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
+	var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
+	file.initWithPath(restoredFile);
+	if( file.exists()) {   // if it exists we have to check if there's something to restore..
+        var kmap = prefRead("kmap-conf");
+        var lang = prefRead("lang-conf");
+        var screen = prefRead("screen-conf");
+        //file.remove(); // Now we've read everything.. remove it!
+        system("rm -rf /tmp/restored");
+        
+        if ( screen != "" ) {
+            var values = screen.split('|');
+			system('/usr/bin/xrandr --output ' + values[0] + ' --mode ' + values[1] + ' --rotation ' + values[2]);
+        }
+
+        if ( kmap != "" ) {
+            	system('setxkbmap -layout '+kmap);
+            	xpudPrefs.setCharPref("xpud.keymap", kmap);
+            	save_preferences();
+        }
+
+        if ( lang != "" ) {
+        	xpudPrefs.setCharPref("xpud.locale", lang);
+        	save_preferences();
+        	window.parent.location.reload();        
+        }
+        system("notify-send 'Restore complete!' -i /usr/share/plate/chrome/content/image/kthememgr.png -u critical");
+	}
+}	

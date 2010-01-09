@@ -10,6 +10,7 @@ if [ -z $1 ]; then
 		cd /
 		cat $i | gzip -d | cpio -i
 		cd -
+		echo "OK" > /tmp/restored
 	done
 
 else

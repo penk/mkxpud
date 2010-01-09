@@ -13,8 +13,9 @@ mkdir -p ${BCKDIR}
 # create opt backup directory
 mkdir -p ${OPTDIR}
 
-
-find /cow | grep -v "/dev" | grep -v "/mnt" | grep -v "/roopt" | grep -v "/tmp" | grep -v "/var" | cpio -H newc -o | gzip -9 > ${BCKDIR}/xpud-data.gz
+cd /cow
+find . | grep -v "/dev" | grep -v "/mnt" | grep -v "/roopt" | grep -v "/tmp" | grep -v "/var" | grep -v "/.xpud" | cpio -H newc -o | gzip -9 > ${BCKDIR}/xpud-data.gz
+cd -
 
 if [ -d ${OPTDIR} ]; then cp -apf /opt/*.opt ${OPTDIR}; fi
 

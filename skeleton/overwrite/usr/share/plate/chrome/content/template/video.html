@@ -12,6 +12,7 @@ function set_video() {
 			mode=$('.vres option:selected').val();
 			rotation=$('.vrot option:selected').text();
 			system('/usr/bin/xrandr --output ' + output + ' --mode ' + mode + ' --rotation ' + rotation);
+			setScreenSettings(output+'|'+mode+'|'+rotation);
 	});
 }
 
