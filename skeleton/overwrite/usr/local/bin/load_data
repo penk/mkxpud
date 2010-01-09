@@ -6,7 +6,7 @@
 if [ -z $1 ]; then
 
 	# load user data if exist 
-	for i in `find /mnt -maxdepth 2 -name xpud-data.gz`; do 
+	for i in `find /mnt -maxdepth 3 -type f -name xpud-data.gz`; do 
 		cd /
 		cat $i | gzip -d | cpio -i
 		cd -

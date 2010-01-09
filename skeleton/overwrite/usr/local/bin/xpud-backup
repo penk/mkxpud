@@ -3,9 +3,20 @@
 
 if [ -d $1 ]; then
 
-find /cow | grep -v "/dev" | grep -v "/mnt" | grep -v "/roopt" | grep -v "/tmp" | grep -v "/var" | cpio -H newc -o | gzip -9 > $1/xpud-data.gz
+BCKDIR=${1}/xpud-backup
+OPTDIR=${1}/xpud-backup/opt
 
-if [ -d $1/opt ]; then cp -apf /opt/*.opt $1/opt/; fi
+
+# create backup directory
+mkdir -p ${BCKDIR}
+
+# create opt backup directory
+mkdir -p ${OPTDIR}
+
+
+find /cow | grep -v "/dev" | grep -v "/mnt" | grep -v "/roopt" | grep -v "/tmp" | grep -v "/var" | cpio -H newc -o | gzip -9 > ${BCKDIR}/xpud-data.gz
+
+if [ -d ${OPTDIR} ]; then cp -apf /opt/*.opt ${OPTDIR}; fi
 
 # if additional parameter was passed - poweroff or reboot
 case "$2" in

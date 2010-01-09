@@ -53,7 +53,7 @@ if [ ! -e /tmp/firsttime ]; then
 	
 	# install opt file if exist 
 	if [ ! "$(cat /proc/cmdline | grep opt=no )" ]; then
-		find /mnt -maxdepth 3 -name '*.opt' -exec opt-get {} \;
+		find /mnt -maxdepth 4 -type f -name '*.opt' -exec opt-get {} \;
 	fi
 
 	# start hotplug script
