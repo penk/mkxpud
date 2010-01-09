@@ -17,7 +17,7 @@ app_counter="0"
 web_counter="0"
 
 # for all *.desktop files in "applications" directory do
-list=`find /usr/share/applications -name *.desktop`
+list=`find /usr/share/applications -name '*.desktop'`
 for i in $list; do
 
 	# create entry in exec.html template
