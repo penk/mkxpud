@@ -3,6 +3,7 @@ function initail_plate_ui() {
 	system('/usr/local/bin/post-boot.sh');
 	update_sysinfo();
 	do_i18n();
+	init_DBus();
 }
 
 var xpudPrefs = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch);
@@ -332,8 +333,6 @@ update_div('systray', '/tmp/sysinfo-s');
 
 system('/usr/local/bin/sysinfo');
 
-loadBackupSettings(); //should run once
-
 setTimeout('update_sysinfo()', 3500);
 }
 
@@ -578,3 +577,25 @@ function loadBackupSettings() {
         system("notify-send 'Restore complete!' -i /usr/share/plate/chrome/content/image/kthememgr.png -u critical");
 	}
 }	
+
+function init_DBus() {
+    if (!window.dbus) {
+        return;
+    }
+
+    var xbus = dbus.getSignal(dbus.SESSION,'org.xpud.CommInterface', 'CMD', null, '/org/xpud/CommObject', null);
+    xbus.enabled = true;
+    xbus.onemit = function(args) {
+        xbus.enabled = false;
+        switch(args) {
+            case 'restored':
+                loadBackupSettings();
+                break;
+            default:
+                alert(args)
+                break;
+        }
+        xbus.enabled = true;
+    }
+}
+

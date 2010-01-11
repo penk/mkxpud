@@ -11,6 +11,7 @@ if [ -z $1 ]; then
 		cat $i | gzip -d | cpio -i
 		cd -
 		echo "OK" > /tmp/restored
+		dbus-send --type=signal  /org/xpud/CommObject org.xpud.CommInterface.CMD string:"restored"
 	done
 
 else
