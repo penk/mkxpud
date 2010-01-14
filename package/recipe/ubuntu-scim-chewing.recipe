@@ -9,7 +9,10 @@ scim-gtk2-immodule
 scim-tables-zh
 
 [action]
-sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 81E7FE09; echo 'deb http://ppa.launchpad.net/ubuntu-vn/ppa/ubuntu karmic main' >> /etc/apt/sources.list; apt-get update; apt-get install scim-unikey -y
+
+# fixme: use more general way to add 3rd-party repository 
+if ! grep -q 'deb http://ppa.launchpad.net/ubuntu-vn/ppa/ubuntu karmic main' /etc/apt/sources.list; then 
+echo 'deb http://ppa.launchpad.net/ubuntu-vn/ppa/ubuntu karmic main' >> /etc/apt/sources.list; apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 81E7FE09; apt-get update; apt-get install scim-unikey --yes --force-yes; else apt-get install scim-unikey --yes --force-yes; fi 
 
 [binary]
 /usr/bin/scim
