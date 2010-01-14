@@ -1,8 +1,8 @@
 [Desktop Entry]
 Version=1.0
-Name=Restart PlateUI
-Comment=for debugging only
-GenericName=restartPlate
+Name=Restart Plate UI
+Comment=reload
+GenericName=Restart Plate UI
 Type=WebApp
 Icon=reload
 URL=javascript:window.parent.location.reload();
