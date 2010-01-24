@@ -14,10 +14,10 @@ REQUIREMENTS
 
 To generate a xPUD image, you will need:
 
-1. a working Ubuntu 9.04 installation 
+1. a working Ubuntu 9.10 installation 
 2. **sudo** permission to install packages on the host and testing
 3. Internet access to download packages (if required)
-4. at least 700MB of hard disk free space
+4. at least 500MB of hard disk free space
 
 We designed **mkxpud** to be distribution-independent, but at current 
 development stage, only limited distributions and released version
@@ -44,7 +44,8 @@ Quick Start:
 
         ./tools/mkxpud test
 
-This will create an iso9669 image at `deploy/default.iso`.
+This will create an iso9669 image at `deploy/default.iso`. 
+For step-by-step tutorial, please read [Wiki](http://wiki.github.com/penk/mkxpud/) for more instructions.
 
 Usage:
 ------
@@ -86,16 +87,16 @@ which quoted by `[ ]`, rest of the rows are data:
 
 	[config]
 	# short project description
-	MKXPUD_NAME=""
+	MKXPUD_NAME="xPUD Ubuntu Karmic image"
 	# you can skip the package manager handling by setting this to `skip'
-	MKXPUD_PKGMGR=""
-	# set this to "true" if you want to use host /dev nodes
-	MKXPUD_HOST_DEV=""
-	
+	MKXPUD_PKGMGR="apt-get install -y"
+	# set to `true' if you want to include host /dev nodes
+	MKXPUD_HOST_DEV="false"
+
 	# specified the Linux kernel version to be used
-	MKXPUD_KERNEL="2.6.28"
-	MKXPUD_KERNEL_IMAGE="deploy/vmlinuz-2.6.28"
-	MKXPUD_MOD_PATH="/lib/modules/2.6.28"
+	MKXPUD_KERNEL="2.6.31.2"
+	MKXPUD_KERNEL_IMAGE="deploy/vmlinuz-2.6.31.2"
+	MKXPUD_MOD_PATH="/lib/modules/2.6.31.2"
 	
 	[module]
 	# kernel modules to be included into rootfs
@@ -137,14 +138,29 @@ More information please read the example file `config/default.cookbook`
 	[package]
 	# packages to be installed via apt-get or some other package manager
 
+	#---------------------------
+
 	[action]
 	# actions to be executed before install this recipe
 	# for example, you can download or checkout codes here
+
+	[post_action]
+	# actions to be executed after install this recipe
+	# for example, you can download or checkout codes here
+
+	#---------------------------
 
 	[binary]
 	# binaries to be copied from your host to target
 	# these data will be handle by ldd-helper 
 	# and the *.so.* files are copied automatically 
+
+	[sd_hook]
+	# for binaries or libraries under irregular path
+	# data will be handle by ldd-helper 
+	# and the *.so.* files are copied automatically 
+
+	#---------------------------
 
 	[data]
 	# other necessary data to be used with applications
@@ -162,6 +178,7 @@ More information please read the example file `config/default.cookbook`
 	[overwrite]
 	# system-wide files to be overwritten
 	# these will be copied from the "skeleton/overwrite" directory
+
 	
 Please read files under `package/recipe/` as examples.
 
@@ -171,29 +188,26 @@ STRUCTURE
 This is the internal structure of mkxpud:
 
     .
-    |-- README				the file you're reading
+    |-- README					the file you're reading
     |-- config
-    |   |-- config-2.6.28			kernel .config file
-    |   `-- default.cookbook		default config file for project
+    |   `-- default.cookbook			default config file for project
     |-- deploy
-    |   `-- vmlinuz-2.6.28			pre-built kernel image
+    |   `-- vmlinuz-2.6.31.2			pre-built kernel image
     |-- kernel
-    |   |-- module
-    |   |   `-- default-module-2.6.28.tgz 		pre-built kernel modules
-    |   `-- src
+    |   |-- config-2.6.31.2
+    |   |-- config-busybox-1.15.2
+    |   `-- module				pre-built kernel module
     |-- package
     |   |-- config				config files to be copied to target
     |   `-- recipe				config files for package
     |-- skeleton	
-	|   |-- archive
-    |   |   `-- dev.tgz			pre-generated device nodes
-    |   |-- boot				boot loader for images
-    |   |-- overwrite			data to be copied to target 
-	|   `-- rootfs.tgz				skeleton rootfs
+    |   |-- archive				3rd-parties data to be used whle building
+    |   |-- boot				boot loader and installer 
+    |   |-- overwrite				data to be copied to target 
+    |   `-- rootfs.tgz				skeleton rootfs
     |-- tools
     |   `-- mkxpud				the main script 
-    `-- working
-        `-- default				working and temporary files 
+    `-- working					working and temporary files 
 
 REFERENCE
 =========
@@ -206,7 +220,7 @@ REFERENCE
 LICENSE
 =======
 
-Copyright (c) 2009, Ping-Hsun Chen.
+Copyright (c) 2009-2010, Ping-Hsun Chen.
 
 Except the file that comes with its own license, the rest of **mkxpud** is free.
 You are free to distribute and/or modify this software under the terms of
