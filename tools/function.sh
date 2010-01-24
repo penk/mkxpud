@@ -139,6 +139,9 @@ function strip {
 			
 			done 
 		done 
+
+		# post action 
+		eval `./tools/parser package/recipe/$R.recipe post_action`
 		
 	done
 
@@ -209,6 +212,8 @@ function init {
 			done 
 		done 
 
+		# post action 
+		eval `./tools/parser package/recipe/$R.recipe post_action`
 }
 
 function opt {
@@ -280,6 +285,9 @@ function opt {
 			
 			done 
 		done 
+
+		# post action 
+		eval `./tools/parser package/recipe/$R.recipe post_action`
 		
 	done
 
