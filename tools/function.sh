@@ -322,9 +322,15 @@ function post {
 	./tools/busybox-helper
 	rm $MKXPUD_TARGET/bin/busybox
 
-	# check dependencies of each files under usr/lib
-	for s in `find $MKXPUD_TARGET/usr/lib/*.so.*`; do 
-	
+	# check dependencies of each files under usr/lib and [so_hook] section
+	for R in `./tools/parser $MKXPUD_CONFIG recipe`; do 
+		for S in `./tools/parser package/recipe/$R.recipe so_hook`; do
+		SO_HOOK="$SO_HOOK $MKXPUD_TARGET/$S"
+		done
+	done
+	SO_HOOK="$SO_HOOK "`find $MKXPUD_TARGET/usr/lib/*.so.*`
+
+	for s in $SO_HOOK; do 
 		if [ ! -d $s ]; then 
 		for i in `./tools/ldd-helper $s`; do 
 			if [ ! -e $MKXPUD_TARGET/usr/lib/`basename $i` ] && [ ! -e $MKXPUD_TARGET/lib/`basename $i` ]; then 
