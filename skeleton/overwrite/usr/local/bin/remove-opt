@@ -1,0 +1,13 @@
+#!/bin/bash
+# remove-opt - command line interface for removing opt packages
+# usage: remove-opt /path/to/opt-file
+
+if [ -e $1 ]; then 
+	
+	# unmount opt filesystem
+	umount -l $1
+	
+	# remove opt directory
+	rmdir $1
+
+fi
