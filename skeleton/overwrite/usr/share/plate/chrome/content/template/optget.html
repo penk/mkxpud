@@ -8,16 +8,31 @@
 <script type="text/javascript" src="../jquery-1.4.min.js"></script>
 <script type="text/javascript" src="../plate.js"></script>
 <script type="text/javascript">
+
+var offline_installation = '<p>Downloaded OPT package installation:</p><input type="file" id="f" /><p><input type="button" value="Install" onclick="installopt();" /></p>';
+	
+function changeBtns() {
+	// replace download links with install buttons
+	// TODO: if opt package is already installed - create Remove button instead
+		$('.inst_link').each( function() { 
+			$(this).replaceWith('<button class="inst_btn" onclick="location.href=\''+$(this).attr('rel')+'\' ">Install</button>'); }
+		);
+		// hide elements, unnecesary in opt-get store xPUD interface
+		$('.opt-hide').hide();
+		// attach panel for downloaded opts install
+		$('#opt-get-store').append(offline_installation);
+}	
 	
 function checkOnlineStatus() {
-	var opt_repo =  'http://www.xpud.org/opt/'
+	//var opt_repo =  'http://www.xpud.org/opt/'
+	var opt_repo =  'http://soldat.gr/xpud/opt/'
 	var xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function() {
 		if ( xhr.readyState == 4 ) {
 			if ( xhr.status == 200 ) {
-				window.location = opt_repo;
+				$('#opt-get-store').load(opt_repo , function() { changeBtns() } );
 			} else {
-				document.getElementById('opt-get').innerHTML = '<p>Offline OPT package installation:</p><input type="file" id="f" /><p><input type="button" value="Install" onclick="installopt();" /></p>';
+				document.getElementById('opt-get').innerHTML = offline_installation;
 			}
 		}
 	};
@@ -32,12 +47,13 @@ function checkOnlineStatus() {
 </head>
 
 <body onload="checkOnlineStatus();">
+<div id="opt-get-store">
 <div style="margin: 20px auto; width: 500px;">
 <h2 style="border-bottom: 1px gray solid;">Get more applications</h2>
 
 <div id="opt-get" style="margin-left: 20px;">
 <p align="center"><img src="../image/load.gif" style="margin: 19px;" /></p>
 </div>
-
+</div>
 </body>
 </html>
