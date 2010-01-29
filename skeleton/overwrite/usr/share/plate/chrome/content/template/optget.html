@@ -11,11 +11,36 @@
 
 var offline_installation = '<p>Downloaded OPT package installation:</p><input type="file" id="f" /><p><input type="button" value="Install" onclick="installopt();" /></p>';
 	
+function getInstalledOpts() {
+	// list installed opt packages to array
+	var file = Components.classes["@mozilla.org/file/local;1"]. createInstance(Components.interfaces.nsILocalFile);
+ 	file.initWithPath("/opt"); 
+	// file is the given directory (nsIFile)  
+	var entries = file.directoryEntries;  
+	var array = [];  
+	while(entries.hasMoreElements())  
+	{  
+		var entry = entries.getNext();  
+		entry.QueryInterface(Components.interfaces.nsIFile);  
+		array.push(entry.leafName);  
+	}  
+ 	// return array with opt packages
+	return array;
+}
+	
 function changeBtns() {
-	// replace download links with install buttons
-	// TODO: if opt package is already installed - create Remove button instead
+	// replace download links with buttons
+	var hasOpts = getInstalledOpts();
 		$('.inst_link').each( function() { 
+			if ( jQuery.inArray( $(this).attr('id')+'.opt.d' , hasOpts) > -1)
+			 {
+				   //add "Remove" button
+				   $(this).replaceWith('<button class="inst_btn" onclick="removeopt(\''+$(this).attr('id')+'\');">Remove</button>');
+		 }
+		 else {
+		// add "Install" button	 
 			$(this).replaceWith('<button class="inst_btn" onclick="location.href=\''+$(this).attr('rel')+'\' ">Install</button>'); }
+		}
 		);
 		// hide elements, unnecesary in opt-get store xPUD interface
 		$('.opt-hide').hide();
@@ -25,7 +50,7 @@ function changeBtns() {
 	
 function checkOnlineStatus() {
 	//var opt_repo =  'http://www.xpud.org/opt/'
-	var opt_repo =  'http://soldat.gr/xpud/opt/'
+	var opt_repo = 'http://soldat.gr/xpud/opt/'
 	var xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function() {
 		if ( xhr.readyState == 4 ) {
@@ -40,9 +65,20 @@ function checkOnlineStatus() {
 	xhr.send(null);
 }
 
-    function installopt() {
+function installopt() {
 		system('/usr/local/bin/opt-get ' + $('#f').val());
+		// TODO: reload page after installing opt package (use dbus?)
 }
+
+function removeopt(opt) {
+		var answer = confirm('Remove '+opt+' package?');
+		if (answer) {
+			system('/usr/local/bin/remove-opt /opt/' + opt + '.opt.d');
+			// TODO: reload page after removing opt package (use dbus?)
+			window.location.reload();
+		}
+}
+
     </script>
 </head>
 

@@ -98,6 +98,7 @@ rm -f $MKXPUD_TARGET/usr/share/firefox/components/libnkgnomevfs.so;
 
 /usr/local/bin/remote-opt-get
 /usr/local/bin/opt-get
+/usr/local/bin/remove-opt
 #/usr/local/bin/packcpio
 
 /tmp/sysinfo
