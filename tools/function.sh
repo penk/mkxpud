@@ -347,6 +347,24 @@ function post {
 		fi
 	done
 
+
+	# check dependencies of opt
+	SO_HOOK=""
+	for O in `./tools/parser $MKXPUD_CONFIG opt`; do 
+		for S in `./tools/parser package/recipe/$O.recipe so_hook`; do
+		SO_HOOK="$SO_HOOK $MKXPUD_TARGET/opt/$O/$S"
+		done
+		NAME=`./tools/parser package/recipe/$O.recipe name`
+		for s in $SO_HOOK; do 
+		if [ ! -d $s ]; then 
+		for i in `./tools/ldd-helper $s`; do 
+			if [ ! -e $MKXPUD_TARGET/usr/lib/`basename $i` ] && [ ! -e $MKXPUD_TARGET/lib/`basename $i` ]; then 
+			cp -rfpL --remove-destination $i $MKXPUD_TARGET/opt/$NAME/usr/lib; fi
+		done
+		fi
+		done
+	done
+
 	eval `./tools/parser $MKXPUD_CONFIG action`
 	
 	# pack binaries with upx 
