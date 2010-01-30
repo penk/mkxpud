@@ -1,0 +1,33 @@
+# recipe file
+
+[name]
+chromeos
+
+[package]
+unzip
+
+[action]
+
+[binary]
+
+[data]
+
+/usr/lib/nss
+/usr/lib/libsqlite3.so.0
+/usr/lib/libsqlite3.so.0.8.6
+
+[config]
+
+[overwrite]
+
+[so_hook]
+
+/usr/share/chrome-linux/chrome
+
+[post_action]
+
+if [ ! -e skeleton/archive/chromium-chromiumos-r32516.zip ]; then wget http://build.chromium.org/buildbot/archives/chromium-chromiumos-r32516.zip -P  skeleton/archive/; fi; unzip skeleton/archive/chromium-chromiumos-r32516.zip -d $MKXPUD_TARGET/opt/chromeos/usr/share/;
+
+#[alternative]
+#/etc/xdg/openbox/rc.xml
+

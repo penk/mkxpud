@@ -347,7 +347,6 @@ function post {
 		fi
 	done
 
-
 	# check dependencies of opt
 	SO_HOOK=""
 	for O in `./tools/parser $MKXPUD_CONFIG opt`; do 
