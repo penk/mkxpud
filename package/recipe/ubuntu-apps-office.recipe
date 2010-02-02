@@ -4,8 +4,8 @@
 apps-office
 
 [action]
-cp /usr/share/pixmaps/abiword_48.png $MKXPUD_TARGET/usr/share/pixmaps/abiword.png;
-cp /usr/share/icons/hicolor/48x48/apps/gnumeric.png $MKXPUD_TARGET/usr/share/pixmaps/gnumeric.png
+cp /usr/share/pixmaps/abiword_48.png /usr/share/pixmaps/abiword.png;
+cp /usr/share/icons/hicolor/48x48/apps/gnumeric.png /usr/share/pixmaps/gnumeric.png
 
 [package]
 abiword
@@ -23,6 +23,7 @@ gnumeric
 /usr/lib/abiword-2.6/
 /usr/share/abiword-2.6/glade/
 /usr/share/applications/abiword.desktop
+/usr/share/pixmaps/abiword.png
 
 /usr/lib/gnumeric/
 /usr/lib/goffice/
@@ -36,6 +37,7 @@ gnumeric
 /usr/share/idl/GNOME_Gnumeric.idl
 /usr/share/gnumeric/1.9.9/glade/
 /usr/share/applications/gnumeric.desktop
+/usr/share/pixmaps/gnumeric.png
 
 [config]
 

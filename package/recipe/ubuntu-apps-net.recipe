@@ -11,8 +11,8 @@ quicksynergy
 transmission-gtk
 
 [action]
-cp /usr/share/icons/hicolor/48x48/apps/pidgin.png $MKXPUD_TARGET/usr/share/pixmaps/pidgin.png;
-cp /usr/share/pixmaps/gftp.png $MKXPUD_TARGET/usr/share/pixmaps/gftp.png.png
+cp /usr/share/icons/hicolor/48x48/apps/pidgin.png /usr/share/pixmaps/pidgin.png;
+cp /usr/share/pixmaps/gftp.png /usr/share/pixmaps/gftp.png.png
 
 [binary]
 /usr/bin/gftp
@@ -30,10 +30,12 @@ cp /usr/share/pixmaps/gftp.png $MKXPUD_TARGET/usr/share/pixmaps/gftp.png.png
 /etc/gftp/
 /usr/share/gftp/
 /usr/share/applications/gftp.desktop
+/usr/share/pixmaps/gftp.png.png
 
 # FIXME: might be a good idea to strip some unneeded images and libraries to keep pidgin smaller
 /usr/lib/pidgin/
 /usr/share/applications/pidgin.desktop
+/usr/share/pixmaps/pidgin.png
 /usr/share/gconf/schemas/purple.schemas
 /usr/share/indicators/messages/applications/pidgin
 /usr/share/lintian/overrides/pidgin
@@ -47,5 +49,6 @@ cp /usr/share/pixmaps/gftp.png $MKXPUD_TARGET/usr/share/pixmaps/gftp.png.png
 /usr/share/applications/transmission.desktop
 
 [config]
+/usr/share/pixmaps/quicksynergy.png
 
 [overwrite]

@@ -8,7 +8,7 @@ gparted
 ntfsprogs
 
 [action]
-cp /usr/share/icons/hicolor/48x48/apps/gparted.png $MKXPUD_TARGET/usr/share/pixmaps/gparted.png
+cp /usr/share/icons/hicolor/48x48/apps/gparted.png /usr/share/pixmaps/gparted.png
 
 [binary]
 /usr/sbin/gparted
@@ -59,6 +59,7 @@ cp /usr/share/icons/hicolor/48x48/apps/gparted.png $MKXPUD_TARGET/usr/share/pixm
 
 [data]
 /usr/share/applications/gparted.desktop
+/usr/share/pixmaps/gparted.png
 
 [config]
 
