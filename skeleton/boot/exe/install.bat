@@ -33,7 +33,7 @@ goto END
 :ver_vista
 
 :: Check if installed
-Set BCDEDIT=C:\windows\System32\bcdedit.exe
+Set BCDEDIT=%SystemRoot%\System32\bcdedit.exe
 %BCDEDIT% /enum | findstr /L grldr > nul
 if %ERRORLEVEL% == 0 goto END
 
@@ -48,7 +48,7 @@ sed -ri "s/[^{]*([^}]+}).*/\1/" %GUIDFILE%
 set /p GUID= < %GUIDFILE%
 
 %BCDEDIT% /set %GUID% device boot
-%BCDEDIT% /set %GUID% device partition=%SYSTEMDRIVE%
+%BCDEDIT% /set %GUID% device partition=c:
 %BCDEDIT% /set %GUID% path \grldr.mbr
 %BCDEDIT% /displayorder %GUID% /addlast
 
