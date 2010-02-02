@@ -64,6 +64,10 @@ ubuntu-cjkfont
 [opt]
 ubuntu-media
 ubuntu-scim-chewing
+#ubuntu-apps
+#ubuntu-apps-net
+#ubuntu-apps-office
+#ubuntu-apps-utils
 
 [prepare]
 # commands executed before building

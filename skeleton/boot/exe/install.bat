@@ -3,6 +3,9 @@
 ver | find "XP" > nul
 if %ERRORLEVEL% == 0 goto ver_xp
 
+ver | find "2000" > nul
+if %ERRORLEVEL% == 0 goto ver_xp
+
 goto ver_vista
 
 :: Windows XP

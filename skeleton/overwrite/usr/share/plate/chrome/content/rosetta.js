@@ -59,7 +59,7 @@ var i18n =	{
 	},
 
 	setting : {
-		en: "Setting",
+		en: "Settings",
 		de: "Einstellung",
 		es: "Preferencias",
 		fi: "Asetukset",
@@ -966,7 +966,7 @@ var i18n =	{
 		},
 		
 			back_to_setting: {
-				en: "Back to Setting",
+				en: "Back to Settings",
 				de: "Zur&uuml;ck zu den Einstellungen",
 				es: "Volver a Configuraci&oacute;n",
 				fi: "Takaisin asetuksiin",
