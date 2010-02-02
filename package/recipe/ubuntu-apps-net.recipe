@@ -7,6 +7,7 @@ apps-net
 gftp-gtk
 pidgin
 synergy
+quicksynergy
 transmission-gtk
 
 [action]
@@ -21,6 +22,7 @@ cp /usr/share/pixmaps/gftp.png $MKXPUD_TARGET/usr/share/pixmaps/gftp.png.png
 
 /usr/bin/synergyc
 /usr/bin/synergys
+/usr/bin/quicksynergy
 
 /usr/bin/transmission
 
@@ -39,6 +41,8 @@ cp /usr/share/pixmaps/gftp.png $MKXPUD_TARGET/usr/share/pixmaps/gftp.png.png
 /usr/share/pixmaps/pidgin/
 /usr/share/sounds/purple/
 /usr/lib/purple-2/
+
+/usr/share/applications/quicksynergy.desktop
 
 /usr/share/applications/transmission.desktop
 
