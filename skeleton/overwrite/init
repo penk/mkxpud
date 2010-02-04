@@ -65,7 +65,12 @@ EOF
 	
 	# set locale
 	export LC_ALL="en_US.UTF-8"
-	
+
+	# cleanup filesystem
+	for x in /var/run/dbus/pid /tmp/firsttime /sbin/hotplug; do
+		rm -f $x
+	done
+
 	# start udev daemon
 	udevd --daemon
 	udevadm trigger

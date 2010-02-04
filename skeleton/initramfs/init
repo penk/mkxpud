@@ -9,8 +9,37 @@ mount -t proc proc /proc
 mkdir /sys
 mount -t sysfs sysfs /sys 
 
+for x in $(cat /proc/cmdline); do
+	case $x in
+		overlay=*)
+			export ROOT=${x#overlay=}
+		;;
+	esac
+done
+
 mount -o loop /opt/rootfs.sqf /ro
-mount -t tmpfs tmpfs /rw
+
+# scan local devices for the overlay image
+if [ ! -z $ROOT ]; then
+	i=0
+	while [ "$i" -lt 60 ]; do
+		if [ -e /sys/block/"${ROOT}"/"${ROOT}"1 ]; then
+			break
+		fi
+	sleep 1
+	i="$(($i + 1))"
+	done
+	mkdir -p /root
+	mount /dev/"${ROOT}"1 /root
+	if [ -e /root/overlay.img ]; then 
+		mount -o loop /root/overlay.img /rw
+	else 
+		mount -t tmpfs tmpfs /rw
+	fi
+else
+	mount -t tmpfs tmpfs /rw
+fi
+
 mount -t aufs -o br=/rw:/ro=ro none /newroot
 
 
