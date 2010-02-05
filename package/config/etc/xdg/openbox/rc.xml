@@ -509,8 +509,15 @@
 		<desktop>1</desktop>
 		<layer>normal</layer>
 		<iconic>no</iconic>
-		<fullscreen>yes</fullscreen>
+		<fullscreen>no</fullscreen>
 		<maximized>true</maximized>
+	</application>
+	
+	<application name="scim-panel*">
+		<decor>no</decor>
+		<layer>above</layer>
+		<fullscreen>no</fullscreen>
+		<maximized>false</maximized>
 	</application>
 
 	<application name="firefox*" type="dialog">
