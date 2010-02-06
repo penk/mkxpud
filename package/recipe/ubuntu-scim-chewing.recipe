@@ -109,4 +109,4 @@ echo 'deb http://ppa.launchpad.net/ubuntu-vn/ppa/ubuntu karmic main' >> /etc/apt
 
 [post_action]
 
-tar jxf skeleton/archive/fvkbd.tgz -C $MKXPUD_TARGET/
+tar zxf skeleton/archive/fvkbd.tgz -C $MKXPUD_TARGET/
