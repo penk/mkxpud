@@ -23,7 +23,7 @@ if [ ! -e /tmp/firsttime ]; then
 	dbus-launch --config-file=/etc/dbus-1/system.conf
 	
 	# start connman
-	#connmand -P dnsproxy &
+	#connmand &
 
 	# work through NIC and wake them up
 	/bin/ifconfig lo 127.0.0.1 netmask 255.0.0.0
