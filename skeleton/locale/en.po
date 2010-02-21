@@ -1,0 +1,194 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "home"
+msgstr "Home"
+
+msgid "menu"
+msgstr "Menu"
+
+msgid "file"
+msgstr "File"
+
+msgid "setting"
+msgstr "Settings"
+
+msgid "welcome"
+msgstr "Welcome to xPUD"
+
+msgid "sys_info"
+msgstr "System Information"
+
+msgid "want_to"
+msgstr "You may want to:"
+
+msgid "quick_action"
+msgstr "Quick Action"
+
+msgid "power_off"
+msgstr "Power Off"
+
+msgid "quit_now"
+msgstr "Do you want to quit now?"
+
+msgid "turn_off"
+msgstr "Turn Off"
+
+msgid "restart"
+msgstr "Restart"
+
+msgid "cancel_shutdown"
+msgstr "Cancel"
+
+msgid "save_backup_to"
+msgstr "Save backup to"
+
+msgid "power_off_desc"
+msgstr "turn off this machine"
+
+msgid "switch_mode"
+msgstr "Switch Mode"
+
+msgid "switch_mode_desc"
+msgstr "toggle into other OS"
+
+msgid "get_help"
+msgstr "Get Help"
+
+msgid "get_help_desc"
+msgstr "and contact information"
+
+msgid "help_about"
+msgstr "About"
+
+msgid "help_info"
+msgstr "xPUD is a rapidly developing project"
+
+msgid "help_done"
+msgstr "Done"
+
+msgid "application"
+msgstr "Applications"
+
+msgid "web_app"
+msgstr "Web App"
+
+msgid "web_browser"
+msgstr "Web Browser"
+
+msgid "bt_client"
+msgstr "BitTorrent Client"
+
+msgid "media_player"
+msgstr "Media Player"
+
+msgid "picture_viewer"
+msgstr "Picture Viewer"
+
+msgid "text_editor"
+msgstr "Text Editor"
+
+msgid "pdf_viewer"
+msgstr "PDF Viewer"
+
+msgid "terminal_emulator"
+msgstr "Terminal Emulator"
+
+msgid "setting_personal"
+msgstr "Personal"
+
+msgid "setting_language"
+msgstr "Language"
+
+msgid "setting_language_desc"
+msgstr "choose locale and keymap"
+
+msgid "setting_time_date"
+msgstr "Time & Date"
+
+msgid "setting_time_date_desc"
+msgstr "change system clock"
+
+msgid "setting_backup"
+msgstr "Backup"
+
+msgid "setting_backup_desc"
+msgstr "save your data and changes"
+
+msgid "setting_system"
+msgstr "System"
+
+msgid "setting_wifi"
+msgstr "WiFi"
+
+msgid "setting_wifi_desc"
+msgstr "setup wireless connection"
+
+msgid "setting_wifi_title"
+msgstr "Setup Wireless Network"
+
+msgid "setting_wifi_device"
+msgstr "Network Device: "
+
+msgid "setting_wifi_choose"
+msgstr "Choose a network: "
+
+msgid "setting_wifi_refresh"
+msgstr "Refresh"
+
+msgid "setting_wifi_password"
+msgstr "Password:"
+
+msgid "setting_wifi_connect"
+msgstr "Connect"
+
+msgid "setting_ethernet"
+msgstr "Ethernet"
+
+msgid "setting_ethernet_desc"
+msgstr "setup wired connection"
+
+msgid "setting_opt"
+msgstr "Opt-Get"
+
+msgid "setting_opt_desc"
+msgstr "get more apps"
+
+msgid "setting_hardware"
+msgstr "Hardware"
+
+msgid "setting_sound"
+msgstr "Sound"
+
+msgid "setting_sound_desc"
+msgstr "adjust system sound"
+
+msgid "setting_display"
+msgstr "Display"
+
+msgid "setting_display_desc"
+msgstr "change screen resolution"
+
+msgid "setting_driver"
+msgstr "Driver"
+
+msgid "setting_driver_desc"
+msgstr "device info and driver"
+
+msgid "setting_sysinfo"
+msgstr "System Info"
+
+msgid "setting_sysinfo_desc"
+msgstr "check system information"
+
+msgid "back_to_setting"
+msgstr "Back to Settings"
+

@@ -1,0 +1,195 @@
+﻿msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "home"
+msgstr "Start"
+
+msgid "menu"
+msgstr "Programme"
+
+msgid "file"
+msgstr "Dateien"
+
+msgid "setting"
+msgstr "Einstellung"
+
+msgid "welcome"
+msgstr "Willkommen bei xPUD"
+
+msgid "sys_info"
+msgstr "Systeminformationen"
+
+msgid "want_to"
+msgstr "Sie können:"
+
+msgid "quick_action"
+msgstr "undefined"
+
+msgid "power_off"
+msgstr "Ausschalten"
+
+msgid "quit_now"
+msgstr "Möchten Sie jetzt ausschalten?"
+
+msgid "turn_off"
+msgstr "Ausschalten"
+
+msgid "restart"
+msgstr "Neustart"
+
+msgid "cancel_shutdown"
+msgstr "Abbrechen"
+
+msgid "save_backup_to"
+msgstr "undefined"
+
+msgid "power_off_desc"
+msgstr "Dieses Gerät ausschalten"
+
+msgid "switch_mode"
+msgstr "System wechseln"
+
+msgid "switch_mode_desc"
+msgstr "Anderes Betriebssystem starten"
+
+msgid "get_help"
+msgstr "Hilfe"
+
+msgid "get_help_desc"
+msgstr "und Kontaktinformationen"
+
+msgid "help_about"
+msgstr "Über"
+
+msgid "help_info"
+msgstr "xPUD ist ein aktiv entwickeltes Projekt.
+Weitere Informationen unter:"
+
+msgid "help_done"
+msgstr "OK"
+
+msgid "application"
+msgstr "Programme"
+
+msgid "web_app"
+msgstr "undefined"
+
+msgid "web_browser"
+msgstr "Web Browser"
+
+msgid "bt_client"
+msgstr "BitTorrent Client"
+
+msgid "media_player"
+msgstr "Media Player"
+
+msgid "picture_viewer"
+msgstr "Bildbetrachter"
+
+msgid "text_editor"
+msgstr "Text Editor"
+
+msgid "pdf_viewer"
+msgstr "PDF Viewer"
+
+msgid "terminal_emulator"
+msgstr "Terminal Emulator"
+
+msgid "setting_personal"
+msgstr "Persönliche Einstellungen"
+
+msgid "setting_language"
+msgstr "Sprache"
+
+msgid "setting_language_desc"
+msgstr "sprache und tastenbelegung"
+
+msgid "setting_time_date"
+msgstr "Datum und Uhrzeit"
+
+msgid "setting_time_date_desc"
+msgstr "Systemuhr einstellen"
+
+msgid "setting_backup"
+msgstr "Backup"
+
+msgid "setting_backup_desc"
+msgstr "Daten und Einstellungen sichern"
+
+msgid "setting_system"
+msgstr "System"
+
+msgid "setting_wifi"
+msgstr "WiFi"
+
+msgid "setting_wifi_desc"
+msgstr "drahtloses netzwerk einrichten"
+
+msgid "setting_wifi_title"
+msgstr "Drahtloses Netzwerk Setup"
+
+msgid "setting_wifi_device"
+msgstr "WiFi Netzwerk Gerät: "
+
+msgid "setting_wifi_choose"
+msgstr "Wäle ein Netzwerk"
+
+msgid "setting_wifi_refresh"
+msgstr "Aktualisieren"
+
+msgid "setting_wifi_password"
+msgstr "Passwort:"
+
+msgid "setting_wifi_connect"
+msgstr "Verbinden"
+
+msgid "setting_ethernet"
+msgstr "Ethernet"
+
+msgid "setting_ethernet_desc"
+msgstr "kabelgebundenes netzwerk einrichten"
+
+msgid "setting_opt"
+msgstr "Opt-Get"
+
+msgid "setting_opt_desc"
+msgstr "weitere programme installieren"
+
+msgid "setting_hardware"
+msgstr "Hardware"
+
+msgid "setting_sound"
+msgstr "Ton"
+
+msgid "setting_sound_desc"
+msgstr "Systemklänge einstellen"
+
+msgid "setting_display"
+msgstr "Bildschirm"
+
+msgid "setting_display_desc"
+msgstr "Auflösung einstellen"
+
+msgid "setting_driver"
+msgstr "Treiber"
+
+msgid "setting_driver_desc"
+msgstr "geräteinformationen und treiber"
+
+msgid "setting_sysinfo"
+msgstr "undefined"
+
+msgid "setting_sysinfo_desc"
+msgstr "undefined"
+
+msgid "back_to_setting"
+msgstr "Zurück zu den Einstellungen"
+
