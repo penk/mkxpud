@@ -10,185 +10,185 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "home"
-msgstr "Start"
+msgstr "Štart"
 
 msgid "menu"
-msgstr "Programme"
+msgstr "Menu"
 
 msgid "file"
-msgstr "Dateien"
+msgstr "Súbor"
 
 msgid "setting"
-msgstr "Einstellung"
+msgstr "Nastavenia"
 
 msgid "welcome"
-msgstr "Willkommen bei xPUD"
+msgstr "Vitajte v xPUD"
 
 msgid "sys_info"
-msgstr "Systeminformationen"
+msgstr "Systémové informácie"
 
 msgid "want_to"
-msgstr "Sie können:"
+msgstr "Čo chcete urobiť:"
 
 msgid "quick_action"
-msgstr ""
+msgstr "Rýchla akcia"
 
 msgid "power_off"
-msgstr "Ausschalten"
+msgstr "Vypnúť"
 
 msgid "quit_now"
-msgstr "Möchten Sie jetzt ausschalten?"
+msgstr "Naozaj ukončiť?"
 
 msgid "turn_off"
-msgstr "Ausschalten"
+msgstr "Vypnúť"
 
 msgid "restart"
-msgstr "Neustart"
+msgstr "Reštartovať"
 
 msgid "cancel_shutdown"
-msgstr "Abbrechen"
+msgstr "Zrušiť"
 
 msgid "save_backup_to"
-msgstr ""
+msgstr "Uložiť zálohu do"
 
 msgid "power_off_desc"
-msgstr "Dieses Gerät ausschalten"
+msgstr "vypnúť tento počítač"
 
 msgid "switch_mode"
-msgstr "System wechseln"
+msgstr "Zmeniť systém"
 
 msgid "switch_mode_desc"
-msgstr "Anderes Betriebssystem starten"
+msgstr "spustiť iný operačný systém"
 
 msgid "get_help"
-msgstr "Hilfe"
+msgstr "Nápoveda"
 
 msgid "get_help_desc"
-msgstr "und Kontaktinformationen"
+msgstr "a kontaktné informácie"
 
 msgid "help_about"
-msgstr "Über"
+msgstr "Info"
 
 msgid "help_info"
-msgstr "xPUD ist ein aktiv entwickeltes Projekt. <br /> Weitere Informationen unter:"
+msgstr "xPUD je rýchlo rozvíjajúci sa projekt. <br /> Viac informácií:"
 
 msgid "help_done"
 msgstr "OK"
 
 msgid "application"
-msgstr "Programme"
+msgstr "Programy"
 
 msgid "web_app"
-msgstr ""
+msgstr "Web aplikácie"
 
 msgid "web_browser"
-msgstr "Web Browser"
+msgstr "Prehliadač"
 
 msgid "bt_client"
-msgstr "BitTorrent Client"
+msgstr "BitTorrent klient"
 
 msgid "media_player"
-msgstr "Media Player"
+msgstr "Prehrávač médií"
 
 msgid "picture_viewer"
-msgstr "Bildbetrachter"
+msgstr "Prehliadač obrázkov"
 
 msgid "text_editor"
-msgstr "Text Editor"
+msgstr "Textový editor"
 
 msgid "pdf_viewer"
-msgstr "PDF Viewer"
+msgstr "Prehliadač PDF"
 
 msgid "terminal_emulator"
-msgstr "Terminal Emulator"
+msgstr "Terminál"
 
 msgid "setting_personal"
-msgstr "Persönliche Einstellungen"
+msgstr "Osobné nastavenia"
 
 msgid "setting_language"
-msgstr "Sprache"
+msgstr "Jazyk"
 
 msgid "setting_language_desc"
-msgstr "sprache und tastenbelegung"
+msgstr "jazyk a rozloženie klávesnice"
 
 msgid "setting_time_date"
-msgstr "Datum und Uhrzeit"
+msgstr "Dátum a čas"
 
 msgid "setting_time_date_desc"
-msgstr "Systemuhr einstellen"
+msgstr "Zmeniť dátum a čas"
 
 msgid "setting_backup"
-msgstr "Backup"
+msgstr "Zálohovať"
 
 msgid "setting_backup_desc"
-msgstr "Daten und Einstellungen sichern"
+msgstr "Uložiť dáta a nastavenia"
 
 msgid "setting_system"
-msgstr "System"
+msgstr "Systém"
 
 msgid "setting_wifi"
 msgstr "WiFi"
 
 msgid "setting_wifi_desc"
-msgstr "drahtloses netzwerk einrichten"
+msgstr "Nastaviť bezdrátové pripojenie k sieti"
 
 msgid "setting_wifi_title"
-msgstr "Drahtloses Netzwerk Setup"
+msgstr "Nastavenie bezdrátovej siete"
 
 msgid "setting_wifi_device"
-msgstr "WiFi Netzwerk Gerät: "
+msgstr "Sieťové zariadenie"
 
 msgid "setting_wifi_choose"
-msgstr "Wäle ein Netzwerk"
+msgstr "Vyberte si sieť: "
 
 msgid "setting_wifi_refresh"
-msgstr "Aktualisieren"
+msgstr "Aktualizovať"
 
 msgid "setting_wifi_password"
-msgstr "Passwort:"
+msgstr "Heslo:"
 
 msgid "setting_wifi_connect"
-msgstr "Verbinden"
+msgstr "Pripojiť sa"
 
 msgid "setting_ethernet"
 msgstr "Ethernet"
 
 msgid "setting_ethernet_desc"
-msgstr "kabelgebundenes netzwerk einrichten"
+msgstr "nastavenie káblového pripojenia"
 
 msgid "setting_opt"
 msgstr "Opt-Get"
 
 msgid "setting_opt_desc"
-msgstr "weitere programme installieren"
+msgstr "získajte viac programov"
 
 msgid "setting_hardware"
 msgstr "Hardware"
 
 msgid "setting_sound"
-msgstr "Ton"
+msgstr "Zvuk"
 
 msgid "setting_sound_desc"
-msgstr "Systemklänge einstellen"
+msgstr "nastavenia zvuku"
 
 msgid "setting_display"
-msgstr "Bildschirm"
+msgstr "Zobrazenie"
 
 msgid "setting_display_desc"
-msgstr "Auflösung einstellen"
+msgstr "zmena rozlíšenia obrazovky"
 
 msgid "setting_driver"
-msgstr "Treiber"
+msgstr "Ovládač"
 
 msgid "setting_driver_desc"
-msgstr "geräteinformationen und treiber"
+msgstr "informácie o ovládačoch a zariadeniach"
 
 msgid "setting_sysinfo"
-msgstr ""
+msgstr "Systémové informácie"
 
 msgid "setting_sysinfo_desc"
-msgstr ""
+msgstr "zobraziť systémove informácie"
 
 msgid "back_to_setting"
-msgstr "Zurück zu den Einstellungen"
+msgstr "Späť do nastavení"
 

@@ -1,0 +1,194 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "home"
+msgstr "صفحہ اول"
+
+msgid "menu"
+msgstr "فہرست"
+
+msgid "file"
+msgstr "فائل"
+
+msgid "setting"
+msgstr "ترکیب"
+
+msgid "welcome"
+msgstr "میں خوش آمدید xPUD"
+
+msgid "sys_info"
+msgstr "سسٹم کے بارے میں معلومات"
+
+msgid "want_to"
+msgstr "اگر آپ چاہیں"
+
+msgid "quick_action"
+msgstr ""
+
+msgid "power_off"
+msgstr "پاور آف"
+
+msgid "quit_now"
+msgstr "پاور آف"
+
+msgid "turn_off"
+msgstr "بند کر دیں"
+
+msgid "restart"
+msgstr "دوبارہ چلائیں"
+
+msgid "cancel_shutdown"
+msgstr "کینسل"
+
+msgid "save_backup_to"
+msgstr ""
+
+msgid "power_off_desc"
+msgstr "اس میشین کو بند کردیں"
+
+msgid "switch_mode"
+msgstr "سسٹم تبدیلی"
+
+msgid "switch_mode_desc"
+msgstr "دوسرے آپریٹنگ سسٹم میں تبدیلی"
+
+msgid "get_help"
+msgstr "مدد حاصل کریں"
+
+msgid "get_help_desc"
+msgstr "اور رابطہ کیلئے معلومات"
+
+msgid "help_about"
+msgstr "کے بارے میں"
+
+msgid "help_info"
+msgstr "تیزی سے ترقی پزیر پراجیکٹ ہے xPUD"
+
+msgid "help_done"
+msgstr "تمام"
+
+msgid "application"
+msgstr "پروگرامز"
+
+msgid "web_app"
+msgstr ""
+
+msgid "web_browser"
+msgstr "ویب براوزر"
+
+msgid "bt_client"
+msgstr "BitTorrent پروگرام برائے"
+
+msgid "media_player"
+msgstr "میڈیا پلیئر"
+
+msgid "picture_viewer"
+msgstr "تصویر دیکھنے کیلئے"
+
+msgid "text_editor"
+msgstr "ٹیکسٹ لکھنے کیلئے"
+
+msgid "pdf_viewer"
+msgstr "دیکھنے کیلئے PDF"
+
+msgid "terminal_emulator"
+msgstr "دیکھنے کیلئے PDF"
+
+msgid "setting_personal"
+msgstr "ذاتی"
+
+msgid "setting_language"
+msgstr "زبان"
+
+msgid "setting_language_desc"
+msgstr "جگہ اور کی بورڈ کا انتخاب"
+
+msgid "setting_time_date"
+msgstr "وقت اور تاریخ"
+
+msgid "setting_time_date_desc"
+msgstr "سسٹم کے وقت کو تبدیل کریں"
+
+msgid "setting_backup"
+msgstr "بیک اپ"
+
+msgid "setting_backup_desc"
+msgstr "اپنے ڈیٹا اور تبدیلیوں کو محفوظ کریں"
+
+msgid "setting_system"
+msgstr "سسٹم"
+
+msgid "setting_wifi"
+msgstr "وائی فائی"
+
+msgid "setting_wifi_desc"
+msgstr "وائرلیس کنکشن ترتیب دیں"
+
+msgid "setting_wifi_title"
+msgstr "وائیرلیس نیٹ ورک ترتیب دیں"
+
+msgid "setting_wifi_device"
+msgstr "نیٹ ورک آلہ"
+
+msgid "setting_wifi_choose"
+msgstr "نیٹ ورک منتخب کریں"
+
+msgid "setting_wifi_refresh"
+msgstr "تازہ دم کریں"
+
+msgid "setting_wifi_password"
+msgstr "پاس ورڈ"
+
+msgid "setting_wifi_connect"
+msgstr "کنیکٹ"
+
+msgid "setting_ethernet"
+msgstr "ایتھرنیٹ"
+
+msgid "setting_ethernet_desc"
+msgstr "لوکل ایریا کنکشن ترتیب دیں"
+
+msgid "setting_opt"
+msgstr "Opt-Get"
+
+msgid "setting_opt_desc"
+msgstr "مزید پروگرام حاصل کریں"
+
+msgid "setting_hardware"
+msgstr "ھارڈوئیر"
+
+msgid "setting_sound"
+msgstr "آواز"
+
+msgid "setting_sound_desc"
+msgstr "سسٹم کی آواز ترتیب دیں"
+
+msgid "setting_display"
+msgstr "ڈسپلے"
+
+msgid "setting_display_desc"
+msgstr "سکرین کی ریزولوشن تبدیل کریں"
+
+msgid "setting_driver"
+msgstr "ڈرائیور"
+
+msgid "setting_driver_desc"
+msgstr "آلہ کے بارے میں معلومات اور ڈرائیور"
+
+msgid "setting_sysinfo"
+msgstr ""
+
+msgid "setting_sysinfo_desc"
+msgstr ""
+
+msgid "back_to_setting"
+msgstr "واپس سیٹنگز پر"
+

@@ -10,118 +10,118 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "home"
-msgstr "Start"
+msgstr "Hem"
 
 msgid "menu"
-msgstr "Programme"
+msgstr "Meny"
 
 msgid "file"
-msgstr "Dateien"
+msgstr "Filer"
 
 msgid "setting"
-msgstr "Einstellung"
+msgstr "Inställning"
 
 msgid "welcome"
-msgstr "Willkommen bei xPUD"
+msgstr "Välkommen till xPUD"
 
 msgid "sys_info"
-msgstr "Systeminformationen"
+msgstr "Systeminformation"
 
 msgid "want_to"
-msgstr "Sie können:"
+msgstr "Du kanske vill:"
 
 msgid "quick_action"
 msgstr ""
 
 msgid "power_off"
-msgstr "Ausschalten"
+msgstr "Stänga av"
 
 msgid "quit_now"
-msgstr "Möchten Sie jetzt ausschalten?"
+msgstr "Vill du avsluta nu?"
 
 msgid "turn_off"
-msgstr "Ausschalten"
+msgstr "Stäng av"
 
 msgid "restart"
-msgstr "Neustart"
+msgstr "Starta om"
 
 msgid "cancel_shutdown"
-msgstr "Abbrechen"
+msgstr "Avbryt"
 
 msgid "save_backup_to"
 msgstr ""
 
 msgid "power_off_desc"
-msgstr "Dieses Gerät ausschalten"
+msgstr "Stäng av denna dator"
 
 msgid "switch_mode"
-msgstr "System wechseln"
+msgstr "Ändra läge"
 
 msgid "switch_mode_desc"
-msgstr "Anderes Betriebssystem starten"
+msgstr "Starta andra operativsystem"
 
 msgid "get_help"
-msgstr "Hilfe"
+msgstr "Hjälp"
 
 msgid "get_help_desc"
-msgstr "und Kontaktinformationen"
+msgstr "och kontaktinformation"
 
 msgid "help_about"
-msgstr "Über"
+msgstr "Om"
 
 msgid "help_info"
-msgstr "xPUD ist ein aktiv entwickeltes Projekt. <br /> Weitere Informationen unter:"
+msgstr "xPUD är ett snabbt utvecklande projekt. <br /> För mer information, gå till:"
 
 msgid "help_done"
-msgstr "OK"
+msgstr "Klar"
 
 msgid "application"
-msgstr "Programme"
+msgstr "Applikationer"
 
 msgid "web_app"
 msgstr ""
 
 msgid "web_browser"
-msgstr "Web Browser"
+msgstr "Webbläsare"
 
 msgid "bt_client"
-msgstr "BitTorrent Client"
+msgstr "BitTorrent Klient"
 
 msgid "media_player"
-msgstr "Media Player"
+msgstr "Mediaspelare"
 
 msgid "picture_viewer"
-msgstr "Bildbetrachter"
+msgstr "Bildvisare"
 
 msgid "text_editor"
-msgstr "Text Editor"
+msgstr "Textredigerare"
 
 msgid "pdf_viewer"
-msgstr "PDF Viewer"
+msgstr "PDF läsare"
 
 msgid "terminal_emulator"
-msgstr "Terminal Emulator"
+msgstr "Kommandotolk"
 
 msgid "setting_personal"
-msgstr "Persönliche Einstellungen"
+msgstr "Personliga inställningar"
 
 msgid "setting_language"
-msgstr "Sprache"
+msgstr "Språk"
 
 msgid "setting_language_desc"
-msgstr "sprache und tastenbelegung"
+msgstr "språk- och tangentbordsinstälnningar"
 
 msgid "setting_time_date"
-msgstr "Datum und Uhrzeit"
+msgstr "Tid och Datum"
 
 msgid "setting_time_date_desc"
-msgstr "Systemuhr einstellen"
+msgstr "ändra systemtid"
 
 msgid "setting_backup"
 msgstr "Backup"
 
 msgid "setting_backup_desc"
-msgstr "Daten und Einstellungen sichern"
+msgstr "Spara ditt data och inställningar"
 
 msgid "setting_system"
 msgstr "System"
@@ -130,58 +130,58 @@ msgid "setting_wifi"
 msgstr "WiFi"
 
 msgid "setting_wifi_desc"
-msgstr "drahtloses netzwerk einrichten"
+msgstr "Konfigurera trådlöst nätverk"
 
 msgid "setting_wifi_title"
-msgstr "Drahtloses Netzwerk Setup"
+msgstr "Konfigurera trådlöst nätverk"
 
 msgid "setting_wifi_device"
-msgstr "WiFi Netzwerk Gerät: "
+msgstr "Trådlös enhet: "
 
 msgid "setting_wifi_choose"
-msgstr "Wäle ein Netzwerk"
+msgstr "Välj ett nätverk: "
 
 msgid "setting_wifi_refresh"
-msgstr "Aktualisieren"
+msgstr "Sök"
 
 msgid "setting_wifi_password"
-msgstr "Passwort:"
+msgstr "Lösenord"
 
 msgid "setting_wifi_connect"
-msgstr "Verbinden"
+msgstr "Anslut"
 
 msgid "setting_ethernet"
 msgstr "Ethernet"
 
 msgid "setting_ethernet_desc"
-msgstr "kabelgebundenes netzwerk einrichten"
+msgstr "Konfigurera trådburet nätverk"
 
 msgid "setting_opt"
 msgstr "Opt-Get"
 
 msgid "setting_opt_desc"
-msgstr "weitere programme installieren"
+msgstr "Installera flera applikationer"
 
 msgid "setting_hardware"
-msgstr "Hardware"
+msgstr "Hårdvara"
 
 msgid "setting_sound"
-msgstr "Ton"
+msgstr "Ljud"
 
 msgid "setting_sound_desc"
-msgstr "Systemklänge einstellen"
+msgstr "Ändra systemljud"
 
 msgid "setting_display"
-msgstr "Bildschirm"
+msgstr "Bildskärm"
 
 msgid "setting_display_desc"
-msgstr "Auflösung einstellen"
+msgstr "Ändra skärmupplösning"
 
 msgid "setting_driver"
-msgstr "Treiber"
+msgstr "Drivrutin"
 
 msgid "setting_driver_desc"
-msgstr "geräteinformationen und treiber"
+msgstr "hårdvaruinformation och drivrutiner"
 
 msgid "setting_sysinfo"
 msgstr ""
@@ -190,5 +190,5 @@ msgid "setting_sysinfo_desc"
 msgstr ""
 
 msgid "back_to_setting"
-msgstr "Zurück zu den Einstellungen"
+msgstr "Tillbaka till Inställningar"
 

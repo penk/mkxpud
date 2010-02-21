@@ -1,0 +1,194 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "home"
+msgstr "Αρχική Σελίδα"
+
+msgid "menu"
+msgstr "Μενού"
+
+msgid "file"
+msgstr "Αρχεία"
+
+msgid "setting"
+msgstr "Επιλογές"
+
+msgid "welcome"
+msgstr "Καλώς ορίσατε στο xPUD"
+
+msgid "sys_info"
+msgstr "Πληροφορίες Συστήματος"
+
+msgid "want_to"
+msgstr "Θελετε να:"
+
+msgid "quick_action"
+msgstr ""
+
+msgid "power_off"
+msgstr "Τερματισμός"
+
+msgid "quit_now"
+msgstr "Άμεσος τερματισμός;"
+
+msgid "turn_off"
+msgstr "Τερματισμός"
+
+msgid "restart"
+msgstr "Επανεκκίνηση"
+
+msgid "cancel_shutdown"
+msgstr "Ακύρωση"
+
+msgid "save_backup_to"
+msgstr ""
+
+msgid "power_off_desc"
+msgstr "Τερματισμός Λειτουργίας"
+
+msgid "switch_mode"
+msgstr "Αλλαγή Λειτουργικού"
+
+msgid "switch_mode_desc"
+msgstr "Εναλλαγή Λειτουργικού Συστήματος"
+
+msgid "get_help"
+msgstr "Βοήθεια"
+
+msgid "get_help_desc"
+msgstr "και επικοινωνία"
+
+msgid "help_about"
+msgstr "Σχετικά με το xPUD"
+
+msgid "help_info"
+msgstr "Το xPUD είναι συνεχώς υπο ανάπτυξη <br /> Για περισσότερες πληροφορίες στο:"
+
+msgid "help_done"
+msgstr "OK"
+
+msgid "application"
+msgstr "Εφαρμογές"
+
+msgid "web_app"
+msgstr ""
+
+msgid "web_browser"
+msgstr "Περιηγητής"
+
+msgid "bt_client"
+msgstr "Πελάτης BitTorrent"
+
+msgid "media_player"
+msgstr "Αναπαραγωγή Πολυμέσων"
+
+msgid "picture_viewer"
+msgstr "Εικόνες"
+
+msgid "text_editor"
+msgstr "Κειμενογράφος"
+
+msgid "pdf_viewer"
+msgstr "Ανάγνωση PDF"
+
+msgid "terminal_emulator"
+msgstr "Τερματικό"
+
+msgid "setting_personal"
+msgstr "Προσωπικά"
+
+msgid "setting_language"
+msgstr "Γλώσσα"
+
+msgid "setting_language_desc"
+msgstr "επιλογή locale και keymap"
+
+msgid "setting_time_date"
+msgstr "Ημερομηνία και Ώρα"
+
+msgid "setting_time_date_desc"
+msgstr "Αλλαγή ώρας συστήματος"
+
+msgid "setting_backup"
+msgstr "Αντίγραφο ασφαλείας"
+
+msgid "setting_backup_desc"
+msgstr "Αποθηκεύστε τα δεδομένα και τις προσωπικές επιλογές σας"
+
+msgid "setting_system"
+msgstr "Σύστημα"
+
+msgid "setting_wifi"
+msgstr "WiFi"
+
+msgid "setting_wifi_desc"
+msgstr "Ρυθμίσεις Ασύρματης Σύνδεσης"
+
+msgid "setting_wifi_title"
+msgstr "Ρύθμισεις Ασύρματης Σύνδεσης"
+
+msgid "setting_wifi_device"
+msgstr "Συσκευή Δικτύου:"
+
+msgid "setting_wifi_choose"
+msgstr "Επιλέξτε Δίκτυο:"
+
+msgid "setting_wifi_refresh"
+msgstr "Ανανέωση"
+
+msgid "setting_wifi_password"
+msgstr "Κωδικός"
+
+msgid "setting_wifi_connect"
+msgstr "Σύνδεση"
+
+msgid "setting_ethernet"
+msgstr ""
+
+msgid "setting_ethernet_desc"
+msgstr "Ρυθμίσεις Ενσύρματης Σύνδεσης"
+
+msgid "setting_opt"
+msgstr "Opt-Get"
+
+msgid "setting_opt_desc"
+msgstr "Εγκατάσταση Πρόσθετων Εφαρμογών"
+
+msgid "setting_hardware"
+msgstr "Υλικό"
+
+msgid "setting_sound"
+msgstr "Ήχος"
+
+msgid "setting_sound_desc"
+msgstr "Ρύθμιση ήχου"
+
+msgid "setting_display"
+msgstr "Οθόνη"
+
+msgid "setting_display_desc"
+msgstr "Αλλαγή ανάλυσης"
+
+msgid "setting_driver"
+msgstr "Οδηγός"
+
+msgid "setting_driver_desc"
+msgstr "Πληροφορίες συσκευών και οδηγών"
+
+msgid "setting_sysinfo"
+msgstr "Πληροφορίες Συστήματος"
+
+msgid "setting_sysinfo_desc"
+msgstr "Έλεγχος Συστήματος"
+
+msgid "back_to_setting"
+msgstr "Επιστροφή στις Επιλογές"
+

@@ -1,0 +1,194 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "home"
+msgstr "Главная страница"
+
+msgid "menu"
+msgstr "Программы"
+
+msgid "file"
+msgstr "Файл"
+
+msgid "setting"
+msgstr "Настройки"
+
+msgid "welcome"
+msgstr "Добро пожаловать в xPUD"
+
+msgid "sys_info"
+msgstr "Системная Информация"
+
+msgid "want_to"
+msgstr "Желаете:"
+
+msgid "quick_action"
+msgstr ""
+
+msgid "power_off"
+msgstr "Выключить"
+
+msgid "quit_now"
+msgstr "Действительно выйти?"
+
+msgid "turn_off"
+msgstr "Выключить"
+
+msgid "restart"
+msgstr "Перезагрузить"
+
+msgid "cancel_shutdown"
+msgstr "Отменить"
+
+msgid "save_backup_to"
+msgstr ""
+
+msgid "power_off_desc"
+msgstr "Выключить компьютер"
+
+msgid "switch_mode"
+msgstr "Переключить режим"
+
+msgid "switch_mode_desc"
+msgstr "загрузить другую ОС"
+
+msgid "get_help"
+msgstr "Помощь"
+
+msgid "get_help_desc"
+msgstr "и контакты"
+
+msgid "help_about"
+msgstr "О"
+
+msgid "help_info"
+msgstr "xPUD быстро развивающийся проект. <br /> Больше информации можно получить здесь:"
+
+msgid "help_done"
+msgstr "Ок"
+
+msgid "application"
+msgstr "Программы"
+
+msgid "web_app"
+msgstr ""
+
+msgid "web_browser"
+msgstr "Веб Браузер"
+
+msgid "bt_client"
+msgstr "Torrent клиент"
+
+msgid "media_player"
+msgstr "Аудио/Видео проигрыватель"
+
+msgid "picture_viewer"
+msgstr "Просмотрщик изображений"
+
+msgid "text_editor"
+msgstr "Текстовый редактор"
+
+msgid "pdf_viewer"
+msgstr "Просмотрщик PDF"
+
+msgid "terminal_emulator"
+msgstr "Терминал/Коммандная строка"
+
+msgid "setting_personal"
+msgstr "Персональные настройки"
+
+msgid "setting_language"
+msgstr "Язык"
+
+msgid "setting_language_desc"
+msgstr "Выберите язык и раскладку"
+
+msgid "setting_time_date"
+msgstr "Дата и Время"
+
+msgid "setting_time_date_desc"
+msgstr "Настроить часы"
+
+msgid "setting_backup"
+msgstr "Резервное сохранение"
+
+msgid "setting_backup_desc"
+msgstr "Сохранить дату и изменения"
+
+msgid "setting_system"
+msgstr "Система"
+
+msgid "setting_wifi"
+msgstr "WiFi"
+
+msgid "setting_wifi_desc"
+msgstr "настроить беспроводное соединение"
+
+msgid "setting_wifi_title"
+msgstr "Настроить Беспроводную Сеть"
+
+msgid "setting_wifi_device"
+msgstr "Устройство: "
+
+msgid "setting_wifi_choose"
+msgstr "Выберите Сеть: "
+
+msgid "setting_wifi_refresh"
+msgstr "Обновить"
+
+msgid "setting_wifi_password"
+msgstr "Пароль:"
+
+msgid "setting_wifi_connect"
+msgstr "Соединить"
+
+msgid "setting_ethernet"
+msgstr "Локальная Сеть"
+
+msgid "setting_ethernet_desc"
+msgstr "настроить проводное соединение"
+
+msgid "setting_opt"
+msgstr "Opt-Get"
+
+msgid "setting_opt_desc"
+msgstr "установить дополнительные программы"
+
+msgid "setting_hardware"
+msgstr "Оборудование"
+
+msgid "setting_sound"
+msgstr "Звук"
+
+msgid "setting_sound_desc"
+msgstr "настроить звук"
+
+msgid "setting_display"
+msgstr "Экран"
+
+msgid "setting_display_desc"
+msgstr "Изменить разрешение экрана"
+
+msgid "setting_driver"
+msgstr "Устройства"
+
+msgid "setting_driver_desc"
+msgstr "информация об устройствах и драйверах"
+
+msgid "setting_sysinfo"
+msgstr ""
+
+msgid "setting_sysinfo_desc"
+msgstr ""
+
+msgid "back_to_setting"
+msgstr "Назад к Настройкам"
+

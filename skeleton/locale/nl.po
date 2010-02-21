@@ -13,73 +13,73 @@ msgid "home"
 msgstr "Start"
 
 msgid "menu"
-msgstr "Programme"
+msgstr "Menu"
 
 msgid "file"
-msgstr "Dateien"
+msgstr "Bestanden"
 
 msgid "setting"
-msgstr "Einstellung"
+msgstr "Instellingen"
 
 msgid "welcome"
-msgstr "Willkommen bei xPUD"
+msgstr "Welkom bij xPUD"
 
 msgid "sys_info"
-msgstr "Systeminformationen"
+msgstr "Systeeminformatie"
 
 msgid "want_to"
-msgstr "Sie können:"
+msgstr "wilt u:"
 
 msgid "quick_action"
-msgstr ""
+msgstr "Snelkeuze"
 
 msgid "power_off"
-msgstr "Ausschalten"
+msgstr "Uitschakelen"
 
 msgid "quit_now"
-msgstr "Möchten Sie jetzt ausschalten?"
+msgstr "Wilt u nu afsluiten ?"
 
 msgid "turn_off"
-msgstr "Ausschalten"
+msgstr "Afsluiten"
 
 msgid "restart"
-msgstr "Neustart"
+msgstr "Herstarten"
 
 msgid "cancel_shutdown"
-msgstr "Abbrechen"
+msgstr "Annuleren"
 
 msgid "save_backup_to"
-msgstr ""
+msgstr "Backup opslaan in"
 
 msgid "power_off_desc"
-msgstr "Dieses Gerät ausschalten"
+msgstr "Computer afsluiten"
 
 msgid "switch_mode"
-msgstr "System wechseln"
+msgstr "Systeem wisselen"
 
 msgid "switch_mode_desc"
-msgstr "Anderes Betriebssystem starten"
+msgstr "Ander OS kiezen"
 
 msgid "get_help"
-msgstr "Hilfe"
+msgstr "hulp vragen"
 
 msgid "get_help_desc"
-msgstr "und Kontaktinformationen"
+msgstr "en contact informatie"
 
 msgid "help_about"
-msgstr "Über"
+msgstr "Info"
 
 msgid "help_info"
-msgstr "xPUD ist ein aktiv entwickeltes Projekt. <br /> Weitere Informationen unter:"
+msgstr "xPUD is een rap groeiend project. <br /> Voor meer informatie, ga naar:"
 
 msgid "help_done"
 msgstr "OK"
 
 msgid "application"
-msgstr "Programme"
+msgstr "Programma's"
 
 msgid "web_app"
-msgstr ""
+msgstr "Web App"
 
 msgid "web_browser"
 msgstr "Web Browser"
@@ -91,10 +91,10 @@ msgid "media_player"
 msgstr "Media Player"
 
 msgid "picture_viewer"
-msgstr "Bildbetrachter"
+msgstr "Afbeeldingen Viewer"
 
 msgid "text_editor"
-msgstr "Text Editor"
+msgstr "Tekstbewerker"
 
 msgid "pdf_viewer"
 msgstr "PDF Viewer"
@@ -103,49 +103,49 @@ msgid "terminal_emulator"
 msgstr "Terminal Emulator"
 
 msgid "setting_personal"
-msgstr "Persönliche Einstellungen"
+msgstr "Persoonlijk"
 
 msgid "setting_language"
-msgstr "Sprache"
+msgstr "Taal"
 
 msgid "setting_language_desc"
-msgstr "sprache und tastenbelegung"
+msgstr "Kies taal en toetsenbord indeling"
 
 msgid "setting_time_date"
-msgstr "Datum und Uhrzeit"
+msgstr "Tijd & Datum"
 
 msgid "setting_time_date_desc"
-msgstr "Systemuhr einstellen"
+msgstr "Systeemklok aanpassen"
 
 msgid "setting_backup"
 msgstr "Backup"
 
 msgid "setting_backup_desc"
-msgstr "Daten und Einstellungen sichern"
+msgstr "Gegevens en instellingen opslaan"
 
 msgid "setting_system"
-msgstr "System"
+msgstr "Systeem"
 
 msgid "setting_wifi"
 msgstr "WiFi"
 
 msgid "setting_wifi_desc"
-msgstr "drahtloses netzwerk einrichten"
+msgstr "Draadloze verbinding instellen"
 
 msgid "setting_wifi_title"
-msgstr "Drahtloses Netzwerk Setup"
+msgstr "Draadloos netwerk instellen"
 
 msgid "setting_wifi_device"
-msgstr "WiFi Netzwerk Gerät: "
+msgstr "Netwerkapparaat: "
 
 msgid "setting_wifi_choose"
-msgstr "Wäle ein Netzwerk"
+msgstr "Kies een netwerk: "
 
 msgid "setting_wifi_refresh"
-msgstr "Aktualisieren"
+msgstr "Ververs"
 
 msgid "setting_wifi_password"
-msgstr "Passwort:"
+msgstr "Paswoord:"
 
 msgid "setting_wifi_connect"
 msgstr "Verbinden"
@@ -154,41 +154,41 @@ msgid "setting_ethernet"
 msgstr "Ethernet"
 
 msgid "setting_ethernet_desc"
-msgstr "kabelgebundenes netzwerk einrichten"
+msgstr "bekabeld netwerk instellen"
 
 msgid "setting_opt"
 msgstr "Opt-Get"
 
 msgid "setting_opt_desc"
-msgstr "weitere programme installieren"
+msgstr "Meer toepassingen verkrijgen"
 
 msgid "setting_hardware"
 msgstr "Hardware"
 
 msgid "setting_sound"
-msgstr "Ton"
+msgstr "Geluid"
 
 msgid "setting_sound_desc"
-msgstr "Systemklänge einstellen"
+msgstr "Geluidsinstellingen"
 
 msgid "setting_display"
-msgstr "Bildschirm"
+msgstr "Scherm"
 
 msgid "setting_display_desc"
-msgstr "Auflösung einstellen"
+msgstr "Schermresolutie aanpassen"
 
 msgid "setting_driver"
-msgstr "Treiber"
+msgstr "Stuurprogramma"
 
 msgid "setting_driver_desc"
-msgstr "geräteinformationen und treiber"
+msgstr "Apparaatinfo en stuurprogramma"
 
 msgid "setting_sysinfo"
-msgstr ""
+msgstr "Systeem Info"
 
 msgid "setting_sysinfo_desc"
-msgstr ""
+msgstr "controleer systeem info"
 
 msgid "back_to_setting"
-msgstr "Zurück zu den Einstellungen"
+msgstr "Terug naar instellingen"
 

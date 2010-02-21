@@ -10,178 +10,178 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "home"
-msgstr "Start"
+msgstr "ホーム"
 
 msgid "menu"
-msgstr "Programme"
+msgstr "メニュー"
 
 msgid "file"
-msgstr "Dateien"
+msgstr "ファイル"
 
 msgid "setting"
-msgstr "Einstellung"
+msgstr "セッティング"
 
 msgid "welcome"
-msgstr "Willkommen bei xPUD"
+msgstr "xPUDに　ようこそ"
 
 msgid "sys_info"
-msgstr "Systeminformationen"
+msgstr "システム情報"
 
 msgid "want_to"
-msgstr "Sie können:"
+msgstr "次のアクションもできます"
 
 msgid "quick_action"
 msgstr ""
 
 msgid "power_off"
-msgstr "Ausschalten"
+msgstr "電源を切る"
 
 msgid "quit_now"
-msgstr "Möchten Sie jetzt ausschalten?"
+msgstr "終了しますか？"
 
 msgid "turn_off"
-msgstr "Ausschalten"
+msgstr "終了"
 
 msgid "restart"
-msgstr "Neustart"
+msgstr "再起動"
 
 msgid "cancel_shutdown"
-msgstr "Abbrechen"
+msgstr "キャンセル"
 
 msgid "save_backup_to"
 msgstr ""
 
 msgid "power_off_desc"
-msgstr "Dieses Gerät ausschalten"
+msgstr "PCの電源を切る"
 
 msgid "switch_mode"
-msgstr "System wechseln"
+msgstr "モードを切換える"
 
 msgid "switch_mode_desc"
-msgstr "Anderes Betriebssystem starten"
+msgstr "別のOSに切換える"
 
 msgid "get_help"
-msgstr "Hilfe"
+msgstr "ヘルプしてもらう"
 
 msgid "get_help_desc"
-msgstr "und Kontaktinformationen"
+msgstr "その後xPUDの情報を見る"
 
 msgid "help_about"
-msgstr "Über"
+msgstr "xPUDについて"
 
 msgid "help_info"
-msgstr "xPUD ist ein aktiv entwickeltes Projekt. <br /> Weitere Informationen unter:"
+msgstr "xPUDは開発速度の早いプロジェクトです。 <br /> もっと情報が必要でしたら、次にお進みください："
 
 msgid "help_done"
-msgstr "OK"
+msgstr "完成です"
 
 msgid "application"
-msgstr "Programme"
+msgstr "アプリケーション"
 
 msgid "web_app"
 msgstr ""
 
 msgid "web_browser"
-msgstr "Web Browser"
+msgstr "ウェブブラウザ"
 
 msgid "bt_client"
-msgstr "BitTorrent Client"
+msgstr "ビットトレント"
 
 msgid "media_player"
-msgstr "Media Player"
+msgstr "メディアプレーヤ"
 
 msgid "picture_viewer"
-msgstr "Bildbetrachter"
+msgstr "ピクチャービューア"
 
 msgid "text_editor"
-msgstr "Text Editor"
+msgstr "テキストエディタ"
 
 msgid "pdf_viewer"
-msgstr "PDF Viewer"
+msgstr "PDFビューア"
 
 msgid "terminal_emulator"
-msgstr "Terminal Emulator"
+msgstr "ターミナル　エミュレータ"
 
 msgid "setting_personal"
-msgstr "Persönliche Einstellungen"
+msgstr "個人設定"
 
 msgid "setting_language"
-msgstr "Sprache"
+msgstr "言語の選択"
 
 msgid "setting_language_desc"
-msgstr "sprache und tastenbelegung"
+msgstr "ローカライズとキーの切換"
 
 msgid "setting_time_date"
-msgstr "Datum und Uhrzeit"
+msgstr "時間と月日"
 
 msgid "setting_time_date_desc"
-msgstr "Systemuhr einstellen"
+msgstr "システムの日時を変更"
 
 msgid "setting_backup"
-msgstr "Backup"
+msgstr "バックアップの設定"
 
 msgid "setting_backup_desc"
-msgstr "Daten und Einstellungen sichern"
+msgstr "設定と変更を保存"
 
 msgid "setting_system"
-msgstr "System"
+msgstr "システム設定"
 
 msgid "setting_wifi"
 msgstr "WiFi"
 
 msgid "setting_wifi_desc"
-msgstr "drahtloses netzwerk einrichten"
+msgstr "無線通信の設定"
 
 msgid "setting_wifi_title"
-msgstr "Drahtloses Netzwerk Setup"
+msgstr "無線ネットワークの設定"
 
 msgid "setting_wifi_device"
-msgstr "WiFi Netzwerk Gerät: "
+msgstr "ネットワークカード"
 
 msgid "setting_wifi_choose"
-msgstr "Wäle ein Netzwerk"
+msgstr "ネットワークの選択"
 
 msgid "setting_wifi_refresh"
-msgstr "Aktualisieren"
+msgstr "リフレッシュ"
 
 msgid "setting_wifi_password"
-msgstr "Passwort:"
+msgstr "パスワード"
 
 msgid "setting_wifi_connect"
-msgstr "Verbinden"
+msgstr "接続する"
 
 msgid "setting_ethernet"
-msgstr "Ethernet"
+msgstr "イーサネット"
 
 msgid "setting_ethernet_desc"
-msgstr "kabelgebundenes netzwerk einrichten"
+msgstr "ケーブル接続の設定"
 
 msgid "setting_opt"
 msgstr "Opt-Get"
 
 msgid "setting_opt_desc"
-msgstr "weitere programme installieren"
+msgstr "もっと他のアプリケーション"
 
 msgid "setting_hardware"
-msgstr "Hardware"
+msgstr "ハードウェア"
 
 msgid "setting_sound"
-msgstr "Ton"
+msgstr "サウンド"
 
 msgid "setting_sound_desc"
-msgstr "Systemklänge einstellen"
+msgstr "システムの音量を設定"
 
 msgid "setting_display"
-msgstr "Bildschirm"
+msgstr "ディスプレイ"
 
 msgid "setting_display_desc"
-msgstr "Auflösung einstellen"
+msgstr "スクリーンのリゾリューションを変更"
 
 msgid "setting_driver"
-msgstr "Treiber"
+msgstr "ドライバ"
 
 msgid "setting_driver_desc"
-msgstr "geräteinformationen und treiber"
+msgstr "デバイス情報とドライバ"
 
 msgid "setting_sysinfo"
 msgstr ""
@@ -190,5 +190,5 @@ msgid "setting_sysinfo_desc"
 msgstr ""
 
 msgid "back_to_setting"
-msgstr "Zurück zu den Einstellungen"
+msgstr "設定に戻る"
 

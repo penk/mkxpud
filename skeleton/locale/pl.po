@@ -13,175 +13,175 @@ msgid "home"
 msgstr "Start"
 
 msgid "menu"
-msgstr "Programme"
+msgstr "Menu"
 
 msgid "file"
-msgstr "Dateien"
+msgstr "Plik"
 
 msgid "setting"
-msgstr "Einstellung"
+msgstr "Ustawienia"
 
 msgid "welcome"
-msgstr "Willkommen bei xPUD"
+msgstr "Witaj w xPUD"
 
 msgid "sys_info"
-msgstr "Systeminformationen"
+msgstr "Informacje o systemie"
 
 msgid "want_to"
-msgstr "Sie können:"
+msgstr "Co chcesz zrobić?"
 
 msgid "quick_action"
 msgstr ""
 
 msgid "power_off"
-msgstr "Ausschalten"
+msgstr "Wyłącz"
 
 msgid "quit_now"
-msgstr "Möchten Sie jetzt ausschalten?"
+msgstr "Jesteś pewien że chcesz zakończyć?"
 
 msgid "turn_off"
-msgstr "Ausschalten"
+msgstr "Wyłącz"
 
 msgid "restart"
-msgstr "Neustart"
+msgstr "Uruchom ponownie"
 
 msgid "cancel_shutdown"
-msgstr "Abbrechen"
+msgstr "Anuluj"
 
 msgid "save_backup_to"
 msgstr ""
 
 msgid "power_off_desc"
-msgstr "Dieses Gerät ausschalten"
+msgstr "Wyłącz ten komputer"
 
 msgid "switch_mode"
-msgstr "System wechseln"
+msgstr "Przełącz między systemami"
 
 msgid "switch_mode_desc"
-msgstr "Anderes Betriebssystem starten"
+msgstr "przełącz do innego SO"
 
 msgid "get_help"
-msgstr "Hilfe"
+msgstr "Pomoc"
 
 msgid "get_help_desc"
-msgstr "und Kontaktinformationen"
+msgstr "i informacje kontaktowe"
 
 msgid "help_about"
-msgstr "Über"
+msgstr "O..."
 
 msgid "help_info"
-msgstr "xPUD ist ein aktiv entwickeltes Projekt. <br /> Weitere Informationen unter:"
+msgstr "xPUD jest szybko rozwijającym się projektem. <br /> Jeśli chcesz dowiedzieć się więcej odwiedź:"
 
 msgid "help_done"
-msgstr "OK"
+msgstr "Zakończono"
 
 msgid "application"
-msgstr "Programme"
+msgstr "Programy"
 
 msgid "web_app"
 msgstr ""
 
 msgid "web_browser"
-msgstr "Web Browser"
+msgstr "Przeglądarka WWW"
 
 msgid "bt_client"
-msgstr "BitTorrent Client"
+msgstr "Klient BitTorrent"
 
 msgid "media_player"
-msgstr "Media Player"
+msgstr "Odtwarzacz multimedialny"
 
 msgid "picture_viewer"
-msgstr "Bildbetrachter"
+msgstr "Przeglądarka obrazów"
 
 msgid "text_editor"
-msgstr "Text Editor"
+msgstr "Edytor tekstu"
 
 msgid "pdf_viewer"
-msgstr "PDF Viewer"
+msgstr "Przeglądarka plików PDF"
 
 msgid "terminal_emulator"
-msgstr "Terminal Emulator"
+msgstr "Emulator terminala"
 
 msgid "setting_personal"
-msgstr "Persönliche Einstellungen"
+msgstr "Ustawienia osobiste"
 
 msgid "setting_language"
-msgstr "Sprache"
+msgstr "Język"
 
 msgid "setting_language_desc"
-msgstr "sprache und tastenbelegung"
+msgstr "wybierz język i układ klawiatury"
 
 msgid "setting_time_date"
-msgstr "Datum und Uhrzeit"
+msgstr "Data i czas"
 
 msgid "setting_time_date_desc"
-msgstr "Systemuhr einstellen"
+msgstr "ustaw zegar systemowy"
 
 msgid "setting_backup"
-msgstr "Backup"
+msgstr "Kopia danych"
 
 msgid "setting_backup_desc"
-msgstr "Daten und Einstellungen sichern"
+msgstr "Zachowaj dane i ustawienia"
 
 msgid "setting_system"
 msgstr "System"
 
 msgid "setting_wifi"
-msgstr "WiFi"
+msgstr "Sieć bezprzewodowa"
 
 msgid "setting_wifi_desc"
-msgstr "drahtloses netzwerk einrichten"
+msgstr "ustaw połączenia sieci bezprzewodowej"
 
 msgid "setting_wifi_title"
-msgstr "Drahtloses Netzwerk Setup"
+msgstr "Ustawienia sieci bezprzewodowej"
 
 msgid "setting_wifi_device"
-msgstr "WiFi Netzwerk Gerät: "
+msgstr "Urządzenie sieciowe: "
 
 msgid "setting_wifi_choose"
-msgstr "Wäle ein Netzwerk"
+msgstr "Wybierz sieć: "
 
 msgid "setting_wifi_refresh"
-msgstr "Aktualisieren"
+msgstr "Odświerz"
 
 msgid "setting_wifi_password"
-msgstr "Passwort:"
+msgstr "Hasło:"
 
 msgid "setting_wifi_connect"
-msgstr "Verbinden"
+msgstr "Połącz"
 
 msgid "setting_ethernet"
-msgstr "Ethernet"
+msgstr "Sieć ethernet"
 
 msgid "setting_ethernet_desc"
-msgstr "kabelgebundenes netzwerk einrichten"
+msgstr "ustaw kablowe połączenie sieci ethernet"
 
 msgid "setting_opt"
 msgstr "Opt-Get"
 
 msgid "setting_opt_desc"
-msgstr "weitere programme installieren"
+msgstr "pobierz więcej programów"
 
 msgid "setting_hardware"
-msgstr "Hardware"
+msgstr "Sprzęt"
 
 msgid "setting_sound"
-msgstr "Ton"
+msgstr "Dźwięk"
 
 msgid "setting_sound_desc"
-msgstr "Systemklänge einstellen"
+msgstr "dostosuj ustawienia dźwięku"
 
 msgid "setting_display"
-msgstr "Bildschirm"
+msgstr "Ekran"
 
 msgid "setting_display_desc"
-msgstr "Auflösung einstellen"
+msgstr "zmień ustawienia rozdzielczości"
 
 msgid "setting_driver"
-msgstr "Treiber"
+msgstr "Sterownik"
 
 msgid "setting_driver_desc"
-msgstr "geräteinformationen und treiber"
+msgstr "informacje o urzączeniu i sterownik"
 
 msgid "setting_sysinfo"
 msgstr ""
@@ -190,5 +190,5 @@ msgid "setting_sysinfo_desc"
 msgstr ""
 
 msgid "back_to_setting"
-msgstr "Zurück zu den Einstellungen"
+msgstr "Wróć do ustawień"
 

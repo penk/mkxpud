@@ -10,91 +10,91 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "home"
-msgstr "Start"
+msgstr "Khởi động"
 
 msgid "menu"
-msgstr "Programme"
+msgstr "Trình đơn"
 
 msgid "file"
-msgstr "Dateien"
+msgstr "Tập tin"
 
 msgid "setting"
-msgstr "Einstellung"
+msgstr "Tùy chọn"
 
 msgid "welcome"
-msgstr "Willkommen bei xPUD"
+msgstr "Chào mừng bạn đến với xPUD"
 
 msgid "sys_info"
-msgstr "Systeminformationen"
+msgstr "Thông tin hệ thống"
 
 msgid "want_to"
-msgstr "Sie können:"
+msgstr "Bạn có muốn tới"
 
 msgid "quick_action"
 msgstr ""
 
 msgid "power_off"
-msgstr "Ausschalten"
+msgstr "Tắt máy"
 
 msgid "quit_now"
-msgstr "Möchten Sie jetzt ausschalten?"
+msgstr "Bạn có muốn thoát ra bây giờ không"
 
 msgid "turn_off"
-msgstr "Ausschalten"
+msgstr "Tắt máy"
 
 msgid "restart"
-msgstr "Neustart"
+msgstr "Khởi động lại"
 
 msgid "cancel_shutdown"
-msgstr "Abbrechen"
+msgstr "Thôi"
 
 msgid "save_backup_to"
 msgstr ""
 
 msgid "power_off_desc"
-msgstr "Dieses Gerät ausschalten"
+msgstr "Tắt máy tính này"
 
 msgid "switch_mode"
-msgstr "System wechseln"
+msgstr "Chuyển tài khoản"
 
 msgid "switch_mode_desc"
-msgstr "Anderes Betriebssystem starten"
+msgstr "Sang hệ điều hành khác"
 
 msgid "get_help"
-msgstr "Hilfe"
+msgstr "Trợ giúp"
 
 msgid "get_help_desc"
-msgstr "und Kontaktinformationen"
+msgstr "và thông tin liên lạc"
 
 msgid "help_about"
-msgstr "Über"
+msgstr "Giới thiệu"
 
 msgid "help_info"
-msgstr "xPUD ist ein aktiv entwickeltes Projekt. <br /> Weitere Informationen unter:"
+msgstr "xPUD là dự án đang phát triển nhanh <br /> Thông tin liên hệ tại:"
 
 msgid "help_done"
-msgstr "OK"
+msgstr "Hoàn tất"
 
 msgid "application"
-msgstr "Programme"
+msgstr "Ứng dụng"
 
 msgid "web_app"
 msgstr ""
 
 msgid "web_browser"
-msgstr "Web Browser"
+msgstr "Trình duyệt Web"
 
 msgid "bt_client"
-msgstr "BitTorrent Client"
+msgstr "BitTorrent"
 
 msgid "media_player"
-msgstr "Media Player"
+msgstr "Đa phương tiện"
 
 msgid "picture_viewer"
-msgstr "Bildbetrachter"
+msgstr "Quản lý ảnh"
 
 msgid "text_editor"
-msgstr "Text Editor"
+msgstr "Soạn thảo văn bản"
 
 msgid "pdf_viewer"
 msgstr "PDF Viewer"
@@ -103,85 +103,85 @@ msgid "terminal_emulator"
 msgstr "Terminal Emulator"
 
 msgid "setting_personal"
-msgstr "Persönliche Einstellungen"
+msgstr "Cá nhân hóa"
 
 msgid "setting_language"
-msgstr "Sprache"
+msgstr "Ngôn ngữ"
 
 msgid "setting_language_desc"
-msgstr "sprache und tastenbelegung"
+msgstr "Chọn địa phương và kiểu bàn phím"
 
 msgid "setting_time_date"
-msgstr "Datum und Uhrzeit"
+msgstr "Thời gian"
 
 msgid "setting_time_date_desc"
-msgstr "Systemuhr einstellen"
+msgstr "Thay đổi thời gian hệ thống"
 
 msgid "setting_backup"
-msgstr "Backup"
+msgstr "Khôi phục"
 
 msgid "setting_backup_desc"
-msgstr "Daten und Einstellungen sichern"
+msgstr "Lưu lại"
 
 msgid "setting_system"
-msgstr "System"
+msgstr "Hệ thống"
 
 msgid "setting_wifi"
 msgstr "WiFi"
 
 msgid "setting_wifi_desc"
-msgstr "drahtloses netzwerk einrichten"
+msgstr "Cài đặt sự kết nối không dây"
 
 msgid "setting_wifi_title"
-msgstr "Drahtloses Netzwerk Setup"
+msgstr "Cài đặt mạng không dây"
 
 msgid "setting_wifi_device"
-msgstr "WiFi Netzwerk Gerät: "
+msgstr "Thiệt bị mạng"
 
 msgid "setting_wifi_choose"
-msgstr "Wäle ein Netzwerk"
+msgstr "Chọn mạng"
 
 msgid "setting_wifi_refresh"
-msgstr "Aktualisieren"
+msgstr "Làm mới"
 
 msgid "setting_wifi_password"
-msgstr "Passwort:"
+msgstr "Mật khẩu"
 
 msgid "setting_wifi_connect"
-msgstr "Verbinden"
+msgstr "Kết nối"
 
 msgid "setting_ethernet"
-msgstr "Ethernet"
+msgstr "Mạng cục bộ"
 
 msgid "setting_ethernet_desc"
-msgstr "kabelgebundenes netzwerk einrichten"
+msgstr "Cài đặt kết nối có dây"
 
 msgid "setting_opt"
 msgstr "Opt-Get"
 
 msgid "setting_opt_desc"
-msgstr "weitere programme installieren"
+msgstr "Thêm ứng dụng"
 
 msgid "setting_hardware"
-msgstr "Hardware"
+msgstr "Phần cứng"
 
 msgid "setting_sound"
-msgstr "Ton"
+msgstr "Âm thanh"
 
 msgid "setting_sound_desc"
-msgstr "Systemklänge einstellen"
+msgstr "Điều chỉnh âm thanh"
 
 msgid "setting_display"
-msgstr "Bildschirm"
+msgstr "Hiển thị"
 
 msgid "setting_display_desc"
-msgstr "Auflösung einstellen"
+msgstr "Chỉnh độ phân giải"
 
 msgid "setting_driver"
-msgstr "Treiber"
+msgstr "Driver phần cứng"
 
 msgid "setting_driver_desc"
-msgstr "geräteinformationen und treiber"
+msgstr "thiết bị và driver phần cứng"
 
 msgid "setting_sysinfo"
 msgstr ""
@@ -190,5 +190,5 @@ msgid "setting_sysinfo_desc"
 msgstr ""
 
 msgid "back_to_setting"
-msgstr "Zurück zu den Einstellungen"
+msgstr "Quay lại Tùy chọn"
 

@@ -10,178 +10,178 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "home"
-msgstr "Start"
+msgstr "Página Inicial"
 
 msgid "menu"
-msgstr "Programme"
+msgstr "Menu"
 
 msgid "file"
-msgstr "Dateien"
+msgstr "Arquivos"
 
 msgid "setting"
-msgstr "Einstellung"
+msgstr "Configurações"
 
 msgid "welcome"
-msgstr "Willkommen bei xPUD"
+msgstr "Bem vindo ao xPUD"
 
 msgid "sys_info"
-msgstr "Systeminformationen"
+msgstr "Informações do sistema"
 
 msgid "want_to"
-msgstr "Sie können:"
+msgstr "Talvez você deseja:"
 
 msgid "quick_action"
 msgstr ""
 
 msgid "power_off"
-msgstr "Ausschalten"
+msgstr "Desligar"
 
 msgid "quit_now"
-msgstr "Möchten Sie jetzt ausschalten?"
+msgstr "Você deseja sair agora?"
 
 msgid "turn_off"
-msgstr "Ausschalten"
+msgstr "Desligar"
 
 msgid "restart"
-msgstr "Neustart"
+msgstr "Reiniciar"
 
 msgid "cancel_shutdown"
-msgstr "Abbrechen"
+msgstr "Cancelar"
 
 msgid "save_backup_to"
 msgstr ""
 
 msgid "power_off_desc"
-msgstr "Dieses Gerät ausschalten"
+msgstr "Desligar computador"
 
 msgid "switch_mode"
-msgstr "System wechseln"
+msgstr ""
 
 msgid "switch_mode_desc"
-msgstr "Anderes Betriebssystem starten"
+msgstr ""
 
 msgid "get_help"
-msgstr "Hilfe"
+msgstr "Obter ajuda"
 
 msgid "get_help_desc"
-msgstr "und Kontaktinformationen"
+msgstr "Aprender mais sobre o xPUD"
 
 msgid "help_about"
-msgstr "Über"
+msgstr ""
 
 msgid "help_info"
-msgstr "xPUD ist ein aktiv entwickeltes Projekt. <br /> Weitere Informationen unter:"
+msgstr ""
 
 msgid "help_done"
-msgstr "OK"
+msgstr ""
 
 msgid "application"
-msgstr "Programme"
+msgstr "Aplicações"
 
 msgid "web_app"
 msgstr ""
 
 msgid "web_browser"
-msgstr "Web Browser"
+msgstr "Navegador de internet"
 
 msgid "bt_client"
-msgstr "BitTorrent Client"
+msgstr "Cliente BitTorrent"
 
 msgid "media_player"
-msgstr "Media Player"
+msgstr "Reprodutor multimédia"
 
 msgid "picture_viewer"
-msgstr "Bildbetrachter"
+msgstr "Visualizador de imagens"
 
 msgid "text_editor"
-msgstr "Text Editor"
+msgstr "Editor de texto"
 
 msgid "pdf_viewer"
-msgstr "PDF Viewer"
+msgstr "Visualizador de PDFs"
 
 msgid "terminal_emulator"
-msgstr "Terminal Emulator"
+msgstr "Terminal"
 
 msgid "setting_personal"
-msgstr "Persönliche Einstellungen"
+msgstr ""
 
 msgid "setting_language"
-msgstr "Sprache"
+msgstr ""
 
 msgid "setting_language_desc"
-msgstr "sprache und tastenbelegung"
+msgstr ""
 
 msgid "setting_time_date"
-msgstr "Datum und Uhrzeit"
+msgstr "Relógio"
 
 msgid "setting_time_date_desc"
-msgstr "Systemuhr einstellen"
+msgstr "Atualize o relógio do sistema"
 
 msgid "setting_backup"
-msgstr "Backup"
+msgstr "Cópia de seguran"
 
 msgid "setting_backup_desc"
-msgstr "Daten und Einstellungen sichern"
+msgstr "Mecanismo persistente"
 
 msgid "setting_system"
-msgstr "System"
+msgstr "Sistema"
 
 msgid "setting_wifi"
-msgstr "WiFi"
+msgstr ""
 
 msgid "setting_wifi_desc"
-msgstr "drahtloses netzwerk einrichten"
+msgstr ""
 
 msgid "setting_wifi_title"
-msgstr "Drahtloses Netzwerk Setup"
+msgstr ""
 
 msgid "setting_wifi_device"
-msgstr "WiFi Netzwerk Gerät: "
+msgstr ""
 
 msgid "setting_wifi_choose"
-msgstr "Wäle ein Netzwerk"
+msgstr "Selecione qual rede você quer se conectar:"
 
 msgid "setting_wifi_refresh"
-msgstr "Aktualisieren"
+msgstr ""
 
 msgid "setting_wifi_password"
-msgstr "Passwort:"
+msgstr "Senha:"
 
 msgid "setting_wifi_connect"
-msgstr "Verbinden"
+msgstr ""
 
 msgid "setting_ethernet"
-msgstr "Ethernet"
+msgstr ""
 
 msgid "setting_ethernet_desc"
-msgstr "kabelgebundenes netzwerk einrichten"
+msgstr "Configure sua conexão de internet"
 
 msgid "setting_opt"
 msgstr "Opt-Get"
 
 msgid "setting_opt_desc"
-msgstr "weitere programme installieren"
+msgstr "Baixe mais aplicações"
 
 msgid "setting_hardware"
-msgstr "Hardware"
+msgstr ""
 
 msgid "setting_sound"
-msgstr "Ton"
+msgstr "Áudio"
 
 msgid "setting_sound_desc"
-msgstr "Systemklänge einstellen"
+msgstr "Ajustar som do sistema"
 
 msgid "setting_display"
-msgstr "Bildschirm"
+msgstr "Tela"
 
 msgid "setting_display_desc"
-msgstr "Auflösung einstellen"
+msgstr "Alterar resolução"
 
 msgid "setting_driver"
-msgstr "Treiber"
+msgstr ""
 
 msgid "setting_driver_desc"
-msgstr "geräteinformationen und treiber"
+msgstr ""
 
 msgid "setting_sysinfo"
 msgstr ""
@@ -190,5 +190,5 @@ msgid "setting_sysinfo_desc"
 msgstr ""
 
 msgid "back_to_setting"
-msgstr "Zurück zu den Einstellungen"
+msgstr ""
 

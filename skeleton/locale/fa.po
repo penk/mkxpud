@@ -1,0 +1,194 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "home"
+msgstr "خانه"
+
+msgid "menu"
+msgstr "فهرست"
+
+msgid "file"
+msgstr "فایل"
+
+msgid "setting"
+msgstr "مشخصه ها"
+
+msgid "welcome"
+msgstr "خوش آمدید"
+
+msgid "sys_info"
+msgstr "اطلاعات سامانه"
+
+msgid "want_to"
+msgstr "شما ممکن است درخواست کنید که:"
+
+msgid "quick_action"
+msgstr "عملیات سریع"
+
+msgid "power_off"
+msgstr "خارج شدن"
+
+msgid "quit_now"
+msgstr "آیا تصمیم دارید خارج شوید؟"
+
+msgid "turn_off"
+msgstr "خاموش کردن"
+
+msgid "restart"
+msgstr "باز آوری"
+
+msgid "cancel_shutdown"
+msgstr "لغو کردن"
+
+msgid "save_backup_to"
+msgstr "ذخیره کردن پشتیبان"
+
+msgid "power_off_desc"
+msgstr "خاموش کردن سامانه"
+
+msgid "switch_mode"
+msgstr "تغییر روش"
+
+msgid "switch_mode_desc"
+msgstr "رفتن به سیستم عامل دیگر"
+
+msgid "get_help"
+msgstr "درخواست کمک"
+
+msgid "get_help_desc"
+msgstr "برقرای ارتباط"
+
+msgid "help_about"
+msgstr "درباره سامانه"
+
+msgid "help_info"
+msgstr "xPUD به سرعت در حال گسترش است. <br /> برای اطلاعات بیشتر مراجعه کنید به:"
+
+msgid "help_done"
+msgstr "انجام شده"
+
+msgid "application"
+msgstr "نرم افزارهای کاربردی"
+
+msgid "web_app"
+msgstr "نرم افزارهای تحت وب"
+
+msgid "web_browser"
+msgstr "مرورگر وب"
+
+msgid "bt_client"
+msgstr "کلاینت بیت تورنت"
+
+msgid "media_player"
+msgstr "اجرا کننده چند رسانه ای"
+
+msgid "picture_viewer"
+msgstr "نمایش دهنده تصاویر"
+
+msgid "text_editor"
+msgstr "ویرایشگر متن"
+
+msgid "pdf_viewer"
+msgstr "نمایش دهنده PDF"
+
+msgid "terminal_emulator"
+msgstr "ترمینال"
+
+msgid "setting_personal"
+msgstr "شحصی"
+
+msgid "setting_language"
+msgstr "زبانها"
+
+msgid "setting_language_desc"
+msgstr "مکان مورد نظر خود را انتخاب کنید."
+
+msgid "setting_time_date"
+msgstr "تاریخ و وقت"
+
+msgid "setting_time_date_desc"
+msgstr "انجام تغییرات در ساعت"
+
+msgid "setting_backup"
+msgstr "پشتیبان گیری"
+
+msgid "setting_backup_desc"
+msgstr "ذخیره کردن تغییرات انجام شده در تاریخ"
+
+msgid "setting_system"
+msgstr "سامانه"
+
+msgid "setting_wifi"
+msgstr "WiFi"
+
+msgid "setting_wifi_desc"
+msgstr "فراهم کردن ارتباط وایرلس"
+
+msgid "setting_wifi_title"
+msgstr "فراهم کردن شبگه وایرلس"
+
+msgid "setting_wifi_device"
+msgstr "ابزار شبکه"
+
+msgid "setting_wifi_choose"
+msgstr "انتخاب کردن شبکه"
+
+msgid "setting_wifi_refresh"
+msgstr "بازآوری"
+
+msgid "setting_wifi_password"
+msgstr "کلمه عبور"
+
+msgid "setting_wifi_connect"
+msgstr "برقراری ارتباط"
+
+msgid "setting_ethernet"
+msgstr "Ethernet"
+
+msgid "setting_ethernet_desc"
+msgstr "فراهم نمودن ارتباط سیمی"
+
+msgid "setting_opt"
+msgstr "Opt-Get"
+
+msgid "setting_opt_desc"
+msgstr "دریافت نرم افزارهای بیشتر"
+
+msgid "setting_hardware"
+msgstr "سخت افزار"
+
+msgid "setting_sound"
+msgstr "صدا"
+
+msgid "setting_sound_desc"
+msgstr "مرتب کردن سامانه صدا"
+
+msgid "setting_display"
+msgstr "نمایشگر"
+
+msgid "setting_display_desc"
+msgstr "تغییر در نحوه نمایش "
+
+msgid "setting_driver"
+msgstr "گرداننده "
+
+msgid "setting_driver_desc"
+msgstr "ابزار و اطلاعات مربوط به گرداننده ها "
+
+msgid "setting_sysinfo"
+msgstr "اطلاعات سامانه "
+
+msgid "setting_sysinfo_desc"
+msgstr "بررسی اطلاعات سامانه "
+
+msgid "back_to_setting"
+msgstr "بازگشت به قسمت مشخصه ها "
+

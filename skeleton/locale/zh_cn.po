@@ -10,178 +10,178 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "home"
-msgstr "Start"
+msgstr "首页"
 
 msgid "menu"
-msgstr "Programme"
+msgstr "应用程序"
 
 msgid "file"
-msgstr "Dateien"
+msgstr "打开文件"
 
 msgid "setting"
-msgstr "Einstellung"
+msgstr "设置系统"
 
 msgid "welcome"
-msgstr "Willkommen bei xPUD"
+msgstr "欢迎使用 xPUD"
 
 msgid "sys_info"
-msgstr "Systeminformationen"
+msgstr "系统信息"
 
 msgid "want_to"
-msgstr "Sie können:"
+msgstr "你也可以："
 
 msgid "quick_action"
 msgstr ""
 
 msgid "power_off"
-msgstr "Ausschalten"
+msgstr "关机"
 
 msgid "quit_now"
-msgstr "Möchten Sie jetzt ausschalten?"
+msgstr "确定要关机?"
 
 msgid "turn_off"
-msgstr "Ausschalten"
+msgstr "关机"
 
 msgid "restart"
-msgstr "Neustart"
+msgstr "重启"
 
 msgid "cancel_shutdown"
-msgstr "Abbrechen"
+msgstr "取消"
 
 msgid "save_backup_to"
 msgstr ""
 
 msgid "power_off_desc"
-msgstr "Dieses Gerät ausschalten"
+msgstr "关闭这台电脑"
 
 msgid "switch_mode"
-msgstr "System wechseln"
+msgstr "切换模式"
 
 msgid "switch_mode_desc"
-msgstr "Anderes Betriebssystem starten"
+msgstr "使用其他操作系統"
 
 msgid "get_help"
-msgstr "Hilfe"
+msgstr "获取帮助"
 
 msgid "get_help_desc"
-msgstr "und Kontaktinformationen"
+msgstr "了解xPUD的更多信息"
 
 msgid "help_about"
-msgstr "Über"
+msgstr "关于xPUD计划"
 
 msgid "help_info"
-msgstr "xPUD ist ein aktiv entwickeltes Projekt. <br /> Weitere Informationen unter:"
+msgstr "xPUD 是一个快速发展中的计划。请参阅："
 
 msgid "help_done"
-msgstr "OK"
+msgstr "完成"
 
 msgid "application"
-msgstr "Programme"
+msgstr "所有应用程序"
 
 msgid "web_app"
 msgstr ""
 
 msgid "web_browser"
-msgstr "Web Browser"
+msgstr "上网冲浪"
 
 msgid "bt_client"
-msgstr "BitTorrent Client"
+msgstr "BT 下载"
 
 msgid "media_player"
-msgstr "Media Player"
+msgstr "播放影音"
 
 msgid "picture_viewer"
-msgstr "Bildbetrachter"
+msgstr "浏览图片"
 
 msgid "text_editor"
-msgstr "Text Editor"
+msgstr "编辑文字"
 
 msgid "pdf_viewer"
-msgstr "PDF Viewer"
+msgstr "阅读PDF"
 
 msgid "terminal_emulator"
-msgstr "Terminal Emulator"
+msgstr "使用终端"
 
 msgid "setting_personal"
-msgstr "Persönliche Einstellungen"
+msgstr "个人设置"
 
 msgid "setting_language"
-msgstr "Sprache"
+msgstr "语言选项"
 
 msgid "setting_language_desc"
-msgstr "sprache und tastenbelegung"
+msgstr "切换语系和键盘"
 
 msgid "setting_time_date"
-msgstr "Datum und Uhrzeit"
+msgstr "时间与日期"
 
 msgid "setting_time_date_desc"
-msgstr "Systemuhr einstellen"
+msgstr "调整系统的日期与时间"
 
 msgid "setting_backup"
-msgstr "Backup"
+msgstr "保存资料"
 
 msgid "setting_backup_desc"
-msgstr "Daten und Einstellungen sichern"
+msgstr "保留你的设置和资料"
 
 msgid "setting_system"
-msgstr "System"
+msgstr "系统设置"
 
 msgid "setting_wifi"
 msgstr "WiFi"
 
 msgid "setting_wifi_desc"
-msgstr "drahtloses netzwerk einrichten"
+msgstr "使用无线网络"
 
 msgid "setting_wifi_title"
-msgstr "Drahtloses Netzwerk Setup"
+msgstr ""
 
 msgid "setting_wifi_device"
-msgstr "WiFi Netzwerk Gerät: "
+msgstr ""
 
 msgid "setting_wifi_choose"
-msgstr "Wäle ein Netzwerk"
+msgstr ""
 
 msgid "setting_wifi_refresh"
-msgstr "Aktualisieren"
+msgstr ""
 
 msgid "setting_wifi_password"
-msgstr "Passwort:"
+msgstr ""
 
 msgid "setting_wifi_connect"
-msgstr "Verbinden"
+msgstr ""
 
 msgid "setting_ethernet"
-msgstr "Ethernet"
+msgstr "有线网络"
 
 msgid "setting_ethernet_desc"
-msgstr "kabelgebundenes netzwerk einrichten"
+msgstr "使用有线网络"
 
 msgid "setting_opt"
 msgstr "Opt-Get"
 
 msgid "setting_opt_desc"
-msgstr "weitere programme installieren"
+msgstr "安装更多程序"
 
 msgid "setting_hardware"
-msgstr "Hardware"
+msgstr "硬件设置"
 
 msgid "setting_sound"
-msgstr "Ton"
+msgstr "声音"
 
 msgid "setting_sound_desc"
-msgstr "Systemklänge einstellen"
+msgstr "调整系统音量"
 
 msgid "setting_display"
-msgstr "Bildschirm"
+msgstr "显示设置"
 
 msgid "setting_display_desc"
-msgstr "Auflösung einstellen"
+msgstr "调整屏幕分辨率"
 
 msgid "setting_driver"
-msgstr "Treiber"
+msgstr "驱动管理"
 
 msgid "setting_driver_desc"
-msgstr "geräteinformationen und treiber"
+msgstr "安装更多驱动程序"
 
 msgid "setting_sysinfo"
 msgstr ""
@@ -190,5 +190,5 @@ msgid "setting_sysinfo_desc"
 msgstr ""
 
 msgid "back_to_setting"
-msgstr "Zurück zu den Einstellungen"
+msgstr "返回设置"
 

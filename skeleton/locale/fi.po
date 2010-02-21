@@ -10,178 +10,178 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "home"
-msgstr "Start"
+msgstr "Käynnistä"
 
 msgid "menu"
-msgstr "Programme"
+msgstr "Valikko"
 
 msgid "file"
-msgstr "Dateien"
+msgstr "Tiedosto"
 
 msgid "setting"
-msgstr "Einstellung"
+msgstr "Asetukset"
 
 msgid "welcome"
-msgstr "Willkommen bei xPUD"
+msgstr "Tervetuloa xPUD:iin"
 
 msgid "sys_info"
-msgstr "Systeminformationen"
+msgstr "Järjestelmätiedot"
 
 msgid "want_to"
-msgstr "Sie können:"
+msgstr "Haluatko:"
 
 msgid "quick_action"
 msgstr ""
 
 msgid "power_off"
-msgstr "Ausschalten"
+msgstr "Sammuta"
 
 msgid "quit_now"
-msgstr "Möchten Sie jetzt ausschalten?"
+msgstr "Haluatko lopetaa nyt?"
 
 msgid "turn_off"
-msgstr "Ausschalten"
+msgstr "Sammuta"
 
 msgid "restart"
-msgstr "Neustart"
+msgstr "Käynnistä uudelleen"
 
 msgid "cancel_shutdown"
-msgstr "Abbrechen"
+msgstr "Peruuta"
 
 msgid "save_backup_to"
 msgstr ""
 
 msgid "power_off_desc"
-msgstr "Dieses Gerät ausschalten"
+msgstr "Sammuta tietokone"
 
 msgid "switch_mode"
-msgstr "System wechseln"
+msgstr "Vaihda tila"
 
 msgid "switch_mode_desc"
-msgstr "Anderes Betriebssystem starten"
+msgstr "Vaihda toiseen käyttöjärjestelmään"
 
 msgid "get_help"
-msgstr "Hilfe"
+msgstr "Ohjeet"
 
 msgid "get_help_desc"
-msgstr "und Kontaktinformationen"
+msgstr "ja yhteystiedot"
 
 msgid "help_about"
-msgstr "Über"
+msgstr "Tietoja"
 
 msgid "help_info"
-msgstr "xPUD ist ein aktiv entwickeltes Projekt. <br /> Weitere Informationen unter:"
+msgstr "xPUD kehittyy nopeasti. <br /> Lisätietoja saat osoitteesta:"
 
 msgid "help_done"
 msgstr "OK"
 
 msgid "application"
-msgstr "Programme"
+msgstr "Sovellukset"
 
 msgid "web_app"
 msgstr ""
 
 msgid "web_browser"
-msgstr "Web Browser"
+msgstr "Internet-selain"
 
 msgid "bt_client"
-msgstr "BitTorrent Client"
+msgstr "BitTorrent-asiakassovellus"
 
 msgid "media_player"
-msgstr "Media Player"
+msgstr "Mediasoitin"
 
 msgid "picture_viewer"
-msgstr "Bildbetrachter"
+msgstr "Kuvienkatseluohjelma"
 
 msgid "text_editor"
-msgstr "Text Editor"
+msgstr "Tekstinmuokkain"
 
 msgid "pdf_viewer"
-msgstr "PDF Viewer"
+msgstr "PDF-katselin"
 
 msgid "terminal_emulator"
-msgstr "Terminal Emulator"
+msgstr "Komentorivi"
 
 msgid "setting_personal"
-msgstr "Persönliche Einstellungen"
+msgstr "Henkilökohtaiset asetukset"
 
 msgid "setting_language"
-msgstr "Sprache"
+msgstr "Kieli"
 
 msgid "setting_language_desc"
-msgstr "sprache und tastenbelegung"
+msgstr "valitse aluekohtaiset- ja näppäimistöasetukset"
 
 msgid "setting_time_date"
-msgstr "Datum und Uhrzeit"
+msgstr "Aika ja päivämäärä"
 
 msgid "setting_time_date_desc"
-msgstr "Systemuhr einstellen"
+msgstr "Aseta järjestelmän kello"
 
 msgid "setting_backup"
-msgstr "Backup"
+msgstr "Varmuuskopio"
 
 msgid "setting_backup_desc"
-msgstr "Daten und Einstellungen sichern"
+msgstr "tallenna tiedostosi ja tehdyt muutoksesi"
 
 msgid "setting_system"
-msgstr "System"
+msgstr "Järjestelmä"
 
 msgid "setting_wifi"
 msgstr "WiFi"
 
 msgid "setting_wifi_desc"
-msgstr "drahtloses netzwerk einrichten"
+msgstr "asenna langaton yhteys"
 
 msgid "setting_wifi_title"
-msgstr "Drahtloses Netzwerk Setup"
+msgstr "Asenna langaton verkko"
 
 msgid "setting_wifi_device"
-msgstr "WiFi Netzwerk Gerät: "
+msgstr "Verkkolaite: "
 
 msgid "setting_wifi_choose"
-msgstr "Wäle ein Netzwerk"
+msgstr "Valitse verkko: "
 
 msgid "setting_wifi_refresh"
-msgstr "Aktualisieren"
+msgstr "Päivitä"
 
 msgid "setting_wifi_password"
-msgstr "Passwort:"
+msgstr "Salasana:"
 
 msgid "setting_wifi_connect"
-msgstr "Verbinden"
+msgstr "Yhdistä"
 
 msgid "setting_ethernet"
-msgstr "Ethernet"
+msgstr "Lankaverkko"
 
 msgid "setting_ethernet_desc"
-msgstr "kabelgebundenes netzwerk einrichten"
+msgstr "asenna lankayhteys"
 
 msgid "setting_opt"
 msgstr "Opt-Get"
 
 msgid "setting_opt_desc"
-msgstr "weitere programme installieren"
+msgstr "hae lisää sovelluksia"
 
 msgid "setting_hardware"
-msgstr "Hardware"
+msgstr "Laitteisto"
 
 msgid "setting_sound"
-msgstr "Ton"
+msgstr "Äänet"
 
 msgid "setting_sound_desc"
-msgstr "Systemklänge einstellen"
+msgstr "Säädä järjestelmän ääniä"
 
 msgid "setting_display"
-msgstr "Bildschirm"
+msgstr "Näyttö"
 
 msgid "setting_display_desc"
-msgstr "Auflösung einstellen"
+msgstr "muuta näytön tarkkuutta"
 
 msgid "setting_driver"
-msgstr "Treiber"
+msgstr "Ajuri"
 
 msgid "setting_driver_desc"
-msgstr "geräteinformationen und treiber"
+msgstr "tietoja laitteista ja ajureista"
 
 msgid "setting_sysinfo"
 msgstr ""
@@ -190,5 +190,5 @@ msgid "setting_sysinfo_desc"
 msgstr ""
 
 msgid "back_to_setting"
-msgstr "Zurück zu den Einstellungen"
+msgstr "Takaisin asetuksiin"
 
