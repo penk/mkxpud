@@ -70,8 +70,7 @@ msgid "help_about"
 msgstr "Über"
 
 msgid "help_info"
-msgstr "xPUD ist ein aktiv entwickeltes Projekt.
-Weitere Informationen unter:"
+msgstr "xPUD ist ein aktiv entwickeltes Projekt. Weitere Informationen unter:"
 
 msgid "help_done"
 msgstr "OK"
