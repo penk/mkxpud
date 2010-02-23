@@ -16,7 +16,7 @@ msgid "menu"
 msgstr "Menu"
 
 msgid "file"
-msgstr "Fichier"
+msgstr "Fichiers"
 
 msgid "setting"
 msgstr "Préférences"
@@ -31,7 +31,7 @@ msgid "want_to"
 msgstr "Vous voulez:"
 
 msgid "quick_action"
-msgstr ""
+msgstr "Action rapide"
 
 msgid "power_off"
 msgstr "Éteindre"
@@ -49,7 +49,7 @@ msgid "cancel_shutdown"
 msgstr "Abandonner"
 
 msgid "save_backup_to"
-msgstr "Sauvergarder sur"
+msgstr "Sauvegarder sur"
 
 msgid "power_off_desc"
 msgstr "Éteindre l'ordinateur"
@@ -64,7 +64,7 @@ msgid "get_help"
 msgstr "Obtenir de l'aide"
 
 msgid "get_help_desc"
-msgstr "information et contact"
+msgstr "Informations et contact"
 
 msgid "help_about"
 msgstr "À propos de"
@@ -79,7 +79,7 @@ msgid "application"
 msgstr "Applications"
 
 msgid "web_app"
-msgstr ""
+msgstr "Applications en ligne"
 
 msgid "web_browser"
 msgstr "Navigateur Web"
@@ -109,7 +109,7 @@ msgid "setting_language"
 msgstr "Langue"
 
 msgid "setting_language_desc"
-msgstr "choisir la langue et la disposition du clavier"
+msgstr "Choisir la langue et la disposition du clavier"
 
 msgid "setting_time_date"
 msgstr "Date et heure"
@@ -121,7 +121,7 @@ msgid "setting_backup"
 msgstr "Sauvegarde"
 
 msgid "setting_backup_desc"
-msgstr "Sauver vos données et modifications"
+msgstr "Sauvegarder vos données et modifications"
 
 msgid "setting_system"
 msgstr "Système"
@@ -130,10 +130,10 @@ msgid "setting_wifi"
 msgstr "WiFi"
 
 msgid "setting_wifi_desc"
-msgstr "configurer la connexion sans fil"
+msgstr "Configurer la connexion sans fil"
 
 msgid "setting_wifi_title"
-msgstr "configurer le réseau sans fil"
+msgstr "Configurer le réseau sans fil"
 
 msgid "setting_wifi_device"
 msgstr "Interface réseau: "
@@ -154,13 +154,13 @@ msgid "setting_ethernet"
 msgstr "Connexion filaire"
 
 msgid "setting_ethernet_desc"
-msgstr "configurer la connexion filaire"
+msgstr "Configurer la connexion filaire"
 
 msgid "setting_opt"
 msgstr "Opt-Get"
 
 msgid "setting_opt_desc"
-msgstr "obtenir plus d'applications"
+msgstr "Obtenir plus d'applications"
 
 msgid "setting_hardware"
 msgstr "Matériel"
@@ -169,25 +169,25 @@ msgid "setting_sound"
 msgstr "Son"
 
 msgid "setting_sound_desc"
-msgstr "ajuster les sons système"
+msgstr "Ajuster les sons système"
 
 msgid "setting_display"
 msgstr "Écran"
 
 msgid "setting_display_desc"
-msgstr "changer la résolution de l'écran"
+msgstr "Changer la résolution de l'écran"
 
 msgid "setting_driver"
 msgstr "Pilotes"
 
 msgid "setting_driver_desc"
-msgstr "informations et drivers des périphériques"
+msgstr "Informations et drivers des périphériques"
 
 msgid "setting_sysinfo"
-msgstr ""
+msgstr "Informations système"
 
 msgid "setting_sysinfo_desc"
-msgstr ""
+msgstr "Vérifier les informations système"
 
 msgid "back_to_setting"
 msgstr "Retour aux Paramètres"
