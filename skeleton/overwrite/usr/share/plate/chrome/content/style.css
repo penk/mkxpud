@@ -50,6 +50,7 @@ h2 {
 	-moz-user-focus: ignore;
 	-moz-user-input: disabled;
 	-moz-user-select: none;
+	-webkit-user-select: none;
 }
 
 #panel.maximized {
@@ -67,6 +68,7 @@ h2 {
 	background: #2E598D;
 	color: #FFFFFF;
 	-moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
 }
 
 #panel div table {
@@ -130,6 +132,7 @@ h2 {
 	padding-right: 20px;
 	padding-bottom: 10px;
 	-moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
 	overflow: auto;
 	z-index: 3;
 }
@@ -208,6 +211,7 @@ h2 {
 	background: #FFE7AE;
 	font-size: small;
 	-moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
 	border-spacing: 10px;
 }
 
@@ -218,6 +222,7 @@ h2 {
 .soft_background table {
 	width: auto;
 	-moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
 	background: 0;
 }
 
@@ -298,6 +303,7 @@ h2 {
 	padding: 20px;
 	z-index: 7;
 	-moz-border-radius: 15px;
+	-webkit-border-radius: 12px;
 }
 
 #close_button {
