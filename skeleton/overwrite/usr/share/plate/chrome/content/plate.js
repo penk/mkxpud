@@ -239,7 +239,6 @@ $('#page_curl_block').hide();
 
 function system(input) {
 
-	// FIXME: add Fast-CGI support for webkit-based browser
 	if ($.browser.firefox) {
 		netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
 		var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
@@ -248,6 +247,8 @@ function system(input) {
 		process.init(file);
 		var args = [input];
 		process.run(false, args, 1);
+	} else {
+		$.get('http://localhost/cgi-bin/jswrapper',input);
 	}
 }
 
