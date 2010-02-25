@@ -6,7 +6,9 @@ function initail_plate_ui() {
 	init_DBus();
 }
 
+if ($.browser.firefox) {
 var xpudPrefs = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch);
+}
 
 function check_enc(num) {
 	if (document.getElementById('wifi_connect')) {
@@ -81,6 +83,8 @@ function select_tab( this_tab ) {
 }
 
 function show_menu( input ) {
+
+if ($.browser.firefox) {
 	netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
 	var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
 	file.initWithPath("/usr/share/plate/chrome/content/template/" + input + ".html" );
@@ -101,15 +105,21 @@ function show_menu( input ) {
 	fstream.close();
 
 	var utf8Converter = Components.classes["@mozilla.org/intl/utf8converterservice;1"].getService(Components.interfaces.nsIUTF8ConverterService);
-    data = utf8Converter.convertURISpecToUTF8 (data, "UTF-8");
-    
+	data = utf8Converter.convertURISpecToUTF8 (data, "UTF-8");
+}
 	//document.getElementById('close_button').style.display = "none";
 	//document.getElementById('maximize_button').style.display = "none";
 	//document.getElementById('minimize_button').style.display = "none";
 	document.getElementById('top_task').style.display = "none";
 	document.getElementById('programs').className = '';
 	document.getElementById('menu').className = 'show';
-	document.getElementById('menu').innerHTML = data;
+
+	if ($.browser.firefox) {
+		document.getElementById('menu').innerHTML = data;
+	} else {
+		$("#menu").load("template/" + input + ".html");
+	}
+
 	unmaximize_program();
 	do_i18n();
 }
@@ -138,7 +148,11 @@ function show_program( input, webapp ) {
 			new_element.innerHTML = "<iframe src="+input+" width=100% height=100% />";
 		}
 		else {
+			if ($.browser.firefox) {
 			new_element.innerHTML = "<embed src=chrome://plate/content/utils/app.pud width=100% height=100% command="+input+" />";
+			} else {
+			new_element.innerHTML = "<embed src=http://localhost/usr/share/plate/chrome/content/utils/app.pud width=100% height=100% command="+input+" />";
+			}
 		}
 		document.getElementById('programs').appendChild(new_element);
 	}
@@ -224,40 +238,17 @@ $('#page_curl_block').hide();
 }
 
 function system(input) {
-	netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
-	var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
-	file.initWithPath("/usr/local/bin/jswrapper");
-	var process = Components.classes["@mozilla.org/process/util;1"].createInstance(Components.interfaces.nsIProcess);
-	process.init(file);
-	var args = [input];
-	process.run(false, args, 1);
-}
 
-function update() {
-
-	sleep(50);
-
-	netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
-	var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
-	file.initWithPath("/tmp/jswrapper.log");
-
-	var data = "";
-	document.getElementById('info').innerHTML = "";
-	var fstream = Components.classes["@mozilla.org/network/file-input-stream;1"].createInstance(Components.interfaces.nsIFileInputStream);
-	var sstream = Components.classes["@mozilla.org/scriptableinputstream;1"].createInstance(Components.interfaces.nsIScriptableInputStream);
-	fstream.init(file, -1, 0, 0);
-	sstream.init(fstream); 
-
-	var str = sstream.read(4096);
-	while (str.length > 0) {
-		data += str;
-		str = sstream.read(4096);
+	// FIXME: add Fast-CGI support for webkit-based browser
+	if ($.browser.firefox) {
+		netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
+		var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
+		file.initWithPath("/usr/local/bin/jswrapper");
+		var process = Components.classes["@mozilla.org/process/util;1"].createInstance(Components.interfaces.nsIProcess);
+		process.init(file);
+		var args = [input];
+		process.run(false, args, 1);
 	}
-
-	sstream.close();
-	fstream.close();
-
-	document.getElementById('info').innerHTML = data;
 }
 
 function sleep(milliseconds) {
@@ -268,6 +259,8 @@ function sleep(milliseconds) {
 }
 
 function update_div(id, path) {
+
+	if ($.browser.firefox) {
 	netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
 	var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
 	file.initWithPath(path);
@@ -288,12 +281,17 @@ function update_div(id, path) {
 	fstream.close();
 
 	var utf8Converter = Components.classes["@mozilla.org/intl/utf8converterservice;1"].getService(Components.interfaces.nsIUTF8ConverterService);
-    data = utf8Converter.convertURISpecToUTF8 (data, "UTF-8");
+	data = utf8Converter.convertURISpecToUTF8 (data, "UTF-8");
 
 	document.getElementById(id).innerHTML = data;
+	} else {
+		$('#'+id).load(path);
+	}
 }
 
 function update_div_ife(id, path) {
+
+	if ($.browser.firefox) {
 	netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
 	var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
 	file.initWithPath(path);
@@ -321,6 +319,10 @@ function update_div_ife(id, path) {
 	fstream.close();
 
 	document.getElementById(id).innerHTML = data;
+	} else {
+		// FIXME: add timeout
+		$('#'+id).load(path);
+	}
 }
 
 function update_sysinfo() {
