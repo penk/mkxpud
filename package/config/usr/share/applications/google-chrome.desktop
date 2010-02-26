@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=Google Chrome Web Browser
+Comment=Browse the World Wide Web
+GenericName=web_browser
+Exec=google-chrome %u
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=google-chrome
+Categories=Application;Network;
+StartupWMClass=Firefox
+StartupNotify=true
