@@ -395,10 +395,13 @@ document.getElementById('popup').style.top=h+'px';
 }
 
 function get_pref(input) {
-	var output; 
-	$.get("http://localhost/cgi-bin/jswrapper?cat /usr/share/plate/defaults/preferences/prefs.js | grep " + input + " | cut -d\" -f 4 ", 
-		function(data){ output = data; });
+	var output = $.ajax({type: "GET", url: "http://localhost/cgi-bin/jswrapper?cat%20/usr/share/plate/defaults/preferences/prefs.js%20|%20grep%20" + input + "%20|%20cut%20-d\\%22%20-f%204", async: false }).responseText;
+	output = output.replace(/\n/g, "");
 	return output;
+}
+
+function set_pref(key, value) {
+$.ajax({type: "GET", url: 'http://localhost/cgi-bin/jswrapper?perl%20-pi%20-e%20%27s/"'+key+'",%20"(.*)"/"'+key+'",%20"'+value+'"/%27%20/usr/share/plate/defaults/preferences/prefs.js', async: false });
 }
 
 function do_i18n() {
@@ -421,19 +424,23 @@ function do_i18n() {
 }    
 
 function save_preferences() {
+	if ($.browser.mozilla === true) {
 	var prefService = Components.classes["@mozilla.org/preferences-service;1"]
                                .getService(Components.interfaces.nsIPrefService);
 	prefService.savePrefFile(null);
+	}
 }
 
 function setSelectedOpts(PrefString, ElementName) {
+	if ($.browser.mozilla === true) {
 	var selVal = xpudPrefs.getCharPref(PrefString);
 	var inputs = document.getElementsByName(ElementName); 
 	for(var i=0; i < inputs[0].options.length; i++) {      
         if(inputs[0].options[i].value == selVal ) {
                 inputs[0].options[i].selected = true;
           }      
-     }
+     	}
+	}
 }
 
 var top_task_timer;
@@ -511,6 +518,7 @@ function plate_switch_mode() {
 }
 
 function prefRead(pref) {
+	if ($.browser.mozilla === true) {
 	netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
 	var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
 	file.initWithPath('~/.config/plate/'+pref);
@@ -534,9 +542,11 @@ function prefRead(pref) {
 		data = utf8Converter.convertURISpecToUTF8 (data, "UTF-8");
 	}
 	return data;
+	}
 }
 
 function prefWrite(data, pref) {
+	if ($.browser.mozilla === true) {
 	var saveDir = '~/.config/plate';
 	var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
 	file.initWithPath(saveDir);
@@ -559,6 +569,7 @@ function prefWrite(data, pref) {
 	converter.init(foStream, "UTF-8", 0, 0);
 	converter.writeString(data);
 	converter.close(); // this closes foStream
+	}
 }
 
 function setBackupLocation() {
@@ -581,6 +592,7 @@ function setKmapSettings(string) {
 
 
 function loadBackupSettings() {
+	if ($.browser.mozilla === true) {
 	var restoredFile = '/tmp/restored';
 	netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
 	var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
@@ -609,6 +621,7 @@ function loadBackupSettings() {
         	window.parent.location.reload();        
         }
         system("notify-send 'Restore complete!' -i /usr/share/plate/chrome/content/image/kthememgr.png -u critical");
+	}
 	}
 }	
 
