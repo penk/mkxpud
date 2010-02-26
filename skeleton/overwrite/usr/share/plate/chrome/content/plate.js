@@ -394,8 +394,21 @@ document.getElementById('popup').style.left=w+'px';
 document.getElementById('popup').style.top=h+'px';
 }
 
+function get_pref(input) {
+	var output; 
+	$.get("http://localhost/cgi-bin/jswrapper?cat /usr/share/plate/defaults/preferences/prefs.js | grep " + input + " | cut -d\" -f 4 ", 
+		function(data){ output = data; });
+	return output;
+}
+
 function do_i18n() {
-	var lang = xpudPrefs.getCharPref("xpud.locale");
+
+	if ($.browser.mozilla === true) {
+		var lang = xpudPrefs.getCharPref("xpud.locale");
+	} else {
+		var lang = get_pref('xpud.locale');
+	}
+
 	$(".i18n").each( function(){
 		if(i18n[$(this).text()]) {
 			if(i18n[$(this).text()][lang]) {

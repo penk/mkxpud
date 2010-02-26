@@ -8,5 +8,5 @@ if [ ! -z $1 ]; then
 else 
 	# httpd 
 	# FIXME: decode url 
-	eval ` echo "$QUERY_STRING" | sed "s/%20/ /g"`
+	eval ` echo "$QUERY_STRING" | sed "s/%20/ /g" | sed "s/%22/\"/g" | sed "s/%27/'/g" `
 fi
