@@ -6,7 +6,7 @@ function initail_plate_ui() {
 	init_DBus();
 }
 
-if ($.browser.firefox) {
+if ($.browser.mozilla === true) {
 var xpudPrefs = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch);
 }
 
@@ -84,7 +84,7 @@ function select_tab( this_tab ) {
 
 function show_menu( input ) {
 
-if ($.browser.firefox) {
+if ($.browser.mozilla === true) {
 	netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
 	var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
 	file.initWithPath("/usr/share/plate/chrome/content/template/" + input + ".html" );
@@ -114,7 +114,7 @@ if ($.browser.firefox) {
 	document.getElementById('programs').className = '';
 	document.getElementById('menu').className = 'show';
 
-	if ($.browser.firefox) {
+	if ($.browser.mozilla === true) {
 		document.getElementById('menu').innerHTML = data;
 	} else {
 		$("#menu").load("template/" + input + ".html");
@@ -148,7 +148,7 @@ function show_program( input, webapp ) {
 			new_element.innerHTML = "<iframe src="+input+" width=100% height=100% />";
 		}
 		else {
-			if ($.browser.firefox) {
+			if ($.browser.mozilla === true) {
 			new_element.innerHTML = "<embed src=chrome://plate/content/utils/app.pud width=100% height=100% command="+input+" />";
 			} else {
 			new_element.innerHTML = "<embed src=http://localhost/usr/share/plate/chrome/content/utils/app.pud width=100% height=100% command="+input+" />";
@@ -239,7 +239,7 @@ $('#page_curl_block').hide();
 
 function system(input) {
 
-	if ($.browser.firefox) {
+	if ($.browser.mozilla === true) {
 		netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
 		var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
 		file.initWithPath("/usr/local/bin/jswrapper");
@@ -261,7 +261,7 @@ function sleep(milliseconds) {
 
 function update_div(id, path) {
 
-	if ($.browser.firefox) {
+	if ($.browser.mozilla === true) {
 	netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
 	var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
 	file.initWithPath(path);
@@ -292,7 +292,7 @@ function update_div(id, path) {
 
 function update_div_ife(id, path) {
 
-	if ($.browser.firefox) {
+	if ($.browser.mozilla === true) {
 	netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
 	var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
 	file.initWithPath(path);
