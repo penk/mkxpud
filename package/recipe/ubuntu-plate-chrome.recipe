@@ -65,7 +65,7 @@ unzip skeleton/archive/chrome-linux.zip -d $MKXPUD_TARGET/usr/share/;
 
 /etc/gtk-2.0
 
-/usr/share/applications/firefox.desktop
+/usr/share/applications/google-chrome.desktop
 /usr/share/applications/xterm.desktop
 /usr/share/applications/gcalendar.desktop
 /usr/share/applications/facebook.desktop
