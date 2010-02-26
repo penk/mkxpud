@@ -117,11 +117,28 @@ if ($.browser.mozilla === true) {
 	if ($.browser.mozilla === true) {
 		document.getElementById('menu').innerHTML = data;
 	} else {
-		$("#menu").load("template/" + input + ".html");
+		$("#menu").load("template/" + input + ".html", function() {
+		  do_i18n();
+		});
 	}
 
 	unmaximize_program();
 	do_i18n();
+}
+
+function show_setting(input) {
+
+	if ($.browser.mozilla === true) {
+		show_menu("wrapper"); 
+		$('#wrapper').attr('src', "chrome://plate/content/template/" + input + ".html");
+	} else {
+		$("#menu").load("template/"+input+".html");
+		$('#menu').load('template/wrapper.html', function() {
+		  $('#wrapper').attr('src', "http://localhost/usr/share/plate/chrome/content/template/" + input + ".html");
+		  do_i18n();
+		});
+	}
+
 }
 
 function resume_notify( this_obj, program_name ) {
@@ -286,7 +303,9 @@ function update_div(id, path) {
 
 	document.getElementById(id).innerHTML = data;
 	} else {
-		$('#'+id).load(path);
+		$('#'+id).load(path, function() {
+			  do_i18n();
+		});
 	}
 }
 
@@ -322,7 +341,9 @@ function update_div_ife(id, path) {
 	document.getElementById(id).innerHTML = data;
 	} else {
 		// FIXME: add timeout
-		$('#'+id).load(path);
+		$('#'+id).load(path, function() {
+			  do_i18n();
+		});
 	}
 }
 
