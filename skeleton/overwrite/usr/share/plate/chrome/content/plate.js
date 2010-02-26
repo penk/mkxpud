@@ -395,23 +395,27 @@ document.getElementById('popup').style.top=h+'px';
 }
 
 function get_pref(input) {
-	var output = $.ajax({type: "GET", url: "http://localhost/cgi-bin/jswrapper?cat%20/usr/share/plate/defaults/preferences/prefs.js%20|%20grep%20" + input + "%20|%20cut%20-d\\%22%20-f%204", async: false }).responseText;
+	if ($.browser.mozilla === true) {
+		var output = xpudPrefs.getCharPref("xpud.locale");
+	} else {
+		var output = $.ajax({type: "GET", url: "http://localhost/cgi-bin/jswrapper?cat%20/usr/share/plate/defaults/preferences/prefs.js%20|%20grep%20" + input + "%20|%20cut%20-d\\%22%20-f%204", async: false }).responseText;
+	}
 	output = output.replace(/\n/g, "");
 	return output;
 }
 
 function set_pref(key, value) {
-$.ajax({type: "GET", url: 'http://localhost/cgi-bin/jswrapper?perl%20-pi%20-e%20%27s/"'+key+'",%20"(.*)"/"'+key+'",%20"'+value+'"/%27%20/usr/share/plate/defaults/preferences/prefs.js', async: false });
+	if ($.browser.mozilla === true) {
+		xpudPrefs.setCharPref(key, value);
+	} else {
+		$.ajax({type: "GET", url: 'http://localhost/cgi-bin/jswrapper?perl%20-pi%20-e%20%27s/"'+key+'",%20"(.*)"/"'+key+'",%20"'+value+'"/%27%20/usr/share/plate/defaults/preferences/prefs.js', async: false });
+	}
+
 }
 
 function do_i18n() {
 
-	if ($.browser.mozilla === true) {
-		var lang = xpudPrefs.getCharPref("xpud.locale");
-	} else {
-		var lang = get_pref('xpud.locale');
-	}
-
+	var lang = get_pref('xpud.locale');
 	$(".i18n").each( function(){
 		if(i18n[$(this).text()]) {
 			if(i18n[$(this).text()][lang]) {

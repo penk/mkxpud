@@ -11,11 +11,7 @@
 <script type="text/javascript">
 
 function set_locale() {
-	if ($.browser.mozilla === true) {
-	xpudPrefs.setCharPref("xpud.locale", $('#uilang').val());
-	} else {
 	set_pref("xpud.locale", $('#uilang').val());
-	}
 	save_preferences();
 	setLangSettings($('#uilang').val());
 	window.parent.location.reload();
@@ -23,11 +19,7 @@ function set_locale() {
 
 function set_keymap() {
 	system('setxkbmap -layout '+$('#kmap').val());
-	if ($.browser.mozilla === true) {
-	xpudPrefs.setCharPref("xpud.keymap", $('#kmap').val());
-	} else {
 	set_pref("xpud.keymap", $('#kmap').val());
-	}
 	save_preferences();
 	setKmapSettings($('#kmap').val());
 }
