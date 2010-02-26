@@ -94,7 +94,6 @@ fi;
 /bin/mount
 #/opt/apps/usr/bin/mplayer
 #/usr/share/firefox/firefox-bin
-/usr/share/chrome-linux/chrome
 
 [remove]
 # files to be removed after rootfs extraction

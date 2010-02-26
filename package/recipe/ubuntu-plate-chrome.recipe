@@ -43,6 +43,10 @@ unzip skeleton/archive/chrome-linux.zip -d $MKXPUD_TARGET/usr/share/;
 /usr/lib/gtk-2.0/2.10.0/loader-files.d/libgtk2.0-0.loaders
 /usr/lib/gtk-2.0/2.10.0/loader-files.d/librsvg2-common.loaders
 
+/usr/lib/nss
+/usr/lib/libsqlite3.so.0
+/usr/lib/libsqlite3.so.0.8.6
+
 [config]
 
 /etc/httpd.conf
@@ -110,3 +114,7 @@ unzip skeleton/archive/chrome-linux.zip -d $MKXPUD_TARGET/usr/share/;
 /usr/share/plate
 
 #/opt/packages
+
+[so_hook]
+
+/usr/share/chrome-linux/chrome
