@@ -9,7 +9,17 @@
 #. /etc/X11/Xsession
 
 export GTK_IM_MODULE="scim"
+
+if [ -e /usr/bin/google-chrome ]; then 
+
+httpd -c /etc/httpd.conf -h / &
+/usr/bin/google-chrome --kiosk http://localhost/usr/share/plate/chrome/content &
+
+else 
+
 /usr/bin/firefox -app /usr/share/plate/application.ini &
+
+fi
 
 /usr/sbin/acpid &
 /usr/bin/openbox

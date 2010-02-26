@@ -55,7 +55,8 @@ ubuntu-sound
 ubuntu-network
 ubuntu-wireless-tools
 ubuntu-artwork
-ubuntu-plate-core
+# change this to ubuntu-plate-chrome if you want chrome
+ubuntu-plate-firefox
 ubuntu-pcmanfm
 ubuntu-dbus
 #ubuntu-apt
@@ -93,6 +94,7 @@ fi;
 /bin/mount
 #/opt/apps/usr/bin/mplayer
 #/usr/share/firefox/firefox-bin
+/usr/share/chrome-linux/chrome
 
 [remove]
 # files to be removed after rootfs extraction

@@ -369,7 +369,9 @@ function post {
 	# pack binaries with upx 
 	if [ -e /usr/bin/upx ]; then 
 		for o in `./tools/parser $MKXPUD_CONFIG obfuscate`; do
+			if [ -e $MKXPUD_TARGET/$o ]; then
 			upx $MKXPUD_TARGET/$o
+			fi
 		done
 	fi
 
