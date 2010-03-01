@@ -57,6 +57,7 @@ ubuntu-wireless-tools
 ubuntu-artwork
 # change this to ubuntu-plate-chrome if you want chrome
 ubuntu-plate-firefox
+#ubuntu-plate-chrome
 ubuntu-pcmanfm
 ubuntu-dbus
 #ubuntu-apt
