@@ -13,16 +13,16 @@ msgid "home"
 msgstr "Start"
 
 msgid "menu"
-msgstr "Programme"
+msgstr "Menü"
 
 msgid "file"
 msgstr "Dateien"
 
 msgid "setting"
-msgstr "Einstellung"
+msgstr "Einstellungen"
 
 msgid "welcome"
-msgstr "Willkommen bei xPUD"
+msgstr "Willkommen zu xPUD"
 
 msgid "sys_info"
 msgstr "Systeminformationen"
@@ -31,7 +31,7 @@ msgid "want_to"
 msgstr "Sie können:"
 
 msgid "quick_action"
-msgstr ""
+msgstr "Nächste Schritte"
 
 msgid "power_off"
 msgstr "Ausschalten"
@@ -49,7 +49,7 @@ msgid "cancel_shutdown"
 msgstr "Abbrechen"
 
 msgid "save_backup_to"
-msgstr ""
+msgstr "Einstellungen speichern unter"
 
 msgid "power_off_desc"
 msgstr "Dieses Gerät ausschalten"
@@ -79,10 +79,10 @@ msgid "application"
 msgstr "Programme"
 
 msgid "web_app"
-msgstr ""
+msgstr "Webanwendungen"
 
 msgid "web_browser"
-msgstr "Web Browser"
+msgstr "Internet Browser"
 
 msgid "bt_client"
 msgstr "BitTorrent Client"
@@ -109,13 +109,13 @@ msgid "setting_language"
 msgstr "Sprache"
 
 msgid "setting_language_desc"
-msgstr "sprache und tastenbelegung"
+msgstr "Sprache und Tastenbelegung"
 
 msgid "setting_time_date"
 msgstr "Datum und Uhrzeit"
 
 msgid "setting_time_date_desc"
-msgstr "Systemuhr einstellen"
+msgstr "Datum und Uhrzeit stellen"
 
 msgid "setting_backup"
 msgstr "Backup"
@@ -127,25 +127,25 @@ msgid "setting_system"
 msgstr "System"
 
 msgid "setting_wifi"
-msgstr "WiFi"
+msgstr "wLAN-Einstellungen"
 
 msgid "setting_wifi_desc"
-msgstr "drahtloses netzwerk einrichten"
+msgstr "Drahtloses Netzwerk einrichten"
 
 msgid "setting_wifi_title"
 msgstr "Drahtloses Netzwerk Setup"
 
 msgid "setting_wifi_device"
-msgstr "WiFi Netzwerk Gerät: "
+msgstr "wLAN-Gerät: "
 
 msgid "setting_wifi_choose"
-msgstr "Wäle ein Netzwerk"
+msgstr "Wählen Sie ein Netzwerk"
 
 msgid "setting_wifi_refresh"
 msgstr "Aktualisieren"
 
 msgid "setting_wifi_password"
-msgstr "Passwort:"
+msgstr "Passwort: "
 
 msgid "setting_wifi_connect"
 msgstr "Verbinden"
@@ -154,13 +154,13 @@ msgid "setting_ethernet"
 msgstr "Ethernet"
 
 msgid "setting_ethernet_desc"
-msgstr "kabelgebundenes netzwerk einrichten"
+msgstr "Kabelgebundenes Netzwerk einrichten"
 
 msgid "setting_opt"
 msgstr "Opt-Get"
 
 msgid "setting_opt_desc"
-msgstr "weitere programme installieren"
+msgstr "Weitere Programme installieren"
 
 msgid "setting_hardware"
 msgstr "Hardware"
@@ -181,14 +181,13 @@ msgid "setting_driver"
 msgstr "Treiber"
 
 msgid "setting_driver_desc"
-msgstr "geräteinformationen und treiber"
+msgstr "Geräteinformationen und Treiber"
 
 msgid "setting_sysinfo"
-msgstr ""
+msgstr "Systeminformation"
 
 msgid "setting_sysinfo_desc"
-msgstr ""
+msgstr "Übersicht über Gesamtsystem"
 
 msgid "back_to_setting"
 msgstr "Zurück zu den Einstellungen"
-
