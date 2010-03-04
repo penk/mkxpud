@@ -19,7 +19,7 @@ msgid "file"
 msgstr "Fichiers"
 
 msgid "setting"
-msgstr "Préférences"
+msgstr "Paramètres"
 
 msgid "welcome"
 msgstr "Bienvenue sur xPUD"
