@@ -22,16 +22,16 @@ msgid "setting"
 msgstr "Nastavení"
 
 msgid "welcome"
-msgstr "Vítej v xPUD"
+msgstr "Vítejte v xPUD"
 
 msgid "sys_info"
-msgstr "Systémové Informace"
+msgstr "Informace o systému"
 
 msgid "want_to"
-msgstr "Co chceš udělat:"
+msgstr "Co chcete udělat:"
 
 msgid "quick_action"
-msgstr ""
+msgstr "Rychlá akce"
 
 msgid "power_off"
 msgstr "Vypnout"
@@ -49,43 +49,43 @@ msgid "cancel_shutdown"
 msgstr "Zrušit"
 
 msgid "save_backup_to"
-msgstr "Rychlá akce"
+msgstr "Uložit zálohu na"
 
 msgid "power_off_desc"
-msgstr "Vypnout počítač"
+msgstr "Vypnutí počítače"
 
 msgid "switch_mode"
-msgstr "Změnit systém"
+msgstr "Změnit OS"
 
 msgid "switch_mode_desc"
-msgstr "Spustit jiný operační sytém"
+msgstr "Spuštění jiného operačního systému"
 
 msgid "get_help"
 msgstr "Nápověda"
 
 msgid "get_help_desc"
-msgstr "a kontaktní informace"
+msgstr "Získání nápovědy"
 
 msgid "help_about"
-msgstr "O..."
+msgstr "O xPUD"
 
 msgid "help_info"
-msgstr "xPUD je rychle se rozvíjející projekt. <br /> Pro více informací bež na:"
+msgstr "xPUD je rychle se rozvíjející projekt. <br /> Pro více informací navštivte:"
 
 msgid "help_done"
 msgstr "OK"
 
 msgid "application"
-msgstr "Programy"
+msgstr "Aplikace"
 
 msgid "web_app"
-msgstr "Web aplikace"
+msgstr "Webové aplikace"
 
 msgid "web_browser"
 msgstr "Prohlížeč"
 
 msgid "bt_client"
-msgstr "BitTorrent klient"
+msgstr "Klient BitTorrentu"
 
 msgid "media_player"
 msgstr "Přehrávač médií"
@@ -109,19 +109,19 @@ msgid "setting_language"
 msgstr "Jazyk"
 
 msgid "setting_language_desc"
-msgstr "jazyk a rozložení klávesnice"
+msgstr "Nastavení jazyka a klávesnice"
 
 msgid "setting_time_date"
 msgstr "Datum a čas"
 
 msgid "setting_time_date_desc"
-msgstr "Změnit datum a čas"
+msgstr "Nastavení data a času"
 
 msgid "setting_backup"
-msgstr "Záloha nastavení"
+msgstr "Zálohování"
 
 msgid "setting_backup_desc"
-msgstr "Ulož data a nastavení"
+msgstr "Nastavení zálohování dat"
 
 msgid "setting_system"
 msgstr "Systém"
@@ -130,16 +130,16 @@ msgid "setting_wifi"
 msgstr "WiFi"
 
 msgid "setting_wifi_desc"
-msgstr "Nastav bezdrátové připojení k síti"
+msgstr "Nastavení bezdrátového připojení"
 
 msgid "setting_wifi_title"
-msgstr "Nastavení bezdrátové sítě"
+msgstr "Nastavení WiFi sítě"
 
 msgid "setting_wifi_device"
-msgstr "Síťové zařízení"
+msgstr "Nastavení WiFi zařízení"
 
 msgid "setting_wifi_choose"
-msgstr "Vyber síť"
+msgstr "Výběr sítě"
 
 msgid "setting_wifi_refresh"
 msgstr "Aktualizovat"
@@ -151,16 +151,16 @@ msgid "setting_wifi_connect"
 msgstr "Připojit"
 
 msgid "setting_ethernet"
-msgstr "Síť ethernet"
+msgstr "Ethernet"
 
 msgid "setting_ethernet_desc"
-msgstr "nastavení kabelové připojení"
+msgstr "Nastavení pevného připojení"
 
 msgid "setting_opt"
 msgstr "Opt-Get"
 
 msgid "setting_opt_desc"
-msgstr "získej více programů"
+msgstr "Získání dalších aplikací"
 
 msgid "setting_hardware"
 msgstr "Hardware"
@@ -175,20 +175,19 @@ msgid "setting_display"
 msgstr "Zobrazení"
 
 msgid "setting_display_desc"
-msgstr "Změna rozlišení obrazovky"
+msgstr "Nastavení rozlišení obrazovky"
 
 msgid "setting_driver"
 msgstr "Změna rozlišení obrazovky"
 
 msgid "setting_driver_desc"
-msgstr "Informace o zařízeních a ovladačích"
+msgstr "Nastavení ovladačů"
 
 msgid "setting_sysinfo"
 msgstr "Systémové informace"
 
 msgid "setting_sysinfo_desc"
-msgstr "zobraz systémové informace"
+msgstr "Zobrazení systémových informací"
 
 msgid "back_to_setting"
 msgstr "Zpět do nastavení"
-
