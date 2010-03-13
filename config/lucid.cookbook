@@ -1,0 +1,103 @@
+# mkxpud project config
+
+[config]
+# short project description
+MKXPUD_NAME="xPUD Ubuntu Lucid image"
+# you can skip the package manager handling by setting this to `skip'
+MKXPUD_PKGMGR="apt-get install -y"
+# set to `true' if you want to include host /dev nodes
+MKXPUD_HOST_DEV="false"
+
+# specified the Linux kernel version to be used
+MKXPUD_KERNEL="2.6.32.7"
+MKXPUD_KERNEL_IMAGE="deploy/vmlinuz-2.6.32.7"
+MKXPUD_MOD_PATH="/lib/modules/2.6.32.7"
+
+[module]
+# kernel modules to be included into rootfs
+ata_piix isofs
+sr_mod cdrom sg
+pppoe
+atl1 atl2 atl1e 
+tg3
+iwl3945 iwlagn
+ath ath5k ath9k
+sis190 sis900
+lib80211
+rtl8180 rtl8187 r8192_pci
+rt2860sta
+rt2400pci rt2500pci rt2500usb rt61pci rt73usb
+michael_mic b43legacy b43
+e1000e e1000 e100
+8139cp ne2k-pci pcnet32
+sky2
+usbserial hso nozomi sierra option
+uvcvideo
+acpi-cpufreq cpufreq_ondemand video button
+snd-intel8x0
+tulip
+wl lib80211_crypt_ccmp lib80211_crypt_tkip lib80211_crypt_wep
+# experiment: SATA/PATA hard drive support
+ahci pata_cmd64x pata_hpt37x pata_mpiix pata_pdc2027x pata_sis sata_mv sata_svw ata_piix pata_cs5520 pata_hpt3x3 pata_netcell pata_pdc202xx_old pata_sl82c105 sata_nv sata_sx4 pata_acpi pata_cs5530 pata_it8213 pata_ninja32 pata_qdi pata_triflex sata_promise sata_uli pata_ali pata_cs5535 pata_it821x pata_ns87410 pata_rz1000 pata_via sata_qstor sata_via pata_amd pata_cs5536 pata_jmicron pata_ns87415 pata_sch pata_winbond sata_sil24 sata_vsc pata_artop pata_efar pata_legacy pata_oldpiix pata_serverworks pdc_adma sata_sil pata_atiixp pata_hpt366 pata_marvell pata_sil680 sata_inic162x sata_sis
+# kernel modules required by Xorg
+i915 drm intel-agp agpgart i2c-algo-bit i2c-core i2c-i801
+ali-agp amd64-agp amd-k7-agp ati-agp efficeon-agp nvidia-agp sis-agp sworks-agp via-agp
+i810 i830 mga r128 radeon savage sis tdfx via
+
+[recipe]
+# packages and files to be included into rootfs
+initramfs
+lucid-core-utils
+lucid-x11
+#ubuntu-xvesa
+lucid-xorg
+ubuntu-sound
+ubuntu-network
+lucid-wireless-tools
+ubuntu-artwork
+# change this to ubuntu-plate-chrome if you want chrome
+ubuntu-plate-firefox
+#ubuntu-plate-chrome
+ubuntu-pcmanfm
+ubuntu-dbus
+#ubuntu-apt
+ubuntu-cjkfont
+
+[opt]
+ubuntu-media
+lucid-scim-chewing
+#ubuntu-apps
+#ubuntu-apps-net
+#ubuntu-apps-office
+#ubuntu-apps-utils
+
+[prepare]
+# commands executed before building
+# download kernel modules, unpack to build system
+#if [ ! -e /lib/modules/2.6.31.2 ]; then wget http://download.xpud.org/xpud-2.6.31.2-mod.tgz -P skeleton/archive/; tar xzf skeleton/archive/xpud-2.6.31.2-mod.tgz -C /;
+#fi;
+
+[action]
+#tar xzf kernel/module/wl-module.tar.gz -C $MKXPUD_TARGET/lib/modules/2.6.30.5/ ;
+#rm -rf $MKXPUD_TARGET/lib/udev/devices/*
+
+[overwrite]
+# files to be overwritten
+/etc/passwd
+/etc/group
+
+[obfuscate]
+# files to be compressed with `upx' or `shc'
+#/usr/local/bin/Xvesa
+/usr/bin/perl
+/bin/bash
+#/bin/busybox
+/bin/mount
+#/opt/apps/usr/bin/mplayer
+#/usr/share/firefox/firefox-bin
+
+[remove]
+# files to be removed after rootfs extraction
+
+[image]
+gz iso

@@ -84,7 +84,7 @@ function strip {
 		# action 
 		eval `./tools/parser package/recipe/$R.recipe action`
 
-		for S in binary data config overwrite; do
+		for S in binary data config alternative overwrite; do
 		
 			for A in `./tools/parser package/recipe/$R.recipe $S`; do
 	
@@ -115,8 +115,11 @@ function strip {
 					;;
 				alternative) 
 						## package/alternative/$MKXPUD_CODENAME
+
+						if [ -e package/alternative/$MKXPUD_CODENAME ]; then
 						[ -d $MKXPUD_TARGET/`dirname $A` ] || mkdir -p $MKXPUD_TARGET/`dirname $A` 
 						cp -rfpL --remove-destination package/alternative/$MKXPUD_CODENAME/$A $MKXPUD_TARGET/$A
+						fi
 					;;
 				overwrite) 
 						## skeleton/overwrite/
@@ -156,7 +159,7 @@ function init {
 		# action 
 		eval `./tools/parser package/recipe/$R.recipe action`
 
-		for S in binary data config overwrite; do
+		for S in binary data config alternative overwrite; do
 		
 			for A in `./tools/parser package/recipe/$R.recipe $S`; do
 	
@@ -187,8 +190,12 @@ function init {
 					;;
 				alternative) 
 						## package/alternative/$MKXPUD_CODENAME
+
+						if [ -e package/alternative/$MKXPUD_CODENAME ]; then 
 						[ -d $COPY_DESTINATION/`dirname $A` ] || mkdir -p $COPY_DESTINATION/`dirname $A` 
 						cp -rfpL --remove-destination package/alternative/$MKXPUD_CODENAME/$A $COPY_DESTINATION/$A
+						fi
+						
 					;;
 				overwrite) 
 						## skeleton/overwrite/
