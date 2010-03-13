@@ -74,8 +74,8 @@ lucid-scim-chewing
 [prepare]
 # commands executed before building
 # download kernel modules, unpack to build system
-#if [ ! -e /lib/modules/2.6.31.2 ]; then wget http://download.xpud.org/xpud-2.6.31.2-mod.tgz -P skeleton/archive/; tar xzf skeleton/archive/xpud-2.6.31.2-mod.tgz -C /;
-#fi;
+if [ ! -e /lib/modules/2.6.32.7 ]; then wget http://download.xpud.org/xpud-2.6.32.7-mod.tgz -P skeleton/archive/; tar xzf skeleton/archive/xpud-2.6.32.7-mod.tgz -C /;
+fi;
 
 [action]
 #tar xzf kernel/module/wl-module.tar.gz -C $MKXPUD_TARGET/lib/modules/2.6.30.5/ ;
