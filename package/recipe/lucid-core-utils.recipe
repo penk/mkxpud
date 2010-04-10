@@ -98,26 +98,7 @@ findutils
 /usr/lib/pango
 /usr/lib/grub
 
-## FIXME: /lib/udev
-/lib/udev/alsa-utils
-#/lib/udev/modem-probe
-#/lib/udev/vol_id
-/lib/udev/write_cd_rules
-/lib/udev/modem-modeswitch
-/lib/udev/cdrom_id
-/lib/udev/edd_id
-/lib/udev/create_floppy_devices
-/lib/udev/rules.d
-/lib/udev/scsi_id
-/lib/udev/collect
-/lib/udev/usb_id
-/lib/udev/write_net_rules
-/lib/udev/path_id
-/lib/udev/fstab_import
-/lib/udev/rule_generator.functions
-/lib/udev/ata_id
-#/lib/udev/usbdev_id
-#/lib/udev/firmware.sh
+/lib/udev
 
 /etc/udev
 

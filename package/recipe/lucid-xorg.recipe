@@ -23,7 +23,6 @@ mkdir $MKXPUD_TARGET/var/lib/xkb;
 /usr/bin/xinit
 /usr/bin/xauth
 /usr/bin/mcookie
-#/usr/bin/startx
 
 /usr/bin/cpp
 
@@ -56,16 +55,13 @@ mkdir $MKXPUD_TARGET/var/lib/xkb;
 /lib/libdrm_nouveau.so.1
 /lib/libdrm_nouveau.so.1.0.0
 
+/usr/lib/X11/xorg.conf.d
+
 [config]
 
-#/etc/X11/xorg.conf
 /etc/X11/xinit/xinitrc
 /etc/X11/xinit/xserverrc
 /usr/lib/xorg/modules/drivers/vboxvideo_drv.so
 
 [overwrite]
 /usr/bin/startx
-
-[alternative]
-
-/etc/X11/xorg.conf
