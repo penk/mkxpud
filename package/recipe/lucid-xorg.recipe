@@ -23,7 +23,7 @@ mkdir $MKXPUD_TARGET/var/lib/xkb;
 /usr/bin/xinit
 /usr/bin/xauth
 /usr/bin/mcookie
-/usr/bin/startx
+#/usr/bin/startx
 
 /usr/bin/cpp
 
@@ -64,6 +64,7 @@ mkdir $MKXPUD_TARGET/var/lib/xkb;
 /usr/lib/xorg/modules/drivers/vboxvideo_drv.so
 
 [overwrite]
+/usr/bin/startx
 
 [alternative]
 
