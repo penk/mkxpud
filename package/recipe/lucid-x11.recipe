@@ -76,7 +76,7 @@ locale-gen en_US.UTF-8;
 /usr/lib/libgconf-2.so.4
 /usr/lib/libgconf-2.so.4.1.5
 /usr/lib/libgthread-2.0.so.0
-/usr/lib/libgthread-2.0.so.0.2305.0
+/usr/lib/libgthread-2.0.so.0.2400.0
 #/usr/lib/libORBit-2.so
 /usr/lib/libORBit-2.so.0
 /usr/lib/libORBit-2.so.0.1.0
@@ -86,7 +86,7 @@ locale-gen en_US.UTF-8;
 /usr/lib/libXxf86misc.so.1.1.0
 
 /usr/lib/libwnck-1.so.22
-/usr/lib/libwnck-1.so.22.3.24
+/usr/lib/libwnck-1.so.22.3.26
 
 /usr/share/zenity/zenity.ui
 

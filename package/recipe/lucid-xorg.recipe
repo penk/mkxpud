@@ -53,7 +53,8 @@ mkdir $MKXPUD_TARGET/var/lib/xkb;
 /lib/libdrm_intel.so.1
 /lib/libdrm_intel.so.1.0.0
 
-/usr/lib/xorg/modules/drivers
+/lib/libdrm_nouveau.so.1
+/lib/libdrm_nouveau.so.1.0.0
 
 [config]
 
