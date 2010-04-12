@@ -19,11 +19,10 @@ linux-firmware
 /sbin/wpa_action
 /sbin/wpa_cli
 /sbin/wpa_supplicant
-
 /usr/bin/wpa_passphrase
 
 [data]
-
+# FIXME: without theese libs (from libc6 package) udevd gives errors, maybe they should be moved to core recipe?
 /lib/libnss_dns.so.2
 /lib/libnss_dns-2.11.1.so
 /lib/libnss_files.so.2

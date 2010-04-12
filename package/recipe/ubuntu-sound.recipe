@@ -13,10 +13,6 @@ alsa-utils
 /usr/bin/aplay
 
 [data]
-
-## FIXME
-#/usr/lib/libaudio.so.2
-
 /usr/share/alsa
 /usr/share/alsa-base
 /usr/lib/alsa-lib

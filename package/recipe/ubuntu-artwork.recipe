@@ -8,6 +8,7 @@ artwork
 [package]
 human-theme
 human-icon-theme
+gnome-icon-theme
 gtk2-engines
 gtk2-engines-pixbuf
 
@@ -47,5 +48,4 @@ sudo gtk-update-icon-cache -f /usr/share/icons/Human
 
 [overwrite]
 
-# /usr/share/icons/DMZ-White/cursors/
 /usr/share/icons/Human/cursors

@@ -5,6 +5,7 @@ plate-chrome-core
 
 [package]
 #mozplugger
+unzip
 
 [action]
 
@@ -26,25 +27,8 @@ unzip skeleton/archive/chrome-linux.zip -d $MKXPUD_TARGET/usr/share/;
 
 /usr/lib/mozilla/plugins/mozplugger.so
 
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-ani.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-xbm.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-pcx.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-jpeg.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-ras.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-bmp.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-pnm.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-xpm.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-ico.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-wbmp.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-icns.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-tga.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-gif.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-jasper.so
-/usr/lib/gtk-2.0/2.10.0/loaders/svg_loader.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-tiff.so
-/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-png.so
-/usr/lib/gtk-2.0/2.10.0/loader-files.d/libgtk2.0-0.loaders
-/usr/lib/gtk-2.0/2.10.0/loader-files.d/librsvg2-common.loaders
+/usr/lib/gtk-2.0/2.10.0/loaders/
+/usr/lib/gtk-2.0/2.10.0/loader-files.d/
 
 /usr/lib/nss
 /usr/lib/libsqlite3.so.0
@@ -110,16 +94,7 @@ unzip skeleton/archive/chrome-linux.zip -d $MKXPUD_TARGET/usr/share/;
 
 /tmp/sysinfo
 
-# /usr/sbin/bootchart-lite
-
 ## FIXME rename
-#/usr/share/firefox/plugins/mozplugger.so
 /usr/local/bin/post-boot.sh
 /usr/local/bin/jswrapper
 /usr/share/plate
-
-#/opt/packages
-
-[so_hook]
-
-/usr/share/chrome-linux/chrome

@@ -75,10 +75,43 @@ function install {
 	fi
 
 }
+# copy files from recipe section to working fs
+# copyfiles (section_name) (destination) (file)
+function copyfiles {
+	case $1 in
+		binary)
+			## host binaries
+			[ -d $2/`dirname $3` ] || mkdir -p $2/`dirname $3`
+			cp -rfpl --remove-destination $3 $2/$3
+		;;
+		data)
+			## host data files
+			[ -d $2/`dirname $3` ] || mkdir -p $2/`dirname $3`
+			cp -rfpl --remove-destination $3 $2/$3
+		;;
+		config)
+			## package/config/*
+			[ -d $2/`dirname $3` ] || mkdir -p $2/`dirname $3`
+			cp -rfp --remove-destination package/config/$3 $2/$3
+		;;
+		alternative)
+			## package/alternative/$MKXPUD_CODENAME
+			if [ -e package/alternative/$MKXPUD_CODENAME ]; then
+				[ -d $2/`dirname $3` ] || mkdir -p $2/`dirname $3`
+				cp -rfpL --remove-destination package/alternative/$MKXPUD_CODENAME/$3 $2/$3
+			fi
+		;;
+		overwrite)
+			## skeleton/overwrite/
+			[ -d $2/`dirname $3` ] || mkdir -p $2/`dirname $3`
+			cp -rfp skeleton/overwrite/$3 $2/$3
+		;;
+	esac
+}
 
 function strip {
 
-	echo "    Stripping rootfs..."
+	echo "    Copying files to rootfs..."
 	for R in `./tools/parser $MKXPUD_CONFIG recipe`; do 
 		
 		# action 
@@ -87,59 +120,7 @@ function strip {
 		for S in binary data config alternative overwrite; do
 		
 			for A in `./tools/parser package/recipe/$R.recipe $S`; do
-	
-			case $S in
-				binary) 
-						##  host
-						cp -rfpl --remove-destination $A $MKXPUD_TARGET/$A
-						## ldd-helper
-						for i in `./tools/ldd-helper $A`; do 
-						
-						if [ ! -e $MKXPUD_TARGET/usr/lib/`basename $i` ] && [ ! -e $MKXPUD_TARGET/lib/`basename $i` ]; then
-							if [ `dirname $i` == '/usr/lib' ]; then 
-							cp -rfpL --remove-destination $i $MKXPUD_TARGET/usr/lib ; 
-							else cp -rfpL --remove-destination $i $MKXPUD_TARGET/lib ; fi
-						fi
-						
-						done
-					;;
-				data) 
-						## host 
-						[ -d $MKXPUD_TARGET/`dirname $A` ] || mkdir -p $MKXPUD_TARGET/`dirname $A` 
-						cp -rfpl --remove-destination $A $MKXPUD_TARGET/$A
-					;;
-				config) 
-						## package/config/*
-						[ -d $MKXPUD_TARGET/`dirname $A` ] || mkdir -p $MKXPUD_TARGET/`dirname $A` 
-						cp -rfp --remove-destination package/config/$A $MKXPUD_TARGET/$A
-					;;
-				alternative) 
-						## package/alternative/$MKXPUD_CODENAME
-
-						if [ -e package/alternative/$MKXPUD_CODENAME ]; then
-						[ -d $MKXPUD_TARGET/`dirname $A` ] || mkdir -p $MKXPUD_TARGET/`dirname $A` 
-						cp -rfpL --remove-destination package/alternative/$MKXPUD_CODENAME/$A $MKXPUD_TARGET/$A
-						fi
-					;;
-				overwrite) 
-						## skeleton/overwrite/
-						
-						# check binary dependency if the overwrite file is an execute
-						if [ -x skeleton/overwrite/$A ] && [ ! -d skeleton/overwrite/$A ]; then
-						for i in `./tools/ldd-helper skeleton/overwrite/$A`; do 
-						if [ ! -e $MKXPUD_TARGET/usr/lib/`basename $i` ] && [ ! -e $MKXPUD_TARGET/lib/`basename $i` ]; then
-							if [ `dirname $i` == '/usr/lib' ]; then 
-							cp -rfpL --remove-destination $i $MKXPUD_TARGET/usr/lib ; 
-							else cp -rfpL --remove-destination $i $MKXPUD_TARGET/lib ; fi
-						fi
-						done
-						fi
-						
-						[ -d $MKXPUD_TARGET/`dirname $A` ] || mkdir -p $MKXPUD_TARGET/`dirname $A` 
-						cp -rfp skeleton/overwrite/$A $MKXPUD_TARGET/$A
-					;;
-			esac 
-			
+				copyfiles $S $MKXPUD_TARGET $A
 			done 
 		done 
 
@@ -154,78 +135,26 @@ function init {
 
 	echo "    Creating initramfs..."
 	
-		R="initramfs"
-		COPY_DESTINATION="working/$MKXPUD_CODENAME/initramfs"
-		# action 
-		eval `./tools/parser package/recipe/$R.recipe action`
+	R="initramfs"
+	COPY_DESTINATION="working/$MKXPUD_CODENAME/initramfs"
+	# action 
+	eval `./tools/parser package/recipe/$R.recipe action`
 
-		for S in binary data config alternative overwrite; do
+	for S in binary data config alternative overwrite; do
 		
-			for A in `./tools/parser package/recipe/$R.recipe $S`; do
-	
-			case $S in
-				binary) 
-						##  host
-						cp -rfpl --remove-destination $A $COPY_DESTINATION/$A
-						## ldd-helper
-						for i in `./tools/ldd-helper $A`; do 
-						
-						if [ ! -e $COPY_DESTINATION/usr/lib/`basename $i` ] && [ ! -e $COPY_DESTINATION/lib/`basename $i` ]; then
-							if [ `dirname $i` == '/usr/lib' ]; then 
-							cp -rfpL --remove-destination $i $COPY_DESTINATION/usr/lib ; 
-							else cp -rfpL --remove-destination $i $COPY_DESTINATION/lib ; fi
-						fi
-						
-						done
-					;;
-				data) 
-						## host 
-						[ -d $COPY_DESTINATION/`dirname $A` ] || mkdir -p $COPY_DESTINATION/`dirname $A` 
-						cp -rfpl --remove-destination $A $COPY_DESTINATION/$A
-					;;
-				config) 
-						## package/config/*
-						[ -d $COPY_DESTINATION/`dirname $A` ] || mkdir -p $COPY_DESTINATION/`dirname $A` 
-						cp -rfp --remove-destination package/config/$A $COPY_DESTINATION/$A
-					;;
-				alternative) 
-						## package/alternative/$MKXPUD_CODENAME
-
-						if [ -e package/alternative/$MKXPUD_CODENAME ]; then 
-						[ -d $COPY_DESTINATION/`dirname $A` ] || mkdir -p $COPY_DESTINATION/`dirname $A` 
-						cp -rfpL --remove-destination package/alternative/$MKXPUD_CODENAME/$A $COPY_DESTINATION/$A
-						fi
-						
-					;;
-				overwrite) 
-						## skeleton/overwrite/
-						
-						# check binary dependency if the overwrite file is an execute
-						if [ -x skeleton/overwrite/$A ] && [ ! -d skeleton/overwrite/$A ]; then
-						for i in `./tools/ldd-helper skeleton/overwrite/$A`; do 
-						if [ ! -e $COPY_DESTINATION/usr/lib/`basename $i` ] && [ ! -e $COPY_DESTINATION/lib/`basename $i` ]; then
-							if [ `dirname $i` == '/usr/lib' ]; then 
-							cp -rfpL --remove-destination $i $COPY_DESTINATION/usr/lib ; 
-							else cp -rfpL --remove-destination $i $COPY_DESTINATION/lib ; fi
-						fi
-						done
-						fi
-						
-						[ -d $COPY_DESTINATION/`dirname $A` ] || mkdir -p $COPY_DESTINATION/`dirname $A` 
-						cp -rfp skeleton/overwrite/$A $COPY_DESTINATION/$A
-					;;
-			esac 
+		for A in `./tools/parser package/recipe/$R.recipe $S`; do
+				copyfiles $S $COPY_DESTINATION $A
+			done
 			
-			done 
-		done 
+	done 
 
-		# post action 
-		eval `./tools/parser package/recipe/$R.recipe post_action`
+	# post action 
+	eval `./tools/parser package/recipe/$R.recipe post_action`
 }
 
 function opt {
 
-	echo "    Stripping Opt files..."
+	echo "    Creating Opt files..."
 	for R in `./tools/parser $MKXPUD_CONFIG opt`; do 
 		
 		# action 
@@ -238,58 +167,7 @@ function opt {
 		for S in binary data config overwrite; do
 		
 			for A in `./tools/parser package/recipe/$R.recipe $S`; do
-	
-			case $S in
-				binary) 
-						##  host
-						[ -d $MKXPUD_TARGET/opt/$NAME/`dirname $A` ] || mkdir -p $MKXPUD_TARGET/opt/$NAME/`dirname $A`
-						cp -rfpl --remove-destination $A $MKXPUD_TARGET/opt/$NAME/$A
-						## ldd-helper
-						for i in `./tools/ldd-helper $A`; do 
-							
-							# if not exist in rootfs 
-							if [ ! -e $MKXPUD_TARGET/usr/lib/`basename $i` ] && [ ! -e $MKXPUD_TARGET/lib/`basename $i` ]; then
-								if [ `dirname $i` == '/usr/lib' ]; then 
-								mkdir -p $MKXPUD_TARGET/opt/$NAME/usr/lib;
-								cp -rfpL --remove-destination $i $MKXPUD_TARGET/opt/$NAME/usr/lib ; 
-								else mkdir -p $MKXPUD_TARGET/opt/$NAME/lib;
-								cp -rfpL --remove-destination $i $MKXPUD_TARGET/opt/$NAME/lib ; fi
-							fi
-							
-						done
-					;;
-				data) 
-						## host 
-						[ -d $MKXPUD_TARGET/opt/$NAME/`dirname $A` ] || mkdir -p $MKXPUD_TARGET/opt/$NAME/`dirname $A` 
-						cp -rfpl --remove-destination $A $MKXPUD_TARGET/opt/$NAME/$A
-					;;
-				config) 
-						## package/config/*
-						[ -d $MKXPUD_TARGET/opt/$NAME/`dirname $A` ] || mkdir -p $MKXPUD_TARGET/opt/$NAME/`dirname $A` 
-						cp -rfp --remove-destination package/config/$A $MKXPUD_TARGET/opt/$NAME/$A
-					;;
-				overwrite) 
-						## skeleton/overwrite/
-						
-						# check binary dependency if the overwrite file is an execute
-						if [ -x skeleton/overwrite/$A ] && [ ! -d skeleton/overwrite/$A ]; then
-						
-							if [ ! -e $MKXPUD_TARGET/usr/lib/`basename $i` ] && [ ! -e $MKXPUD_TARGET/lib/`basename $i` ]; then
-						
-								if [ `dirname $i` == '/usr/lib' ]; then 
-								mkdir -p $MKXPUD_TARGET/opt/$NAME/usr/lib;
-								cp -rfpL --remove-destination $i $MKXPUD_TARGET/opt/$NAME/usr/lib ; 
-								else mkdir -p $MKXPUD_TARGET/opt/$NAME/lib;
-								cp -rfpL --remove-destination $i $MKXPUD_TARGET/opt/$NAME/lib ; fi
-							
-							fi
-						fi
-						
-						[ -d $MKXPUD_TARGET/opt/$NAME/`dirname $A` ] || mkdir -p $MKXPUD_TARGET/opt/$NAME/`dirname $A` 
-						cp -rfp skeleton/overwrite/$A $MKXPUD_TARGET/opt/$NAME/$A
-					;;
-			esac 
-			
+				copyfiles $S $MKXPUD_TARGET/opt/$NAME $A
 			done 
 		done 
 
@@ -327,8 +205,24 @@ function kernel {
 
 }
 
+# helper for copying file dependencies
+# copydeps (file) (target directory)
+function copydeps {
+	if [ -f $1 ]; then
+		for i in `./tools/ldd-helper $1`; do 
+			TARGET=`dirname $i`
+			if [ ! -e $MKXPUD_TARGET$i ]; then
+				if [ ! -e $2$TARGET ]; then
+					mkdir -p $2$TARGET
+				fi
+				cp -rfpL --remove-destination $i $2$TARGET
+				copydeps $i $2
+			fi
+		done
+	fi
+}
+
 # post 
-# FIXME: hook post scripts
 function post {
 
 	echo "[mkxpud] Post-install scripts"
@@ -336,38 +230,27 @@ function post {
 	# create symbolic links for /bin/*
 	./tools/busybox-helper
 	rm $MKXPUD_TARGET/bin/busybox
-
-	# check dependencies of each files under usr/lib and [so_hook] section
-	for R in `./tools/parser $MKXPUD_CONFIG recipe`; do 
-		for S in `./tools/parser package/recipe/$R.recipe so_hook`; do
-		SO_HOOK="$SO_HOOK $MKXPUD_TARGET/$S"
-		done
+	
+	# check initramfs dependencies
+	# FIXME: set initramfs directory as variable
+	echo "    Checking initramfs dependencies"
+	INITRAMFS_DIR="working/$MKXPUD_CODENAME/initramfs"
+	for s in `find $INITRAMFS_DIR`; do
+		copydeps $s $INITRAMFS_DIR
 	done
-	SO_HOOK="$SO_HOOK "`find $MKXPUD_TARGET/usr/lib/*.so.*`
-
-	for s in $SO_HOOK; do 
-		if [ ! -d $s ]; then 
-		for i in `./tools/ldd-helper $s`; do 
-			if [ ! -e $MKXPUD_TARGET/usr/lib/`basename $i` ] && [ ! -e $MKXPUD_TARGET/lib/`basename $i` ]; then 
-			cp -rfpL --remove-destination $i $MKXPUD_TARGET/usr/lib; fi
-		done
-		fi
+	
+	# check file dependencies
+	echo "    Checking rootfs dependencies"
+	for s in `find $MKXPUD_TARGET/{usr,lib,bin,sbin}/`; do
+		copydeps $s $MKXPUD_TARGET
 	done
-
+	
 	# check dependencies of opt
-	SO_HOOK=""
 	for O in `./tools/parser $MKXPUD_CONFIG opt`; do 
-		for S in `./tools/parser package/recipe/$O.recipe so_hook`; do
-		SO_HOOK="$SO_HOOK $MKXPUD_TARGET/opt/$O/$S"
-		done
 		NAME=`./tools/parser package/recipe/$O.recipe name`
-		for s in $SO_HOOK; do 
-		if [ ! -d $s ]; then 
-		for i in `./tools/ldd-helper $s`; do 
-			if [ ! -e $MKXPUD_TARGET/usr/lib/`basename $i` ] && [ ! -e $MKXPUD_TARGET/lib/`basename $i` ]; then 
-			cp -rfpL --remove-destination $i $MKXPUD_TARGET/opt/$NAME/usr/lib; fi
-		done
-		fi
+		echo "    Checking dependencies of $NAME opt"
+		for s in `find $MKXPUD_TARGET/opt/$NAME/`; do
+			copydeps $s $MKXPUD_TARGET/opt/$NAME
 		done
 	done
 

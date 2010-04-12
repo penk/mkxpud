@@ -76,5 +76,6 @@ if [ ! "$(cat /newroot/proc/cmdline | grep debug )" ]; then
 	/bin/busybox mv /bin/busybox /newroot/bin/
 	exec /newroot/bin/busybox chroot /newroot /sbin/init
 else
+	/bin/busybox cp /bin/busybox /newroot/bin
 	/bin/sh
 fi

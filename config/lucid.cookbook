@@ -49,7 +49,6 @@ i810 i830 mga r128 radeon savage sis tdfx via
 initramfs
 lucid-core-utils
 lucid-x11
-#ubuntu-xvesa
 lucid-xorg
 ubuntu-sound
 ubuntu-network
@@ -60,8 +59,8 @@ ubuntu-plate-firefox
 #ubuntu-plate-chrome
 ubuntu-pcmanfm
 ubuntu-dbus
-#ubuntu-apt
 ubuntu-cjkfont
+#ubuntu-apt
 
 [opt]
 ubuntu-media
@@ -87,12 +86,13 @@ fi;
 /etc/group
 
 [obfuscate]
+# NOTE: compressing perl and bash saves about 0.1MB but compressed files are executed slower
 # files to be compressed with `upx' or `shc'
 #/usr/local/bin/Xvesa
-/usr/bin/perl
-/bin/bash
+#/usr/bin/perl
+#/bin/bash
 #/bin/busybox
-/bin/mount
+#/bin/mount
 #/opt/apps/usr/bin/mplayer
 #/usr/share/firefox/firefox-bin
 

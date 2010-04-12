@@ -75,7 +75,7 @@ mkdir -p $MKXPUD_TARGET/var/lock;
 /usr/share/udhcpc/default.script
 
 [overwrite]
-/usr/local/bin/connman-test.sh
+#/usr/local/bin/connman-test.sh
 
 /var/run/network
 #/var/lib/dhcp3

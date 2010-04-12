@@ -27,15 +27,7 @@ pcmanfm-nohal
 #/usr/share/mime/XMLnamespaces
 
 /usr/share/mime/packages/libmimetype.xml
-#/usr/share/pcmanfm/icons/file.png
-#/usr/share/pcmanfm/icons/folder.png
-/usr/share/pcmanfm/mount.rules
-/usr/share/pcmanfm/ui/find-files.ui
-/usr/share/pcmanfm/ui/appchooserdlg.ui
-/usr/share/pcmanfm/ui/prefdlg.ui
-/usr/share/pcmanfm/ui/godlg.ui
-/usr/share/pcmanfm/ui/file_properties.ui
-/usr/share/pcmanfm/ui/about-dlg.ui
+/usr/share/pcmanfm/
 /usr/share/pixmaps/pcmanfm.png
 
 /usr/lib/gamin

@@ -6,23 +6,19 @@ core-utils
 #---------------------------
 
 [package]
-
 # tools for mkxpud
 squashfs-tools
 #aufs-tools
-
 genisoimage
 upx-ucl
 wget 
-gnome-icon-theme
 nsis
-powertop
 
 libxss1
 busybox-static
 ntfs-3g
 kexec-tools
-dmidecode 
+#dmidecode
 grub
 os-prober
 parted
@@ -32,6 +28,7 @@ acpid
 acpi-support
 bc
 findutils
+powertop
 
 #---------------------------
 
@@ -70,7 +67,7 @@ findutils
 /usr/bin/os-prober
 /usr/bin/perl
 
-/usr/sbin/dmidecode
+#/usr/sbin/dmidecode
 /usr/sbin/grub
 /usr/sbin/grub-set-default
 /sbin/cfdisk
@@ -91,7 +88,6 @@ findutils
 /usr/share/file/magic.mime
 /usr/share/file/magic
 
-
 /usr/share/os-prober
 /usr/lib/linux-boot-probes
 /usr/lib/os-probes
@@ -101,11 +97,6 @@ findutils
 /lib/udev
 
 /etc/udev
-
-/usr/lib/libXss.so.1
-/usr/lib/libXss.so.1.0.0
-/lib/libresolv.so.2
-/lib/libresolv-2.11.1.so
 
 #---------------------------
 
@@ -118,8 +109,6 @@ findutils
 /etc/shells
 
 #/etc/modules
-
-#/etc/xpud-backup.conf
 
 /etc/acpi/
 

@@ -117,7 +117,3 @@ scim-unikey
 [post_action]
 
 tar zxf skeleton/archive/fvkbd.tgz -C $MKXPUD_TARGET/
-
-[sd_hook]
-
-/usr/lib/scim-unikey/scim-setup-unikey

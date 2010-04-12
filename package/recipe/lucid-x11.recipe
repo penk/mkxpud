@@ -12,14 +12,11 @@ xkb-data
 openbox
 wmctrl
 ttf-droid
-
 libnotify-bin
 notify-osd
 zenity
-
 #lxterminal
 #xbacklight
-#trayer
 
 [action]
 # FIXME: it would be better to make a symlink to /var/lib/xkb/
@@ -44,7 +41,6 @@ locale-gen en_US.UTF-8;
 
 #/usr/bin/xbacklight
 #/usr/bin/lxterminal
-#/usr/bin/trayer
 
 /usr/bin/setxkbmap
 /usr/bin/xkbbell
@@ -72,21 +68,10 @@ locale-gen en_US.UTF-8;
 /lib/terminfo
 
 /usr/lib/notify-osd/notify-osd
-#/usr/lib/libgconf-2.so
-/usr/lib/libgconf-2.so.4
-/usr/lib/libgconf-2.so.4.1.5
-/usr/lib/libgthread-2.0.so.0
-/usr/lib/libgthread-2.0.so.0.2400.0
-#/usr/lib/libORBit-2.so
-/usr/lib/libORBit-2.so.0
-/usr/lib/libORBit-2.so.0.1.0
 
-#/usr/lib/libXxf86misc.so
-/usr/lib/libXxf86misc.so.1
-/usr/lib/libXxf86misc.so.1.1.0
-
-/usr/lib/libwnck-1.so.22
-/usr/lib/libwnck-1.so.22.3.26
+# is this lib required? dep checker didn't include it automatically
+#/usr/lib/libXxf86misc.so.1
+#/usr/lib/libXxf86misc.so.1.1.0
 
 /usr/share/zenity/zenity.ui
 
@@ -103,6 +88,3 @@ locale-gen en_US.UTF-8;
 /.Xdefaults
 
 [overwrite]
-
-#/usr/share/fonts/X11
-#/usr/bin/xli

@@ -12,9 +12,10 @@ export GTK_IM_MODULE="scim"
 
 if [ -e /usr/bin/google-chrome ]; then 
 
+/usr/local/bin/post-boot.sh 1> /tmp/init.log 2> /tmp/init.err &
 httpd -c /etc/httpd.conf -h / &
 ifconfig lo 127.0.0.1 netmask 255.0.0.0
-sleep 2 
+sleep 2
 /usr/bin/google-chrome --kiosk http://localhost/usr/share/plate/chrome/content &
 
 else 
