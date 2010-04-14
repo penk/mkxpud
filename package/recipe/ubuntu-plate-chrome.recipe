@@ -4,13 +4,13 @@
 plate-chrome-core
 
 [package]
-#mozplugger
+mozplugger
 unzip
 
 [action]
-
+# FIXME: latest version of mozplugger has issues with keyboard input, earlier versions doesn't want to work on chrome
 # fixme: use more general way to add 3rd-party repository 
-if ! grep -q 'deb http://ppa.launchpad.net/setack/stuff/ubuntu karmic main' /etc/apt/sources.list; then echo 'deb http://ppa.launchpad.net/setack/stuff/ubuntu karmic main' >> /etc/apt/sources.list; apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 60FD0E97; apt-get update; apt-get install mozplugger --yes --force-yes; else apt-get install mozplugger --yes --force-yes; fi;
+#if ! grep -q 'deb http://ppa.launchpad.net/setack/stuff/ubuntu karmic main' /etc/apt/sources.list; then echo 'deb http://ppa.launchpad.net/setack/stuff/ubuntu karmic main' >> /etc/apt/sources.list; apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 60FD0E97; apt-get update; apt-get install mozplugger --yes --force-yes; else apt-get install mozplugger --yes --force-yes; fi;
 
 # download chrome
 if [ ! -e skeleton/archive/chrome-linux.zip ]; then wget http://build.chromium.org/buildbot/snapshots/chromium-rel-linux/LATEST; wget http://build.chromium.org/buildbot/snapshots/chromium-rel-linux/`cat LATEST`/chrome-linux.zip -P skeleton/archive/; rm LATEST; fi; 
@@ -36,6 +36,7 @@ unzip skeleton/archive/chrome-linux.zip -d $MKXPUD_TARGET/usr/share/;
 
 [config]
 
+/root/.config/plate-chrome
 /root/.config/chromium
 /etc/httpd.conf
 

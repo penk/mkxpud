@@ -1,25 +1,5 @@
 {
    "browser": {
-      "show_home_button": true
-   },
-   "countryid_at_install": 21843,
-   "download": {
-      "directory_upgrade": true,
-      "extensions_to_open": ""
-   },
-   "extensions": {
-      "autoupdate": {
-         "next_check": "12911727267526218"
-      }
-   },
-   "homepage": "http://www.google.com/",
-   "homepage_is_newtabpage": false,
-   "ntp": {
-      "pref_version": 1,
-      "shown_sections": 29,
-      "tips_cache_update": ""
-   },
-   "profile": {
-      "exited_cleanly": true
+      "custom_chrome_frame": false
    }
 }
