@@ -98,8 +98,8 @@ locale-gen en_US.UTF-8;
 
 /etc/xdg/openbox
 #/.config/lxterminal
-/.Xmodmap
-/.Xdefaults
+/root/.Xmodmap
+/root/.Xdefaults
 
 [overwrite]
 

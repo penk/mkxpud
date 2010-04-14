@@ -40,7 +40,7 @@ cp /usr/share/icons/hicolor/48x48/apps/xarchiver.png /usr/share/pixmaps/xarchive
 /usr/lib/p7zip/
 
 [config]
-/.config/geany 
+/root/.config/geany 
 /usr/share/applications/gpicview.desktop
 /usr/share/applications/epdfview.desktop
 /usr/share/applications/geany.desktop

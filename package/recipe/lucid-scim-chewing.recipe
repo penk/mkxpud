@@ -112,7 +112,7 @@ scim-unikey
 
 [config]
 
-/.scim
+/root/.scim
 
 [post_action]
 

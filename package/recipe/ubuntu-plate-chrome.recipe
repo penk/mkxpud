@@ -36,7 +36,7 @@ unzip skeleton/archive/chrome-linux.zip -d $MKXPUD_TARGET/usr/share/;
 
 [config]
 
-/.config/chromium
+/root/.config/chromium
 /etc/httpd.conf
 
 /tmp/sysinfo-s
@@ -45,7 +45,7 @@ unzip skeleton/archive/chrome-linux.zip -d $MKXPUD_TARGET/usr/share/;
 #/etc/bootchart-lite
 /etc/pulse
 /etc/fonts
-/.mozilla
+/root/.mozilla
 
 /etc/gtk-2.0
 

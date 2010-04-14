@@ -46,7 +46,7 @@ pcmanfm-nohal
 
 [config]
 
-/.config/pcmanfm
+/root/.config/pcmanfm
 
 [overwrite]
 

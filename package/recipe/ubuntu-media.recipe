@@ -23,7 +23,7 @@ gnome-mplayer
 [config]
 
 /usr/share/applications/gnome-mplayer.desktop
-/.mplayer
+/root/.mplayer
 
 [overwrite]
 

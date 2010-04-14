@@ -105,7 +105,7 @@ echo 'deb http://ppa.launchpad.net/ubuntu-vn/ppa/ubuntu karmic main' >> /etc/apt
 
 [config]
 
-/.scim
+/root/.scim
 
 [post_action]
 

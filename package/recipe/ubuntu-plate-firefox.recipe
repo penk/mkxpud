@@ -19,7 +19,7 @@ rm -f $MKXPUD_TARGET/usr/share/firefox/components/libmozgnome.so;
 rm -f $MKXPUD_TARGET/usr/share/firefox/components/libnkgnomevfs.so;
 
 # HACK: download old version of mozplugger (new one has problems with keyboard input focus)
-wget http://mirrors.kernel.org/ubuntu/pool/universe/m/mozplugger/mozplugger_1.12.1-1ubuntu1_i386.deb -P skeleton/archive/;
+if [ ! -e skeleton/archive/mozplugger_1.12.1-1ubuntu1_i386.deb ]; then wget http://mirrors.kernel.org/ubuntu/pool/universe/m/mozplugger/mozplugger_1.12.1-1ubuntu1_i386.deb -P skeleton/archive/; fi;
 dpkg -x skeleton/archive/mozplugger_1.12.1-1ubuntu1_i386.deb $MKXPUD_TARGET;
 
 [binary]
@@ -43,7 +43,7 @@ dpkg -x skeleton/archive/mozplugger_1.12.1-1ubuntu1_i386.deb $MKXPUD_TARGET;
 /etc/mozpluggerrc
 /etc/pulse
 /etc/fonts
-/.mozilla
+/root/.mozilla
 
 /etc/gtk-2.0
 
