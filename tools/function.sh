@@ -7,7 +7,8 @@ Options:
 	all		Execute the whole process of creating a project image
 	clean		Removes most generated files
 	image		Genreate image from the working directory
-	test		Invoke 'QEMU' to test image with bundled kernel 
+	test		Invoke 'QEMU' to test image with bundled kernel
+	mkopt		Create opt package using recipe or directory
 	help		Display this help
 
 For further informations please refer to README file."
@@ -350,4 +351,61 @@ function image {
 	esac 
 	done
 
+}
+
+# create standalone opt package from recipe or directory (if recipe was not found)
+function makeopt {
+	if [ ! -z $2 ] && [ -f "config/$2.cookbook" ]; then export MKXPUD_CODENAME=$2
+	 else export MKXPUD_CODENAME='default'; fi
+	export MKXPUD_TARGET=working/$MKXPUD_CODENAME/rootfs
+	export OPT_PKG=$1
+	# check if recipe exists
+	if [ ! -z $OPT_PKG ] && [ -f "package/recipe/$OPT_PKG.recipe" ]; then
+		echo "Creating standalone opt package $OPT_PKG for $MKXPUD_CODENAME"
+		echo "Using recipe, copying files"
+		# action 
+		eval `./tools/parser package/recipe/$OPT_PKG.recipe action`
+		# create opt directory
+		NAME=`./tools/parser package/recipe/$OPT_PKG.recipe name`
+		# cleanup working opt directory
+		rm -rf $MKXPUD_TARGET/opt/$NAME deploy/opt/$MKXPUD_CODENAME/$NAME.opt
+		mkdir -p $MKXPUD_TARGET/opt/$NAME
+		# copy files
+		echo "Copying files"
+		for S in binary data config overwrite; do
+			for A in `./tools/parser package/recipe/$OPT_PKG.recipe $S`; do
+				copyfiles $S $MKXPUD_TARGET/opt/$NAME $A
+			done
+		done
+		# post action 
+		eval `./tools/parser package/recipe/$OPT_PKG.recipe post_action`
+		# check dependencies
+		echo "Checking dependencies..."
+		for s in `find $MKXPUD_TARGET/opt/$NAME/ -type f`; do
+			copydeps $s $MKXPUD_TARGET/opt/$NAME
+		done
+		SOURCE_DIR=$MKXPUD_TARGET/opt/$NAME
+		TARGET_OPT=deploy/opt/$MKXPUD_CODENAME/$NAME
+	else
+		# create opt from directory
+		if [ -d $OPT_PKG ]; then
+			echo "Creating opt from directory"
+			SOURCE_DIR=$OPT_PKG
+			TARGET_OPT=deploy/opt/`basename $OPT_PKG`
+		else
+			echo "Error - please specify recipe file or directory."
+			exit;
+		fi
+	fi
+	# temporary hook for squashfs version 
+	if [ `mksquashfs -version | grep '0.4'` ]; then 
+		MKSQF="/usr/bin/mksquashfs" 
+	else 
+		MKSQF="`pwd`/tools/mksquashfs"	
+	fi
+	
+	mkdir -p deploy/opt/$MKXPUD_CODENAME
+	$MKSQF $SOURCE_DIR $TARGET_OPT.opt -noappend
+	
+	echo "Complete!"
 }

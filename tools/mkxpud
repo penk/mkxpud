@@ -41,6 +41,12 @@ else
 		help|usage)
 			usage
 			;;
+		mkopt)
+			# create opt using recipe: mkxpud mkopt {recipe name} {cookbook name}
+			# Attention! cookbook must be built first, before making opts, so all dependencies could be checked correctly
+			# create opt from directory: mkxpud mkopt {directory}
+			makeopt $2 $3
+			;;
 		*)
 			echo "[mkxpud] $1: not yet implemented"
 			;;
