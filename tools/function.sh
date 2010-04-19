@@ -208,7 +208,6 @@ function kernel {
 # helper for copying file dependencies
 # copydeps (file) (target directory)
 function copydeps {
-	if [ -f $1 ]; then
 		for i in `./tools/ldd-helper $1`; do 
 			TARGET=`dirname $i`
 			if [ ! -e $MKXPUD_TARGET$i ]; then
@@ -216,10 +215,10 @@ function copydeps {
 					mkdir -p $2$TARGET
 				fi
 				cp -rfpL --remove-destination $i $2$TARGET
-				copydeps $i $2
+				# uncomment following line for thorough dependency check
+				#copydeps $i $2
 			fi
 		done
-	fi
 }
 
 # post 
@@ -235,13 +234,13 @@ function post {
 	# FIXME: set initramfs directory as variable
 	echo "    Checking initramfs dependencies"
 	INITRAMFS_DIR="working/$MKXPUD_CODENAME/initramfs"
-	for s in `find $INITRAMFS_DIR`; do
+	for s in `find $INITRAMFS_DIR -type f`; do
 		copydeps $s $INITRAMFS_DIR
 	done
 	
 	# check file dependencies
 	echo "    Checking rootfs dependencies"
-	for s in `find $MKXPUD_TARGET/{usr,lib,bin,sbin}/`; do
+	for s in `find $MKXPUD_TARGET/{usr,lib,bin,sbin}/ -type f`; do
 		copydeps $s $MKXPUD_TARGET
 	done
 	
@@ -249,7 +248,7 @@ function post {
 	for O in `./tools/parser $MKXPUD_CONFIG opt`; do 
 		NAME=`./tools/parser package/recipe/$O.recipe name`
 		echo "    Checking dependencies of $NAME opt"
-		for s in `find $MKXPUD_TARGET/opt/$NAME/`; do
+		for s in `find $MKXPUD_TARGET/opt/$NAME/ -type f`; do
 			copydeps $s $MKXPUD_TARGET/opt/$NAME
 		done
 	done
