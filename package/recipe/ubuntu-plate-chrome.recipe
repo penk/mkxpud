@@ -42,7 +42,6 @@ unzip skeleton/archive/chrome-linux.zip -d $MKXPUD_TARGET/usr/share/;
 
 /tmp/sysinfo-s
 
-/etc/mozpluggerrc
 #/etc/bootchart-lite
 /etc/pulse
 /etc/fonts
@@ -99,3 +98,6 @@ unzip skeleton/archive/chrome-linux.zip -d $MKXPUD_TARGET/usr/share/;
 /usr/local/bin/post-boot.sh
 /usr/local/bin/jswrapper
 /usr/share/plate
+
+[alternative]
+/etc/mozpluggerrc
