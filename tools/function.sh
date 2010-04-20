@@ -363,13 +363,13 @@ function makeopt {
 	if [ ! -z $OPT_PKG ] && [ -f "package/recipe/$OPT_PKG.recipe" ]; then
 		echo "Creating standalone opt package $OPT_PKG for $MKXPUD_CODENAME"
 		echo "Using recipe, copying files"
-		# action 
-		eval `./tools/parser package/recipe/$OPT_PKG.recipe action`
 		# create opt directory
 		NAME=`./tools/parser package/recipe/$OPT_PKG.recipe name`
 		# cleanup working opt directory
 		rm -rf $MKXPUD_TARGET/opt/$NAME deploy/opt/$MKXPUD_CODENAME/$NAME.opt
 		mkdir -p $MKXPUD_TARGET/opt/$NAME
+		# action 
+		eval `./tools/parser package/recipe/$OPT_PKG.recipe action`
 		# copy files
 		echo "Copying files"
 		for S in binary data config overwrite; do

@@ -17,7 +17,7 @@ cd /cow
 find . | grep -v "/dev" | grep -v "/mnt" | grep -v "/roopt" | grep -v "/tmp" | grep -v "/var" | grep -v "/.xpud" | cpio -H newc -o | gzip -9 > ${BCKDIR}/xpud-data.gz
 cd -
 
-if [ -d ${OPTDIR} ]; then cp -apf /opt/*.opt ${OPTDIR}; fi
+if [ -d ${OPTDIR} ] && [ -e /opt/*.opt ]; then cp -apf /opt/*.opt ${OPTDIR}; fi
 
 # if additional parameter was passed - poweroff or reboot
 case "$2" in

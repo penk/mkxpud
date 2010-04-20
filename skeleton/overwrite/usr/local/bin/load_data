@@ -10,8 +10,28 @@ if [ -z $1 ]; then
 		cd /
 		cat $i | gzip -d | cpio -i
 		cd -
-		echo "OK" > /tmp/restored
-		dbus-send --type=signal  /org/xpud/CommObject org.xpud.CommInterface.CMD string:"restored"
+		#echo "OK" > /tmp/restored
+		#dbus-send --type=signal  /org/xpud/CommObject org.xpud.CommInterface.CMD string:"restored"
+
+		# load Plate UI settings
+		# FIXME: do not set if boot settings were passed
+		if [ -e ~/.config/plate/screen-conf ]; then
+			SCR_CONF=`echo ~/.config/plate/screen-conf`
+			OLD_IFS="$IFS"
+			IFS="|"
+			SCR_ARGS=( $SCR_CONF )
+			IFS="$OLD_IFS"
+			/usr/bin/xrandr --output $SCR_ARGS[0] --mode $SCR_ARGS[1] --rotation $SCR_ARGS[2]
+		fi
+		
+		if [ -e ~/config/plate/kmap-conf ]; then
+            setxkbmap -layout `echo ~/config/plate/kmap-conf`
+        fi
+
+		# FIXME: load and set locale
+
+        notify-send "Restore complete!" -i /usr/share/plate/chrome/content/image/kthememgr.png
+
 	done
 
 else
