@@ -98,6 +98,8 @@ powertop
 
 /etc/udev
 
+/etc/ld.so.cache
+
 #---------------------------
 
 [config]
