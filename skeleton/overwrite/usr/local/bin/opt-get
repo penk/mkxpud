@@ -13,6 +13,14 @@ if [ -e $1 ]; then
 		OPT=$1
 	fi
 	
+	# check if we have free loop device available
+	LOOPS_USED=`losetup | wc -l`
+	LOOPS_NUM=`ls -al /dev/loop* | wc -l`
+	if [ $LOOPS_USED -ge $LOOPS_NUM ]; then
+		# create new loop device
+		mknod -m660 /dev/loop$LOOPS_NUM b 7 $LOOPS_NUM
+	fi
+	
 	# merge opt file to /
 	TARGET="/opt/`basename $1`.d"
 	mkdir -p $TARGET
