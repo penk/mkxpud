@@ -154,7 +154,8 @@ h2 {
 
 #menu {
 	position: relative;
-	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: auto;
 	height: 0px;
 }
 

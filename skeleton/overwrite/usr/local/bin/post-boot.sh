@@ -16,9 +16,6 @@ if [ ! -e /tmp/firsttime ]; then
 	# setup keymap from kmap= parameter
 	setxkbmap -layout $KEYMAP
 
-	# generate menu
-	/usr/local/bin/update-menus
-
 	# start system bus
 	dbus-launch --config-file=/etc/dbus-1/system.conf
 	
@@ -42,7 +39,13 @@ if [ ! -e /tmp/firsttime ]; then
 	   mkdir -p /mnt/`basename $i`;
 	   mount $i /mnt/`basename $i`;
 	done
-
+	
+	# EXPERIMENTAL: try to mount cdrom
+	if [ -e /dev/sr0 ]; then
+		mkdir /mnt/cdrom
+		mount -t auto /dev/sr0 /mnt/cdrom
+	fi
+	
 	# auto load user data if exist
 	if [ ! "$(cat /proc/cmdline | grep xpud-data )" ]; then
 		/usr/local/bin/load_data
@@ -55,6 +58,9 @@ if [ ! -e /tmp/firsttime ]; then
 	if [ ! "$(cat /proc/cmdline | grep opt=no )" ]; then
 		find /mnt -maxdepth 4 -type f -name '*.opt' -exec opt-get {} \;
 	fi
+
+	# generate menu
+	/usr/local/bin/update-menus
 
 	# start hotplug script
 	/bin/cp /sbin/hotplug-x /sbin/hotplug

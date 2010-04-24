@@ -4,7 +4,6 @@
 apps-office
 
 [action]
-cp /usr/share/pixmaps/abiword_48.png /usr/share/pixmaps/abiword.png;
 cp /usr/share/icons/hicolor/48x48/apps/gnumeric.png /usr/share/pixmaps/gnumeric.png
 
 [package]
@@ -23,7 +22,7 @@ gnumeric
 /usr/lib/abiword-2.8/
 /usr/share/abiword-2.8/ui/
 /usr/share/applications/abiword.desktop
-/usr/share/pixmaps/abiword.png
+/usr/share/pixmaps/abiword_48.png
 
 /usr/lib/gnumeric/
 /usr/lib/goffice/
