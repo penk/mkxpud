@@ -15,6 +15,7 @@ if [ -z $1 ]; then
 
 		# load Plate UI settings
 		# FIXME: do not set if boot settings were passed
+		# video settings
 		if [ -e ~/.config/plate/screen-conf ]; then
 			SCR_CONF=`echo ~/.config/plate/screen-conf`
 			OLD_IFS="$IFS"
@@ -23,12 +24,12 @@ if [ -z $1 ]; then
 			IFS="$OLD_IFS"
 			/usr/bin/xrandr --output $SCR_ARGS[0] --mode $SCR_ARGS[1] --rotation $SCR_ARGS[2]
 		fi
-		
+		# keymap layout
 		if [ -e ~/config/plate/kmap-conf ]; then
             setxkbmap -layout `echo ~/config/plate/kmap-conf`
         fi
 
-		# FIXME: load and set locale
+		# TODO: load and set locale
 
         notify-send "Restore complete!" -i /usr/share/plate/chrome/content/image/kthememgr.png
 

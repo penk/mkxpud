@@ -362,6 +362,17 @@ function makeopt {
 	# check if recipe exists
 	if [ ! -z $OPT_PKG ] && [ -f "package/recipe/$OPT_PKG.recipe" ]; then
 		echo "Creating standalone opt package $OPT_PKG for $MKXPUD_CODENAME"
+		# download required packages
+		echo "Downloading required packages"
+		for P in `./tools/parser package/recipe/$OPT_PKG.recipe package`; do
+			PACKAGE="$PACKAGE $P"
+		done
+		if [ "$MKXPUD_PKGMGR" != 'skip' ]; then
+			sudo $MKXPUD_PKGMGR $PACKAGE
+		else 
+			echo "You need to install following packages according to your cookbook: "
+			echo "$PACKAGE"
+		fi
 		echo "Using recipe, copying files"
 		# create opt directory
 		NAME=`./tools/parser package/recipe/$OPT_PKG.recipe name`

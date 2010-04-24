@@ -1,0 +1,40 @@
+# recipe file
+
+[name]
+apps-office
+
+[action]
+cp /usr/share/pixmaps/abiword_48.png /usr/share/pixmaps/abiword.png;
+cp /usr/share/icons/hicolor/48x48/apps/gnumeric.png /usr/share/pixmaps/gnumeric.png
+
+[package]
+abiword
+gnumeric
+
+[binary]
+/usr/bin/abiword
+
+/usr/bin/gnumeric
+/usr/bin/ssconvert
+/usr/bin/ssgrep
+/usr/bin/ssindex
+
+[data]
+/usr/lib/abiword-2.8/
+/usr/share/abiword-2.8/ui/
+/usr/share/applications/abiword.desktop
+/usr/share/pixmaps/abiword.png
+
+/usr/lib/gnumeric/
+/usr/lib/goffice/
+#/usr/share/gconf/schemas/gnumeric-dialogs.schemas
+#/usr/share/gconf/schemas/gnumeric-general.schemas
+#/usr/share/gconf/schemas/gnumeric-plugins.schemas
+/usr/share/gnumeric/
+#/usr/share/idl/GNOME_Gnumeric.idl
+/usr/share/applications/gnumeric.desktop
+/usr/share/pixmaps/gnumeric.png
+
+[config]
+
+[overwrite]
