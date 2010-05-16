@@ -29,6 +29,7 @@ acpi-support
 bc
 findutils
 powertop
+udisks
 
 #---------------------------
 
@@ -80,6 +81,9 @@ powertop
 
 /usr/bin/file
 
+/usr/bin/udisks
+/sbin/umount.udisks
+
 #---------------------------
 
 [data]
@@ -99,6 +103,8 @@ powertop
 /etc/udev
 
 /etc/ld.so.cache
+
+/usr/lib/udisks/
 
 #---------------------------
 

@@ -20,34 +20,16 @@ if [ ! -e /var/lib/dbus/machine-id ]; then dbus-uuidgen > /var/lib/dbus/machine-
 /bin/dbus-cleanup-sockets
 /bin/dbus-uuidgen
 
-#/usr/bin/gconf-editor
-
 [data]
 /etc/dbus-1
-# BUG: when copying whole dbus-1 directory, if one already exists in rootfs - new directory is copied to existing directory
-#/etc/dbus-1
-#/etc/dbus-1/event.d/
-#/etc/dbus-1/session.d/
-#/etc/dbus-1/system.d/
-#/etc/dbus-1/system.d/org.gnome.GConf.Defaults.conf
-#/etc/dbus-1/system.d/wpa_supplicant.conf
-#/etc/dbus-1/system.d/ConsoleKit.conf
-#/etc/dbus-1/system.d/hal.conf
-#/etc/dbus-1/system.d/org.freedesktop.PolicyKit.conf
-#/etc/dbus-1/session.conf
-#/etc/dbus-1/system.conf
-
 /usr/share/dbus-1
 /lib/dbus-1.0
 /var/run/dbus
-/usr/lib/libgconf2-4
-#/var/lib/gconf
 
-#/usr/share/gconf
-#/etc/gconf
-#/usr/lib/libpolkit-gobject-1.so.0
-#/usr/lib/libpolkit-gobject-1.so.0.0.0
-#/usr/share/polkit-1/actions/org.gnome.gconf.defaults.policy
+/usr/lib/libgconf2-4
+/var/lib/gconf
+/usr/share/gconf
+/etc/gconf
 
 [config]
 

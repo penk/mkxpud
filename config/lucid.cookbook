@@ -60,15 +60,11 @@ ubuntu-plate-firefox
 ubuntu-pcmanfm
 ubuntu-dbus
 ubuntu-cjkfont
-#ubuntu-apt
+#lucid-pcmanfm2
 
 [opt]
 ubuntu-media
 lucid-scim-chewing
-#ubuntu-apps
-#ubuntu-apps-net
-#ubuntu-apps-office
-#ubuntu-apps-utils
 
 [prepare]
 # commands executed before building

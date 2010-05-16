@@ -11,5 +11,5 @@ audio:x:29:
 video:x:44:
 plugdev:x:46:
 fuse:x:104:
-messagebus:x:500:
+messagebus:x:106:
 netdev:x:107:

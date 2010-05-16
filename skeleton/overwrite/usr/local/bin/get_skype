@@ -5,7 +5,7 @@
 cd /tmp/
 
 # Install Skype
-wget "http://www.skype.com/go/getskype-linux-static" -O skype_static-tmp.tar.bz2
+wget "http://www.skype.com/go/getskype-linux-beta-static" -O skype_static-tmp.tar.bz2
 tar xjvf skype_static-*.tar.bz2
 rm skype_static-*.tar.bz2
 mkdir -p /opt # || echo "/opt already exists"
@@ -21,8 +21,3 @@ echo -e "[Desktop Entry]\nName=Skype\nGenericName=Internet Telephony\nType=AppPo
 ln -s /opt/skype*/icons/SkypeBlue_48x48.png /usr/share/plate/chrome/content/image/skype.png
 
 update-menus
-
-echo "/usr/bin/skype" >> /etc/xpud-backup.conf
-echo "~/.Skype/" >> /etc/xpud-backup.conf
-echo "/usr/share/applications/skype.desktop" /etc/xpud-backup.conf
-echo "/usr/share/plate/chrome/content/image/skype.png" >> /etc/xpud-backup.conf
