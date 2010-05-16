@@ -1,0 +1,80 @@
+# recipe file
+[name]
+pcmanfm2
+
+[package]
+libmenu-cache1
+lxmenu-data
+
+[action]
+local REPOSITORY="https://launchpad.net/~lubuntu-desktop/+archive/ppa/+files/"
+local LIBFM="libfm0_0.1.10-0ubuntu1~ppa1_i386.deb"
+local LIBFM_DBG="libfm0-dbg_0.1.10-0ubuntu1~ppa1_i386.deb"
+local LIBFM_UTILS="libfm-utils_0.1.10-0ubuntu1~ppa1_i386.deb"
+local LIBFM_GTK="libfm-gtk0_0.1.10-0ubuntu1~ppa1_i386.deb"
+local PCMANFM2="pcmanfm2_0.9.4-0ubuntu1~ppa1_i386.deb"
+local PCMANFM2_DBG="pcmanfm2-dbg_0.9.4-0ubuntu1~ppa1_i386.deb";
+echo "Downloading";
+# download and unpack libfm
+wget -c -nc $REPOSITORY$LIBFM -P skeleton/archive/;
+dpkg -x skeleton/archive/$LIBFM $MKXPUD_TARGET;
+#wget -c -nc $REPOSITORY$LIBFM_DBG -P skeleton/archive/;
+#dpkg -x skeleton/archive/$LIBFM_DBG $MKXPUD_TARGET;
+wget -c -nc $REPOSITORY$LIBFM_UTILS -P skeleton/archive/;
+dpkg -x skeleton/archive/$LIBFM_UTILS $MKXPUD_TARGET;
+wget -c -nc $REPOSITORY$LIBFM_GTK -P skeleton/archive/;
+dpkg -x skeleton/archive/$LIBFM_GTK $MKXPUD_TARGET;
+# download and unpack pcmanfm2
+wget -c -nc $REPOSITORY$PCMANFM2 -P skeleton/archive/;
+dpkg -x skeleton/archive/$PCMANFM2 $MKXPUD_TARGET;
+#wget -c -nc $REPOSITORY$PCMANFM2_DBG -P skeleton/archive/;
+#dpkg -x skeleton/archive/$PCMANFM2_DBG $MKXPUD_TARGET;
+
+[binary]
+
+[data]
+/usr/lib/libmenu-cache/libexec/
+/etc/xdg/menus/lxde-applications.menu
+/usr/share/desktop-directories/
+
+# MIME info
+/usr/share/mime
+
+/usr/lib/gamin
+/usr/lib/libgamin-1.so.0
+/usr/lib/libgamin-1.so.0.1.10
+
+/usr/share/icons/hicolor/
+/usr/share/icons/gnome/16x16/mimetypes
+/usr/share/icons/gnome/16x16/places
+/usr/share/icons/gnome/32x32/mimetypes
+/usr/share/icons/gnome/32x32/places
+
+#/usr/share/applications/pcmanfm.desktop
+
+/usr/lib/dbus-1.0/
+
+/usr/lib/policykit-1/
+/usr/lib/policykit-1-gnome/
+/usr/lib/polkit-1/
+/etc/polkit-1/
+/usr/share/polkit-1/
+
+# gvfs
+/usr/share/gvfs/
+/usr/lib/gvfs/
+# still something is wrong with consolekit - need to launch openbox using ck-launch-session (dbus too?)
+/usr/lib/ConsoleKit/
+/etc/ConsoleKit/
+/etc/logrotate.d/consolekit
+/usr/bin/ck-history
+/usr/bin/ck-launch-session
+/usr/bin/ck-list-sessions
+/usr/sbin/ck-log-system-restart
+/usr/sbin/ck-log-system-start
+/usr/sbin/ck-log-system-stop
+/usr/sbin/console-kit-daemon
+
+[config]
+
+[overwrite]
