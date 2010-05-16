@@ -1,0 +1,21 @@
+#!/bin/bash -e
+
+cd /tmp/
+
+# Install Skype
+wget "http://snapshot.opera.com/unix/snapshot-6336/opera-10.54-6336.i386.linux.tar.bz2" -O opera-tmp.tar.bz2
+tar xjvf opera-tmp.tar.bz2
+rm opera-tmp.tar.bz2
+mkdir -p /opt # || echo "/opt already exists"
+mv opera*/ /opt/
+find /opt -name opera -exec ln -s {} /usr/bin/ \;
+
+echo "Opera has been installed successfully."
+
+cd -
+
+# create custom .desktop file and symlink to icon
+echo -e "[Desktop Entry]\nName=Opera\nGenericName=Internet Browser\nType=App" > /usr/share/applications/opera.desktop
+ln -s /opt/opera*/icons/opera_48x48.png /usr/share/plate/chrome/content/image/opera.png
+
+update-menus

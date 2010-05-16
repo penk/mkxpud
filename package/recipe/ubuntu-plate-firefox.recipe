@@ -64,6 +64,7 @@ rm -f $MKXPUD_TARGET/usr/share/firefox/components/libnkgnomevfs.so;
 /sbin/session
 /usr/local/bin/get_flash
 /usr/local/bin/get_skype
+/usr/local/bin/get_opera
 /usr/local/bin/get_codecs
 /usr/local/bin/load_data
 /usr/local/bin/load_module
