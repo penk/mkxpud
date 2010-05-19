@@ -27,6 +27,7 @@ var i18n =	{
 		fa: "خانه",
 		kr: "시작",
 		sk: "Štart",
+		kn: "ನೆಲೆ",
 	},
 
 	menu : {
@@ -52,6 +53,7 @@ var i18n =	{
 		fa: "فهرست",
 		kr: "메뉴",
 		sk: "Menu",
+		kn: "ಮೆನು",
 	},
 
 	file : {
@@ -77,6 +79,7 @@ var i18n =	{
 		fa: "فایل",
 		kr: "파일",
 		sk: "Súbor",
+		kn: "ಕಡತ",
 	},
 
 	setting : {
@@ -102,6 +105,7 @@ var i18n =	{
 		fa: "مشخصه ها",
 		kr: "설정",
 		sk: "Nastavenia",
+		kn: "ಸಂಯೋಜನೆಗಳು"
 	},
 
 // home 
@@ -129,6 +133,7 @@ var i18n =	{
 		fa: "خوش آمدید",
 		kr: "xPUD에 오신 것을 환영합니다",
 		sk: "Vitajte v xPUD",
+		kn: "xPUDಗೆ ಸುಸ್ವಾಗತ",
 	},
 
 	sys_info: {
@@ -154,6 +159,7 @@ var i18n =	{
 		fa: "اطلاعات سامانه",
 		kr: "시스템 정보",
 		sk: "Systémové informácie",
+		kn: "ವ್ಯವಸ್ಥೆ ಮಾಹಿತಿ",
 	},
 
 	want_to: {
@@ -179,6 +185,7 @@ var i18n =	{
 		fa: "شما ممکن است درخواست کنید که:",
 		kr: "이런 것도 할 수 있습니다",
 		sk: "Čo chcete urobiť:",
+		kn: "You may want to:",
 	},
 
 	quick_action: {
@@ -188,6 +195,7 @@ var i18n =	{
 		fa: "عملیات سریع",
 		kr: "빠른 실행",
 		sk: "Rýchla akcia",
+		kn: "ಕ್ಷಿಪ್ರ ಕ್ರಿಯೆ",
 	},
 
 	power_off: {
@@ -213,6 +221,7 @@ var i18n =	{
 		fa: "خارج شدن",
 		kr: "종료",
 		sk: "Vypnúť",
+		kn: "ಪವರ್ ಆಫ್",
 	},
 
 	quit_now: {
@@ -238,6 +247,7 @@ var i18n =	{
 		fa: "آیا تصمیم دارید خارج شوید؟",
 		kr: "지금 종료하시겠습니까?",
 		sk: "Naozaj ukončiť?",
+		kn: "ನೀವು ನಿರ್ಗಮಿಸಲು ಬಯಸುತ್ತೀರೆ?",
 	},
 
 		turn_off: {
@@ -263,6 +273,7 @@ var i18n =	{
 			fa: "خاموش کردن",
 			kr: "종료",
 			sk: "Vypnúť",
+			kn: "ಟರ್ನ್ ಆಫ್",
 		},
 
 		restart: {
@@ -288,6 +299,7 @@ var i18n =	{
 			fa: "باز آوری",
 			kr: "다시 시작",
 			sk: "Reštartovať",
+			kn: "ಪುನರಾರಂಭಿಸು",
 		},
 
 		cancel_shutdown: {
@@ -313,6 +325,7 @@ var i18n =	{
 			fa: "لغو کردن",
 			kr: "취소",
 			sk: "Zrušiť",
+			kn: "ರದ್ದುಗೊಳಿಸು",
 		},
 
 		save_backup_to: {
@@ -324,6 +337,7 @@ var i18n =	{
 			fa: "ذخیره کردن پشتیبان",
 			kr: "지정 디스크에 백업",
 			sk: "Uložiť zálohu do",
+			kn: "Save backup to",
 		},
 
 	power_off_desc: {
@@ -349,6 +363,7 @@ var i18n =	{
 		nl:"Computer afsluiten",
 		kr: "컴퓨터를 종료합니다",
 		sk: "vypnúť tento počítač",		
+		kn: "ಈ ಯಂತ್ರವನ್ನು ಟರ್ನ್ ಆಫ್ ಮಾಡು",
 	},
 
 	switch_mode: {
@@ -373,6 +388,7 @@ var i18n =	{
 		fa: "تغییر روش",
 		kr: "시스템 전환",
 		sk: "Zmeniť systém",
+		kn: "ಕ್ರಮ ಬದಲಾಯಿಸು",
 	},
 
 	switch_mode_desc: {
@@ -397,6 +413,7 @@ var i18n =	{
 		fa: "رفتن به سیستم عامل دیگر",
 		kr: "다른 운영체제로 전환합니다",
 		sk: "spustiť iný operačný systém",
+		kn: "ಮತ್ತೊಂದು OSಗೆ ಹೊರಳಿಸು",
 	},
 
 	get_help: {
@@ -422,6 +439,7 @@ var i18n =	{
 		fa: "درخواست کمک",
 		kr: "도움말",
 		sk: "Nápoveda",
+		kn: "ಸಹಾಯ ಪಡೆ"
 	},
 
 	get_help_desc: {
@@ -447,6 +465,7 @@ var i18n =	{
 		fa: "برقرای ارتباط",
 		kr: "와(과) 연락 정보",
 		sk: "a kontaktné informácie",
+		kn: "ಸಂಪರ್ಕದ ಮಾಹಿತಿ",
 	},
 
 	help_about: {
@@ -471,6 +490,7 @@ var i18n =	{
 		fa: "درباره سامانه",
 		kr: "xPUD에 대해서",
 		sk: "Info",
+		kn: "ತಂತ್ರಾಂಶದ ಬಗ್ಗೆ",
 	},
 
 		help_info: {
@@ -495,6 +515,7 @@ var i18n =	{
 		fa: "xPUD به سرعت در حال گسترش است.<br>برای اطلاعات بیشتر مراجعه کنید به:",
 		kr: "xPUD는 빠르게 개발되고 있는 프로젝트입니다. <br /> 더 많은 정보를 보시려면 이곳을 방문해 주십시오:",
 		sk: "xPUD je rýchlo rozvíjajúci sa projekt. <br /> Viac informácií:",
+		kn: "xPUD is a rapidly developing project. <br /> For more information, please go to:",
 	},
 
 	help_done: {
@@ -519,6 +540,7 @@ var i18n =	{
 		fa: "انجام شده",
 		kr: "확인",
 		sk: "OK",
+		kn: "ಆಯಿತು",
 	},
 
 // menu
@@ -546,6 +568,7 @@ var i18n =	{
 		nl:"Programma's",
 		kr: "프로그램",
 		sk: "Programy",
+		kn: "ಅನ್ವಯಗಳು"
 	},
 
 	web_app: {
@@ -556,6 +579,7 @@ var i18n =	{
 		fa: "نرم افزارهای تحت وب",
 		kr: "인터넷 프로그램",
 		sk: "Web aplikácie",
+		kn: "Web App",
 	},
 
 	web_browser: {
@@ -581,6 +605,7 @@ var i18n =	{
 		fa: "مرورگر وب",
 		kr: "인터넷 브라우저",
 		sk: "Prehliadač",
+		kn: "ಜಾಲ ವೀಕ್ಷಕ",
 	},
 
 	bt_client: {
@@ -606,6 +631,7 @@ var i18n =	{
 		fa: "کلاینت بیت تورنت",
 		kr: "비트토렌트",
 		sk: "BitTorrent klient",
+		kn: "BitTorrent Client",
 	},
 	
 	media_player: {
@@ -631,6 +657,7 @@ var i18n =	{
 		fa: "اجرا کننده چند رسانه ای",
 		kr: "미디어 플레이어",
 		sk: "Prehrávač médií",
+		kn: "ಮೀಡೀಯ ಪ್ಲೇಯರ್",
 	},
 	picture_viewer: {
 		en: "Picture Viewer",
@@ -655,6 +682,7 @@ var i18n =	{
 		fa: "نمایش دهنده تصاویر",
 		kr: "사진 보기",
 		sk: "Prehliadač obrázkov",
+		kn: "ಚಿತ್ರ ವೀಕ್ಷಕ",
 	},
 	text_editor: {
 		en: "Text Editor",
@@ -679,6 +707,7 @@ var i18n =	{
 		fa: "ویرایشگر متن",
 		kr: "문서 편집",
 		sk: "Textový editor",
+		kn: "ಪಠ್ಯ ಸಂಪಾದಕ",
 	},
 	pdf_viewer: {
 		en: "PDF Viewer",
@@ -703,6 +732,7 @@ var i18n =	{
 		fa: "نمایش دهنده PDF",
 		kr: "PDF 뷰어",
 		sk: "Prehliadač PDF",
+		kn: "PDF ವೀಕ್ಷಕ",
 	},
 	terminal_emulator: {
 		en: "Terminal Emulator",
@@ -727,6 +757,7 @@ var i18n =	{
 		fa: "ترمینال",
 		kr: "터미널",
 		sk: "Terminál",
+		kn: "ಟರ್ಮಿನಲ್ ಎಮ್ಯುಲೇಟರ್",
 	},
 	
 // setting
@@ -753,6 +784,7 @@ var i18n =	{
 		fa: "شحصی",
 		kr: "사용자 설정",
 		sk: "Osobné nastavenia",
+		kn: "ವೈಯಕ್ತಿಕ",
 	},
 		setting_language: {
 			en: "Language",
@@ -776,6 +808,7 @@ var i18n =	{
 			fa: "زبانها",
 			kr: "언어",
 			sk: "Jazyk",
+			kn: "ಭಾಷೆ"
 		},
 		setting_language_desc: {
 			en: "choose locale and keymap",
@@ -799,6 +832,7 @@ var i18n =	{
 			fa: "مکان مورد نظر خود را انتخاب کنید.",
 			kr: "언어와 키보드를 선택하십시오",
 			sk: "jazyk a rozloženie klávesnice",
+			kn: "choose locale and keymap",
 		}, 
 		setting_time_date: {
 			en: "Time & Date",
@@ -823,6 +857,7 @@ var i18n =	{
 			fa: "تاریخ و وقت",
 			kr: "시간과 날짜",
 			sk: "Dátum a čas",
+			kn: "ಸಮಯ ಹಾಗು ದಿನಾಂಕ"
 		},
 		setting_time_date_desc: {
 			en: "change system clock",
@@ -847,6 +882,7 @@ var i18n =	{
 			fa: "انجام تغییرات در ساعت",
 			kr: "시스템 시간을 변경하십시오",
 			sk: "Zmeniť dátum a čas",
+			kn: "change system clock",
 		},
 		setting_backup: {
 			en: "Backup",
@@ -870,7 +906,8 @@ var i18n =	{
 			nl:"Backup",
 			fa: "پشتیبان گیری",
 			kr: "백업",
-			sk: "Zálohovať"
+			sk: "Zálohovať",
+			kn: "ಬ್ಯಾಕ್ಅಪ್",
 		},
 		setting_backup_desc: {
 			en: "save your data and changes",
@@ -895,6 +932,7 @@ var i18n =	{
 			fa: "ذخیره کردن تغییرات انجام شده در تاریخ",
 			kr: "변경된 내용을 저장합니다",
 			sk: "Uložiť dáta a nastavenia",
+			kn: "ನಿಮ್ಮ ಡೇಟಾ ಹಾಗೂ ಬದಲಾವಣೆಗಳನ್ನು ಉಳಿಸಿ",
 		},
 	setting_system: {
 		en: "System",
@@ -919,6 +957,7 @@ var i18n =	{
 		fa: "سامانه",
 		kr: "시스템",
 		sk: "Systém",
+		kn: "ವ್ಯವಸ್ಥೆ",
 	},
 	
 		setting_wifi: {
@@ -943,6 +982,7 @@ var i18n =	{
 			fa: "WiFi",
 			kr: "WiFi",
 			sk: "WiFi",
+			kn: "WiFi",
 		},
 		setting_wifi_desc: {
 			en: "setup wireless connection",
@@ -966,6 +1006,7 @@ var i18n =	{
 			fa: "فراهم کردن ارتباط وایرلس",
 			kr: "무선인터넷을 설정합니다",
 			sk: "Nastaviť bezdrátové pripojenie k sieti",
+			kn: "setup wireless connection",
 		},
 			setting_wifi_title: {
 				en: "Setup Wireless Network",
@@ -988,6 +1029,7 @@ var i18n =	{
 				fa: "فراهم کردن شبگه وایرلس",
 				kr: "무선 네트워크를 설정합니다 ",
 				sk: "Nastavenie bezdrátovej siete",
+				kn: "Setup Wireless Network",
 			},
 			setting_wifi_device: {
 				en: "Network Device: ",
@@ -1010,6 +1052,7 @@ var i18n =	{
 				fa: "ابزار شبکه",
 				kr: "네트워크 장치",
 				sk: "Sieťové zariadenie",
+				kn: "ಜಾಲಬಂಧ ಸಾಧನ:",
 			},
 			setting_wifi_choose: {
 				en: "Choose a network: ",
@@ -1033,6 +1076,7 @@ var i18n =	{
 				fa: "انتخاب کردن شبکه",
 				kr: "네트워크를 선택하십시오",
 				sk: "Vyberte si sieť: ",
+				kn: "ಒಂದು ನೆಟ್‌ವರ್ಕ್ ಆಯ್ಕೆಮಾಡು:",
 			},
 			setting_wifi_refresh: {
 				en: "Refresh",
@@ -1055,6 +1099,7 @@ var i18n =	{
 				fa: "بازآوری",
 				kr: "목록 새로 고침",
 				sk: "Aktualizovať",
+				kn: "ಪುನಶ್ಚೇತನ",
 			},
 			setting_wifi_password: {
 				en: "Password:",
@@ -1077,6 +1122,7 @@ var i18n =	{
 				fa: "کلمه عبور",
 				kr: "암호",
 				sk: "Heslo:",
+				kn: "ಗುಪ್ತಪದ:",
 			},
 			setting_wifi_connect: {
 				en: "Connect",
@@ -1099,6 +1145,7 @@ var i18n =	{
 				fa: "برقراری ارتباط",
 				kr: "연결",
 				sk: "Pripojiť sa",
+				kn: "ಸಂಪರ್ಕ ಕಲ್ಪಿಸು",
 			},
 		setting_ethernet: {
 			en: "Ethernet",
@@ -1122,6 +1169,7 @@ var i18n =	{
 			fa: "Ethernet",
 			kr: "Ethernet",
 			sk: "Ethernet",
+			kn: "ಎತರ್ನೆಟ್",
 		},
 		setting_ethernet_desc: {
 			en: "setup wired connection",
@@ -1146,6 +1194,7 @@ var i18n =	{
 			fa: "فراهم نمودن ارتباط سیمی",
 			kr: "유선인터넷을 설정합니다",
 			sk: "nastavenie káblového pripojenia",
+			kn: "setup wired connection",
 		},
 		setting_opt: {
 			en: "Opt-Get",
@@ -1170,6 +1219,7 @@ var i18n =	{
 			fa: "Opt-Get",
 			kr: "Opt-Get",
 			sk: "Opt-Get",
+			kn: "Opt-Get",
 		},
 		setting_opt_desc: {
 			en: "get more apps",
@@ -1194,6 +1244,7 @@ var i18n =	{
 			fa: "دریافت نرم افزارهای بیشتر",
 			kr: "프로그램을 다운로드합니다",
 			sk: "získajte viac programov",
+			kn: "get more apps",
 		},
 	
 	setting_hardware: {
@@ -1218,6 +1269,7 @@ var i18n =	{
 		fa: "سخت افزار",
 		kr: "하드웨어",
 		sk: "Hardware",
+		kn: "ಯಂತ್ರಾಂಶ",
 	},
 		setting_sound: {
 			en: "Sound",
@@ -1242,6 +1294,7 @@ var i18n =	{
 			fa: "صدا",
 			kr: "사운드",
 			sk: "Zvuk",
+			kn: "ಧ್ವನಿ",
 		},
 		setting_sound_desc: {
 			en: "adjust system sound",
@@ -1266,6 +1319,7 @@ var i18n =	{
 			fa: "مرتب کردن سامانه صدا",
 			kr: "시스템의 사운드를 조절합니다",
 			sk: "nastavenia zvuku",
+			kn: "ವ್ಯವಸ್ಥೆಯ ಧ್ವನಿ ಸರಿಪಡಿಸು",
 		},
 		setting_display: {
 			en: "Display",
@@ -1290,6 +1344,7 @@ var i18n =	{
 			fa: "نمایشگر",
 			kr: "디스플레이",
 			sk: "Zobrazenie",
+			kn: "ಪ್ರದರ್ಶಕ",
 		},
 		setting_display_desc: {
 			en: "change screen resolution",
@@ -1314,6 +1369,7 @@ var i18n =	{
 			fa: "تغییر در نحوه نمایش ",
 			kr: "화면 해상도를 조절합니다",
 			sk: "zmena rozlíšenia obrazovky",
+			kn: "ಪರದೆಯ ರೆಸಲ್ಯೂಶನ್ ಬದಲಾಯಿಸು",
 		},
 		setting_driver: {
 			en: "Driver",
@@ -1337,6 +1393,7 @@ var i18n =	{
 			fa: "گرداننده ",
 			kr: "드라이버",
 			sk: "Ovládač",
+			kn: "ಡ್ರೈವರ್",
 		},
 		setting_driver_desc: {
 			en: "device info and driver",
@@ -1360,6 +1417,7 @@ var i18n =	{
 			fa: "ابزار و اطلاعات مربوط به گرداننده ها ",
 			kr: "장치정보 및 드라이버",
 			sk: "informácie o ovládačoch a zariadeniach"
+			kn: "ಸಾಧನದ ಮಾಹಿತಿ ಹಾಗೂ ಡ್ರೈವರ್",
 		},
 		setting_sysinfo: {
 			en: "System Info",
@@ -1370,6 +1428,7 @@ var i18n =	{
 			kr: "시스템 정보",
 			el: "Πληροφορίες Συστήματος",
 			sk: "Systémové informácie",
+			kn: "ವ್ಯವಸ್ಥೆ ಮಾಹಿತಿ",
 		},
 		setting_sysinfo_desc: {
 			en: "check system information",
@@ -1380,6 +1439,7 @@ var i18n =	{
 			kr: "시스템 정보를 확인합니다",
 			el: "Έλεγχος Συστήματος",
 			sk: "zobraziť systémove informácie",
+			kn: "ವ್ಯವಸ್ಥೆ ಮಾಹಿತಿ ಪರಿಶೀಲಿಸು",
 		},
 		
 			back_to_setting: {
@@ -1404,6 +1464,7 @@ var i18n =	{
 				fa: "بازگشت به قسمت مشخصه ها ",
 				kr: "이전 화면으로",
 				sk: "Späť do nastavení",
+				kn: "ಸಂಯೋಜನೆಗಳಿಗೆ ಹಿಂದಿರುಗು"
 		},
 
 };
