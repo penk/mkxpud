@@ -105,7 +105,7 @@ var i18n =	{
 		fa: "مشخصه ها",
 		kr: "설정",
 		sk: "Nastavenia",
-		kn: "ಸಂಯೋಜನೆಗಳು"
+		kn: "ಸಂಯೋಜನೆಗಳು",
 	},
 
 // home 
@@ -439,7 +439,7 @@ var i18n =	{
 		fa: "درخواست کمک",
 		kr: "도움말",
 		sk: "Nápoveda",
-		kn: "ಸಹಾಯ ಪಡೆ"
+		kn: "ಸಹಾಯ ಪಡೆ",
 	},
 
 	get_help_desc: {
@@ -568,7 +568,7 @@ var i18n =	{
 		nl:"Programma's",
 		kr: "프로그램",
 		sk: "Programy",
-		kn: "ಅನ್ವಯಗಳು"
+		kn: "ಅನ್ವಯಗಳು",
 	},
 
 	web_app: {
@@ -808,7 +808,7 @@ var i18n =	{
 			fa: "زبانها",
 			kr: "언어",
 			sk: "Jazyk",
-			kn: "ಭಾಷೆ"
+			kn: "ಭಾಷೆ",
 		},
 		setting_language_desc: {
 			en: "choose locale and keymap",
@@ -857,7 +857,7 @@ var i18n =	{
 			fa: "تاریخ و وقت",
 			kr: "시간과 날짜",
 			sk: "Dátum a čas",
-			kn: "ಸಮಯ ಹಾಗು ದಿನಾಂಕ"
+			kn: "ಸಮಯ ಹಾಗು ದಿನಾಂಕ",
 		},
 		setting_time_date_desc: {
 			en: "change system clock",
@@ -1416,7 +1416,7 @@ var i18n =	{
 			nl:"Apparaatinfo en stuurprogramma",
 			fa: "ابزار و اطلاعات مربوط به گرداننده ها ",
 			kr: "장치정보 및 드라이버",
-			sk: "informácie o ovládačoch a zariadeniach"
+			sk: "informácie o ovládačoch a zariadeniach",
 			kn: "ಸಾಧನದ ಮಾಹಿತಿ ಹಾಗೂ ಡ್ರೈವರ್",
 		},
 		setting_sysinfo: {
@@ -1464,7 +1464,7 @@ var i18n =	{
 				fa: "بازگشت به قسمت مشخصه ها ",
 				kr: "이전 화면으로",
 				sk: "Späť do nastavení",
-				kn: "ಸಂಯೋಜನೆಗಳಿಗೆ ಹಿಂದಿರುಗು"
+				kn: "ಸಂಯೋಜನೆಗಳಿಗೆ ಹಿಂದಿರುಗು",
 		},
 
 };
