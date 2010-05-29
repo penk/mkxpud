@@ -10,9 +10,22 @@
 		<script type="text/javascript" src="jquery-1.4.min.js"></script>
 		<script type="text/javascript" src="plate.js"></script>
 		<script type="text/javascript" src="rosetta.js"></script>
-		<script type="text/javascript" src="dbus.js"></script> 
+		<!--<script type="text/javascript" src="dbus.js"></script> -->
 		<script type="text/javascript">
 		$(function(){
+
+		var panel_timer; 
+		$("#panel_arrow").click(function(){
+			if (panel_status===0) { // panel invisable
+				show_panel();
+				//panel_timer = setTimeout("hide_panel();",3000);
+		  	} else { 
+				hide_panel();
+				clearTimeout(panel_timer);
+			}
+		  }
+		);
+
 			$("#curl").hover(function(){
     			//create iFrame Shim, append it and.. animate it!
                 var shim = $('<iframe id="curl_shim" frameborder="0" src="javascript:\"\";">');
@@ -67,7 +80,7 @@
 	<body onload="initail_plate_ui();">
 		<div id="cover" onclick="cover();"></div>
 		<div id="popup"></div>
-		
+
 		<div id="curl">
 			<img id="curl_img" src="image/curl.png" />
 			　
@@ -81,7 +94,15 @@
 
 		<div id="padding">
 			<div id="panel">
-				<div id="home" onclick="select_tab(this); close_page_curl_block();"><div class="under_cover"></div>
+
+
+
+<div id="panel_arrow" style="position: absolute; top: 38%;"><img id="panel_arrow_img" src="image/1rightarrow.png" style="margin-left: -15px;" /></div>
+
+				<div id="home" onclick="select_tab(this); close_page_curl_block();">
+
+<!-- <div class="under_cover"><div class="under_cover_rounded"></div></div> -->
+
 					<table><tr><td>
 						<img src = "image/Eterm.png" />
 						<br />
@@ -109,13 +130,16 @@
 						<span class="i18n">setting</span>
 					</td></tr></table>
 				</div><!-- setting -->
-				<div id="slot"></div>
+				<!--<div id="slot"></div> -->
+				<iframe id="panel_shim_2" frameborder="0" src="javascript:;"></iframe>
+
 			</div><!-- panel -->
 			<div id="content">
 				<div id="menu"></div>
 				<div id="programs"></div>
 			</div><!-- content -->
 		</div><!-- padding -->
+
 		<div id="top_task" onmouseout="top_task_auto_hide();" onmouseover="top_task_show();">
 			<div id="systray"></div>
 		</div><!-- top_task -->

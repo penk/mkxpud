@@ -38,19 +38,31 @@ h2 {
 	position: absolute;
 	top: 0px;
 	bottom: 0px;
-	left: 0px;
+	left: -110px;
 	right: auto;
-	width: 110px;
-	height: auto;
-	background: 0;
+	width: 120px;
+	background: #2E598D;
 	font-size: 120%;
 	font-weight: bold;
-	z-index: 2;
-	display: inline;
+	z-index: 4;
+	display: inline; 
 	-moz-user-focus: ignore;
 	-moz-user-input: disabled;
 	-moz-user-select: none;
 	-webkit-user-select: none;
+}
+
+#panel_arrow {
+	z-index: 3; 
+	margin-left: 120px; 
+	height: 200px; 
+	width: 40px !important; 
+	background: #2E598D; 
+	padding-top: 40px;
+	-webkit-box-shadow: 4px 2px 6px #818181;
+	-webkit-border-bottom-left-radius: 0px !important;
+	-webkit-border-top-left-radius: 0px !important;
+
 }
 
 #panel.maximized {
@@ -82,16 +94,18 @@ h2 {
 	opacity: 1.0;
 	cursor: pointer;
 }
+
 /*block of under_cover*/
 #panel div div {
 	position: absolute;
 	top: -15px;
 	bottom: auto;
-	left: 75px;
+	left: 30px;
 	right: auto;
-	width: 145px;
-	height: 160px;
-	background: #FFFFFF;
+	width: 120px;
+	height: 30px;
+	border-radius: 0px !important;
+	background: #2E598D;
 	display: none;
 	z-index: -1;
 }
@@ -100,9 +114,18 @@ h2 {
 	display: block;
 }
 
+#panel div div.under_cover_rounded {
+	-webkit-border-radius: 12px !important;
+	top: 15px;
+	display: block;
+	background: white;
+	left: 90px;
+	width: 40px;
+}
+
 #panel div.selected {
-	background: #FFFFFF;
-	color: #000000;
+	/*background: #FFFFFF; 
+	color: #000000;*/
 }
 
 #panel div.programs_running {
@@ -115,21 +138,42 @@ h2 {
 }
 
 #panel div#slot {
-	background: #2E598D;
+	/*background: #2E598D; */
+	background: yellow;
+	bottom: 0px;
+}
+
+#panel_shim_1 {
+	position:absolute;
+	width: 120px;
+	height: 100%;
+	top:0px;
+	bottom: 0px;
+	z-index:3;
+	left: -100px;
+}
+
+#panel_shim_2 {
+	position:absolute;
+	width: 50px;
+	height: 158px;
+	top: 38%;
+	z-index: 2;
+	left: 120px;
 }
 
 #content {
 	position: absolute;
 	top: 0px;
 	bottom: 0px;
-	left: 110px;
+	left: 10px;
 	right: 0px;
 	width: auto;/*set by set_panel_width() on load*/
 	height: auto;
 	background: #FFFFFF;
 	padding-top: 10px;
-	padding-left: 20px;
-	padding-right: 20px;
+	padding-left: 50px;
+	padding-right: 50px;
 	padding-bottom: 10px;
 	-moz-border-radius: 12px;
 	-webkit-border-radius: 12px;
