@@ -483,6 +483,7 @@ function setSelectedOpts(PrefString, ElementName) {
 	}
 }
 
+var panel_timer; 
 var panel_status=0;
 
 function show_panel() {
@@ -504,7 +505,7 @@ function show_panel() {
 				opacity: '0.1',  
 				background: '#000'  
 			    });  
-			$('#closezone').click(function(){ hide_panel() });
+			$('#closezone').click(function(){ hide_panel(); clearTimeout(panel_timer); });
 
 			$('#panel').animate({"left": "+=110px"}, 150);
 			$('#panel').css('-webkit-box-shadow', '10px -2px 12px #818181');
