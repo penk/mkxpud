@@ -251,6 +251,9 @@ $('#curl').show();
 $("#curl").hover(function(){
     			//create iFrame Shim, append it and.. animate it!
                 	$('body').append('<iframe id="curl_shim" frameborder="0" src="javascript:\"\";">');
+			if ($.browser.mozilla === true) {
+				$('#curl_shim').css('background', 'white'); 
+			}
 		        $('#curl_shim').stop().animate({
 		                width:70,
 		                height:70
@@ -488,9 +491,12 @@ var panel_status=0;
 
 function show_panel() {
 			$('body').append('<iframe id="panel_shim_1" frameborder="0" src="javascript:\"\";">');
-			
+
 			if (! $('#panel_shim_2').length) {
 			$('body').append('<iframe id="panel_shim_2" frameborder="0" src="javascript:\"\";">');
+				if ($.browser.mozilla === true) {
+					$('#panel_shim_2').css('background', 'white');
+				}
 			} 
 
 			$('body').append('<div id="closezone"></div>');
