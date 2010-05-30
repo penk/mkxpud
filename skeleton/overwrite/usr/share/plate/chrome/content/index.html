@@ -18,7 +18,7 @@
 		$("#panel_arrow").click(function(){
 			if (panel_status===0) { // panel invisable
 				show_panel();
-				//panel_timer = setTimeout("hide_panel();",3000);
+				panel_timer = setTimeout("hide_panel();",3000);
 		  	} else { 
 				hide_panel();
 				clearTimeout(panel_timer);
