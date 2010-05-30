@@ -150,20 +150,19 @@ h2 {
 #panel_shim_1 {
 	position:absolute;
 	width: 120px;
-	height: 100%;
-	top:0px;
-	bottom: 0px;
+	top: 10px;
+	bottom: 10px;
 	z-index: 3;
 	left: -100px;
 }
 
 #panel_shim_2 {
 	position:absolute;
-	width: 50px;
+	width: 48px;
 	height: 158px;
 	top: 38%;
 	z-index: 3;
-	left: 120px;
+	left: 20px;
 }
 
 #content {

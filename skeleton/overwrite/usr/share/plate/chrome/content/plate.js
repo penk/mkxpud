@@ -451,6 +451,10 @@ var panel_status=0;
 
 function show_panel() {
 			$('body').append('<iframe id="panel_shim_1" frameborder="0" src="javascript:\"\";">');
+			
+			if (! $('#panel_shim_2').length) {
+			$('body').append('<iframe id="panel_shim_2" frameborder="0" src="javascript:\"\";">');
+			} 
 
 			$('body').append('<div id="closezone"></div>');
 			$('#closezone')  
@@ -468,17 +472,19 @@ function show_panel() {
 
 			$('#panel').animate({"left": "+=110px"}, 150);
 			$('#panel').css('-webkit-box-shadow', '10px -2px 12px #818181');
+			$('#panel').css('-moz-box-shadow', '10px -2px 12px #818181');
 			$('#panel_shim_1').animate({"left": "+=110px"}, 150);
-			$('#panel_shim_2').animate({"left": "+=0px"}, 150);
+			$('#panel_shim_2').animate({"left": "+=110px"}, 150);
 			$('#panel_arrow_img').attr('src', 'image/1leftarrow.png');
 
 			panel_status=1;
 }
 function hide_panel() {
 			$('#panel').animate({"left": "-=110px"}, 150);
-			$('#panel_shim_2').animate({"left": "-=0px"}, 150);
+			$('#panel_shim_2').animate({"left": "-=110px"}, 150);
 			$('#panel_arrow_img').attr('src', 'image/1rightarrow.png');
 			$('#panel').css('-webkit-box-shadow', '');
+			$('#panel').css('-moz-box-shadow', '');
 			$('#closezone').remove();
                		$('#panel_shim_1').remove();
 			panel_status=0;
