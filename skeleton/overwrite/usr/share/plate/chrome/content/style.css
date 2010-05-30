@@ -150,6 +150,7 @@ h2 {
 #panel_shim_1 {
 	position:absolute;
 	width: 120px;
+	height: 100%;
 	top: 10px;
 	bottom: 10px;
 	z-index: 3;
@@ -354,55 +355,13 @@ h2 {
 	-webkit-border-radius: 12px;
 }
 
-#close_button {
-	position: absolute;
-	top: 0px;
-	bottom: 5px;
-	left: auto;
-	right: 0px;
-	width: 24px;
-	height: auto;
-	padding: 0px;
-	margin: 0px;
-	background: url(image/icon_close.png) bottom center no-repeat;
+.w_button {
+	float: right;
+	margin-right: 12px;
 	opacity: 0.4;
 }
 
-#close_button:hover {
-	cursor: pointer;
-	opacity: 1;
-}
-
-#maximize_button {
-	position: absolute;
-	top: auto;
-	bottom: 2px;
-	left: auto;
-	right: 25px;
-	width: 16px;
-	height: 16px;
-	background: url(image/icon_maximize.png) center center no-repeat;
-	opacity: 0.4;
-}
-
-#maximize_button:hover {
-	cursor: pointer;
-	opacity: 1;
-}
-
-#minimize_button {
-	position: absolute;
-	top: auto;
-	bottom: 2px;
-	left: auto;
-	right: 44px;
-	width: 16px;
-	height: 16px;
-	background: url(image/icon_minimize.png) center center no-repeat;
-	opacity: 0.4;
-}
-
-#minimize_button:hover {
+.w_button:hover {
 	cursor: pointer;
 	opacity: 1;
 }

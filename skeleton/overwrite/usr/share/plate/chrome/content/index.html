@@ -26,53 +26,6 @@
 		  }
 		);
 
-			$("#curl").hover(function(){
-    			//create iFrame Shim, append it and.. animate it!
-                var shim = $('<iframe id="curl_shim" frameborder="0" src="javascript:\"\";">');
-                $('body').append(shim);
-                $('#curl_shim').stop().animate({
-                        width:70,
-                        height:70
-                },400);
-                
-				$(this).stop().animate({
-						width: 135,
-						height: 70
-				}, 400);
-				$('#curl_img').stop().animate({
-						width: 135,
-						height: 70
-					}, 400);
-/*
-				$('embed').each(function (i) {
-					this.style.width = '89%';
-				});
-*/				
-				$('#page_curl_block').show();
-			}, function(){	
-				$(this).stop().animate({
-					width: 55,
-					height: 25
-				}, 200);
-				$('#curl_img').stop().animate({
-						width: 55,
-						height: 25
-					}, 200);
-/*					
-				$('embed').each(function (i) {
-					this.style.width = '100%';
-				});
-*/				
-                //Animate iFrame Shim to 0pxx0px
-                $('#curl_shim').stop().animate({
-                        width:0,
-                        height:0
-                },200);
-
-				$('#page_curl_block').hide();
-				//Kill iFrame Shim
-                $('#curl_shim').remove();				
-			});
 		});
 		</script>
 		<link rev="made" href="mailto:penkia@gmail.com" />
@@ -80,17 +33,6 @@
 	<body onload="initail_plate_ui();">
 		<div id="cover" onclick="cover();"></div>
 		<div id="popup"></div>
-
-		<div id="curl">
-			<img id="curl_img" src="image/curl.png" />
-			　
-			<div id="page_curl_block">
-			　
-			<div id="close_button" onclick="close_program();"></div>
-			<div id="maximize_button" onclick="toggle_maximize_program();"></div>
-			<div id="minimize_button" onclick="close_page_curl_block(); select_tab(null);"></div>
-			</div>
-		</div>
 
 		<div id="padding">
 			<div id="panel">

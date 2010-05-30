@@ -234,7 +234,7 @@ function toggle_maximize_program() {
 function open_file_tab() {
 
 unmaximize_program();
-document.getElementById('maximize_button').className = '';
+//document.getElementById('maximize_button').className = '';
 show_program("pcmanfm", false);
 document.getElementById('top_task').style.display = "none";
 
@@ -245,13 +245,49 @@ function set_page_curl_block( html ) {
 //	$('#page_curl_block').innerHTML = data.html;
 //});
 
-$('#curl_img').attr('src', 'image/curl.png');
+$('body').append('<div id="curl"><img id="curl_img" src="image/curl.png" /><div id="page_curl_block"><div id="close_button" class="w_button" onclick="close_program();"><img src="image/icon_close.png" /> </div><div id="maximize_button" class="w_button" onclick="toggle_maximize_program();"><img src="image/icon_maximize.png" /> </div><div id="minimize_button" class="w_button" onclick="close_page_curl_block(); select_tab(null);"><img src="image/icon_minimize.png" /></div></div></div>');
 $('#curl').show();
+
+$("#curl").hover(function(){
+    			//create iFrame Shim, append it and.. animate it!
+                	$('body').append('<iframe id="curl_shim" frameborder="0" src="javascript:\"\";">');
+		        $('#curl_shim').stop().animate({
+		                width:70,
+		                height:70
+		        },400);
+				$(this).stop().animate({
+						width: 135,
+						height: 70
+				}, 400);
+				$('#curl_img').stop().animate({
+						width: 135,
+						height: 70
+					}, 400);			
+				$('#page_curl_block').show();
+		}, function(){	
+				$(this).stop().animate({
+					width: 55,
+					height: 25
+				}, 200);
+				$('#curl_img').stop().animate({
+						width: 55,
+						height: 25
+					}, 200);				
+		        //Animate iFrame Shim to 0pxx0px
+		        $('#curl_shim').stop().animate({
+		                width:0,
+		                height:0
+		        },200);
+
+				$('#page_curl_block').hide();
+                		$('#curl_shim').remove();				
+});
+
 }
 
 function close_page_curl_block() {
-$('#curl_img').attr('src', '');
-$('#page_curl_block').hide();
+$('#curl').remove();
+$('#curl_shim').remove();
 }
 
 function system(input) {
