@@ -116,4 +116,4 @@ scim-unikey
 
 [post_action]
 
-tar zxf skeleton/archive/fvkbd.tgz -C $MKXPUD_TARGET/
+tar xjf skeleton/archive/fvkbd.tar.bz2 -C $MKXPUD_TARGET/
