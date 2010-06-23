@@ -209,7 +209,7 @@ function kernel {
 # helper for copying file dependencies
 # copydeps (file) (target directory)
 function copydeps {
-		for i in `./tools/ldd-helper $1`; do 
+		for i in `./tools/ldd-helper "$1"`; do 
 			TARGET=`dirname $i`
 			if [ ! -e $MKXPUD_TARGET$i ]; then
 				if [ ! -e $2$TARGET ]; then
@@ -230,7 +230,7 @@ function post {
 	# create symbolic links for /bin/*
 	./tools/busybox-helper
 	rm $MKXPUD_TARGET/bin/busybox
-	
+
 	# check initramfs dependencies
 	# FIXME: set initramfs directory as variable
 	echo "    Checking initramfs dependencies"
@@ -238,19 +238,20 @@ function post {
 	for s in `find $INITRAMFS_DIR -type f`; do
 		copydeps $s $INITRAMFS_DIR
 	done
-	
+
 	# check file dependencies
 	echo "    Checking rootfs dependencies"
 	for s in `find $MKXPUD_TARGET/{usr,lib,bin,sbin}/ -type f`; do
 		copydeps $s $MKXPUD_TARGET
 	done
-	
+
 	# check dependencies of opt
 	for O in `./tools/parser $MKXPUD_CONFIG opt`; do 
 		NAME=`./tools/parser package/recipe/$O.recipe name`
 		echo "    Checking dependencies of $NAME opt"
-		for s in `find $MKXPUD_TARGET/opt/$NAME/ -type f`; do
-			copydeps $s $MKXPUD_TARGET/opt/$NAME
+		find $MKXPUD_TARGET/opt/$NAME/ -type f | while read s
+		do
+			copydeps "$s" $MKXPUD_TARGET/opt/$NAME
 		done
 	done
 
@@ -392,8 +393,9 @@ function makeopt {
 		eval `./tools/parser package/recipe/$OPT_PKG.recipe post_action`
 		# check dependencies
 		echo "Checking dependencies..."
-		for s in `find $MKXPUD_TARGET/opt/$NAME/ -type f`; do
-			copydeps $s $MKXPUD_TARGET/opt/$NAME
+		find $MKXPUD_TARGET/opt/$NAME/ -type f | while read s
+		do
+			copydeps "$s" $MKXPUD_TARGET/opt/$NAME
 		done
 		SOURCE_DIR=$MKXPUD_TARGET/opt/$NAME
 		TARGET_OPT=deploy/opt/$MKXPUD_CODENAME/$NAME

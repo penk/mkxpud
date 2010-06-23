@@ -26,10 +26,10 @@ if [ ! -e /var/lib/dbus/machine-id ]; then dbus-uuidgen > /var/lib/dbus/machine-
 /lib/dbus-1.0
 /var/run/dbus
 
-/usr/lib/libgconf2-4
-/var/lib/gconf
-/usr/share/gconf
-/etc/gconf
+#/usr/lib/libgconf2-4
+#/var/lib/gconf
+#/usr/share/gconf
+#/etc/gconf
 
 [config]
 

@@ -1,0 +1,21 @@
+# recipe file
+
+[name]
+skype
+
+[package]
+skype
+
+[action]
+
+[binary]
+/usr/bin/skype
+
+[data]
+/usr/share/skype
+/etc/dbus-1/system.d/skype.conf
+/usr/share/pixmaps/skype.png
+/usr/share/icons/skype.png
+
+[config]
+/usr/share/applications/skype.desktop
