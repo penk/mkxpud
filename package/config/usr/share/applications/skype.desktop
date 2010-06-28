@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Skype
+Comment=Skype Internet Telephony
+Exec=skype
+Icon=skype
+Terminal=false
+#Type=Application
+Type=AppPopup
+Encoding=UTF-8
+Categories=Network;Application;
