@@ -20,14 +20,11 @@ user_pref("browser.download.manager.showWhenStarting", false);
 user_pref("browser.link.open_newwindow.restriction", 0);
 user_pref("browser.migration.version", 1);
 user_pref("browser.places.importBookmarksHTML", false);
-//user_pref("browser.places.smartBookmarksVersion", 1); // firefox 3.5.2
 user_pref("browser.places.smartBookmarksVersion", 2);
 user_pref("browser.rights.3.shown", true);
 user_pref("browser.startup.homepage", "about:blank");
-user_pref("browser.startup.homepage_override.mstone", "rv:1.9.2.3");
+user_pref("browser.startup.homepage_override.mstone", "rv:1.9.2.6");
 user_pref("browser.startup.page", 0);
-//user_pref("extensions.enabledItems", "{972ce4c6-7e08-4474-a285-3208198ce6fd}:3.5.3");
-//user_pref("extensions.lastAppVersion", "3.5.3");
 user_pref("extensions.update.notifyUser", false);
 user_pref("intl.charsetmenu.browser.cache", "ISO-8859-1, UTF-8");
 user_pref("network.cookie.prefsMigrated", true);
