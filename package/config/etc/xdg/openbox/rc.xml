@@ -592,6 +592,17 @@
 		<fullscreen>no</fullscreen>
 		<maximized>no</maximized>
 	</application>
+	
+	<application name="midori*">
+		<decor>no</decor>
+		<shade>no</shade>
+		<focus>yes</focus>
+		<desktop>1</desktop>
+		<layer>normal</layer>
+		<iconic>no</iconic>
+		<fullscreen>no</fullscreen>
+		<maximized>true</maximized>
+	</application>
 <!--
   # this is an example with comments through out. use these to make your
   # own rules, but without the comments of course.

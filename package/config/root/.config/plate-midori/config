@@ -1,0 +1,9 @@
+[settings]
+default-encoding=ISO-8859-1
+last-window-state=MIDORI_WINDOW_MAXIMIZED
+show-menubar=false
+show-navigationbar=false
+show-transferbar=false
+show-statusbar=false
+toolbar-style=MIDORI_TOOLBAR_ICONS
+toolbar-items=TabNew,Back,Forward,Next,ReloadStop,Location,Panel,Search,Trash
