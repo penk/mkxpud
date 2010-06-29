@@ -49,7 +49,6 @@ add-apt-repository ppa:midori
 
 /etc/gtk-2.0
 
-#/usr/share/applications/firefox.desktop
 /usr/share/applications/xterm.desktop
 /usr/share/applications/gcalendar.desktop
 /usr/share/applications/facebook.desktop
@@ -62,7 +61,6 @@ add-apt-repository ppa:midori
 
 /usr/share/themes/Human/cursor.theme
 /usr/share/icons/default/index.theme
-#/usr/bin/firefox
 /sbin/hotplug-x
 /init
 /sbin/init
@@ -88,12 +86,9 @@ add-apt-repository ppa:midori
 /usr/local/bin/remote-opt-get
 /usr/local/bin/opt-get
 /usr/local/bin/remove-opt
-#/usr/local/bin/packcpio
 
 /tmp/sysinfo
 
-## FIXME rename
-#/usr/share/firefox/plugins/mozplugger.so
 /usr/local/bin/post-boot.sh
 /usr/local/bin/jswrapper
 /usr/share/plate
