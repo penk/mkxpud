@@ -59,9 +59,9 @@ ubuntu-plate-firefox
 #ubuntu-plate-chrome
 #ubuntu-plate-midori
 ubuntu-pcmanfm
+#lucid-pcmanfm2
 ubuntu-dbus
 ubuntu-cjkfont
-#lucid-pcmanfm2
 
 [opt]
 ubuntu-media

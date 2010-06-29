@@ -1,0 +1,19 @@
+# recipe file
+
+[name]
+debug
+
+[package]
+gdb
+
+[action]
+
+[binary]
+
+/usr/bin/gdb
+
+[data]
+
+[config]
+
+[overwrite]

@@ -18,13 +18,18 @@ add-apt-repository ppa:midori
 [binary]
 /usr/bin/midori
 /usr/bin/m4
+/usr/bin/mozplugger-controller
+/usr/bin/mozplugger-helper
+/usr/bin/mozplugger-linker
 
 [data]
 /usr/share/midori
 /usr/share/applications/midori.desktop
 /usr/share/icons/hicolor/16x16/apps/midori.png
 /usr/share/icons/hicolor/48x48/apps/midori.png
-#/usr/share/webkit-1.0
+
+/usr/share/webkit-1.0
+/usr/share/javascript/
 
 /usr/lib/mozilla/plugins/mozplugger.so
 /usr/lib/gtk-2.0/2.10.0/loaders/
@@ -92,3 +97,6 @@ add-apt-repository ppa:midori
 /usr/local/bin/post-boot.sh
 /usr/local/bin/jswrapper
 /usr/share/plate
+
+[alternative]
+/etc/mozpluggerrc
