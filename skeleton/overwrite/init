@@ -2,6 +2,7 @@
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 export HOME=/root
 
+	/bin/hostname -F /etc/hostname
 	#/bin/mount -t sysfs none /sys -onodev,noexec,nosuid
 	#/bin/mount -t proc none /proc -onodev,noexec,nosuid
 	ln -sf /proc/mounts /etc/mtab
