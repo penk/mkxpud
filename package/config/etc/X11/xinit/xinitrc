@@ -8,30 +8,38 @@
 # invoke global X session script
 #. /etc/X11/Xsession
 
-export GTK_IM_MODULE="scim"
+XIM_PROGRAM=/usr/bin/scim
+XIM=SCIM
+XIM_ARGS="-d"
+if [ -f $XIM_PROGRAM ]; then
+	if [ "$LANG" = "zh" ]; then
+		export LC_ALL=zh_TW.UTF-8
+		export LANG=zh_TW.UTF-8
+	elif [ "$LANG" = "zh_cn" ]; then
+		export LC_ALL=zh_CN.UTF-8
+		export LANG=zh_CN.UTF-8
+	fi
+	export GTK_IM_MODULE=xim
+	export QT_IM_MODULE=xim
+	export XMODIFIERS="@im=$XIM"
+	$XIM_PROGRAM $XIM_ARGS
+fi
 
 if [ -e /usr/bin/google-chrome ]; then 
-
-/usr/local/bin/post-boot.sh 1> /tmp/init.log 2> /tmp/init.err &
-httpd -c /etc/httpd.conf -h /
-# ifconfig lo 127.0.0.1 netmask 255.0.0.0
-sleep 2
-/usr/bin/google-chrome --kiosk http://localhost/usr/share/plate/chrome/content --user-data-dir=/root/.config/plate-chrome/ &
-
+	/usr/local/bin/post-boot.sh 1> /tmp/init.log 2> /tmp/init.err &
+	httpd -c /etc/httpd.conf -h /
+	# ifconfig lo 127.0.0.1 netmask 255.0.0.0
+	sleep 2
+	/usr/bin/google-chrome --kiosk http://localhost/usr/share/plate/chrome/content --user-data-dir=/root/.config/plate-chrome/ &
 else 
-
-if [ -e /usr/bin/midori ]; then
-
-/usr/local/bin/post-boot.sh 1> /tmp/init.log 2> /tmp/init.err &
-httpd -c /etc/httpd.conf -h /
-sleep 2
-/usr/bin/midori --config=/root/.config/plate-midori/ http://localhost/usr/share/plate/chrome/content &
-
-else
-
-/usr/bin/firefox -app /usr/share/plate/application.ini &
-
-fi
+	if [ -e /usr/bin/midori ]; then
+		/usr/local/bin/post-boot.sh 1> /tmp/init.log 2> /tmp/init.err &
+		httpd -c /etc/httpd.conf -h /
+		sleep 2
+		/usr/bin/midori --config=/root/.config/plate-midori/ http://localhost/usr/share/plate/chrome/content &
+	else
+		/usr/bin/firefox -app /usr/share/plate/application.ini &
+	fi
 fi
 
 /usr/sbin/acpid &
