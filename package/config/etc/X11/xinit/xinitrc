@@ -12,13 +12,13 @@ XIM_PROGRAM=/usr/bin/scim
 XIM=SCIM
 XIM_ARGS="-d"
 if [ -f $XIM_PROGRAM ]; then
-	if [ "$LANG" = "zh" ]; then
-		export LC_ALL=zh_TW.UTF-8
-		export LANG=zh_TW.UTF-8
-	elif [ "$LANG" = "zh_cn" ]; then
-		export LC_ALL=zh_CN.UTF-8
-		export LANG=zh_CN.UTF-8
-	fi
+#	if [ "$LANG" = "zh" ]; then
+#                export LC_ALL=zh_TW.UTF-8
+#                export LANG=zh_TW.UTF-8
+#	elif [ "$LANG" = "zh_cn" ]; then
+#                export LC_ALL=zh_CN.UTF-8
+#                export LANG=zh_CN.UTF-8
+#	fi
 	export GTK_IM_MODULE=xim
 	export QT_IM_MODULE=xim
 	export XMODIFIERS="@im=$XIM"
