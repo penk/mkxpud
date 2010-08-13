@@ -35,6 +35,14 @@ udisks
 
 [action]
 
+
+[post_action]
+#rm -vf $MKXPUD_TARGET/etc/udev/rules.d/60-*
+# FIXME:
+# remove this rules when host system is VBox.
+# 70-persistent-net.rules occupies the eth0 with Vbox nic MAC.
+rm -vf $MKXPUD_TARGET/etc/udev/rules.d/70-*
+
 #---------------------------
 
 [binary]
