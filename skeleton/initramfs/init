@@ -42,6 +42,17 @@ fi
 
 mount -t aufs -o br=/rw:/ro=ro none /newroot
 
+# check if we have free loop device available
+LOOPS_USED=`/bin/busybox losetup | /bin/busybox wc -l`
+LOOPS_NUM=`ls /opt/*.opt | /bin/busybox wc -l`
+LOOPS_NUM=$(($LOOPS_NUM + 8))
+while [ $LOOPS_USED -le $LOOPS_NUM ]; do
+	if [ ! -e /dev/loop$LOOPS_USED ]; then
+		# create new loop device
+		/bin/busybox mknod -m660 /dev/loop$LOOPS_USED b 7 $LOOPS_USED
+	fi
+	LOOPS_USED=$(($LOOPS_USED + 1))
+done
 
 for o in `find /opt -name *.opt`; do
 	if [ -e ${o} ]; then
