@@ -21,15 +21,24 @@ if [ ! -e /var/lib/dbus/machine-id ]; then dbus-uuidgen > /var/lib/dbus/machine-
 /bin/dbus-uuidgen
 
 [data]
-/etc/dbus-1
+/etc/dbus-1/session.conf
+/etc/dbus-1/session.d/
+/etc/dbus-1/system.conf
+#/etc/dbus-1/system.d/ConsoleKit.conf
+#/etc/dbus-1/system.d/org.freedesktop.PolicyKit1.conf
+#/etc/dbus-1/system.d/org.freedesktop.UDisks.conf
+/etc/dbus-1/system.d/org.gnome.GConf.Defaults.conf
+#/etc/dbus-1/system.d/Upstart.conf
+/etc/dbus-1/system.d/wpa_supplicant.conf
+
 /usr/share/dbus-1
 /lib/dbus-1.0
 /var/run/dbus
 
-#/usr/lib/libgconf2-4
-#/var/lib/gconf
-#/usr/share/gconf
-#/etc/gconf
+/usr/lib/libgconf2-4
+/var/lib/gconf
+/usr/share/gconf
+/etc/gconf
 
 [config]
 

@@ -23,7 +23,7 @@ user_pref("browser.places.importBookmarksHTML", false);
 user_pref("browser.places.smartBookmarksVersion", 2);
 user_pref("browser.rights.3.shown", true);
 user_pref("browser.startup.homepage", "about:blank");
-user_pref("browser.startup.homepage_override.mstone", "rv:1.9.2.6");
+user_pref("browser.startup.homepage_override.mstone", "rv:1.9.2.8");
 user_pref("browser.startup.page", 0);
 user_pref("extensions.update.notifyUser", false);
 user_pref("intl.charsetmenu.browser.cache", "ISO-8859-1, UTF-8");
