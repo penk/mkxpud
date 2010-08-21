@@ -13,6 +13,7 @@ opendir ( DIR, $dirname ) || die "Error in opening dir $dirname\n";
 while( ($filename =  readdir(DIR)))
 {
 	next if $filename eq '.' or $filename eq '..';
+	next if $filename eq 'README.transifex';	
 	my $docname = $dirname."\/".$filename ;
 	$lang[$j]=  $filename;
 	$lang[$j]=~ s/.po$// ;
@@ -22,7 +23,7 @@ while( ($filename =  readdir(DIR)))
 	close $file or die "$file: $!";
 $k=0;
 	for ($i = 1 ; $i != $#temp+1 ; $i++)
-	{
+	{ 
 		if ($temp[$i]=~ /^msgid/)
 		{
 			$label[$k] = $temp[$i];
@@ -38,7 +39,7 @@ $k=0;
 
 closedir(DIR);
 my $temp;
-open (MYFILE, '>>../skeleton/overwrite/usr/share/plate/chrome/content/rosetta.txt');
+open (MYFILE, '>../skeleton/overwrite/usr/share/plate/chrome/content/rosetta.txt');
 
 print MYFILE "// Plate UI translation file, generated from po files\n\nvar i18n =	{\n\n";
 for ($j = 0 ; $j != $#label+1 ; $j++)
@@ -61,6 +62,5 @@ for ($j = 0 ; $j != $#label+1 ; $j++)
 	print MYFILE "\t},\n\n";
 }
 print MYFILE "}";
-
-print MYFILE "Bob\n";
 close (MYFILE);
+print "rosetta.txt has been generated\n"
