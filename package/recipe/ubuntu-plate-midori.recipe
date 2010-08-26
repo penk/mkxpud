@@ -5,7 +5,7 @@ plate-core-midori
 
 [package]
 midori
-mozplugger
+#mozplugger
 
 [action]
 # download midori from ppa

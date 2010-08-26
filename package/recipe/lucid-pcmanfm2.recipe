@@ -15,7 +15,7 @@ add-apt-repository ppa:lubuntu-desktop;
 /usr/bin/pcmanfm2
 
 [data]
-/usr/share/pcmanfm2
+/usr/share/pcmanfm
 
 /usr/lib/libmenu-cache/libexec/
 /etc/xdg/menus/lxde-applications.menu
