@@ -40,6 +40,7 @@ function settime() {
 	var minutes = document.getElementById('in-min').value;
 	var seconds = document.getElementById('in-sec').value;
 	system('date -D %Y%m%d%H%M%S -s ' + date + hours + minutes + seconds);
+	system('hwclock -w');
 	sleep(10);
 	window.location.reload();
 };
