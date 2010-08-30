@@ -10,7 +10,7 @@ system "wnckprop --list | cut -d' ' -f1 > /tmp/win_list.b";
 @list = `diff /tmp/win_list.a /tmp/win_list.b`;
 
 for (@list) {
-	if (/^> (\d*):/) {
+	if (/^\+(\d*):/) {
 		$target = $1;
 		open(F, ">/tmp/swallow.log");
 		print F "dbus-send --type=signal /org/xpud/CommObject org.xpud.CommInterface.CMD string:\"map:$target\"\n";
