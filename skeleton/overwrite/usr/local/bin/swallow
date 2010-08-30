@@ -1,0 +1,20 @@
+#!/usr/bin/perl
+
+system "rm -f /tmp/win_list.*";
+system "wnckprop --list | cut -d' ' -f1 > /tmp/win_list.a";
+#system "wnckprop --list > /tmp/win_list.a";
+system "$ARGV[0] &";
+sleep 1; 
+system "wnckprop --list | cut -d' ' -f1 > /tmp/win_list.b";
+#system "wnckprop --list > /tmp/win_list.b";
+@list = `diff /tmp/win_list.a /tmp/win_list.b`;
+
+for (@list) {
+	if (/^> (\d*):/) {
+		$target = $1;
+		open(F, ">/tmp/swallow.log");
+		print F "dbus-send --type=signal /org/xpud/CommObject org.xpud.CommInterface.CMD string:\"map:$target\"\n";
+		system "dbus-send --type=signal /org/xpud/CommObject org.xpud.CommInterface.CMD string:\"map:$target\"";
+	}
+}
+
