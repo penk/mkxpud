@@ -721,23 +721,60 @@ function loadBackupSettings() {
 }	
 
 function init_DBus() {
-    if (!window.dbus) {
-        return;
+
+	if (!window.dbus) { return; } else { console.log('init_DBus()'); } 
+
+	var xbus = dbus.getSignal(dbus.SESSION,'org.xpud.CommInterface', 'CMD', null, '/org/xpud/CommObject', null);
+    xbus.onemit = function(args) {
+
+		var input = args.split(':');
+		//$('#test').append(args+".<br>");
+		// dbus-send --type=signal  /org/xpud/CommObject org.xpud.CommInterface.CMD string:"test"
+
+		switch(input[0]) {
+
+			case "select_tab":
+				select_tab(document.getElementById(input[1]));
+				break;
+			case "show_program": 
+				select_tab(document.getElementById('exec'));
+				show_program(input[1], false);
+				break;
+			case "map":
+				console.log('map:' + input[1]);
+				select_tab(document.getElementById('exec'));
+
+				set_page_curl_block();
+	
+				document.getElementById('top_task').style.display = "inline";
+				document.getElementById('menu').className = '';
+				document.getElementById('programs').className = 'show';
+
+				if( document.getElementById("exec." + input[1]) == null ) {
+					$('#programs').append('<div id=exec.'+input[1]+' class="show"><embed id="'+input[1]+'" type="application/x-tableware" width=100% height=100%></embed></div>');
+				}
+
+				break;
+/*
+			case "destroy": 
+				//$('#test').append("got destroy:"+input[1]+".<br>");
+				if ($("#"+input[1]).length != 0) {
+					//$('#test').append("remove:"+input[1]+".<br>");
+					$("#"+'li.'+input[1]).remove();
+					$("#"+'div.'+input[1]).remove();
+					$("#"+input[1]).remove();
+				} //else { $('#test').append("REMOVE: DOESN'T EXISTS.<br>"); }
+
+				break;
+*/
+			default:
+				console.log(args);
+				break;
+
+		}
+	
     }
 
-    var xbus = dbus.getSignal(dbus.SESSION,'org.xpud.CommInterface', 'CMD', null, '/org/xpud/CommObject', null);
-    xbus.enabled = true;
-    xbus.onemit = function(args) {
-        xbus.enabled = false;
-        switch(args) {
-            case 'restored':
-                loadBackupSettings();
-                break;
-            default:
-                alert(args)
-                break;
-        }
-        xbus.enabled = true;
-    }
+	xbus.enabled = true;
 }
 
