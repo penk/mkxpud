@@ -61,6 +61,8 @@ add-apt-repository ppa:midori
 
 [overwrite]
 
+/usr/lib/mozilla/plugins/tableware.so
+
 /usr/share/themes/Human/cursor.theme
 /usr/share/icons/default/index.theme
 /sbin/hotplug-x
