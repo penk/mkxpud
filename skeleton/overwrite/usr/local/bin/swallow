@@ -13,8 +13,8 @@ for (@list) {
 	if (/^\+(\d*):/) {
 		$target = $1;
 		open(F, ">/tmp/swallow.log");
-		print F "dbus-send --type=signal /org/xpud/CommObject org.xpud.CommInterface.CMD string:\"map:$target\"\n";
-		system "dbus-send --type=signal /org/xpud/CommObject org.xpud.CommInterface.CMD string:\"map:$target\"";
+		print F "map_program($target)\n";
+		close(F);
 	}
 }
 

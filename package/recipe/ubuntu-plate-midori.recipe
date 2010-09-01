@@ -5,6 +5,7 @@ plate-core-midori
 
 [package]
 midori
+libwnck-dev
 #mozplugger
 
 [action]
@@ -17,10 +18,11 @@ add-apt-repository ppa:midori
 
 [binary]
 /usr/bin/midori
-/usr/bin/m4
-/usr/bin/mozplugger-controller
-/usr/bin/mozplugger-helper
-/usr/bin/mozplugger-linker
+/usr/bin/wnckprop
+#/usr/bin/m4
+#/usr/bin/mozplugger-controller
+#/usr/bin/mozplugger-helper
+#/usr/bin/mozplugger-linker
 
 [data]
 /usr/share/midori
@@ -31,7 +33,7 @@ add-apt-repository ppa:midori
 /usr/share/webkit-1.0
 /usr/share/javascript/
 
-/usr/lib/mozilla/plugins/mozplugger.so
+#/usr/lib/mozilla/plugins/mozplugger.so
 /usr/lib/gtk-2.0/2.10.0/loaders/
 /usr/lib/gtk-2.0/2.10.0/loader-files.d/
 
@@ -43,7 +45,7 @@ add-apt-repository ppa:midori
 
 /tmp/sysinfo-s
 
-/etc/mozpluggerrc
+#/etc/mozpluggerrc
 /etc/pulse
 /etc/fonts
 
@@ -83,6 +85,8 @@ add-apt-repository ppa:midori
 /usr/local/bin/update-menus
 /usr/local/bin/update_modules
 
+/usr/local/bin/swallow
+
 /usr/local/bin/remote-opt-get
 /usr/local/bin/opt-get
 /usr/local/bin/remove-opt
@@ -94,4 +98,4 @@ add-apt-repository ppa:midori
 /usr/share/plate
 
 [alternative]
-/etc/mozpluggerrc
+#/etc/mozpluggerrc

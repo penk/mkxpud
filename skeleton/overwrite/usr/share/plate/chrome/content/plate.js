@@ -149,15 +149,25 @@ function resume_notify( this_obj, program_name ) {
 		this_obj.className = 'notify_hide';
 }
 
+function map_program(xid) {
+	console.log('map:' + xid);
+	select_tab(document.getElementById('exec'));
+
+	// FIXME: add tasklist hash table for show/resume right tag
+	if( document.getElementById("exec." + xid) == null )
+	$('#programs').append('<div id=exec.'+xid+' class="show"><embed id="'+xid+'" type="application/x-tableware" width=100% height=100%></embed></div>');
+}
+
 function show_program( input, webapp ) {
-	//document.getElementById('close_button').style.display = "inline";
-	//document.getElementById('maximize_button').style.display = "inline";
-	//document.getElementById('minimize_button').style.display = "inline";
 	set_page_curl_block();
 	
 	document.getElementById('top_task').style.display = "inline";
 	document.getElementById('menu').className = '';
 	document.getElementById('programs').className = 'show';
+
+if ($.browser.mozilla === true) 
+{
+
 	if( document.getElementById("exec." + input) == null ) {
 		var new_element = document.createElement("div");
 		new_element.id = "exec."+input;
@@ -165,14 +175,39 @@ function show_program( input, webapp ) {
 			new_element.innerHTML = "<iframe src="+input+" width=100% height=100% />";
 		}
 		else {
-			if ($.browser.mozilla === true) {
 			new_element.innerHTML = "<embed src=chrome://plate/content/utils/app.pud width=100% height=100% command="+input+" />";
-			} else {
-			new_element.innerHTML = "<embed src=http://localhost/usr/share/plate/chrome/content/utils/app.pud width=100% height=100% command="+input+" />";
-			}
 		}
 		document.getElementById('programs').appendChild(new_element);
 	}
+}
+else // for webkit-based browser, and using tableware.so plugin
+{
+		if (webapp == true) { 
+				if( document.getElementById("exec." + input) == null )
+				$('#programs').append('<div id=exec.'+input+'><iframe src='+input+' width=100% height=100% /></div>');
+		}
+		else 
+		{
+			console.log('swallow '+input);
+			system('/usr/local/bin/swallow '+input);
+
+			function update(){
+				$.ajax({
+					type: "GET",
+					url: "http://localhost/cgi-bin/jswrapper?cat%20/tmp/swallow.log",
+					success: function(data){
+						console.log(data);
+						eval(data);
+						clearInterval(id);
+					}
+				});
+			};
+
+			// polling server for xid to map
+			var id = setInterval(update, 3000);
+		}
+}
+
 	var programs = document.getElementById('programs').getElementsByTagName('div');
 	for( var i = 0; i < programs.length; i++ )
 		if( programs[i].className == 'show' ) {
