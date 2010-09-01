@@ -153,6 +153,12 @@ function map_program(xid) {
 	console.log('map:' + xid);
 	select_tab(document.getElementById('exec'));
 
+	set_page_curl_block();
+	
+	document.getElementById('top_task').style.display = "inline";
+	document.getElementById('menu').className = '';
+	document.getElementById('programs').className = 'show';
+
 	// FIXME: add tasklist hash table for show/resume right tag
 	if( document.getElementById("exec." + xid) == null )
 	$('#programs').append('<div id=exec.'+xid+' class="show"><embed id="'+xid+'" type="application/x-tableware" width=100% height=100%></embed></div>');
@@ -208,6 +214,7 @@ else // for webkit-based browser, and using tableware.so plugin
 		}
 }
 
+/*
 	var programs = document.getElementById('programs').getElementsByTagName('div');
 	for( var i = 0; i < programs.length; i++ )
 		if( programs[i].className == 'show' ) {
@@ -218,6 +225,7 @@ else // for webkit-based browser, and using tableware.so plugin
 
 	if( document.getElementById('maximize_button').className == 'maximized' )
 		maximize_program();
+*/
 }
 
 function close_program() {
