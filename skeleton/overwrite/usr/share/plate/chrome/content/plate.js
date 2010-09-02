@@ -191,7 +191,13 @@ else // for webkit-based browser, and using tableware.so plugin
 		else 
 		{
 			// hide all existing applications
-			$('#programs > id').removeClass('show');
+			var programs = document.getElementById('programs').getElementsByTagName('div');
+			for( var i = 0; i < programs.length; i++ )
+				if( programs[i].className == 'show' ) {
+					programs[i].className = '';	
+					console.log('removed class show of ' + programs[i].id);
+					break;
+				}
 
 			// launch new application
 			if( document.getElementById("exec." + id) == null ) 
@@ -220,9 +226,7 @@ else // for webkit-based browser, and using tableware.so plugin
 			// resume previously opened application 
 			else 
 			{
-				// FIXME: use show/resume class 
-				$('#programs').addClass('show');
-				$('#exec.'+id).toggleClass('show');
+				document.getElementById("exec."+id).className = 'show';
 				console.log('resume program: ' + id);
 
 			}
