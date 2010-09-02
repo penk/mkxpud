@@ -3,7 +3,29 @@ function initail_plate_ui() {
 	system('/usr/local/bin/post-boot.sh');
 	update_sysinfo();
 	do_i18n();
-	init_DBus();
+
+
+if ($.browser.mozilla === false) {
+
+	// long polling function for external controlling command
+	// this should be replaced with websocket server later on 
+	var time = 0;
+	function update(){
+		$.ajax({
+			type: "GET",
+			url: "http://localhost/cgi-bin/jswrapper?cat%20/tmp/xpudctrl",
+			success: function(data){
+				console.log(data);
+
+				// FIXME: use eval and JSON format 
+				var input = data.split(':');
+				if (input[0] > time) { time = input[0]; console.log(time + ' new command '+input[1]);  }
+		    	}
+		   });
+	};
+	setInterval(update, 2000);
+}
+
 }
 
 if ($.browser.mozilla === true) {
