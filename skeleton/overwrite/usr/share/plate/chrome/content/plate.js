@@ -150,19 +150,15 @@ function resume_notify( this_obj, program_name ) {
 }
 
 function map_program(xid) {
-	console.log('map:' + xid);
-	select_tab(document.getElementById('exec'));
-
-	set_page_curl_block();
-	
-	document.getElementById('top_task').style.display = "inline";
-	document.getElementById('menu').className = '';
-	document.getElementById('programs').className = 'show';
-
-	// FIXME: add tasklist hash table for show/resume right tag
-	if( document.getElementById("exec." + xid) == null )
-	$('#programs').append('<div id=exec.'+xid+' class="show"><embed id="'+xid+'" type="application/x-tableware" width=100% height=100%></embed></div>');
+	console.log('map:' + id + ',' + xid);
+	$('#programs').append('<div id="exec.'+id+'" class="show"><embed id="'+xid+'" type="application/x-tableware" width=100% height=100%></embed></div>');
+	//$('#programs').addClass('show');
 }
+
+
+// FIXME:  need to use new param here:
+// show_program(id, command) 
+// for example: show_program('xterm','xterm -bg black -fg gray');
 
 function show_program( input, webapp ) {
 	set_page_curl_block();
@@ -194,23 +190,42 @@ else // for webkit-based browser, and using tableware.so plugin
 		}
 		else 
 		{
-			console.log('swallow '+input);
-			system('/usr/local/bin/swallow '+input);
+			// hide all existing applications
+			$('#programs > id').removeClass('show');
 
-			function update(){
-				$.ajax({
-					type: "GET",
-					url: "http://localhost/cgi-bin/jswrapper?cat%20/tmp/swallow.log",
-					success: function(data){
-						console.log(data);
-						eval(data);
-						clearInterval(id);
-					}
-				});
-			};
+			// launch new application
+			if( document.getElementById("exec." + id) == null ) 
+			{
 
-			// polling server for xid to map
-			var id = setInterval(update, 3000);
+				console.log('swallow "'+command+'"');
+				system('/usr/local/bin/swallow "'+command+'"');
+
+				// FIXME: add loading indicator here
+
+				function update(){
+					$.ajax({
+						type: "GET",
+						url: "http://localhost/cgi-bin/jswrapper?cat%20/tmp/swallow.log",
+						success: function(xid){
+							console.log(xid);
+							map_program(id, xid);
+							clearInterval(pollid);
+					    	}
+					   });
+				       };
+
+				var pollid = setInterval(update, 3000);
+
+			} 
+			// resume previously opened application 
+			else 
+			{
+				// FIXME: use show/resume class 
+				$('#programs').addClass('show');
+				$('#exec.'+id).toggleClass('show');
+				console.log('resume program: ' + id);
+
+			}
 		}
 }
 

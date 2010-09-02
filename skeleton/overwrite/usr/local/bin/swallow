@@ -13,7 +13,7 @@ for (@list) {
 	if (/^\+(\d*):/) {
 		$target = $1;
 		open(F, ">/tmp/swallow.log");
-		print F "map_program($target)\n";
+		print F "$target\n";
 		close(F);
 	}
 }
