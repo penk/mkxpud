@@ -9,17 +9,31 @@ if ($.browser.mozilla === false) {
 
 	// long polling function for external controlling command
 	// this should be replaced with websocket server later on 
-	var time = 0;
+	var timestamp = 0;
 	function update(){
 		$.ajax({
 			type: "GET",
 			url: "http://localhost/cgi-bin/jswrapper?cat%20/tmp/xpudctrl",
 			success: function(data){
 				console.log(data);
-
-				// FIXME: use eval and JSON format 
 				var input = data.split(':');
-				if (input[0] > time) { time = input[0]; console.log(time + ' new command '+input[1]);  }
+				if (input[0] > timestamp) { 
+				timestamp = input[0]; 
+
+				switch(input[1]) 
+				{
+					case "map": 
+						console.log('map_window: ' + input[2]);
+						map_window(input[2]);
+					break;
+					case "destroy":
+						console.log('destroy_window: ' + input[2]);
+						destroy_window(input[2]);
+					break;
+
+				}
+
+				}
 		    	}
 		   });
 	};
@@ -177,6 +191,16 @@ function map_program(xid) {
 	//$('#programs').addClass('show');
 }
 
+function map_window(xid) {
+	console.log('map:' + xid);
+	$('#programs').append('<div id="exec.'+xid+'" class="show"><embed id="'+xid+'" type="application/x-tableware" width=100% height=100%></embed></div>');
+}
+
+function destroy_window(xid) {
+	console.log('destroy:' + xid);
+	// FIXME: remove id and div 
+	$('#'+xid).remove();
+}
 
 // FIXME:  need to use new param here:
 // show_program(id, command) 
