@@ -188,11 +188,22 @@ function resume_notify( this_obj, program_name ) {
 function map_program(xid) {
 	console.log('map:' + id + ',' + xid);
 	$('#programs').append('<div id="exec.'+id+'" class="show"><embed id="'+xid+'" type="application/x-tableware" width=100% height=100%></embed></div>');
-	//$('#programs').addClass('show');
+
+	// FIXME: there's currently no way going back to previously opened window
+	// need to change the tab/menu/task model in the plate UI design 
 }
 
 function map_window(xid) {
 	console.log('map:' + xid);
+
+	// hide all other window
+	var programs = document.getElementById('programs').getElementsByTagName('div');
+	for( var i = 0; i < programs.length; i++ )
+		if( programs[i].className == 'show' ) {
+			programs[i].className = '';	
+			break;
+		}
+
 	$('#programs').append('<div id="exec.'+xid+'" class="show"><embed id="'+xid+'" type="application/x-tableware" width=100% height=100%></embed></div>');
 }
 
@@ -200,6 +211,9 @@ function destroy_window(xid) {
 	console.log('destroy:' + xid);
 	// FIXME: remove id and div 
 	$('#'+xid).remove();
+
+	// go back to menu tab
+	select_tab(document.getElementById('exec'));
 }
 
 // FIXME:  need to use new param here:
