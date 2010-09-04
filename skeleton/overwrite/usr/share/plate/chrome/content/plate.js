@@ -319,7 +319,7 @@ function open_file_tab() {
 
 unmaximize_program();
 //document.getElementById('maximize_button').className = '';
-show_program("pcmanfm", false);
+show_program("pcmanfm", "pcmanfm");
 document.getElementById('top_task').style.display = "none";
 
 }
