@@ -3,6 +3,7 @@ Version=1.0
 Name=YouTube
 Comment=Online videos
 GenericName=YouTube
+Exec=tableware http://www.youtube.com/
 Type=WebApp
 Icon=youtube
 URL=http://www.youtube.com/

@@ -3,6 +3,7 @@ Version=1.0
 Name=Meebo
 Comment=Instant Messanging Everywhere
 GenericName=Meebo
+Exec=tableware http://www.meebo.com/
 Type=WebApp
 Icon=meebo
 URL=http://www.meebo.com/

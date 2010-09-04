@@ -3,6 +3,7 @@ Version=1.0
 Name=Google Calendar
 Comment=Web Calendar
 GenericName=Google Calendar
+Exec=tableware http://calendar.google.com/
 Type=WebApp
 Icon=gcalendar
 URL=http://calendar.google.com/

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=web_browser
+Comment=Browse the World Wide Web
+GenericName=web_browser
+Exec=tableware http://www.google.com/
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=chromium
+Categories=Application;Network;
+StartupWMClass=Firefox
+StartupNotify=true

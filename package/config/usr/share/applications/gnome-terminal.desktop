@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=gnome-terminal
+GenericName=terminal_emulator
+Comment=Use the command line
+Exec=gnome-terminal
+Icon=konsole
+Type=Application
+Categories=Utility;TerminalEmulator;
+StartupNotify=true
