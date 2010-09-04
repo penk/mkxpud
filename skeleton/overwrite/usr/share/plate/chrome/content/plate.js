@@ -4,9 +4,6 @@ function initail_plate_ui() {
 	update_sysinfo();
 	do_i18n();
 
-
-if ($.browser.mozilla === false) {
-
 	// long polling function for external controlling command
 	// this should be replaced with websocket server later on 
 	var timestamp = 0;
@@ -38,8 +35,6 @@ if ($.browser.mozilla === false) {
 		   });
 	};
 	setInterval(update, 2000);
-}
-
 }
 
 if ($.browser.mozilla === true) {
