@@ -25,23 +25,21 @@ if [ -f $XIM_PROGRAM ]; then
 	$XIM_PROGRAM $XIM_ARGS
 fi
 
+/usr/local/bin/post-boot.sh 1> /tmp/init.log 2> /tmp/init.err &
+httpd -c /etc/httpd.conf -h /
+sleep 2
+
 if [ -e /usr/bin/google-chrome ]; then 
-	/usr/local/bin/post-boot.sh 1> /tmp/init.log 2> /tmp/init.err &
-	httpd -c /etc/httpd.conf -h /
-	# ifconfig lo 127.0.0.1 netmask 255.0.0.0
-	sleep 2
 	/usr/bin/google-chrome --kiosk http://localhost/usr/share/plate/chrome/content --user-data-dir=/root/.config/plate-chrome/ &
 else 
 	if [ -e /usr/bin/midori ]; then
-		/usr/local/bin/post-boot.sh 1> /tmp/init.log 2> /tmp/init.err &
-		httpd -c /etc/httpd.conf -h /
-		sleep 2
 		export MOZ_PLUGIN_PATH="/usr/lib/mozilla/plugins/:/usr/share/firefox/plugins/"
 		/usr/bin/midori --config=/root/.config/plate-midori/ http://localhost/usr/share/plate/chrome/content &
 	else
-		/usr/bin/firefox -app /usr/share/plate/application.ini &
+		/usr/local/bin/tableware &
 	fi
 fi
 
 /usr/sbin/acpid &
-/usr/bin/openbox
+#/usr/bin/openbox
+/usr/local/bin/tableware-wm
