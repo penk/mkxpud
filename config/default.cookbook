@@ -2,7 +2,7 @@
 
 [config]
 # short project description
-MKXPUD_NAME="xPUD Ubuntu Lucid image"
+MKXPUD_NAME="xPUD Ubuntu Maverick image"
 # you can skip the package manager handling by setting this to `skip'
 MKXPUD_PKGMGR="apt-get install -y"
 # set to `true' if you want to include host /dev nodes
@@ -55,7 +55,8 @@ ubuntu-network
 lucid-wireless-tools
 ubuntu-artwork
 # change this to ubuntu-plate-chrome if you want chrome
-ubuntu-plate-firefox
+ubuntu-plate-tableware
+#ubuntu-plate-firefox
 #ubuntu-plate-chrome
 #ubuntu-plate-midori
 ubuntu-pcmanfm

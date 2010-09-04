@@ -5,6 +5,9 @@ plate-core-tableware
 
 [package]
 gnome-terminal
+libwebkit-1.0-2
+libxcb-icccm1
+libxcb-property1
 
 [action]
 
