@@ -6,7 +6,7 @@ x11
 [package]
 x11-apps
 x11-xserver-utils
-libxxf86misc-dev  
+#libxxf86misc-dev  
 xterm
 xkb-data
 openbox

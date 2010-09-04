@@ -42,10 +42,11 @@ mkdir $MKXPUD_TARGET/var/lib/xkb;
 /usr/share/xserver-xorg
 /usr/bin/X11
 
-/usr/lib/X11/xorg.conf.d
+/usr/share/X11/xorg.conf.d
 
 [config]
 
+/etc/X11/xorg.conf
 /etc/X11/xinit/xinitrc
 /etc/X11/xinit/xserverrc
 # FIXME: current vboxvideo lib doesn't work with new xorg
