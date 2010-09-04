@@ -269,7 +269,6 @@ else // for webkit-based browser, and using tableware.so plugin
 			console.log('resume program: ' + id);
 		}
 	}
-}
 
 	if( document.getElementById('maximize_button').className == 'maximized' )
 		maximize_program();
