@@ -204,13 +204,14 @@ function map_window(xid) {
 			break;
 		}
 
-	$('#programs').append('<div id="exec.'+xid+'" class="show"><embed id="'+xid+'" type="application/x-tableware" width=100% height=100%></embed></div>');
+	$('#programs').append('<div id="exec.'+current_id+'" class="show"><embed id="'+xid+'" type="application/x-tableware" width=100% height=100%></embed></div>');
 }
 
 function destroy_window(xid) {
 	console.log('destroy:' + xid);
-	// FIXME: remove id and div 
-	$('#'+xid).remove();
+
+	$('#'+xid).parent('div:eq(0)').remove();
+	close_program();
 
 	// go back to menu tab
 	select_tab(document.getElementById('exec'));
@@ -220,7 +221,9 @@ function destroy_window(xid) {
 // show_program(id, command) 
 // for example: show_program('xterm','xterm -bg black -fg gray');
 
-function show_program( input, webapp ) {
+
+var current_id;
+function show_program( id, command ) {
 	set_page_curl_block();
 	
 	document.getElementById('top_task').style.display = "inline";
@@ -230,81 +233,46 @@ function show_program( input, webapp ) {
 if ($.browser.mozilla === true) 
 {
 
-	if( document.getElementById("exec." + input) == null ) {
+	if( document.getElementById("exec." + id) == null ) {
 		var new_element = document.createElement("div");
-		new_element.id = "exec."+input;
+		new_element.id = "exec."+id;
 		if (webapp == true) { 
-			new_element.innerHTML = "<iframe src="+input+" width=100% height=100% />";
+			new_element.innerHTML = "<iframe src="+command+" width=100% height=100% />";
 		}
 		else {
-			new_element.innerHTML = "<embed src=chrome://plate/content/utils/app.pud width=100% height=100% command="+input+" />";
+			new_element.innerHTML = "<embed src=chrome://plate/content/utils/app.pud width=100% height=100% command="+id+" />";
 		}
 		document.getElementById('programs').appendChild(new_element);
 	}
 }
 else // for webkit-based browser, and using tableware.so plugin
 {
-		if (webapp == true) { 
-				if( document.getElementById("exec." + input) == null )
-				$('#programs').append('<div id=exec.'+input+'><iframe src='+input+' width=100% height=100% /></div>');
-		}
+
+		// hide all existing applications
+		var programs = document.getElementById('programs').getElementsByTagName('div');
+		for( var i = 0; i < programs.length; i++ )
+			if( programs[i].className == 'show' ) {
+				programs[i].className = '';	
+				break;
+			}
+
+		// launch new application
+		if( document.getElementById("exec." + id) == null ) 
+		{
+			current_id = id;
+			system(command);
+		} 
+		// resume previously opened application 
 		else 
 		{
-			// hide all existing applications
-			var programs = document.getElementById('programs').getElementsByTagName('div');
-			for( var i = 0; i < programs.length; i++ )
-				if( programs[i].className == 'show' ) {
-					programs[i].className = '';	
-					console.log('removed class show of ' + programs[i].id);
-					break;
-				}
-
-			// launch new application
-			if( document.getElementById("exec." + id) == null ) 
-			{
-
-				console.log('swallow "'+command+'"');
-				system('/usr/local/bin/swallow "'+command+'"');
-
-				// FIXME: add loading indicator here
-
-				function update(){
-					$.ajax({
-						type: "GET",
-						url: "http://localhost/cgi-bin/jswrapper?cat%20/tmp/swallow.log",
-						success: function(xid){
-							console.log(xid);
-							map_program(id, xid);
-							clearInterval(pollid);
-					    	}
-					   });
-				       };
-
-				var pollid = setInterval(update, 3000);
-
-			} 
-			// resume previously opened application 
-			else 
-			{
-				document.getElementById("exec."+id).className = 'show';
-				console.log('resume program: ' + id);
-
-			}
+			document.getElementById("exec."+id).className = 'show';
+			console.log('resume program: ' + id);
 		}
+	}
 }
-
-/*
-	var programs = document.getElementById('programs').getElementsByTagName('div');
-	for( var i = 0; i < programs.length; i++ )
-		if( programs[i].className == 'show' ) {
-			programs[i].className = '';
-			break;
-		}
-	document.getElementById("exec."+input).className = 'show';
 
 	if( document.getElementById('maximize_button').className == 'maximized' )
 		maximize_program();
-*/
 }
 
 function close_program() {
