@@ -42,4 +42,5 @@ fi
 
 /usr/sbin/acpid &
 #/usr/bin/openbox
-/usr/local/bin/tableware-wm
+#/usr/local/bin/tableware-wm
+/usr/local/bin/uuwm
