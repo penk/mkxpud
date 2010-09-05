@@ -1,0 +1,15 @@
+Source: uuwm
+Section: gui
+Maintainer: Mikhail Gusarov <dottedmag@dottedmag.net>
+Build-Depends: debhelper (>= 7), automake, pkg-config, libxcb1-dev, libxcb-aux0-dev, libxcb-atom1-dev, libxcb-icccm1-dev
+XCS-Cross-Host-Build-Depends: debhelper (>= 7), automake, pkg-config, 
+XCS-Cross-Build-Depends: libxcb1-dev, libxcb-randr0-dev, libxcb-aux0-dev, libxcb-atom1-dev, libxcb-icccm1-dev
+Priority: optional
+Standards-Version: 3.8.0
+
+Package: uuwm
+Priority: optional
+Architecture: any
+Depends: ${shlibs:Depends}
+Description: micro-micro window manager
+ Minimalistic window manager for embedded devices

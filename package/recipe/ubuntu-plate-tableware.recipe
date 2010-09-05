@@ -42,7 +42,8 @@ libxcb-property1
 [overwrite]
 
 /usr/local/bin/tableware
-/usr/local/bin/tableware-wm
+#/usr/local/bin/tableware-wm
+/usr/local/bin/uuwm
 
 /usr/lib/mozilla/plugins/tableware.so
 

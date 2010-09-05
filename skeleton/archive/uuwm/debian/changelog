@@ -1,0 +1,79 @@
+uuwm (0.1-11) zelazny; urgency=low
+
+  * Do not terminate if window disappears while trying to manage it
+  * Coding conventions and code cleanup
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Sat, 27 Mar 2010 11:25:15 +0600
+
+uuwm (0.1-10) asimov; urgency=low
+
+  * Transient windows are raised when top-level window is raised (OI#329)
+  * uuwm did not pick up any window on restart due to broken WM hints
+    reading.
+  * Compatibility fix with newer xcb-util
+  * More verbose logging
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Sat, 29 Aug 2009 16:22:13 +0700
+
+uuwm (0.1-9) asimov; urgency=low
+
+  * Xsession.d snipped added.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Thu, 18 Jun 2009 11:32:44 +0700
+
+uuwm (0.1-8) asimov; urgency=low
+
+  * Relax error checking in set_focus as windows may disappear at any
+    time.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Tue, 09 Jun 2009 23:01:03 +0700
+
+uuwm (0.1-7) asimov; urgency=low
+
+  * Fixed bug when window in IsNotVisible state did not get raised to the
+    top of stack while mapping again.
+  * Logging format improved.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Tue, 09 Jun 2009 22:51:02 +0700
+
+uuwm (0.1-6) asimov; urgency=low
+
+  * Fixed de-focusing window if mouse pointer does not point to it.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Tue, 02 Jun 2009 19:55:48 +0700
+
+uuwm (0.1-5) asimov; urgency=low
+
+  * Really fixed focusing window when it's being added to "managed" list
+    this time.
+  * Lot of debugging statements (enabled by setting DEBUG environment
+    variable)
+  * Dropped unused libxcb-randr dependency.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Tue, 02 Jun 2009 01:49:41 +0700
+
+uuwm (0.1-4) asimov; urgency=low
+
+  * Properly focusing window when it's being added to "managed" list.
+  * Properly handle resizing of floating windows (did not send
+    ConfigureEvent in most cases).
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Tue, 02 Jun 2009 00:18:42 +0700
+
+uuwm (0.1-3) asimov; urgency=low
+
+  * Focus window when it's being added to "managed" list.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Mon, 01 Jun 2009 23:21:28 +0700
+
+uuwm (0.1-2) asimov; urgency=low
+
+  * uuwm rewritten and simplified.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Tue, 26 May 2009 00:42:08 +0700
+
+uuwm (0.1-1) asimov; urgency=low
+
+  * Initial release.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Thu, 21 May 2009 19:44:43 +0700
