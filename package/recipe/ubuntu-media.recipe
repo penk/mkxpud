@@ -27,4 +27,4 @@ gnome-mplayer
 
 [overwrite]
 
-/usr/share/firefox/plugins/libflashplayer.so
+/usr/lib/mozilla/plugins/libflashplayer.so
