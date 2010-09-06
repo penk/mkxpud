@@ -15,26 +15,16 @@ pcmanfm
 [data]
 
 # MIME info
-/usr/share/mime/aliases
-#/usr/share/mime/generic-icons
-/usr/share/mime/globs
-#/usr/share/mime/globs2
-/usr/share/mime/magic
-/usr/share/mime/mime.cache
-/usr/share/mime/subclasses
-#/usr/share/mime/treemagic
-#/usr/share/mime/types
-#/usr/share/mime/XMLnamespaces
+/usr/share/mime/
 
-/usr/share/mime/packages/libmimetype.xml
 /usr/share/pcmanfm/
-/usr/share/pixmaps/pcmanfm.png
-
-/usr/lib/gamin
-/usr/lib/libgamin-1.so.0
-/usr/lib/libgamin-1.so.0.1.10
-/etc/gamin
-/etc/gamin/gaminrc
+/usr/share/menu/pcmanfm
+#/usr/share/pixmaps/pcmanfm.png
+#/usr/lib/gamin
+#/usr/lib/libgamin-1.so.0
+#/usr/lib/libgamin-1.so.0.1.10
+#/etc/gamin
+#/etc/gamin/gaminrc
 
 /usr/share/icons/hicolor/
 /usr/share/icons/gnome/16x16/mimetypes
@@ -49,4 +39,3 @@ pcmanfm
 /root/.config/pcmanfm
 
 [overwrite]
-

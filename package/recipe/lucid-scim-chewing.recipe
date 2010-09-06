@@ -39,13 +39,13 @@ scim-unikey
 ## Unikey
 /usr/lib/scim-1.0/1.4.0/Helper/unikey-helper.so
 /usr/lib/scim-1.0/1.4.0/IMEngine/unikey.so
-/usr/lib/libunikey-scim.so.1.0.0
+#/usr/lib/libunikey-scim.so.1.0.0
 /usr/share/scim-unikey
 /usr/share/scim/icons/scim-unikey-check.png
 /usr/share/scim/icons/scim-unikey.png
 /usr/share/scim/icons/scim-unikey-configure.png
-/usr/lib/libunikey-scim.so.1
-/usr/lib/libunikey-scim.so
+#/usr/lib/libunikey-scim.so.1
+#/usr/lib/libunikey-scim.so
 
 /usr/share/scim/icons/scim-unikey.png
 /usr/share/scim/icons/scim-unikey-configure.png
@@ -79,9 +79,9 @@ scim-unikey
 /usr/lib/libchewing.so.3
 /usr/lib/libchewing.so.3.0.1
 
-/usr/lib/gtk-2.0/2.10.0/immodule-files.d/scim-bridge-client-gtk.immodules
-/usr/lib/gtk-2.0/2.10.0/immodule-files.d/scim-gtk2-immodule.immodules
-/usr/lib/gtk-2.0/2.10.0/immodule-files.d/libgtk2.0-0.immodules
+#/usr/lib/gtk-2.0/2.10.0/immodule-files.d/scim-bridge-client-gtk.immodules
+#/usr/lib/gtk-2.0/2.10.0/immodule-files.d/scim-gtk2-immodule.immodules
+#/usr/lib/gtk-2.0/2.10.0/immodule-files.d/libgtk2.0-0.immodules
 /usr/lib/gtk-2.0/2.10.0/immodules/im-xim.so
 /usr/lib/gtk-2.0/2.10.0/immodules/im-scim.so
 /usr/lib/gtk-2.0/2.10.0/immodules/im-scim-bridge.so
