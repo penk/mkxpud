@@ -524,7 +524,7 @@ void check_list(xcb_connection_t *conn, GList *list)
 			printf("ping %d failed, close it\n", window_id);
 			// failed, remove element 
 			sprintf(msg, "%ld:destroy:%d", timestamp, window_id);
-			printf("%ld:destroy:%d", timestamp, window_id);
+			printf("%ld:destroy:%d\n", timestamp, window_id);
 			g_file_set_contents("/tmp/xpudctrl", msg, -1, NULL);
 
 			//FIXME: better way to remove id from list
@@ -604,17 +604,16 @@ manage(xcb_window_t w)
     }
 
 // xpud hack goes from here
-if (! c->is_floating) 
-{
-
-	printf("map request: %d\n", c->win);
+//if (! c->is_floating) 
+//{
+	printf("manage %d\n", c->win);
 	sprintf(msg, "%ld:map:%d", timestamp, c->win);
-	printf("%ld:map:%d", timestamp, c->win);
+	printf("\t%ld:map:%d\n", timestamp, c->win);
 	g_file_set_contents("/tmp/xpudctrl", msg, -1, NULL);
 
-	printf("\t\nGLIST: Add %d\n", c->win);
+	printf("\tadd %d to glist\n", c->win);
 	list = g_list_append(list, g_strdup_printf("%d", c->win));
-}
+//}
 
     raise_win(c);
 
