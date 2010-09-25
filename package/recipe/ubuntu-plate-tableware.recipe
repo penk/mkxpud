@@ -16,6 +16,8 @@ libxcb-property1
 
 [data]
 /usr/share/gnome-terminal
+/usr/lib/gconv/gconv-modules
+/usr/lib/gconv/UTF-16.so
 
 [config]
 /etc/termcap
