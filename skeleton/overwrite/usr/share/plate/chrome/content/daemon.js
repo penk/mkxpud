@@ -17,6 +17,8 @@ var callback = function(event) {
 		    'mode': 0666,
 		    'bufferSize': 4 * 1024
 		}).addListener("data", function(data){
+			data = data.toString();
+			console.log(data);
 			server.broadcast(data);
 		});
 

@@ -507,7 +507,7 @@ void check_list(xcb_connection_t *conn, GList *list)
     GList *it = NULL;
 	GList *tmp = NULL;
 	int window_id;
-	char msg[30] = "";
+	char msg[100] = "";
 
 	time_t timestamp;
 	time(&timestamp);
@@ -523,10 +523,10 @@ void check_list(xcb_connection_t *conn, GList *list)
 		{ 
 			printf("ping %d failed, close it\n", window_id);
 			// failed, remove element 
-			sprintf(msg, "%ld:destroy:%d", timestamp, window_id);
+			sprintf(msg, "echo %ld:destroy:%d > /tmp/xpudctrl", timestamp, window_id);
 			printf("%ld:destroy:%d\n", timestamp, window_id);
-			g_file_set_contents("/tmp/xpudctrl", msg, -1, NULL);
-
+			//g_file_set_contents("/tmp/xpudctrl", msg, -1, NULL);
+			system(msg);
 			//FIXME: better way to remove id from list
 			tmp = g_list_remove_link(list, it);
 		}
@@ -549,7 +549,7 @@ manage(xcb_window_t w)
 //////////////////////////////////////////////////////
 	time_t timestamp;
 	time(&timestamp);
-	char msg[30] = "";
+	char msg[100] = "";
 	list = g_list_append(list, g_strdup_printf("0"));
 ///////////////////////////////////////////////////////
 
@@ -607,9 +607,10 @@ manage(xcb_window_t w)
 //if (! c->is_floating) 
 //{
 	printf("manage %d\n", c->win);
-	sprintf(msg, "%ld:map:%d", timestamp, c->win);
+	sprintf(msg, "echo %ld:map:%d > /tmp/xpudctrl", timestamp, c->win);
 	printf("\t%ld:map:%d\n", timestamp, c->win);
-	g_file_set_contents("/tmp/xpudctrl", msg, -1, NULL);
+	//g_file_set_contents("/tmp/xpudctrl", msg, -1, NULL);
+	system(msg);
 
 	printf("\tadd %d to glist\n", c->win);
 	list = g_list_append(list, g_strdup_printf("%d", c->win));
