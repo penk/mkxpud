@@ -10,15 +10,15 @@ function parse_cmd(data) {
 	data = data.replace(/\n/gi,'');
 	var input = data.split(':');
 	
-		switch(input[0]) 
+		switch(input[1]) 
 		{
 			case "map":
-				console.log('map_window: ' + input[1]);
-				map_window(input[1]);
+				console.log('map_window: ' + input[2]);
+				map_window(input[2]);
 			break;
 			case "destroy":
-				console.log('destroy_window: ' + input[1]);
-				destroy_window(input[1]);
+				console.log('destroy_window: ' + input[2]);
+				destroy_window(input[2]);
 			break;
 			default: console.log(data);
 		}
