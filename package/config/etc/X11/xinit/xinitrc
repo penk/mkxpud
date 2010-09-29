@@ -27,6 +27,8 @@ fi
 
 /usr/local/bin/post-boot.sh 1> /tmp/init.log 2> /tmp/init.err &
 httpd -c /etc/httpd.conf -h /
+/usr/local/bin/node /usr/share/plate/chrome/content/daemon.js &
+
 sleep 2
 
 if [ -e /usr/bin/google-chrome ]; then 

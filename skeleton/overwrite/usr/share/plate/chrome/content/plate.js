@@ -3,38 +3,25 @@ function initail_plate_ui() {
 	system('/usr/local/bin/post-boot.sh');
 	update_sysinfo();
 	do_i18n();
+}
 
-	// long polling function for external controlling command
-	// this should be replaced with websocket server later on 
-	var timestamp = 0;
-	function update(){
-		$.ajax({
-			type: "GET",
-			url: "http://localhost/cgi-bin/jswrapper?cat%20/tmp/xpudctrl",
-			success: function(data){
-				console.log(data);
-				var input = data.split(':');
-				if (input[0] > timestamp) { 
-				timestamp = input[0]; 
+function parse_cmd(data) {
 
-				switch(input[1]) 
-				{
-					case "map": 
-						console.log('map_window: ' + input[2]);
-						map_window(input[2]);
-					break;
-					case "destroy":
-						console.log('destroy_window: ' + input[2]);
-						destroy_window(input[2]);
-					break;
-
-				}
-
-				}
-		    	}
-		   });
-	};
-	setInterval(update, 2000);
+	data = data.replace(/\n/gi,'');
+	var input = data.split(':');
+	
+		switch(input[0]) 
+		{
+			case "map":
+				console.log('map_window: ' + input[1]);
+				map_window(input[1]);
+			break;
+			case "destroy":
+				console.log('destroy_window: ' + input[1]);
+				destroy_window(input[1]);
+			break;
+			default: console.log(data);
+		}
 }
 
 if ($.browser.mozilla === true) {

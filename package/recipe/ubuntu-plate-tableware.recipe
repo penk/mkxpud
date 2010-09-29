@@ -43,6 +43,9 @@ libxcb-property1
 
 [overwrite]
 
+/usr/local/bin/node
+/root/.node_libraries
+
 /usr/local/bin/tableware
 #/usr/local/bin/tableware-wm
 /usr/local/bin/uuwm

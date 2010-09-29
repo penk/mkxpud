@@ -12,7 +12,18 @@
 		<script type="text/javascript" src="rosetta.js"></script>
 		<!--<script type="text/javascript" src="dbus.js"></script> -->
 		<script type="text/javascript">
+		var conn;
 		$(function(){
+
+		  if (window["WebSocket"]) {
+			conn = new WebSocket("ws://localhost:8080/");
+			conn.onmessage = function(evt) {
+				parse_cmd(evt.data);
+			};
+			conn.onopen = function(){
+			  console.log("connected to websocket server");
+			}
+		  }
 
 		$("#panel_arrow").click(function(){
 			if (panel_status===0) { // panel invisable

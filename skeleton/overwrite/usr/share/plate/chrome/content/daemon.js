@@ -13,11 +13,11 @@ var callback = function(event) {
 
 		fs.createReadStream("/tmp/xpudctrl", {
 		    'flags': 'r',
-		    'encoding': 'binary',
+		    'encoding': 'UTF-8',
 		    'mode': 0666,
 		    'bufferSize': 4 * 1024
-		}).addListener("data", function(chunk){
-			server.broadcast(chunk);
+		}).addListener("data", function(data){
+			server.broadcast(data);
 		});
 
 	}
