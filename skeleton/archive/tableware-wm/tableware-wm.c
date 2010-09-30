@@ -60,7 +60,7 @@ void check_list(xcb_connection_t *conn, GList *list)
     GList *it = NULL;
 	GList *tmp = NULL;
 	int window_id;
-	char msg[30] = "";
+	char msg[100] = "";
 
 	time_t timestamp;
 	time(&timestamp);
@@ -76,9 +76,10 @@ void check_list(xcb_connection_t *conn, GList *list)
 		{ 
 			printf("ping %d failed, close it\n", window_id);
 			// failed, remove element 
-			sprintf(msg, "%ld:destroy:%d", timestamp, window_id);
+			sprintf(msg, "echo %ld:destroy:%d > /tmp/xpudctrl", timestamp, window_id);
 			printf("%ld:destroy:%d", timestamp, window_id);
-			g_file_set_contents("/tmp/xpudctrl", msg, -1, NULL);
+			//g_file_set_contents("/tmp/xpudctrl", msg, -1, NULL);
+			system(msg);
 
 			//FIXME: better way to remove id from list
 			tmp = g_list_remove_link(list, it);
@@ -172,7 +173,7 @@ int main (int argc, char **argv)
 	xcb_generic_error_t *error;
 	uint32_t mask = 0;
 	xcb_void_cookie_t cookie;
-	char msg[30] = "";
+	char msg[100] = "";
 
 
 	time_t timestamp;
@@ -237,9 +238,10 @@ int main (int argc, char **argv)
             printf("map request: %d\n", (int)e->window);
 			xcb_map_window(conn, e->window);
 
-			sprintf(msg, "%ld:map:%d", timestamp, (int)e->window);
+			sprintf(msg, "echo %ld:map:%d > /tmp/xpudctrl", timestamp, (int)e->window);
 			printf("%ld:map:%d", timestamp, (int)e->window);
-			g_file_set_contents("/tmp/xpudctrl", msg, -1, NULL);
+			//g_file_set_contents("/tmp/xpudctrl", msg, -1, NULL);
+			system(msg);
 
 			printf("\t\nGLIST: Add %d\n", e->window);
 			list = g_list_append(list, g_strdup_printf("%d", e->window));
