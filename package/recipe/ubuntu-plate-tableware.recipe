@@ -21,6 +21,7 @@ libxcb-property1
 
 [config]
 /etc/termcap
+/root/.gconf
 
 /etc/httpd.conf
 
