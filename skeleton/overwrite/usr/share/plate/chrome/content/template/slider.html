@@ -1,0 +1,247 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<meta charset="utf-8" /> 
+	<title>Tableware Slider</title>
+	<script src="jquery.min.js"></script>
+	<script src="jquery.scrollTo-1.4.2-min.js" type="text/javascript"></script>
+	<script src="jquery.localscroll-1.2.7-min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="jquery.serialScroll-1.2.2-min.js" type="text/javascript" charset="utf-8"></script>
+	<style> 
+
+	body {
+		background: #EBEBEB;
+	}
+	#wrapper {
+		border: 1px solid #999;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-box-align: center;
+	}
+	#indicator { 
+		margin: 20px; 	
+		height: 20px;
+	}
+	#indicator div {
+		border-radius: 10px; 
+		background: black; opacity: 0.3; 
+		width: 20px; height: 20px;
+		cursor: pointer;
+		float: left; margin-right: 6px;
+	}
+	#container {
+		overflow: hidden;
+		position: relative;
+		width: 410px;
+		height: 310px;
+	}
+
+	#windows {
+		-webkit-transition:all 0.5s ease-in-out;
+		position: absolute;
+		left: 0px;
+		width: 1800px;
+	}
+
+	embed {
+		width: 400px;
+		height: 300px;
+		border: 2px black solid;
+		margin: 3px;
+		float:left;
+	}
+	</style>
+	<script>
+
+	var cwin = 0;
+	var conn;
+
+	$(document).ready(function() {
+
+		if (window["WebSocket"]) {
+			conn = new WebSocket("ws://localhost:8080/");
+			conn.onmessage = function(evt) {
+				parse_cmd(evt.data);
+			};
+
+			conn.onopen = function(){
+			  console.log("connected to websocket server");
+			}
+		}
+
+	update_indicator();
+
+	$("#windows").css("-webkit-transform","translateX(0px)");
+
+	$("#add").click(function() {
+
+		$("#windows").width($("#windows").width()+410+'px');
+		//$("#windows").append('<embed src="a.diamondx" type="application/x-diamondx">'); 
+		$("#windows").append('<embed type="application/x-tableware">');
+		console.log($("#windows > embed").size());
+
+		cwin = $('embed:last').index();
+		move_next(cwin);
+		update_indicator();
+
+	});
+
+	$("#prev").click(function() {
+		var current = cwin;
+		if (cwin !== 0) { cwin--; }
+		console.log('move from ' + current + ' to ' + cwin);
+		move_prev(cwin);
+		update_indicator();
+	});
+
+	$("#next").click(function() {
+		var current = cwin;
+		if (cwin < $('embed:last').index() ) { cwin++; }
+		console.log('move from ' + current + ' to ' + cwin);
+		move_next(cwin);
+		update_indicator();
+	});
+
+/*
+	$("#next, #prev").click(function() {
+        return scroll($(this).attr('id'));
+    });
+*/
+
+	});
+
+	function scroll(direction) {
+		console.log(direction);
+	}
+
+	function update_indicator() {
+		$('#indicator').html('');
+		for (i=0; i<= $('embed:last').index(); i++) {
+			if(i==cwin) {
+				$('#indicator').append('<div id="test'+i+'" style="opacity: 0.6;"></div>');
+			} else {
+				$('#indicator').append('<div id="test'+i+'"></div>');
+			}
+		}
+
+		if ($('embed:last').index() >= 0) {
+			$('#close_button').show(); 
+		} else { $('#close_button').hide(); }
+
+		$('#indicator').ready(function() {
+			$("#indicator > div").click(function() {
+				console.log($(this).index()+' clicked');
+				cwin=$(this).index();
+				if(cwin > $(this).index()) { // move prev
+					cwin=$(this).index();
+					move_prev(cwin);
+				} else {
+					cwin=$(this).index();
+					move_next(cwin);
+				}
+				update_indicator();
+			});
+		});
+	}
+
+	function close_win() {
+		if (cwin > 0) {
+			$("#windows").width($("#windows").width()-410+'px');
+			$('embed:nth('+cwin+')').remove();
+			cwin--; // move prev
+			move_prev(cwin);
+		} else if (cwin == 0) { // left most window
+			$("#windows").width($("#windows").width()-410+'px');
+			$('embed:nth('+cwin+')').remove();
+			cwin=0; // move next
+			move_next(cwin);
+		}
+		console.log($("#windows > embed").size());
+		update_indicator();
+	}
+
+	function move_prev(nth) {
+		//$("#windows").css("-webkit-transform","translateX(-"+nth*410+"px)");
+		console.log('move_prev');
+		$("#windows").animate({"left": "-"+nth*410+"px"}, { "duration": "fast"});
+	}
+
+	function move_next(nth) {
+		//$("#windows").css("-webkit-transform","translateX("+ (nth*-410) +"px)");
+		console.log('move_next');
+		$("#windows").animate({"left": (nth*(-410)) +"px"}, { "duration": "fast"});
+	}
+
+	function parse_cmd(data) {
+
+		data = data.replace(/\n/gi,'');
+		var input = data.split(':');
+
+			switch(input[1])
+			{
+				case "map":
+					console.log('map_window: ' + input[2]);
+					map_window(input[2]);
+				break;
+				case "destroy":
+					console.log('destroy_window: ' + input[2]);
+					destroy_window(input[2]);
+				break;
+				default: console.log(data);
+			}
+	}
+
+	function map_window(xid) {
+		console.log('map:' + xid);
+
+		$("#windows").width($("#windows").width()+410+'px');
+		$("#windows").append('<embed id="'+xid+'" type="application/x-tableware" width=100% height=100%></embed>');
+		console.log($("#windows > embed").size());
+
+		cwin = $('embed:last').index();
+		move_next(cwin);
+		update_indicator();
+
+		// $('#programs').append('<div id="exec.'+current_id+'" class="show"><embed id="'+xid+'" type="application/x-tableware" width=100% height=100%></embed></div>');
+	}
+
+	function destroy_window(xid) {
+		console.log('destroy:' + xid);
+//		$('#'+xid).parent('div:eq(0)').remove();
+	}
+
+function system(input) {
+	$.get('http://localhost/cgi-bin/jswrapper',input);
+}
+
+	</script>
+</head>		
+<body>
+
+<div id="wrapper">
+
+<div id="indicator">
+</div>
+
+<a href="javascript:close_win();" id="close_button"><img src="closebox.png" style="position: absolute; top: 50px; right: 490px;"></a>
+
+<div id="container">
+	<div id="windows">
+	</div>
+</div>
+
+<div id="control">
+<a href="#" id="prev"><img src="button-left.gif"></a> | 
+<a href="#" id="next"><img src="button-right.gif"></a>
+</div>
+
+<p style="border-radius: 10px; padding: 10px; background-color: lightgray; height: 80px; width: 90%"><a href="#" id="add">Open window</a> | <a href="#" onclick="system('gnome-terminal');">gnome-terminal</a></p>
+
+
+<div style="background: black; height: 50px;">
+
+</div>
+
+</div>
+</body>
+</html>
