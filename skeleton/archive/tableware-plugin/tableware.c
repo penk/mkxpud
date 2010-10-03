@@ -96,6 +96,8 @@ NPError TablewareSetWindow(NPP instance, NPWindow* window)
 			}
 			This->state=TRUE;
 
+
+		XCloseDisplay(display);
 /*
     NPObject *plugin = NULL;
 
