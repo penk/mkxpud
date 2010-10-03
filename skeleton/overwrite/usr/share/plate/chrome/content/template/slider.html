@@ -10,7 +10,7 @@
 		background: #EBEBEB;
 	}
 	#wrapper {
-		border: 1px solid #999;
+		/*border: 1px solid #999; */
 		display: -webkit-box;
 		-webkit-box-orient: vertical;
 		-webkit-box-align: center;
@@ -30,7 +30,7 @@
 		overflow: hidden;
 		position: relative;
 		width: 510px;
-		height: 310px;
+		height: 320px;
 	}
 
 	#windows {
@@ -49,6 +49,7 @@
 		border: 2px black solid;
 		margin: 3px;
 		float:left;
+		-webkit-box-shadow: 0 5px 15px #000000; 
 	}
 
 	#close {
@@ -69,7 +70,14 @@
 		top: 180px;
 		right: 400px; 
 	}
+	
+	#launcher {
+		margin-top: 50px;
+	}
 
+	#launcher img {
+		margin-right: 20px;
+	}
 	</style>
 	<script>
 
@@ -271,13 +279,17 @@ function system(input) {
 	</div>
 </div>
 
-<a href="#" id="next"><img src="button-right.gif">
+<a href="#" id="next"><img src="button-right.gif"></a>
 
-<p style="border-radius: 10px; padding: 10px; background-color: lightgray; height: 80px; width: 90%"><a href="#" id="add">Open window</a> | <a href="#" onclick="system('gnome-terminal');">gnome-terminal</a></p>
-
-
-<div style="background: black; height: 50px;">
-
+<div id="launcher">
+<p style="border-radius: 10px; padding: 10px; background-color: lightgray; height: 80px;">
+<a href="#" onclick="system('gnome-terminal');"><img src="konsole.png"></a> 
+<a href="#" onclick="system('gnome-mplayer');"><img src="gnome-mplayer.png"></a> 
+<a href="#" onclick="system('tableware http://google.com');"><img src="chromium.png"></a>
+<img src="facebook.png"> 
+<img src="youtube.png"> 
+<a href="#" id="add"><img src="gcalendar.png"></a>
+</p>
 </div>
 
 </div>
