@@ -1,0 +1,194 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Mads Rosendahl <madsrh@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "home"
+msgstr "Hjem"
+
+msgid "menu"
+msgstr "Menu"
+
+msgid "file"
+msgstr "Filer"
+
+msgid "setting"
+msgstr "Indstillinger"
+
+msgid "welcome"
+msgstr "Velkommen til xPUD"
+
+msgid "sys_info"
+msgstr "Systeminformation"
+
+msgid "want_to"
+msgstr "Du vil måske:"
+
+msgid "quick_action"
+msgstr ""
+
+msgid "power_off"
+msgstr "Sluk"
+
+msgid "quit_now"
+msgstr "Vil du afslutte?"
+
+msgid "turn_off"
+msgstr "Sluk"
+
+msgid "restart"
+msgstr "Genstart"
+
+msgid "cancel_shutdown"
+msgstr "Afbryd"
+
+msgid "save_backup_to"
+msgstr ""
+
+msgid "power_off_desc"
+msgstr "Sluk for computeren"
+
+msgid "switch_mode"
+msgstr "Switch Mode"
+
+msgid "switch_mode_desc"
+msgstr "Start andet operativsystem"
+
+msgid "get_help"
+msgstr "Hjælp"
+
+msgid "get_help_desc"
+msgstr "og kontakt information"
+
+msgid "help_about"
+msgstr "Om"
+
+msgid "help_info"
+msgstr "xPud er i et hurtigt udviklende projekt. <br /> For mere information, gå til:"
+
+msgid "help_done"
+msgstr "Færdig"
+
+msgid "application"
+msgstr "Programmer"
+
+msgid "web_app"
+msgstr ""
+
+msgid "web_browser"
+msgstr "Webbrowser"
+
+msgid "bt_client"
+msgstr "BitTorrent Klient"
+
+msgid "media_player"
+msgstr "Media afspiller"
+
+msgid "picture_viewer"
+msgstr "Billedevisning"
+
+msgid "text_editor"
+msgstr "Tekstredigering"
+
+msgid "pdf_viewer"
+msgstr "PDF læser"
+
+msgid "terminal_emulator"
+msgstr "Terminal"
+
+msgid "setting_personal"
+msgstr "Personlige indstillinger"
+
+msgid "setting_language"
+msgstr "Sprog"
+
+msgid "setting_language_desc"
+msgstr "sprog og tastatursindstillinger"
+
+msgid "setting_time_date"
+msgstr "Tid og dato"
+
+msgid "setting_time_date_desc"
+msgstr "ændre systemet tid"
+
+msgid "setting_backup"
+msgstr "Backup"
+
+msgid "setting_backup_desc"
+msgstr "Gem dine data og ændringer"
+
+msgid "setting_system"
+msgstr "System"
+
+msgid "setting_wifi"
+msgstr "WiFi"
+
+msgid "setting_wifi_desc"
+msgstr "opsætning af en trådløs forbindelse"
+
+msgid "setting_wifi_title"
+msgstr "Opsætning af trådløst netværk"
+
+msgid "setting_wifi_device"
+msgstr "Trådløse enheder:"
+
+msgid "setting_wifi_choose"
+msgstr "Vælg et netværk:"
+
+msgid "setting_wifi_refresh"
+msgstr "Søg"
+
+msgid "setting_wifi_password"
+msgstr "Kodeord:"
+
+msgid "setting_wifi_connect"
+msgstr "Forbind"
+
+msgid "setting_ethernet"
+msgstr "Ethernet"
+
+msgid "setting_ethernet_desc"
+msgstr "Opsætning af kabelforbindelse"
+
+msgid "setting_opt"
+msgstr "Opt-Get"
+
+msgid "setting_opt_desc"
+msgstr "Installer flere applikationer"
+
+msgid "setting_hardware"
+msgstr "Hardware"
+
+msgid "setting_sound"
+msgstr "Lyd"
+
+msgid "setting_sound_desc"
+msgstr "Ændre systemlyd indstillinger"
+
+msgid "setting_display"
+msgstr "Skærm"
+
+msgid "setting_display_desc"
+msgstr "Ændre skærmopløsning"
+
+msgid "setting_driver"
+msgstr "Drivere"
+
+msgid "setting_driver_desc"
+msgstr "hardware information og drivere"
+
+msgid "setting_sysinfo"
+msgstr ""
+
+msgid "setting_sysinfo_desc"
+msgstr ""
+
+msgid "back_to_setting"
+msgstr "Tilbage til indstillinger"
+
