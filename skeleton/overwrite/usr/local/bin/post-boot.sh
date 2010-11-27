@@ -78,13 +78,24 @@ if [ ! -e /tmp/firsttime ]; then
 	# turn on Lenovo R61 (and maybe other systems) speaker
 	/usr/bin/amixer set Speaker on
 	
-	# Atom-related setting 
-	if [ "$(cat /proc/cpuinfo | grep Atom)" ] ; then
-		modprobe acpi_cpufreq 
-		modprobe cpufreq_ondemand
-		echo ondemand > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor 
-		echo ondemand > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
-	fi
+	# Atom-related setting.(Only laptop Atom supports cpufreq)
+	#if [ "$(cat /proc/cpuinfo | grep Atom)" ] ; then
+	#	modprobe acpi_cpufreq 
+	#	modprobe cpufreq_ondemand
+	#	echo ondemand > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor 
+	#	echo ondemand > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+	#fi
+
+	# Suggest to set all CPUs to "ondemand" governor.
+	# recent AMD/Intel CPUs are all supported.
+	modprobe acpi_cpufreq
+	modprobe cpufreq_ondemand
+	CPUS=`$(($(cat /proc/cpuinfo|grep processor|wc -l)-1))`
+	for i in `seq 0 $CPUS`
+	do
+		echo ondemand > /sys/devices/system/cpu/cpu$CPUS/cpufreq/scaling_governor
+	done
+
 
 	# post hook
 	find /etc/post-boot.d/ -type f -exec {} \;  
