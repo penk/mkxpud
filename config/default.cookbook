@@ -9,9 +9,9 @@ MKXPUD_PKGMGR="apt-get install -y"
 MKXPUD_HOST_DEV="false"
 
 # specified the Linux kernel version to be used
-MKXPUD_KERNEL="2.6.32.7"
-MKXPUD_KERNEL_IMAGE="deploy/vmlinuz-2.6.32.7"
-MKXPUD_MOD_PATH="/lib/modules/2.6.32.7"
+MKXPUD_KERNEL="2.6.35.7"
+MKXPUD_KERNEL_IMAGE="deploy/vmlinuz-2.6.35.7"
+MKXPUD_MOD_PATH="/lib/modules/2.6.35.7"
 
 [module]
 # kernel modules to be included into rootfs
@@ -71,7 +71,7 @@ lucid-scim-chewing
 [prepare]
 # commands executed before building
 # download kernel modules, unpack to build system
-if [ ! -e /lib/modules/2.6.32.7 ]; then wget http://download.xpud.org/xpud-2.6.32.7-mod.tgz -P skeleton/archive/; tar xzf skeleton/archive/xpud-2.6.32.7-mod.tgz -C /;
+if [ ! -e /lib/modules/2.6.35.7 ]; then wget http://download.xpud.org/xpud-2.6.35.7-mod.tgz -P skeleton/archive/; tar xzf skeleton/archive/xpud-2.6.35.7-mod.tgz -C /;
 fi;
 
 [action]
