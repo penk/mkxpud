@@ -14,6 +14,8 @@ libdrm-dev
 mkdir $MKXPUD_TARGET/var/log;
 mkdir $MKXPUD_TARGET/var/tmp;
 mkdir $MKXPUD_TARGET/var/lib/xkb;
+# download virtualbox-ose-guest additions (for testing in VirtualBox)
+if [ ! -e skeleton/archive/virtualbox-ose-guest-x11_3.2.12-dfsg-1ubuntu1_i386.deb ]; then wget http://archive.ubuntu.com/ubuntu/pool/universe/v/virtualbox-ose/virtualbox-ose-guest-x11_3.2.12-dfsg-1ubuntu1_i386.deb -P skeleton/archive/; dpkg -x skeleton/archive/virtualbox-ose-guest-x11_3.2.12-dfsg-1ubuntu1_i386.deb / ; fi;
 
 [binary]
 
@@ -36,6 +38,15 @@ mkdir $MKXPUD_TARGET/var/lib/xkb;
 /usr/lib/dri/i915_dri.so
 /usr/lib/dri/swrast_dri.so
 
+#/usr/lib/dri/vboxvideo_dri.so
+#/usr/lib/VBoxOGL.so
+#/usr/lib/VBoxOGLarrayspu.so
+#/usr/lib/VBoxOGLcrutil.so
+#/usr/lib/VBoxOGLerrorspu.so
+#/usr/lib/VBoxOGLfeedbackspu.so
+#/usr/lib/VBoxOGLpackspu.so
+#/usr/lib/VBoxOGLpassthroughspu.so
+
 /usr/share/X11/locale
 /usr/share/X11/rgb.txt
 /usr/share/X11/XErrorDB
@@ -49,8 +60,6 @@ mkdir $MKXPUD_TARGET/var/lib/xkb;
 /etc/X11/xorg.conf
 /etc/X11/xinit/xinitrc
 /etc/X11/xinit/xserverrc
-# FIXME: current vboxvideo lib doesn't work with new xorg
-/usr/lib/xorg/modules/drivers/vboxvideo_drv.so
 
 [overwrite]
 /usr/bin/startx
