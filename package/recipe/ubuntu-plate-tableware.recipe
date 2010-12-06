@@ -5,11 +5,13 @@ plate-core-tableware
 
 [package]
 gnome-terminal
-libwebkit-1.0-2
+#libwebkit-1.0-2
 libxcb-icccm1
 libxcb-property1
 
 [action]
+# download libwebkit and install deb
+if [ ! -e skeleton/archive/libwebkit_r72896-1_i386.deb ]; then wget http://xpud.org/download/packages/libwebkit_r72896-1_i386.deb -P skeleton/archive/; dpkg -i skeleton/archive/libwebkit_r72896-1_i386.deb; fi;
 
 [binary]
 /usr/bin/gnome-terminal
@@ -18,6 +20,10 @@ libxcb-property1
 /usr/share/gnome-terminal
 /usr/lib/gconv/gconv-modules
 /usr/lib/gconv/UTF-16.so
+
+/usr/local/lib/libwebkitgtk-1.0.so
+/usr/local/lib/libwebkitgtk-1.0.so.0
+/usr/local/lib/libwebkitgtk-1.0.so.0.4.0
 
 [config]
 /etc/termcap

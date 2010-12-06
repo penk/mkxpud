@@ -1,5 +1,6 @@
 #!/bin/sh
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/lib"
+export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
 export HOME=/root
 
 	/bin/hostname -F /etc/hostname
