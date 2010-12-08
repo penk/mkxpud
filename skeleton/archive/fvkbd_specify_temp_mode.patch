@@ -1,0 +1,124 @@
+diff --git a/layout/fvkbd.dtd b/layout/fvkbd.dtd
+index 2ce1749..adb0a6b 100644
+--- a/layout/fvkbd.dtd
++++ b/layout/fvkbd.dtd
+@@ -26,6 +26,7 @@
+ <!ELEMENT mode (hint?)>
+ <!ATTLIST mode
+           id ID #REQUIRED
++          temp CDATA #IMPLIED
+           name CDATA #REQUIRED>
+ 
+ <!ELEMENT hint (#PCDATA)>
+diff --git a/src/fvkbd-keyboard.c b/src/fvkbd-keyboard.c
+index a981dbf..d88fa41 100644
+--- a/src/fvkbd-keyboard.c
++++ b/src/fvkbd-keyboard.c
+@@ -43,12 +43,6 @@ struct _FvkbdKeyboardPrivate {
+ 
+ G_DEFINE_TYPE (FvkbdKeyboard, fvkbd_keyboard, FVKBD_TYPE_UNIT)
+ 
+-typedef struct _FvkbdKeyboardMode FvkbdKeyboardMode;
+-struct _FvkbdKeyboardMode {
+-	gint id;
+-	gchar *name;
+-};
+-
+ enum {
+ 	KBD_FUNCTION,
+ 	LAST_SIGNAL
+@@ -82,6 +76,16 @@ fvkbd_keyboard_get_panels (FvkbdKeyboard *keyboard)
+ 	return priv->panels;
+ }
+ 
++GSList *
++fvkbd_keyboard_get_modes (FvkbdKeyboard *keyboard)
++{
++        FvkbdKeyboardPrivate *priv;
++
++        g_return_val_if_fail(FVKBD_IS_KEYBOARD(keyboard), NULL);
++
++        priv = FVKBD_KEYBOARD_GET_PRIVATE(keyboard);
++        return priv->modes;
++}
+ 
+ gint
+ fvkbd_keyboard_get_current_mode (FvkbdKeyboard *keyboard)
+@@ -177,6 +181,7 @@ keyboard_parse_modes (FvkbdUnit *unit, FvkbdParser *parser, void *data)
+ 	FvkbdKeyboardMode *mode = NULL;
+ 	gchar *tmp_str = NULL;
+ 	gint id;
++        gboolean temp = FALSE;
+ 	gint ret = FALSE;
+ 
+ 	if ((tmp_str = fvkbd_parser_get_attribute(parser, "id")) == NULL) {
+@@ -191,6 +196,15 @@ keyboard_parse_modes (FvkbdUnit *unit, FvkbdParser *parser, void *data)
+ 	}
+ 
+ 	g_free(tmp_str);
++
++
++        tmp_str = fvkbd_parser_get_attribute(parser, "temp");
++        if (!g_strcmp0(tmp_str, "true")) {
++            temp = TRUE;
++        }
++        g_free(tmp_str);
++
++
+ 	if ((tmp_str = fvkbd_parser_get_attribute(parser, "name")) == NULL) {
+ 		fvkbd_parser_set_error(parser, "Missing attribure : name");
+ 		goto done;
+@@ -199,6 +213,7 @@ keyboard_parse_modes (FvkbdUnit *unit, FvkbdParser *parser, void *data)
+ 	mode = g_new0(FvkbdKeyboardMode, 1);
+ 	mode->id = id;
+ 	mode->name = g_strdup(tmp_str);
++        mode->temp = temp;
+ 	priv->modes = g_slist_append(priv->modes, mode);
+ 
+ 	ret = TRUE;
+diff --git a/src/fvkbd-keyboard.h b/src/fvkbd-keyboard.h
+index 1a96ca2..7a61ad0 100644
+--- a/src/fvkbd-keyboard.h
++++ b/src/fvkbd-keyboard.h
+@@ -54,9 +54,17 @@ typedef enum
+ 	KEYBOARD_MODE_STATUS_NUMBER
+ } KeyboardModeStatus;
+ 
++typedef struct _FvkbdKeyboardMode FvkbdKeyboardMode;
++struct _FvkbdKeyboardMode {
++        gint id;
++        gchar *name;
++        gboolean temp;
++};
++
+ FvkbdUnit *fvkbd_keyboard_new (void);
+ 
+ GSList *fvkbd_keyboard_get_panels (FvkbdKeyboard *keyboard);
++GSList *fvkbd_keyboard_get_modes (FvkbdKeyboard *keyboard);
+ gint fvkbd_keyboard_get_current_mode (FvkbdKeyboard *keyboard);
+ gint fvkbd_keyboard_get_previous_mode (FvkbdKeyboard *keyboard);
+ gint fvkbd_keyboard_set_mode (FvkbdKeyboard *keyboard, gint mode);
+diff --git a/ui/gtk/fvkbd-key-ui-gtk.c b/ui/gtk/fvkbd-key-ui-gtk.c
+index 564ee0b..da8a1e0 100644
+--- a/ui/gtk/fvkbd-key-ui-gtk.c
++++ b/ui/gtk/fvkbd-key-ui-gtk.c
+@@ -293,11 +293,19 @@ _key_gtk_ui_func_handlers(FvkbdKeyGtkUI *key_ui, FvkbdKeyAction *action, void *d
+ 		{
+ 			int id;
+ 			KeyboardModeStatus status = KEYBOARD_MODE_STATUS_NORMAL;
++                        FvkbdKeyboardMode *mode;
+ 
+ 			id = *((int *)action->u.func.data);
+ 			if (data)
+ 				status = *((KeyboardModeStatus *)data);
+ 
++                        mode = g_slist_nth_data(fvkbd_keyboard_get_modes(keyboard), id);
++                        if (status == KEYBOARD_MODE_STATUS_TEMP && mode != NULL)
++                            /* Verify if it _really_ should be TEMP */
++                            if (mode->temp == FALSE) {
++                                status = KEYBOARD_MODE_STATUS_NORMAL;
++                            }
++
+ 			err = keyboard_ui_change_mode(keyboard_ui, id, status);
+ 
+ 			break;
