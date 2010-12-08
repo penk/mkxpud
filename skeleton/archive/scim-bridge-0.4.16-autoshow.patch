@@ -1,0 +1,478 @@
+diff -rupN ../orig/scim-bridge-0.4.16//agent/scim-bridge-agent-client-listener.cpp ./agent/scim-bridge-agent-client-listener.cpp
+--- ../orig/scim-bridge-0.4.16//agent/scim-bridge-agent-client-listener.cpp	2008-11-02 14:44:49.000000000 +0800
++++ ./agent/scim-bridge-agent-client-listener.cpp	2010-05-09 15:10:37.000000000 +0800
+@@ -97,6 +97,8 @@ class ScimBridgeAgentClientListenerImpl:
+         retval_t register_imcontext ();
+         retval_t deregister_imcontext (scim_bridge_imcontext_id_t imcontext_id);
+         retval_t reset_imcontext (scim_bridge_imcontext_id_t imcontext_id);
++        retval_t enable_imcontext (scim_bridge_imcontext_id_t imcontext_id);
++        retval_t disable_imcontext (scim_bridge_imcontext_id_t imcontext_id);
+         retval_t change_focus (scim_bridge_imcontext_id_t imcontext_id, bool focus_in);
+         retval_t handle_key_event (scim_bridge_imcontext_id_t imcontext_id, const KeyEvent &key_event);
+         retval_t set_cursor_location (scim_bridge_imcontext_id_t imcontext_id, int cursor_x, int cursor_y);
+@@ -248,6 +250,30 @@ retval_t ScimBridgeAgentClientListenerIm
+ 
+         return reset_imcontext (imcontext_id);
+ 
++    } else if (strcmp (message_header, SCIM_BRIDGE_MESSAGE_ENABLE_IMCONTEXT) == 0) {
++
++        const char *imcontext_id_str = scim_bridge_message_get_argument (message, 0);
++
++        unsigned int imcontext_id;
++        if (scim_bridge_string_to_uint (&imcontext_id, imcontext_id_str)) {
++            scim_bridge_perrorln ("Invalid message: Close the connection.");
++            return RETVAL_FAILED;
++        }
++
++        return enable_imcontext (imcontext_id);
++
++    } else if (strcmp (message_header, SCIM_BRIDGE_MESSAGE_DISABLE_IMCONTEXT) == 0) {
++
++        const char *imcontext_id_str = scim_bridge_message_get_argument (message, 0);
++
++        unsigned int imcontext_id;
++        if (scim_bridge_string_to_uint (&imcontext_id, imcontext_id_str)) {
++            scim_bridge_perrorln ("Invalid message: Close the connection.");
++            return RETVAL_FAILED;
++        }
++
++        return disable_imcontext (imcontext_id);
++
+     } else if (strcmp (message_header, SCIM_BRIDGE_MESSAGE_CHANGE_FOCUS) == 0) {
+ 
+         const char *imcontext_id_str = scim_bridge_message_get_argument (message, 0);
+@@ -437,6 +463,36 @@ retval_t ScimBridgeAgentClientListenerIm
+ 
+     scim_bridge_messenger_push_message (messenger, message);
+     scim_bridge_free_message (message);
++
++    return RETVAL_SUCCEEDED;
++}
++
++
++retval_t ScimBridgeAgentClientListenerImpl::enable_imcontext (scim_bridge_imcontext_id_t imcontext_id)
++{
++    scim_bridge_pdebugln (6, "enable_imcontext ()");
++
++    agent->enable_imcontext (imcontext_id);
++
++    ScimBridgeMessage *message = scim_bridge_alloc_message (SCIM_BRIDGE_MESSAGE_ENABLED, 0);
++
++    scim_bridge_messenger_push_message (messenger, message);
++    scim_bridge_free_message (message);
++
++    return RETVAL_SUCCEEDED;
++}
++
++
++retval_t ScimBridgeAgentClientListenerImpl::disable_imcontext (scim_bridge_imcontext_id_t imcontext_id)
++{
++    scim_bridge_pdebugln (6, "disable_imcontext ()");
++
++    agent->disable_imcontext (imcontext_id);
++
++    ScimBridgeMessage *message = scim_bridge_alloc_message (SCIM_BRIDGE_MESSAGE_DISABLED, 0);
++
++    scim_bridge_messenger_push_message (messenger, message);
++    scim_bridge_free_message (message);
+ 
+     return RETVAL_SUCCEEDED;
+ }
+diff -rupN ../orig/scim-bridge-0.4.16//agent/scim-bridge-agent.cpp ./agent/scim-bridge-agent.cpp
+--- ../orig/scim-bridge-0.4.16//agent/scim-bridge-agent.cpp	2009-03-08 21:07:29.000000000 +0800
++++ ./agent/scim-bridge-agent.cpp	2010-05-09 15:14:06.000000000 +0800
+@@ -111,6 +111,10 @@ class ScimBridgeAgentImpl: public ScimBr
+ 
+         void reset_imcontext (scim_bridge_imcontext_id_t imcontext_id);
+ 
++        void enable_imcontext (scim_bridge_imcontext_id_t imcontext_id);
++
++        void disable_imcontext (scim_bridge_imcontext_id_t imcontext_id);
++
+         void set_cursor_location (scim_bridge_imcontext_id_t imcontext_id, int cursor_x, int cursor_y);
+ 
+         void set_preedit_mode (scim_bridge_imcontext_id_t imcontext_id, scim_bridge_preedit_mode_t preedit_mode);
+@@ -757,6 +761,38 @@ void ScimBridgeAgentImpl::reset_imcontex
+         panel_listener->send ();
+     }
+ }
++
++
++void ScimBridgeAgentImpl::enable_imcontext (scim_bridge_imcontext_id_t imcontext_id)
++{
++    scim_bridge_pdebugln (6, "enable_imcontext ()");
++
++    ScimBridgeAgentIMContext *imcontext = ScimBridgeAgentIMContext::find (imcontext_id);
++    if (imcontext == NULL) {
++        scim_bridge_perrorln ("No such IMContext");
++    } else {
++        panel_listener->prepare (imcontext_id);
++        imcontext->set_enabled (TRUE);
++        save_config ();
++        panel_listener->send ();
++    }
++}
++
++
++void ScimBridgeAgentImpl::disable_imcontext (scim_bridge_imcontext_id_t imcontext_id)
++{
++    scim_bridge_pdebugln (6, "disable_imcontext ()");
++
++    ScimBridgeAgentIMContext *imcontext = ScimBridgeAgentIMContext::find (imcontext_id);
++    if (imcontext == NULL) {
++        scim_bridge_perrorln ("No such IMContext");
++    } else {
++        panel_listener->prepare (imcontext_id);
++        imcontext->set_enabled (FALSE);
++        save_config ();
++        panel_listener->send ();
++    }
++}
+ 
+ 
+ void ScimBridgeAgentImpl::request_factory_menu ()
+diff -rupN ../orig/scim-bridge-0.4.16//agent/scim-bridge-agent-imcontext.cpp ./agent/scim-bridge-agent-imcontext.cpp
+--- ../orig/scim-bridge-0.4.16//agent/scim-bridge-agent-imcontext.cpp	2009-02-03 22:36:14.000000000 +0800
++++ ./agent/scim-bridge-agent-imcontext.cpp	2010-05-09 15:41:47.000000000 +0800
+@@ -654,7 +654,13 @@ void ScimBridgeAgentIMContextImpl::focus
+ 
+ void ScimBridgeAgentIMContextImpl::focus_out ()
+ {
+-    ScimBridgeAgentIMContext *focused_imcontext = static_cast<ScimBridgeAgentIMContext*> (get_imengine ()->get_frontend_data ());
++    IMEngineInstancePointer _imengine = get_imengine ();
++    ScimBridgeAgentIMContext *focused_imcontext;
++
++    if (!_imengine)
++        return;
++
++    focused_imcontext = static_cast<ScimBridgeAgentIMContext*> (_imengine->get_frontend_data ());
+ 
+ 	if ( !focused )
+          return;
+diff -rupN ../orig/scim-bridge-0.4.16//agent/scim-bridge-agent-protected.h ./agent/scim-bridge-agent-protected.h
+--- ../orig/scim-bridge-0.4.16//agent/scim-bridge-agent-protected.h	2008-11-02 14:44:50.000000000 +0800
++++ ./agent/scim-bridge-agent-protected.h	2010-05-09 15:12:36.000000000 +0800
+@@ -132,6 +132,20 @@ class ScimBridgeAgentProtected
+         virtual void reset_imcontext (scim_bridge_imcontext_id_t imcontext_id) = 0;
+ 
+         /**
++         * Enable an IMContext.
++         *
++         * @param imcontext_id The ID of the IMContext.
++         */
++        virtual void enable_imcontext (scim_bridge_imcontext_id_t imcontext_id) = 0;
++
++        /**
++         * Disable an IMContext.
++         *
++         * @param imcontext_id The ID of the IMContext.
++         */
++        virtual void disable_imcontext (scim_bridge_imcontext_id_t imcontext_id) = 0;
++
++        /**
+          * Set the cursor location in the display.
+          *
+          * @param imcontext_id The ID of the IMContext.
+diff -rupN ../orig/scim-bridge-0.4.16//client-common/scim-bridge-client.c ./client-common/scim-bridge-client.c
+--- ../orig/scim-bridge-0.4.16//client-common/scim-bridge-client.c	2008-11-02 14:44:34.000000000 +0800
++++ ./client-common/scim-bridge-client.c	2010-05-09 15:06:34.000000000 +0800
+@@ -225,6 +225,34 @@ static retval_t received_message_imconte
+ }
+ 
+ 
++static retval_t received_message_imcontext_enabled (const ScimBridgeMessage *message)
++{
++    const char *header = scim_bridge_message_get_header (message);
++
++    if (pending_response.status == RESPONSE_PENDING && strcmp (pending_response.header, header) == 0) {
++        pending_response.status = RESPONSE_SUCCEEDED;
++    } else {
++        scim_bridge_perrorln ("The message is recieved in a wrong context: %s", header);
++    }
++
++    return RETVAL_SUCCEEDED;
++}
++
++
++static retval_t received_message_imcontext_disabled (const ScimBridgeMessage *message)
++{
++    const char *header = scim_bridge_message_get_header (message);
++
++    if (pending_response.status == RESPONSE_PENDING && strcmp (pending_response.header, header) == 0) {
++        pending_response.status = RESPONSE_SUCCEEDED;
++    } else {
++        scim_bridge_perrorln ("The message is recieved in a wrong context: %s", header);
++    }
++
++    return RETVAL_SUCCEEDED;
++}
++
++
+ static retval_t received_message_key_event_handled (const ScimBridgeMessage *message)
+ {
+     const char *header = scim_bridge_message_get_header (message);
+@@ -1257,6 +1285,10 @@ retval_t scim_bridge_client_read_and_dis
+             retval = received_message_imcontext_deregistered (message);
+         } else if (strcmp (message_header, SCIM_BRIDGE_MESSAGE_IMCONTEXT_RESETED) == 0) {
+             retval = received_message_imcontext_reseted (message);
++        } else if (strcmp (message_header, SCIM_BRIDGE_MESSAGE_ENABLED) == 0) {
++            retval = received_message_imcontext_enabled (message);
++        } else if (strcmp (message_header, SCIM_BRIDGE_MESSAGE_DISABLED) == 0) {
++            retval = received_message_imcontext_disabled (message);
+         } else if (strcmp (message_header, SCIM_BRIDGE_MESSAGE_FORWARD_KEY_EVENT) == 0) {
+             retval = received_message_forward_key_event (message);
+         } else if (strcmp (message_header, SCIM_BRIDGE_MESSAGE_BEEP) == 0) {
+@@ -1546,6 +1578,82 @@ retval_t scim_bridge_client_reset_imcont
+         pending_response.header = NULL;
+         pending_response.status = RESPONSE_DONE;
+         return RETVAL_FAILED;
++    }
++}
++
++
++retval_t scim_bridge_client_set_imcontext_enabled (const ScimBridgeClientIMContext * imcontext, boolean enabled)
++{
++    const scim_bridge_imcontext_id_t id = scim_bridge_client_imcontext_get_id (imcontext);
++    ScimBridgeMessage *message;
++
++    scim_bridge_pdebugln (5, "scim_bridge_client_set_imcontext_enabled: ic = %d", id);
++
++    if (!initialized) {
++        scim_bridge_perrorln ("ScimBridge is not initialized at scim_bridge_client_set_imcontext_enabled ()");
++        return RETVAL_FAILED;
++    }
++
++    if (pending_response.status != RESPONSE_DONE) {
++        scim_bridge_perrorln ("Another command is pending...");
++        return RETVAL_FAILED;
++    }
++
++    if (!scim_bridge_client_is_messenger_opened ()) {
++        scim_bridge_perrorln ("The messenger is closed");
++        return RETVAL_FAILED;
++    }
++
++    scim_bridge_pdebugln (5, "Sending 'enable_imcontext' message: ic_id = %d", id);
++
++    if (enabled) {
++        message = scim_bridge_alloc_message (SCIM_BRIDGE_MESSAGE_ENABLE_IMCONTEXT, 1);
++    } else {
++        message = scim_bridge_alloc_message (SCIM_BRIDGE_MESSAGE_DISABLE_IMCONTEXT, 1);
++    }
++
++    char *ic_id_str;
++    scim_bridge_string_from_uint (&ic_id_str, id);
++    scim_bridge_message_set_argument (message, 0, ic_id_str);
++    free (ic_id_str);
++    scim_bridge_messenger_push_message (messenger, message);
++    scim_bridge_free_message (message);
++
++    while (scim_bridge_messenger_get_sending_buffer_size (messenger) > 0) {
++        if (scim_bridge_messenger_send_message (messenger, NULL)) {
++            scim_bridge_perrorln ("Failed to send a message at scim_bridge_client_set_imcontext_enabled ()");
++            scim_bridge_client_close_messenger ();
++            return RETVAL_FAILED;
++        }
++    }
++
++    if (enabled) {
++        pending_response.header = SCIM_BRIDGE_MESSAGE_ENABLED;
++    } else {
++        pending_response.header = SCIM_BRIDGE_MESSAGE_DISABLED;
++    }
++
++    pending_response.status = RESPONSE_PENDING;
++
++    while (pending_response.status == RESPONSE_PENDING) {
++        if (scim_bridge_client_read_and_dispatch ()) {
++            scim_bridge_perrorln ("An IOException at scim_bridge_client_set_imcontext_enabled ()");
++            pending_response.header = NULL;
++            pending_response.status = RESPONSE_DONE;
++            return RETVAL_FAILED;
++        }
++    }
++
++    if (pending_response.status == RESPONSE_SUCCEEDED) {
++        scim_bridge_pdebugln (6, "set_imcontext_enabled returned: id = %d", id);
++        pending_response.header = NULL;
++        pending_response.status = RESPONSE_DONE;
++        return RETVAL_SUCCEEDED;
++    } else {
++        scim_bridge_perrorln ("An unknown error occurred at scim_bridge_client_set_imcontext_enabled ()");
++        pending_response.header = NULL;
++        pending_response.status = RESPONSE_DONE;
++        return RETVAL_FAILED;
+     }
+ }
+ 
+diff -rupN ../orig/scim-bridge-0.4.16//client-common/scim-bridge-client.h ./client-common/scim-bridge-client.h
+--- ../orig/scim-bridge-0.4.16//client-common/scim-bridge-client.h	2008-11-02 14:44:34.000000000 +0800
++++ ./client-common/scim-bridge-client.h	2010-05-09 15:07:19.000000000 +0800
+@@ -130,6 +130,15 @@ extern "C"
+     retval_t scim_bridge_client_reset_imcontext (const ScimBridgeClientIMContext *imcontext);
+ 
+     /**
++     * Enable/Disalbe an imcontext.
++     *
++     * @param imcontext The imcontext.
++     * @param enabled Give it TRUE to enable imcontext , False to disable imcontext
++     * @return RETVAIL_SUCCEDED if succeeded, otherwise it returns RETVAIL_FAILED.
++     */
++    retval_t scim_bridge_client_set_imcontext_enabled (const ScimBridgeClientIMContext *imcontext, boolean enabled);
++
++    /**
+      * Change the focusing status of an imcontext.
+      *
+      * @param imcontext The imcontext.
+diff -rupN ../orig/scim-bridge-0.4.16//client-gtk/scim-bridge-client-imcontext-gtk.c ./client-gtk/scim-bridge-client-imcontext-gtk.c
+--- ../orig/scim-bridge-0.4.16//client-gtk/scim-bridge-client-imcontext-gtk.c	2008-11-02 14:44:23.000000000 +0800
++++ ./client-gtk/scim-bridge-client-imcontext-gtk.c	2010-05-10 10:35:42.000000000 +0800
+@@ -880,9 +880,13 @@ void scim_bridge_client_imcontext_focus_
+         key_snooper_used = TRUE;
+     }
+     if (scim_bridge_client_is_messenger_opened () && imcontext != NULL) {
+-        if (scim_bridge_client_change_focus (imcontext, TRUE)) {
+-            scim_bridge_perrorln ("An IOException occurred at scim_bridge_client_imcontext_focus_in ()");
+-        }
++        if (!scim_bridge_client_change_focus (imcontext, TRUE)) {
++            if (!scim_bridge_client_set_imcontext_enabled (imcontext, TRUE)) {
++				return;
++			}
++		}
++
++		scim_bridge_perrorln ("An IOException occurred at scim_bridge_client_imcontext_focus_in ()");
+     }
+ }
+ 
+@@ -904,10 +908,17 @@ void scim_bridge_client_imcontext_focus_
+         }
+     }
+     if (scim_bridge_client_is_messenger_opened () && imcontext != NULL) {
+-        if (scim_bridge_client_change_focus (imcontext, FALSE)) {
+-            scim_bridge_perrorln ("An IOException occurred at scim_bridge_client_imcontext_focus_out ()");
+-        }
++        if (!scim_bridge_client_change_focus (imcontext, FALSE)) {
++            if (!scim_bridge_client_set_imcontext_enabled (imcontext, FALSE)) {
++                goto success;
++			}
++		}
++
++	    scim_bridge_perrorln ("An IOException occurred at scim_bridge_client_imcontext_focus_out ()");
+     }
++
++success:
++
+     if (key_snooper_used) {
+         gtk_key_snooper_remove (key_snooper_id);
+         key_snooper_id = 0;
+diff -rupN ../orig/scim-bridge-0.4.16//common/scim-bridge-message-constant.h ./common/scim-bridge-message-constant.h
+--- ../orig/scim-bridge-0.4.16//common/scim-bridge-message-constant.h	2008-11-02 14:44:31.000000000 +0800
++++ ./common/scim-bridge-message-constant.h	2010-05-09 15:37:53.000000000 +0800
+@@ -209,11 +209,21 @@ static const char SCIM_BRIDGE_MESSAGE_SU
+ static const char SCIM_BRIDGE_MESSAGE_IMENGINE_STATUS_CHANGED[] = "imengine_status_changed";
+ 
+ /**
++ * The string constant of "enable_imcontext" for messages.
++ */
++static const char SCIM_BRIDGE_MESSAGE_ENABLE_IMCONTEXT[] = "enable_imcontext";
++
++/**
+  * The string constant of "enabled" for messages.
+  */
+ static const char SCIM_BRIDGE_MESSAGE_ENABLED[] = "enabled";
+ 
+ /**
++ * The string constant of "disable_imcontext" for messages.
++ */
++static const char SCIM_BRIDGE_MESSAGE_DISABLE_IMCONTEXT[] = "disable_imcontext";
++
++/**
+  * The string constant of "disabled" for messages.
+  */
+ static const char SCIM_BRIDGE_MESSAGE_DISABLED[] = "disabled";
+diff -rupN ../orig/scim-bridge-0.4.16/client-qt/scim-bridge-client-imcontext-qt.cpp ./client-qt/scim-bridge-client-imcontext-qt.cpp
+--- ../orig/scim-bridge-0.4.16/client-qt/scim-bridge-client-imcontext-qt.cpp	2008-11-02 14:44:46.000000000 +0800
++++ ./client-qt/scim-bridge-client-imcontext-qt.cpp	2010-12-06 17:48:33.000000000 +0800
+@@ -220,7 +220,8 @@ void ScimBridgeClientIMContextImpl::setF
+ {
+     scim_bridge_pdebugln (4, "ScimBridgeClientIMContextImpl::setFocusWidget ()");
+     QInputContext::setFocusWidget (widget);
+-    focus_in ();
++       if (widget == NULL) focus_out ();
++       else focus_in ();
+     update ();
+ }
+ 
+@@ -230,9 +231,6 @@ void ScimBridgeClientIMContextImpl::upda
+ 
+     QWidget *focused_widget = qApp->focusWidget ();
+     if (focused_widget != NULL) {
+-        if (focused_imcontext == NULL)
+-            focus_in ();
+-
+         QRect rect = focused_widget->inputMethodQuery (ImMicroFocus).toRect ();
+         QPoint point (rect.x (), rect.y () + rect.height ());
+         QPoint new_cursor_location = focused_widget->mapToGlobal (point);
+@@ -410,40 +408,48 @@ void ScimBridgeClientIMContextImpl::set_
+ 
+ void ScimBridgeClientIMContextImpl::focus_in ()
+ {
+-    scim_bridge_pdebugln (8, "ScimBridgeClientIMContextImpl::focus_in ()");
++    scim_bridge_pdebugln (9, "ScimBridgeClientIMContextImpl::focus_in ()");
+ 
+     if (focused_imcontext != NULL && focused_imcontext != this) focused_imcontext->focus_out ();
+-
+     focused_imcontext = this;
+ 
+     if (!scim_bridge_client_is_messenger_opened () && scim_bridge_client_is_reconnection_enabled ()) {
+-        scim_bridge_pdebugln (7, "Trying to open the connection again...");
++        scim_bridge_pdebugln (9, "Trying to open the connection again...");
+         scim_bridge_client_open_messenger ();
+     }
+ 
+     if (scim_bridge_client_is_messenger_opened ()) {
+-        if (scim_bridge_client_change_focus (this, TRUE)) {
+-            scim_bridge_perrorln ("An IOException occurred at focus_in ()");
+-        }
++        if (!scim_bridge_client_change_focus (this, TRUE)) {
++            if (!scim_bridge_client_set_imcontext_enabled (this, TRUE)) {
++	            return;
++	        }
++	    }
++	    scim_bridge_perrorln ("An IOException occurred at ScimBridgeClientIMContextImpl::focus_in ()");
+     }
+ }
+ 
+-
+-
+ void ScimBridgeClientIMContextImpl::focus_out ()
+ {
+-    scim_bridge_pdebugln (8, "ScimBridgeClientIMContextImpl::focus_out ()");
++    scim_bridge_pdebugln (9, "ScimBridgeClientIMContextImpl::focus_out ()");
+ 
+     if (focused_imcontext != this) return;
+ 
+     if (scim_bridge_client_is_messenger_opened ()) {
+-        if (scim_bridge_client_change_focus (this, false)) {
+-            scim_bridge_perrorln ("An IOException occurred at focus_out ()");
++        if (!scim_bridge_client_change_focus (this, false)) {
++            if (!scim_bridge_client_set_imcontext_enabled (this, FALSE)) {
++				goto success; 
++            }
+         }
++
++	    scim_bridge_perrorln ("An IOException occurred at ScimBridgeClientIMContextImpl::focus_out ()");
+     }
+ 
+-    set_preedit_shown (false);
+-    update_preedit ();
++success:
++
++       if (preedit_shown) {
++       set_preedit_shown (false);
++       update_preedit ();
++       }
+ 
+     focused_imcontext = NULL;
+ }
+
