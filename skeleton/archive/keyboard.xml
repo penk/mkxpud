@@ -1,0 +1,383 @@
+<!-- This layout is for bopomofo input method -->
+
+<keyboard num_of_modes="4" font="Droid Sans_bold_18" efont="Droid Sans_bold_12" ofont="Droid Sans_bold_26"
+panel_bgcolor="6a6a6a" key_bgcolor="303030" key_fgcolor="E5E5E5"
+pop_bgcolor="fcc536" pop_fgcolor="303030" key_extra_fgcolor="838383">
+
+	<mode id="0" name="default"/>
+	<mode id="1" name="bopomofo"/>
+	<mode id="2" name="capslock"/>
+	<mode id="3" name="punctuation"/>
+
+	<panel layout="xy" x="0" y="0" width="735" height="325" key_shape="chamfer" dock="bottom">
+
+		<!-- first row-->
+
+		<key x="4" y="5" width="55" height="58" pop="none">
+			<action disp="`">`</action>
+			<action mode_id="1" disp="ㄅ">1</action>			
+			<action mode_id="2" disp="`">`</action>
+			<action mode_id="3" disp="`">`</action>
+		</key>
+
+		<key x="65" y="5" width="55" height="58" pop="none">
+			<action disp="1">1</action>
+			<action mode_id="1" disp="ㄉ">2</action>
+			<action mode_id="2" disp="1">1</action>
+			<action mode_id="3" disp="1">1</action>
+		</key>
+
+		<key x="126" y="5" width="55" height="58" pop="none">
+			<action disp="2">2</action>
+			<action mode_id="1" disp="ˇ">3</action>
+			<action mode_id="2" disp="2">2</action>
+			<action mode_id="3" disp="2">2</action>
+		</key>
+
+		<key x="187" y="5" width="55" height="58" pop="none">
+			<action disp="3">3</action>
+			<action mode_id="1" disp="ˋ">4</action>
+			<action mode_id="2" disp="3">3</action>
+			<action mode_id="3" disp="3">3</action>
+		</key>
+
+		<key x="248" y="5" width="55" height="58" pop="none">
+			<action disp="4">4</action>
+			<action mode_id="1" disp="ㄓ">5</action>
+			<action mode_id="2" disp="4">4</action>
+			<action mode_id="3" disp="4">4</action>
+		</key>
+
+		<key x="309" y="5" width="55" height="58" pop="none">
+			<action disp="5">5</action>
+			<action mode_id="1" disp="ˊ">6</action>
+			<action mode_id="2" disp="5">5</action>
+			<action mode_id="3" disp="5">5</action>
+		</key>
+
+		<key x="370" y="5" width="55" height="58" pop="none">
+			<action disp="6">6</action>
+			<action mode_id="1" disp="˙">7</action>
+			<action mode_id="2" disp="6">6</action>
+			<action mode_id="3" disp="6">6</action>
+		</key>
+
+		<key x="431" y="5" width="55" height="58" pop="none">
+			<action disp="7">7</action>
+			<action mode_id="1" disp="ㄚ">8</action>
+			<action mode_id="2" disp="7">7</action>
+			<action mode_id="3" disp="7">7</action>
+		</key>
+
+		<key x="492" y="5" width="55" height="58" pop="none">
+			<action disp="8">8</action>
+			<action mode_id="1" disp="ㄞ">9</action>
+			<action mode_id="2" disp="8">8</action>
+			<action mode_id="3" disp="8">8</action>
+		</key>
+
+		<key x="553" y="5" width="55" height="58" pop="none">
+			<action disp="9">9</action>
+			<action mode_id="1" disp="ㄢ">0</action>
+			<action mode_id="2" disp="9">9</action>
+			<action mode_id="3" disp="9">9</action>
+		</key>
+
+		<key x="614" y="5" width="55" height="58" pop="none">
+			<action disp="0">0</action>
+			<action mode_id="1" disp="ㄦ">0</action>
+			<action mode_id="2" disp="0">0</action>
+			<action mode_id="3" disp="0">0</action>
+		</key>
+
+		<key x="675" y="5" width="55" height="58" pop="none">
+		<action disp="←" img="backspace.png" img_dn="backspace.png" type="sym">BackSpace</action>
+		</key>
+
+		<!-- second row-->
+
+		<key x="4" y="69" width="55" height="58" pop="none">
+			<action disp="q">q</action>
+			<action mode_id="1" disp="ㄆ">q</action>
+			<action mode_id="2" disp="Q">Q</action>
+			<action mode_id="3" disp="~">~</action>
+		</key>
+
+		<key x="65" y="69" width="55" height="58" pop="none">
+			<action disp="w">w</action>
+			<action mode_id="1" disp="ㄊ">w</action>
+			<action mode_id="2" disp="W">W</action>
+			<action mode_id="3" disp="(">(</action>
+
+		</key>
+
+		<key x="126" y="69" width="55" height="58" pop="none">
+			<action disp="e">e</action>
+			<action mode_id="1" disp="ㄍ">e</action>
+			<action mode_id="2" disp="E">E</action>
+			<action mode_id="3" disp=")">)</action>
+
+		</key>
+
+		<key x="187" y="69" width="55" height="58" pop="none">
+			<action disp="r">r</action>
+			<action mode_id="1" disp="ㄐ">r</action>
+			<action mode_id="2" disp="R">R</action>
+			<action mode_id="3" disp="[">[</action>
+		</key>
+
+		<key x="248" y="69" width="55" height="58" pop="none">
+			<action disp="t">t</action>
+			<action mode_id="1" disp="ㄔ">f</action>
+			<action mode_id="2" disp="T">T</action>
+			<action mode_id="3" disp="]">]</action>
+		</key>
+
+		<key x="309" y="69" width="55" height="58" pop="none">
+			<action disp="y">y</action>
+			<action mode_id="1" disp="ㄗ">y</action>
+			<action mode_id="2" disp="Y">Y</action>
+			<action mode_id="3" disp=":">:</action>
+		</key>
+
+		<key x="370" y="69" width="55" height="58" pop="none">
+			<action disp="u">u</action>
+			<action mode_id="1" disp="ㄧ">u</action>
+			<action mode_id="2" disp="U">U</action>
+			<action mode_id="3" disp=";">;</action>
+		</key>
+
+		<key x="431" y="69" width="55" height="58" pop="none">
+			<action disp="i">i</action>
+			<action mode_id="1" disp="ㄛ">i</action>
+			<action mode_id="2" disp="I">I</action>
+			<action mode_id="3" disp="$">$</action>
+		</key>
+
+		<key x="492" y="69" width="55" height="58" pop="none">
+			<action disp="o">o</action>
+			<action mode_id="1" disp="ㄟ">o</action>
+			<action mode_id="2" disp="O">O</action>
+			<action mode_id="3" disp="&amp;">&amp;</action>
+		</key>
+
+		<key x="553" y="69" width="55" height="58" pop="none">
+			<action disp="p">p</action>
+			<action mode_id="1" disp="ㄣ">p</action>
+			<action mode_id="2" disp="P">P</action>
+			<action mode_id="3" disp="@">@</action>
+		</key>
+
+		<key x="614" y="69" width="55" height="58" pop="none">
+			<action disp="!">!</action>
+			<action mode_id="1" disp="、">'</action>
+			<action mode_id="2" disp="!">!</action>
+			<action mode_id="3" disp="!">!</action>
+		</key>
+
+		<key x="675" y="69" width="55" height="58" pop="none">
+			<action disp="?">?</action>
+			<action mode_id="1" disp="。">`</action>
+			<action mode_id="2" disp="?">?</action>
+			<action mode_id="3" disp="?">?</action>
+		</key>
+
+		<!-- third row-->
+
+		<key x="4" y="133" width="55" height="58" pop="none">
+			<action disp="a">a</action>
+			<action mode_id="1" disp="ㄇ">a</action>
+			<action mode_id="2" disp="A">A</action>
+			<action mode_id="3" disp="{">{</action>
+		</key>
+
+		<key x="65" y="133" width="55" height="58" pop="none">
+			<action disp="s">s</action>
+			<action mode_id="1" disp="ㄋ">s</action>
+			<action mode_id="2" disp="S">S</action>
+			<action mode_id="3" disp="}">}</action>
+		</key>
+
+		<key x="126" y="133" width="55" height="58" pop="none">
+			<action disp="d">d</action>
+			<action mode_id="1" disp="ㄎ">d</action>
+			<action mode_id="2" disp="D">D</action>
+			<action mode_id="3" disp="#">#</action>
+		</key>
+
+		<key x="187" y="133" width="55" height="58" pop="none">
+			<action disp="f">f</action>
+			<action mode_id="1" disp="ㄑ">f</action>
+			<action mode_id="2" disp="F">F</action>
+			<action mode_id="3" disp="%">%</action>
+		</key>
+
+		<key x="248" y="133" width="55" height="58" pop="none">
+			<action disp="g">g</action>
+			<action mode_id="1" disp="ㄕ">g</action>
+			<action mode_id="2" disp="G">G</action>
+			<action mode_id="3" disp="^">^</action>
+		</key>
+
+		<key x="309" y="133" width="55" height="58" pop="none">
+			<action disp="h">h</action>
+			<action mode_id="1" disp="ㄘ">h</action>
+			<action mode_id="2" disp="H">h</action>
+			<action mode_id="3" disp="*">*</action>
+		</key>
+
+		<key x="370" y="133" width="55" height="58" pop="none">
+			<action disp="j">j</action>
+			<action mode_id="1" disp="ㄨ">j</action>
+			<action mode_id="2" disp="J">J</action>
+			<action mode_id="3" disp="-">-</action>
+		</key>
+
+		<key x="431" y="133" width="55" height="58" pop="none">
+			<action disp="k">k</action>
+			<action mode_id="1" disp="ㄜ">k</action>
+			<action mode_id="2" disp="K">K</action>
+			<action mode_id="3" disp="+">+</action>
+		</key>
+
+
+		<key x="492" y="133" width="55" height="58" pop="none">
+			<action disp="l">l</action>
+			<action mode_id="1" disp="ㄠ">l</action>
+			<action mode_id="2" disp="L">L</action>
+			<action mode_id="3" disp="=">=</action>
+		</key>
+
+		<key x="553" y="133" width="55" height="58" pop="none">
+			<action disp="'">'</action>
+			<action mode_id="1" disp="ㄤ">;</action>
+			<action mode_id="2" disp="'">'</action>
+			<action mode_id="3" disp="'">'</action>
+		</key>
+
+		<key x="614" y="133" width="116" height="58" pop="none">
+			<action img="enter.png" disp="◀┛" type="sym">Return</action>
+		</key>
+
+		<!-- fourth row-->
+
+		<key x="4" y="197" width="55" height="58" pop="none">
+			<action img="shift.png" disp="ABC" type="func">mode:2</action>
+			<action mode_id="1" img="shift.png" disp="ABC" type="toggle">mode:2</action>
+			<action mode_id="2" img="caplock.png" disp="ABC" type="func">mode:0</action>
+			<action mode_id="3" img="shift.png" disp="ABC" type="func">mode:2</action>
+		</key>
+
+		<key x="65" y="197" width="55" height="58" pop="none">
+			<action disp="z">z</action>
+			<action mode_id="1" disp="ㄈ">z</action>
+			<action mode_id="2" disp="Z">Z</action>
+			<action mode_id="3" disp="_">_</action>
+		</key>
+
+		<key x="126" y="197" width="55" height="58" pop="none">
+			<action disp="x">x</action>
+			<action mode_id="1" disp="ㄌ">x</action>
+			<action mode_id="2" disp="X">X</action>
+			<action mode_id="3" disp="\">\</action>
+		</key>
+
+		<key x="187" y="197" width="55" height="58" pop="none">
+			<action disp="c">c</action>
+			<action mode_id="1" disp="ㄏ">c</action>
+			<action mode_id="2" disp="C">C</action>
+			<action mode_id="3" disp="|">|</action>
+		</key>
+
+		<key x="248" y="197" width="55" height="58" pop="none">
+			<action disp="v">v</action>
+			<action mode_id="1" disp="ㄒ">v</action>
+			<action mode_id="2" disp="V">V</action>
+			<action mode_id="3" disp="&lt;">&lt;</action>
+		</key>
+
+		<key x="309" y="197" width="55" height="58" pop="none">
+			<action disp="b">b</action>
+			<action mode_id="1" disp="ㄖ">b</action>
+			<action mode_id="2" disp="B">B</action>
+			<action mode_id="3" disp="&gt;">&gt;</action>
+		</key>
+
+		<key x="370" y="197" width="55" height="58" pop="none">
+			<action disp="n">n</action>
+			<action mode_id="1" disp="ㄙ">n</action>
+			<action mode_id="2" disp="N">N</action>
+			<action mode_id="3" disp='"'>"</action>
+		</key>
+
+		<key x="431" y="197" width="55" height="58" pop="none">
+			<action disp="m">m</action>
+			<action mode_id="1" disp="ㄩ">m</action>
+			<action mode_id="2" disp="M">M</action>
+			<action mode_id="3" disp=".com">.com</action>
+		</key>
+
+		<key x="492" y="197" width="55" height="58" pop="none">
+			<action disp=",">,</action>
+			<action mode_id="1" disp="ㄝ">,</action>
+			<action mode_id="2" disp=",">,</action>
+			<action mode_id="3" disp=",">,</action>
+		</key>
+
+		<key x="553" y="197" width="55" height="58" pop="none">
+			<action disp=".">.</action>
+			<action mode_id="1" disp="ㄡ">.</action>
+			<action mode_id="2" disp=".">.</action>
+			<action mode_id="3" disp=".">.</action>
+		</key>
+
+		<key x="614" y="197" width="55" height="58" pop="none">
+			<action disp="/">/</action>
+			<action mode_id="1" disp="ㄥ">/</action>
+			<action mode_id="2" disp="/">/</action>
+			<action mode_id="3" disp="/">/</action>
+		</key>
+
+		<key x="675" y="197" width="55" height="58" pop="none">
+			<action img="shift.png" disp="ABC" type="func">mode:2</action>
+			<action mode_id="1" img="shift.png" disp="ABC" type="toggle">mode:2</action>
+			<action mode_id="2" img="caplock.png" disp="ABC" type="func">mode:0</action>
+			<action mode_id="3" img="shift.png" disp="ABC" type="func">mode:2</action>
+		</key>
+
+		<!-- fifth row-->
+
+		<key x="4" y="261" width="80" height="58" pop="none">
+			<action disp=".?123" type="func">mode:3</action>
+			<action mode_id="1" disp=".?123" type="toggle">mode:3</action>
+			<action mode_id="2" disp=".?123" type="func">mode:3</action>
+			<action mode_id="3" disp=".?123" type="func">mode:0</action>
+		</key>
+
+
+		<key x="90" y="261" width="80" height="58" pop="none">
+			<action img="language.png" disp="ALT" type="toggle">mode:1</action>
+			<action mode_id="1" img="language.png" disp="ALT" type="toggle">mode:0</action>
+			<action mode_id="2" img="language.png" disp="ALT" type="func">mode:0</action>
+			<action mode_id="3" img="language.png" disp="ALT" type="func">mode:0</action>
+		</key>
+
+
+		<key x="176" y="261" width="360" height="58" pop="none">
+			<action disp=""> </action>
+		</key>
+
+
+		<key x="542" y="261" width="122" height="58" pop="none">
+			<action disp=".?123" type="func">mode:3</action>
+			<action mode_id="1" disp=".?123" type="toggle">mode:3</action>
+			<action mode_id="2" disp=".?123" type="func">mode:3</action>
+			<action mode_id="3" disp=".?123" type="func">mode:0</action>
+		</key>
+
+		<key x="670" y="261" width="60" height="58" pop="none">
+			<action img="hide.png" disp="↧" type="script">disable-scim.py</action>
+		</key>
+
+	</panel>
+</keyboard>
