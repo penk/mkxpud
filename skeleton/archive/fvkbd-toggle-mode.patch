@@ -1,0 +1,224 @@
+diff -Nupr a/layout/fvkbd.dtd b/layout/fvkbd.dtd
+--- a/layout/fvkbd.dtd	2010-12-16 16:03:59.000000000 +0800
++++ b/layout/fvkbd.dtd	2010-12-16 16:08:09.000000000 +0800
+@@ -26,6 +26,7 @@
+ <!ELEMENT mode (hint?)>
+ <!ATTLIST mode
+           id ID #REQUIRED
++          temp CDATA #IMPLIED
+           name CDATA #REQUIRED>
+ 
+ <!ELEMENT hint (#PCDATA)>
+diff -Nupr a/src/fvkbd-keyboard.c b/src/fvkbd-keyboard.c
+--- a/src/fvkbd-keyboard.c	2010-12-16 16:03:59.000000000 +0800
++++ b/src/fvkbd-keyboard.c	2010-12-16 16:08:09.000000000 +0800
+@@ -43,12 +43,6 @@ struct _FvkbdKeyboardPrivate {
+ 
+ G_DEFINE_TYPE (FvkbdKeyboard, fvkbd_keyboard, FVKBD_TYPE_UNIT)
+ 
+-typedef struct _FvkbdKeyboardMode FvkbdKeyboardMode;
+-struct _FvkbdKeyboardMode {
+-	gint id;
+-	gchar *name;
+-};
+-
+ enum {
+ 	KBD_FUNCTION,
+ 	LAST_SIGNAL
+@@ -82,6 +76,16 @@ fvkbd_keyboard_get_panels (FvkbdKeyboard
+ 	return priv->panels;
+ }
+ 
++GSList *
++fvkbd_keyboard_get_modes (FvkbdKeyboard *keyboard)
++{
++        FvkbdKeyboardPrivate *priv;
++
++        g_return_val_if_fail(FVKBD_IS_KEYBOARD(keyboard), NULL);
++
++        priv = FVKBD_KEYBOARD_GET_PRIVATE(keyboard);
++        return priv->modes;
++}
+ 
+ gint
+ fvkbd_keyboard_get_current_mode (FvkbdKeyboard *keyboard)
+@@ -177,6 +181,7 @@ keyboard_parse_modes (FvkbdUnit *unit, F
+ 	FvkbdKeyboardMode *mode = NULL;
+ 	gchar *tmp_str = NULL;
+ 	gint id;
++        gboolean temp = FALSE;
+ 	gint ret = FALSE;
+ 
+ 	if ((tmp_str = fvkbd_parser_get_attribute(parser, "id")) == NULL) {
+@@ -191,6 +196,15 @@ keyboard_parse_modes (FvkbdUnit *unit, F
+ 	}
+ 
+ 	g_free(tmp_str);
++
++
++        tmp_str = fvkbd_parser_get_attribute(parser, "temp");
++        if (!g_strcmp0(tmp_str, "true")) {
++            temp = TRUE;
++        }
++        g_free(tmp_str);
++
++
+ 	if ((tmp_str = fvkbd_parser_get_attribute(parser, "name")) == NULL) {
+ 		fvkbd_parser_set_error(parser, "Missing attribure : name");
+ 		goto done;
+@@ -199,6 +213,7 @@ keyboard_parse_modes (FvkbdUnit *unit, F
+ 	mode = g_new0(FvkbdKeyboardMode, 1);
+ 	mode->id = id;
+ 	mode->name = g_strdup(tmp_str);
++        mode->temp = temp;
+ 	priv->modes = g_slist_append(priv->modes, mode);
+ 
+ 	ret = TRUE;
+diff -Nupr a/src/fvkbd-keyboard.h b/src/fvkbd-keyboard.h
+--- a/src/fvkbd-keyboard.h	2010-12-16 16:03:59.000000000 +0800
++++ b/src/fvkbd-keyboard.h	2010-12-16 16:08:09.000000000 +0800
+@@ -54,9 +54,17 @@ typedef enum
+ 	KEYBOARD_MODE_STATUS_NUMBER
+ } KeyboardModeStatus;
+ 
++typedef struct _FvkbdKeyboardMode FvkbdKeyboardMode;
++struct _FvkbdKeyboardMode {
++        gint id;
++        gchar *name;
++        gboolean temp;
++};
++
+ FvkbdUnit *fvkbd_keyboard_new (void);
+ 
+ GSList *fvkbd_keyboard_get_panels (FvkbdKeyboard *keyboard);
++GSList *fvkbd_keyboard_get_modes (FvkbdKeyboard *keyboard);
+ gint fvkbd_keyboard_get_current_mode (FvkbdKeyboard *keyboard);
+ gint fvkbd_keyboard_get_previous_mode (FvkbdKeyboard *keyboard);
+ gint fvkbd_keyboard_set_mode (FvkbdKeyboard *keyboard, gint mode);
+diff -Nupr a/src/fvkbd-key.c b/src/fvkbd-key.c
+--- a/src/fvkbd-key.c	2010-12-16 16:03:59.000000000 +0800
++++ b/src/fvkbd-key.c	2010-12-16 16:13:37.000000000 +0800
+@@ -122,6 +122,10 @@ fvkbd_key_action_free(FvkbdKeyAction *ac
+ 		action_free_func(&(action->u.func));
+ 		break;
+ 
++	case KEY_ACTION_TOGGLE:
++		action_free_func(&(action->u.func));
++		break;
++
+ 	case KEY_ACTION_SYM:
+ 		break;
+ 
+@@ -325,6 +329,8 @@ key_parse_action (FvkbdUnit *unit, Fvkbd
+ 		action->type = KEY_ACTION_FUNC;
+ 	} else if (!g_strcmp0(tmp_str, "script")) {
+ 		action->type = KEY_ACTION_SCRIPT;
++	} else if (!g_strcmp0(tmp_str, "toggle")) {
++		action->type = KEY_ACTION_TOGGLE;
+ 	} else {
+ 		fvkbd_parser_set_error(parser, "Invalid value for type");
+ 		goto done;
+@@ -412,6 +418,17 @@ key_parse_action (FvkbdUnit *unit, Fvkbd
+ 		action->u.string = g_strdup(tmp_str);
+ 		break;
+ 
++	case KEY_ACTION_TOGGLE:
++
++		if ((action_str_to_func(action, tmp_str)) == KBD_FUNC_NONE) {
++			gchar *errmsg = g_strconcat("Unrecognized function : ", tmp_str, NULL);
++			fvkbd_parser_set_error(parser, errmsg);
++			g_free(errmsg);
++			goto done;
++		}
++
++		break;
++
+ 	case KEY_ACTION_STRING_GROUP:
+ 		if (!g_utf8_validate(tmp_str, -1, NULL)) {
+ 			fvkbd_parser_set_error(parser, "Not a valid utf8 string");
+diff -Nupr a/src/fvkbd-key.h b/src/fvkbd-key.h
+--- a/src/fvkbd-key.h	2010-12-16 16:03:59.000000000 +0800
++++ b/src/fvkbd-key.h	2010-12-16 16:10:39.000000000 +0800
+@@ -57,7 +57,8 @@ enum _KeyActionType {
+ 	KEY_ACTION_STRING,
+ 	KEY_ACTION_STRING_GROUP,
+ 	KEY_ACTION_FUNC,
+-	KEY_ACTION_SCRIPT
++	KEY_ACTION_SCRIPT,
++	KEY_ACTION_TOGGLE
+ };
+ 
+ typedef struct _FvkbdKeyAction FvkbdKeyAction;
+diff -Nupr a/ui/gtk/fvkbd-keyboard-ui-gtk.c b/ui/gtk/fvkbd-keyboard-ui-gtk.c
+--- a/ui/gtk/fvkbd-keyboard-ui-gtk.c	2010-12-16 16:03:59.000000000 +0800
++++ b/ui/gtk/fvkbd-keyboard-ui-gtk.c	2010-12-16 16:31:10.000000000 +0800
+@@ -28,6 +28,8 @@
+ #include "fvkbd-panel-ui-gtk.h"
+ #include "gtk-misc-utility.h"
+ 
++#include "misc-utility.h"
++
+ #include "fvkbd-keyboard-ui-gtk.h"
+ 
+ #define FVKBD_KEYBOARD_GTK_UI_GET_PRIVATE(object)\
+@@ -131,7 +133,14 @@ fvkbd_keyboard_gtk_ui_build (FvkbdGtkUI 
+ 		}
+ 	}
+ 
++	gchar* cmd = "toggle-scim-ime.py";
++
+ done:
++
++// disable scim IME by default
++	fvkbd_do_script(cmd);
++
++
+ 	return ret;
+ }
+ 
+diff -Nupr a/ui/gtk/fvkbd-key-ui-gtk.c b/ui/gtk/fvkbd-key-ui-gtk.c
+--- a/ui/gtk/fvkbd-key-ui-gtk.c	2010-12-16 16:03:59.000000000 +0800
++++ b/ui/gtk/fvkbd-key-ui-gtk.c	2010-12-16 16:09:24.000000000 +0800
+@@ -293,11 +293,19 @@ _key_gtk_ui_func_handlers(FvkbdKeyGtkUI 
+ 		{
+ 			int id;
+ 			KeyboardModeStatus status = KEYBOARD_MODE_STATUS_NORMAL;
++                        FvkbdKeyboardMode *mode;
+ 
+ 			id = *((int *)action->u.func.data);
+ 			if (data)
+ 				status = *((KeyboardModeStatus *)data);
+ 
++                        mode = g_slist_nth_data(fvkbd_keyboard_get_modes(keyboard), id);
++                        if (status == KEYBOARD_MODE_STATUS_TEMP && mode != NULL)
++                            /* Verify if it _really_ should be TEMP */
++                            if (mode->temp == FALSE) {
++                                status = KEYBOARD_MODE_STATUS_NORMAL;
++                            }
++
+ 			err = keyboard_ui_change_mode(keyboard_ui, id, status);
+ 
+ 			break;
+@@ -435,6 +443,22 @@ fvkbd_key_gtk_released_cb(GtkVkbButton *
+ 		fvkbd_do_script(action->u.string);
+ 		break;
+ 
++	case KEY_ACTION_TOGGLE:
++		{
++			// toggle first
++			gchar* cmd = "toggle-scim-ime.py";
++			fvkbd_do_script(cmd);
++
++			// then select mode
++			int id = *((int *)action->u.func.data);
++			FvkbdKeyboardGtkUI *keyboard_ui = fvkbd_keyboard_gtk_ui_get_ui();
++			keyboard_ui_change_mode(keyboard_ui, id, KEYBOARD_MODE_STATUS_NORMAL);
++
++			//keyboard_ui_resume_previous_mode(keyboard_ui);
++
++			break;
++		}
++
+ 	default:
+ 		break;
+ 	}
