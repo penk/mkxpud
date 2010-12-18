@@ -128,7 +128,7 @@ pop_bgcolor="fcc536" pop_fgcolor="303030" key_extra_fgcolor="838383">
 
 		<key x="248" y="69" width="55" height="58" pop="none">
 			<action disp="t">t</action>
-			<action mode_id="1" disp="ㄔ">f</action>
+			<action mode_id="1" disp="ㄔ">t</action>
 			<action mode_id="2" disp="T">T</action>
 			<action mode_id="3" disp="]">]</action>
 		</key>
