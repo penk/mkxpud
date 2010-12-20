@@ -128,7 +128,7 @@ pop_bgcolor="fcc536" pop_fgcolor="303030" key_extra_fgcolor="838383">
 
 		<key x="248" y="69" width="55" height="58" pop="none">
 			<action disp="t">t</action>
-			<action mode_id="1" disp="ㄔ">f</action>
+			<action mode_id="1" disp="ㄔ">t</action>
 			<action mode_id="2" disp="T">T</action>
 			<action mode_id="3" disp="]">]</action>
 		</key>
@@ -348,31 +348,31 @@ pop_bgcolor="fcc536" pop_fgcolor="303030" key_extra_fgcolor="838383">
 		<!-- fifth row-->
 
 		<key x="4" y="261" width="80" height="58" pop="none">
-			<action disp=".?123" type="func">mode:3</action>
-			<action mode_id="1" disp=".?123" type="toggle">mode:3</action>
-			<action mode_id="2" disp=".?123" type="func">mode:3</action>
-			<action mode_id="3" disp=".?123" type="func">mode:0</action>
+			<action img="punctuation.png" disp=".?123" type="func">mode:3</action>
+			<action mode_id="1" img="punctuation.png" disp=".?123" type="toggle">mode:3</action>
+			<action mode_id="2" img="punctuation.png" disp=".?123" type="func">mode:3</action>
+			<action mode_id="3" img="abc.png" disp=".?123" type="func">mode:0</action>
 		</key>
 
 
 		<key x="90" y="261" width="80" height="58" pop="none">
 			<action img="language.png" disp="ALT" type="toggle">mode:1</action>
 			<action mode_id="1" img="language.png" disp="ALT" type="toggle">mode:0</action>
-			<action mode_id="2" img="language.png" disp="ALT" type="func">mode:0</action>
-			<action mode_id="3" img="language.png" disp="ALT" type="func">mode:0</action>
+			<action mode_id="2" img="language.png" disp="ALT" type="toggle">mode:1</action>
+			<action mode_id="3" img="language.png" disp="ALT" type="toggle">mode:1</action>
 		</key>
 
 
 		<key x="176" y="261" width="360" height="58" pop="none">
-			<action disp=""> </action>
+			<action img="space.png" disp=""> </action>
 		</key>
 
 
 		<key x="542" y="261" width="122" height="58" pop="none">
-			<action disp=".?123" type="func">mode:3</action>
-			<action mode_id="1" disp=".?123" type="toggle">mode:3</action>
-			<action mode_id="2" disp=".?123" type="func">mode:3</action>
-			<action mode_id="3" disp=".?123" type="func">mode:0</action>
+			<action img="punctuation.png" disp=".?123" type="func">mode:3</action>
+			<action mode_id="1" img="punctuation.png" disp=".?123" type="toggle">mode:3</action>
+			<action mode_id="2" img="punctuation.png" disp=".?123" type="func">mode:3</action>
+			<action mode_id="3" img="abc.png" disp=".?123" type="func">mode:0</action>
 		</key>
 
 		<key x="670" y="261" width="60" height="58" pop="none">
