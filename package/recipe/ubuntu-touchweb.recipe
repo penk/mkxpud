@@ -1,0 +1,46 @@
+# recipe file
+
+[name]
+ubuntu-touchweb
+
+[package]
+gnome-terminal
+
+[action]
+# download libwebkit and install deb
+if [ ! -e skeleton/archive/libwebkit_r72896-1_i386.deb ]; then wget http://xpud.org/download/packages/libwebkit_r72896-1_i386.deb -P skeleton/archive/; dpkg -i skeleton/archive/libwebkit_r72896-1_i386.deb; fi;
+
+[binary]
+/usr/bin/gnome-terminal
+/usr/local/bin/gtouchweb
+
+[data]
+/usr/share/gnome-terminal
+/usr/lib/gconv/gconv-modules
+/usr/lib/gconv/UTF-16.so
+
+/usr/local/lib/libwebkitgtk-1.0.so
+/usr/local/lib/libwebkitgtk-1.0.so.0
+/usr/local/lib/libwebkitgtk-1.0.so.0.4.0
+
+[config]
+/etc/termcap
+/root/.gconf
+
+/etc/pulse
+/etc/fonts
+
+/etc/gtk-2.0
+
+[overwrite]
+
+/usr/share/themes/Human/cursor.theme
+/usr/share/icons/default/index.theme
+/init
+/sbin/init
+/etc/inittab
+
+/usr/local/bin/post-boot.sh
+#/usr/lib/mozilla/plugins/libflashplayer.so
+
+[alternative]

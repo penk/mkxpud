@@ -1,0 +1,75 @@
+# mkxpud project config
+
+[config]
+# short project description
+MKXPUD_NAME="xPad browser-only edition"
+# you can skip the package manager handling by setting this to `skip'
+MKXPUD_PKGMGR="apt-get install -y"
+# set to `true' if you want to include host /dev nodes
+MKXPUD_HOST_DEV="false"
+
+# specified the Linux kernel version to be used
+MKXPUD_KERNEL="2.6.35.7"
+MKXPUD_KERNEL_IMAGE="deploy/vmlinuz-2.6.35.7"
+MKXPUD_MOD_PATH="/lib/modules/2.6.35.7"
+
+[module]
+# kernel modules to be included into rootfs
+isofs
+e1000
+8139cp ne2k-pci pcnet32
+snd-intel8x0
+ahci
+acpi_cpufreq cpufreq_ondemand
+
+#i915 drm intel-agp agpgart i2c-algo-bit i2c-core i2c-i801
+#ali-agp amd64-agp amd-k7-agp ati-agp efficeon-agp nvidia-agp sis-agp sworks-agp via-agp
+#i810 i830 mga r128 radeon savage sis tdfx via
+
+[recipe]
+# packages and files to be included into rootfs
+initramfs
+lucid-core-utils
+lucid-x11
+lucid-xorg
+ubuntu-sound
+ubuntu-network
+lucid-wireless-tools
+ubuntu-artwork
+ubuntu-dbus
+ubuntu-cjkfont
+#lucid-scim-chewing
+ubuntu-scim-fvkbd
+ubuntu-touchweb
+
+[prepare]
+# commands executed before building
+# download kernel modules, unpack to build system
+if [ ! -e /lib/modules/2.6.35.7 ]; then wget http://download.xpud.org/xpud-2.6.35.7-mod.tgz -P skeleton/archive/; tar xzf skeleton/archive/xpud-2.6.35.7-mod.tgz -C /;
+fi;
+
+[action]
+#tar xzf kernel/module/wl-module.tar.gz -C $MKXPUD_TARGET/lib/modules/2.6.30.5/ ;
+#rm -rf $MKXPUD_TARGET/lib/udev/devices/*
+
+[overwrite]
+# files to be overwritten
+/etc/passwd
+/etc/group
+
+[obfuscate]
+# NOTE: compressing perl and bash saves about 0.1MB but compressed files are executed slower
+# files to be compressed with `upx' or `shc'
+#/usr/local/bin/Xvesa
+#/usr/bin/perl
+#/bin/bash
+#/bin/busybox
+#/bin/mount
+#/opt/apps/usr/bin/mplayer
+#/usr/share/firefox/firefox-bin
+
+[remove]
+# files to be removed after rootfs extraction
+
+[image]
+gz iso
