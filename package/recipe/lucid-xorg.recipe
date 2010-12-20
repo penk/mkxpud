@@ -15,7 +15,7 @@ mkdir $MKXPUD_TARGET/var/log;
 mkdir $MKXPUD_TARGET/var/tmp;
 mkdir $MKXPUD_TARGET/var/lib/xkb;
 # download virtualbox-ose-guest additions (for testing in VirtualBox)
-if [ ! -e skeleton/archive/virtualbox-ose-guest-x11_3.2.12-dfsg-1ubuntu1_i386.deb ]; then wget http://archive.ubuntu.com/ubuntu/pool/universe/v/virtualbox-ose/virtualbox-ose-guest-x11_3.2.12-dfsg-1ubuntu1_i386.deb -P skeleton/archive/; dpkg -x skeleton/archive/virtualbox-ose-guest-x11_3.2.12-dfsg-1ubuntu1_i386.deb / ; fi;
+if [ ! -e skeleton/archive/virtualbox-ose-guest-x11_3.2.12-dfsg-1ubuntu2_i386.deb ]; then wget http://archive.ubuntu.com/ubuntu/pool/universe/v/virtualbox-ose/virtualbox-ose-guest-x11_3.2.12-dfsg-1ubuntu2_i386.deb -P skeleton/archive/; dpkg -x skeleton/archive/virtualbox-ose-guest-x11_3.2.12-dfsg-1ubuntu2_i386.deb / ; fi;
 
 [binary]
 
