@@ -33,6 +33,7 @@
 #include <QScrollBar>
 #include <QWebFrame>
 #include <QWebView>
+#include <QGesture>
 
 #include <QDebug>
 
@@ -91,6 +92,8 @@ void FlickCharm::activateOn(QWidget *widget)
         frame->setScrollBarPolicy(Qt::Horizontal, Qt::ScrollBarAlwaysOff);
 
         webView->installEventFilter(this);
+
+		webView->grabGesture(Qt::TapAndHoldGesture);
 
         d->flickData.remove(webView);
         d->flickData[webView] = new FlickData;
@@ -177,6 +180,16 @@ bool FlickCharm::eventFilter(QObject *object, QEvent *event)
 {
     if (!object->isWidgetType())
         return false;
+
+    QGestureEvent *gestureEvent = dynamic_cast<QGestureEvent*>(event);
+    if (gestureEvent) {
+		if (const QGesture *g = gestureEvent->gesture(Qt::TapAndHoldGesture)) {
+
+			if (g->state() == Qt::GestureStarted)
+				qDebug() << "tap-n-hold";
+				// add custom popup menu here
+		}
+	}
 
     QEvent::Type type = event->type();
     if (type != QEvent::MouseButtonPress &&
