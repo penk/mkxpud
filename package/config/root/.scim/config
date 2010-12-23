@@ -11,7 +11,7 @@
 /FrontEnd/X11/Dynamic = false
 /FrontEnd/X11/OnTheSpot = true
 /FrontEnd/X11/ServerName = SCIM
-/Hotkeys/FrontEnd/NextFactory = Control+Alt+Down,Shift+Control+KeyRelease+Shift_L,Shift+Control+KeyRelease+Shift_R
+/Hotkeys/FrontEnd/NextFactory = Control+Alt+Down,Shift+Control+KeyRelease+Shift_L,Shift+Control+KeyRelease+Shift_R,Control+Control_L+KeyRelease
 /Hotkeys/FrontEnd/PreviousFactory = Control+Alt+Up,Shift+Control+KeyRelease+Control_L,Shift+Control+KeyRelease+Control_R
 /Hotkeys/FrontEnd/ShowFactoryMenu = Control+Alt+Right
 /Hotkeys/FrontEnd/Trigger = Control+space,Alt+grave,Zenkaku_Hankaku,Hangul
