@@ -20,19 +20,19 @@ if [ ! -e /tmp/firsttime ]; then
 	dbus-launch --config-file=/etc/dbus-1/system.conf
 	
 	# start connman
-	#connmand &
+	connmand &
 
 	# work through NIC and wake them up
-	/bin/ifconfig lo 127.0.0.1 netmask 255.0.0.0
+	#/bin/ifconfig lo 127.0.0.1 netmask 255.0.0.0
 
-	for NIC in eth0 eth1 eth2 wlan0 ath0 ra0; do
-		/bin/ifconfig $NIC up
-		/sbin/iwconfig $NIC mode Managed
-	done
+	#for NIC in eth0 eth1 eth2 wlan0 ath0 ra0; do
+	#	/bin/ifconfig $NIC up
+	#	/sbin/iwconfig $NIC mode Managed
+	#done
 
 	# try to setup DHCP
 	#/sbin/dhclient &
-	/bin/udhcpc &
+	#/bin/udhcpc &
 
 	# mount all partitions
 	for i in `fdisk -l | grep "^/dev" | cut -d' ' -f1`; do
@@ -52,7 +52,7 @@ if [ ! -e /tmp/firsttime ]; then
 	fi
 
 	# auto reconnect
-	/usr/local/bin/auto-reconnect.pl &
+	#/usr/local/bin/auto-reconnect.pl &
 	
 	# install opt file if exist 
 	if [ ! "$(cat /proc/cmdline | grep opt=no )" ]; then
@@ -101,6 +101,6 @@ if [ ! -e /tmp/firsttime ]; then
 	find /etc/post-boot.d/ -type f -exec {} \;  
 	
 	# get wireless SSID list
-	/usr/local/bin/get_ssid &
+	#/usr/local/bin/get_ssid &
 	
 fi 

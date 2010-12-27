@@ -17,7 +17,7 @@ rdesktop
 
 [action]
 # extract connman
-#tar jxf skeleton/archive/connman-git.tar.bz2 -C $MKXPUD_TARGET;
+tar jxf skeleton/archive/connman-0.64.tar.bz2 -C $MKXPUD_TARGET;
 mkdir -p $MKXPUD_TARGET/var/lock;
 
 [binary]
