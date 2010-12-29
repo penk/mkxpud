@@ -184,10 +184,18 @@ bool FlickCharm::eventFilter(QObject *object, QEvent *event)
     QGestureEvent *gestureEvent = dynamic_cast<QGestureEvent*>(event);
     if (gestureEvent) {
 		if (const QGesture *g = gestureEvent->gesture(Qt::TapAndHoldGesture)) {
+			if (g->state() == Qt::GestureStarted) {
+				qDebug() << "tap-n-hold event started";
 
-			if (g->state() == Qt::GestureStarted)
-				qDebug() << "tap-n-hold";
-				// add custom popup menu here
+				QWebView *webView = dynamic_cast<QWebView*>(object);
+				FlickData *w = d->flickData.value(webView);
+				qDebug() << w->pressPos;
+
+				QContextMenuEvent pressEvent(QContextMenuEvent::Mouse, w->pressPos);
+				QApplication::sendEvent(webView, &pressEvent);
+
+				qDebug() << "context menu sent event";
+			}
 		}
 	}
 
