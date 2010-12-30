@@ -50,34 +50,59 @@
 LineEdit::LineEdit(QWidget *parent)
     : QLineEdit(parent)
 {
-    clearButton = new QToolButton(this);
-    QPixmap pixmap("reload.png");
-    clearButton->setIcon(QIcon(pixmap));
-    clearButton->setIconSize(QSize(16, 16));
-    clearButton->setCursor(Qt::ArrowCursor);
-    clearButton->setStyleSheet("QToolButton { border: none; padding: 0px; }");
+    reloadBtn = new QToolButton(this);
+    reloadBtn->setIcon(QPixmap("reload.png"));
+    reloadBtn->setIconSize(QSize(16, 16));
+    reloadBtn->setCursor(Qt::ArrowCursor);
 
-    connect(clearButton, SIGNAL(clicked()), this, SLOT(clear()));
-    connect(this, SIGNAL(textChanged(const QString&)), this, SLOT(updateCloseButton(const QString&)));
+    stopBtn = new QToolButton(this);
+    stopBtn->setIcon(QPixmap("delete.png"));
+    stopBtn->setIconSize(QSize(16, 16));
+    stopBtn->setCursor(Qt::ArrowCursor);
+
+	stopBtn->setVisible(false);
+
+    stopBtn->setStyleSheet("QToolButton { border: none; padding: 0px; }");
+	reloadBtn->setStyleSheet("QToolButton { border: none; padding: 0px; }");
+
+	MainWindow *w = dynamic_cast<MainWindow*>(parent);
+    connect(reloadBtn, SIGNAL(clicked()), w, SLOT(reloadPage()));
+    connect(reloadBtn, SIGNAL(clicked()), this, SLOT(stopIcon()));
+
+	connect(stopBtn, SIGNAL(clicked()), w, SLOT(stopPage()));
+    connect(stopBtn, SIGNAL(clicked()), this, SLOT(reloadIcon()));
+
+    connect(w->view, SIGNAL(loadFinished(bool)), SLOT(reloadIcon()));
+    connect(w->view, SIGNAL(loadProgress(int)), SLOT(stopIcon()));
 
     int frameWidth = style()->pixelMetric(QStyle::PM_DefaultFrameWidth);
-    setStyleSheet(QString("QLineEdit { padding-right: %1px; } ").arg(clearButton->sizeHint().width() + frameWidth + 1));
+    setStyleSheet(QString("QLineEdit { padding-right: %1px; } ").arg(reloadBtn->sizeHint().width() + frameWidth + 1));
     QSize msz = minimumSizeHint();
-    setMinimumSize(qMax(msz.width(), clearButton->sizeHint().height() + frameWidth * 2 + 2),
-                   qMax(msz.height(), clearButton->sizeHint().height() + frameWidth * 2 + 2));
+    setMinimumSize(qMax(msz.width(), reloadBtn->sizeHint().height() + frameWidth * 2 + 2),
+                   qMax(msz.height(), reloadBtn->sizeHint().height() + frameWidth * 2 + 2));
+}
+
+void LineEdit::stopIcon()
+{
+	stopBtn->setVisible(true);
+	reloadBtn->setVisible(false);
+}
+
+
+void LineEdit::reloadIcon()
+{
+	stopBtn->setVisible(false);
+	reloadBtn->setVisible(true);
 }
 
 void LineEdit::resizeEvent(QResizeEvent *)
 {
-    QSize sz = clearButton->sizeHint();
+    QSize sz = reloadBtn->sizeHint();
     int frameWidth = style()->pixelMetric(QStyle::PM_DefaultFrameWidth);
-    clearButton->move(rect().right() - frameWidth - sz.width(),
+    reloadBtn->move(rect().right() - frameWidth - sz.width(),
                       (rect().bottom() + 1 - sz.height())/2);
-}
-
-void LineEdit::updateCloseButton(const QString& text)
-{
-    clearButton->setVisible(!text.isEmpty());
+	stopBtn->move(rect().right() - frameWidth - sz.width(),
+                      (rect().bottom() + 1 - sz.height())/2);
 }
 
 QWebPage *WebPage::createWindow(QWebPage::WebWindowType)
@@ -134,7 +159,6 @@ MainWindow::MainWindow()
 	toolBar->addWidget(forwardBtn);
     toolBar->addWidget(locationEdit);
     toolBar->addWidget(tabBtn);
-//	toolBar->addAction(view->pageAction(QWebPage::Reload));
 
     setCentralWidget(view);
 }
@@ -148,6 +172,16 @@ void MainWindow::newWindow()
 {
 	MainWindow* mw = new MainWindow();
 	mw->show();
+}
+
+void MainWindow::reloadPage()
+{
+	view->pageAction(QWebPage::Reload)->trigger();
+}
+
+void MainWindow::stopPage()
+{
+	view->pageAction(QWebPage::Stop)->trigger();
 }
 
 void MainWindow::changeLocation()

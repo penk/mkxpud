@@ -61,10 +61,12 @@ protected:
     void resizeEvent(QResizeEvent *);
 
 private slots:
-    void updateCloseButton(const QString &text);
+	void stopIcon();
+	void reloadIcon();
 
 private:
-    QToolButton *clearButton;
+    QToolButton *reloadBtn;
+    QToolButton *stopBtn;
 };
 
 class WebPage : public QWebPage {
@@ -81,9 +83,12 @@ class MainWindow : public QMainWindow
 public:
     MainWindow();
     QWebPage *webPage();
+    QWebView *view;
 
 public slots:
     void newWindow(); // const QString &url
+	void reloadPage();
+	void stopPage();
 
 protected slots:
 
@@ -94,7 +99,7 @@ protected slots:
     void finishLoading(bool);
 
 private:
-    QWebView *view;
+
 	WebPage *page;
     LineEdit *locationEdit;
     int progress;
