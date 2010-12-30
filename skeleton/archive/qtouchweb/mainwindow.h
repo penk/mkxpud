@@ -40,11 +40,31 @@
 ****************************************************************************/
 
 #include <QtGui>
+#include <QLineEdit>
 
 class QWebView;
 QT_BEGIN_NAMESPACE
 class QLineEdit;
 QT_END_NAMESPACE
+
+class QToolButton;
+
+class LineEdit : public QLineEdit
+{
+    Q_OBJECT
+
+public:
+    LineEdit(QWidget *parent = 0);
+
+protected:
+    void resizeEvent(QResizeEvent *);
+
+private slots:
+    void updateCloseButton(const QString &text);
+
+private:
+    QToolButton *clearButton;
+};
 
 class MainWindow : public QMainWindow
 {
@@ -63,6 +83,6 @@ protected slots:
 
 private:
     QWebView *view;
-    QLineEdit *locationEdit;
+    LineEdit *locationEdit;
     int progress;
 };
