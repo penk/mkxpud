@@ -51,14 +51,15 @@ LineEdit::LineEdit(QWidget *parent)
     : QLineEdit(parent)
 {
     clearButton = new QToolButton(this);
-    QPixmap pixmap("fileclose.png");
+    QPixmap pixmap("reload.png");
     clearButton->setIcon(QIcon(pixmap));
-    clearButton->setIconSize(pixmap.size());
+    clearButton->setIconSize(QSize(16, 16));
     clearButton->setCursor(Qt::ArrowCursor);
     clearButton->setStyleSheet("QToolButton { border: none; padding: 0px; }");
-    clearButton->hide();
+
     connect(clearButton, SIGNAL(clicked()), this, SLOT(clear()));
     connect(this, SIGNAL(textChanged(const QString&)), this, SLOT(updateCloseButton(const QString&)));
+
     int frameWidth = style()->pixelMetric(QStyle::PM_DefaultFrameWidth);
     setStyleSheet(QString("QLineEdit { padding-right: %1px; } ").arg(clearButton->sizeHint().width() + frameWidth + 1));
     QSize msz = minimumSizeHint();
@@ -96,6 +97,7 @@ MainWindow::MainWindow()
     progress = 0;
 
     QNetworkProxyFactory::setUseSystemConfiguration(true);
+	setStyleSheet("QPushButton { border: none; padding: 5px; }");
 
     view = new QWebView(this);
 	WebPage* page = new WebPage(view);
@@ -116,10 +118,23 @@ MainWindow::MainWindow()
 
     QToolBar *toolBar = addToolBar(tr("Navigation"));
 	toolBar->setMovable(false);
-    toolBar->addAction(view->pageAction(QWebPage::Back));
-    toolBar->addAction(view->pageAction(QWebPage::Forward));
+
+	QPushButton *backBtn = new QPushButton(QPixmap("arrowleft.png"), "");
+	QAction *backAction = view->pageAction(QWebPage::Back);
+	connect(backBtn, SIGNAL(clicked()), backAction, SLOT(trigger()));
+
+	QPushButton *forwardBtn = new QPushButton(QPixmap("arrowright.png"), "");
+	QAction *forwardAction = view->pageAction(QWebPage::Forward);
+	connect(forwardBtn, SIGNAL(clicked()), forwardAction, SLOT(trigger()));
+
+	QPushButton *tabBtn = new QPushButton(QPixmap("plus.png"), "");
+	connect(tabBtn, SIGNAL(clicked()), this, SLOT(newWindow()));
+
+	toolBar->addWidget(backBtn);
+	toolBar->addWidget(forwardBtn);
     toolBar->addWidget(locationEdit);
-	toolBar->addAction(view->pageAction(QWebPage::Reload));
+    toolBar->addWidget(tabBtn);
+//	toolBar->addAction(view->pageAction(QWebPage::Reload));
 
     setCentralWidget(view);
 }
@@ -127,6 +142,12 @@ MainWindow::MainWindow()
 void MainWindow::adjustLocation()
 {
     locationEdit->setText(view->url().toString());
+}
+
+void MainWindow::newWindow()
+{
+	MainWindow* mw = new MainWindow();
+	mw->show();
 }
 
 void MainWindow::changeLocation()
@@ -137,7 +158,6 @@ void MainWindow::changeLocation()
             url = QUrl("http://" + string + "/");
 	locationEdit->setText(url.toEncoded());
     view->load(url);
-
 }
 
 void MainWindow::adjustTitle()

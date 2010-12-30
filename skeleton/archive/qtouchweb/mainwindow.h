@@ -82,6 +82,9 @@ public:
     MainWindow();
     QWebPage *webPage();
 
+public slots:
+    void newWindow(); // const QString &url
+
 protected slots:
 
     void adjustLocation();
