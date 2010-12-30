@@ -79,6 +79,18 @@ void LineEdit::updateCloseButton(const QString& text)
     clearButton->setVisible(!text.isEmpty());
 }
 
+QWebPage *WebPage::createWindow(QWebPage::WebWindowType)
+{
+	MainWindow *mw = new MainWindow;
+	mw->show();
+	return mw->webPage();
+}
+
+QWebPage *MainWindow::webPage()
+{
+	return view->page();
+}
+
 MainWindow::MainWindow()
 {
     progress = 0;
@@ -86,7 +98,10 @@ MainWindow::MainWindow()
     QNetworkProxyFactory::setUseSystemConfiguration(true);
 
     view = new QWebView(this);
-    view->load(QUrl("http://www.google.com/ncr"));
+	WebPage* page = new WebPage(view);
+	view->setPage(page);
+	view->load(QUrl("http://www.google.com/ncr"));
+
 	FlickCharm *flickCharm = new FlickCharm(this);
 	flickCharm->activateOn(view);
 
@@ -104,10 +119,9 @@ MainWindow::MainWindow()
     toolBar->addAction(view->pageAction(QWebPage::Back));
     toolBar->addAction(view->pageAction(QWebPage::Forward));
     toolBar->addWidget(locationEdit);
-    toolBar->addAction(view->pageAction(QWebPage::Reload));
+	toolBar->addAction(view->pageAction(QWebPage::Reload));
 
     setCentralWidget(view);
-    setUnifiedTitleAndToolBarOnMac(true);
 }
 
 void MainWindow::adjustLocation()

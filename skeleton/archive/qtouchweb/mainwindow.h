@@ -41,6 +41,7 @@
 
 #include <QtGui>
 #include <QLineEdit>
+#include <QtWebKit>
 
 class QWebView;
 QT_BEGIN_NAMESPACE
@@ -66,12 +67,20 @@ private:
     QToolButton *clearButton;
 };
 
+class WebPage : public QWebPage {
+public:
+    WebPage(QWidget *parent) : QWebPage(parent) {}
+    virtual QWebPage *createWindow(QWebPage::WebWindowType);
+};
+
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
     MainWindow();
+    QWebPage *webPage();
 
 protected slots:
 
@@ -83,6 +92,7 @@ protected slots:
 
 private:
     QWebView *view;
+	WebPage *page;
     LineEdit *locationEdit;
     int progress;
 };
