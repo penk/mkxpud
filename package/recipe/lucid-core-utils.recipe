@@ -37,7 +37,7 @@ udisks
 
 
 [post_action]
-#rm -vf $MKXPUD_TARGET/etc/udev/rules.d/60-*
+rm -vf $MKXPUD_TARGET/etc/udev/rules.d/60-*
 # FIXME:
 # remove this rules when host system is VBox.
 # 70-persistent-net.rules occupies the eth0 with Vbox nic MAC.
@@ -46,6 +46,8 @@ rm -vf $MKXPUD_TARGET/etc/udev/rules.d/70-*
 #---------------------------
 
 [binary]
+
+#/usr/bin/nslookup
 
 /bin/cpio
 /bin/mount
@@ -97,13 +99,13 @@ rm -vf $MKXPUD_TARGET/etc/udev/rules.d/70-*
 [data]
 
 /usr/share/misc
-/usr/share/file/magic.mime
+/usr/share/file/magic.mgc
 /usr/share/file/magic
 
 /usr/share/os-prober
 /usr/lib/linux-boot-probes
 /usr/lib/os-probes
-/usr/lib/pango
+/usr/lib/i386-linux-gnu/pango
 /usr/lib/grub
 
 /lib/udev
@@ -113,6 +115,19 @@ rm -vf $MKXPUD_TARGET/etc/udev/rules.d/70-*
 /etc/ld.so.cache
 
 /usr/lib/udisks/
+
+/lib/i386-linux-gnu/libnss_compat-2.13.so  
+/lib/i386-linux-gnu/libnss_files-2.13.so   
+/lib/i386-linux-gnu/libnss_nis-2.13.so
+/lib/i386-linux-gnu/libnss_compat.so.2     
+/lib/i386-linux-gnu/libnss_files.so.2      
+/lib/i386-linux-gnu/libnss_nis.so.2
+/lib/i386-linux-gnu/libnss_dns-2.13.so     
+/lib/i386-linux-gnu/libnss_hesiod-2.13.so  
+/lib/i386-linux-gnu/libnss_nisplus-2.13.so
+/lib/i386-linux-gnu/libnss_dns.so.2        
+/lib/i386-linux-gnu/libnss_hesiod.so.2     
+/lib/i386-linux-gnu/libnss_nisplus.so.2
 
 #---------------------------
 

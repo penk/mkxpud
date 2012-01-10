@@ -76,7 +76,7 @@ locale-gen en_US.UTF-8;
 /usr/share/zenity/zenity.ui
 
 /usr/share/X11/xkb
-/usr/share/X11/XKeysymDB
+#/usr/share/X11/XKeysymDB
 
 /usr/lib/locale
 

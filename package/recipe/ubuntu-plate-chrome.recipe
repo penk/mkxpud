@@ -4,8 +4,8 @@
 plate-chrome-core
 
 [package]
-mozplugger
 unzip
+libnss3-tools
 
 [action]
 # FIXME: latest version of mozplugger has issues with keyboard input, earlier versions doesn't want to work on chrome
@@ -13,26 +13,37 @@ unzip
 #if ! grep -q 'deb http://ppa.launchpad.net/setack/stuff/ubuntu karmic main' /etc/apt/sources.list; then echo 'deb http://ppa.launchpad.net/setack/stuff/ubuntu karmic main' >> /etc/apt/sources.list; apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 60FD0E97; apt-get update; apt-get install mozplugger --yes --force-yes; else apt-get install mozplugger --yes --force-yes; fi;
 
 # download chrome
-if [ ! -e skeleton/archive/chrome-linux.zip ]; then wget http://build.chromium.org/buildbot/snapshots/chromium-rel-linux/LATEST; wget http://build.chromium.org/buildbot/snapshots/chromium-rel-linux/`cat LATEST`/chrome-linux.zip -P skeleton/archive/; rm LATEST; fi; 
+if [ ! -e skeleton/archive/chrome-linux.zip ]; then wget http://build.chromium.org/f/chromium/snapshots/chromium-linux-reliability/LATEST; wget http://build.chromium.org/f/chromium/snapshots/chromium-linux-reliability/`cat LATEST`/chrome-linux.zip -P skeleton/archive/; rm LATEST; fi; 
 unzip skeleton/archive/chrome-linux.zip -d $MKXPUD_TARGET/usr/share/;
 
 [binary]
 
-/usr/bin/mozplugger-controller
-/usr/bin/mozplugger-helper
-/usr/bin/mozplugger-linker
-/usr/bin/m4
+/usr/bin/certutil
+/usr/bin/modutil
+/usr/bin/pk12util
+/usr/bin/shlibsign
+/usr/bin/signtool
+/usr/bin/ssltap
 
 [data]
 
-/usr/lib/mozilla/plugins/mozplugger.so
-
-/usr/lib/gtk-2.0/2.10.0/loaders/
-/usr/lib/gtk-2.0/2.10.0/loader-files.d/
+#/usr/lib/gtk-2.0/2.10.0/loaders/
+#/usr/lib/gtk-2.0/2.10.0/loader-files.d/
+/usr/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache
 
 /usr/lib/nss
-/usr/lib/libsqlite3.so.0
-/usr/lib/libsqlite3.so.0.8.6
+/usr/lib/i386-linux-gnu/libsqlite3.so.0
+/usr/lib/i386-linux-gnu/libsqlite3.so.0.8.6
+
+# for flash plugin
+/usr/lib/libcurl-gnutls.so.3  
+/usr/lib/libcurl-gnutls.so.4  
+/usr/lib/libcurl-gnutls.so.4.2.0  
+/usr/lib/libcurl.so.3  
+/usr/lib/libcurl.so.4  
+/usr/lib/libcurl.so.4.2.0
+/usr/lib/libidn.so.11
+/usr/lib/libidn.so.11.6.1
 
 [config]
 
@@ -64,7 +75,8 @@ unzip skeleton/archive/chrome-linux.zip -d $MKXPUD_TARGET/usr/share/;
 /usr/share/icons/default/index.theme
 
 /usr/bin/google-chrome
-/cgi-bin
+
+/usr/share/chrome-linux/plugins/libflashplayer.so
 
 /sbin/hotplug-x
 /init
@@ -101,4 +113,3 @@ unzip skeleton/archive/chrome-linux.zip -d $MKXPUD_TARGET/usr/share/;
 /usr/share/plate
 
 [alternative]
-/etc/mozpluggerrc
