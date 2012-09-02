@@ -11,10 +11,10 @@ xterm
 xkb-data
 openbox
 wmctrl
-ttf-droid
-libnotify-bin
-notify-osd
-zenity
+fonts-droid
+#libnotify-bin
+#notify-osd
+#zenity
 #lxterminal
 #xbacklight
 
@@ -35,9 +35,9 @@ locale-gen en_US.UTF-8;
 /usr/bin/xmodmap
 /usr/bin/xset
 
-/usr/bin/notify-send
+#/usr/bin/notify-send
 
-/usr/bin/zenity
+#/usr/bin/zenity
 
 #/usr/bin/xbacklight
 #/usr/bin/lxterminal
@@ -55,25 +55,25 @@ locale-gen en_US.UTF-8;
 
 [data]
 
-/usr/share/fonts/truetype/ttf-droid/DroidSans.ttf
-/usr/share/fonts/truetype/ttf-droid/DroidSerif-Regular.ttf
-/usr/share/fonts/truetype/ttf-droid/DroidSansMono.ttf
-/usr/share/fonts/truetype/ttf-droid/DroidSerif-Italic.ttf
-/usr/share/fonts/truetype/ttf-droid/DroidSans-Bold.ttf
-/usr/share/fonts/truetype/ttf-droid/DroidSerif-Bold.ttf
-/usr/share/fonts/truetype/ttf-droid/DroidSerif-BoldItalic.ttf
+/usr/share/fonts/truetype/droid/DroidSans.ttf
+/usr/share/fonts/truetype/droid/DroidSerif-Regular.ttf
+/usr/share/fonts/truetype/droid/DroidSansMono.ttf
+/usr/share/fonts/truetype/droid/DroidSerif-Italic.ttf
+/usr/share/fonts/truetype/droid/DroidSans-Bold.ttf
+/usr/share/fonts/truetype/droid/DroidSerif-Bold.ttf
+/usr/share/fonts/truetype/droid/DroidSerif-BoldItalic.ttf
 
 #/usr/share/vte
 #/usr/lib/libvte9
 /lib/terminfo
 
-/usr/lib/notify-osd/notify-osd
+#/usr/lib/notify-osd/notify-osd
 
 # is this lib required? dep checker didn't include it automatically
 #/usr/lib/libXxf86misc.so.1
 #/usr/lib/libXxf86misc.so.1.1.0
 
-/usr/share/zenity/zenity.ui
+#/usr/share/zenity/zenity.ui
 
 /usr/share/X11/xkb
 #/usr/share/X11/XKeysymDB
