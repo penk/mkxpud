@@ -14,8 +14,6 @@ libdrm-dev
 mkdir $MKXPUD_TARGET/var/log;
 mkdir $MKXPUD_TARGET/var/tmp;
 mkdir $MKXPUD_TARGET/var/lib/xkb;
-# download virtualbox-ose-guest additions (for testing in VirtualBox)
-if [ ! -e skeleton/archive/virtualbox-ose-guest-x11_4.0.4-dfsg-1ubuntu4_i386.deb ]; then wget http://archive.ubuntu.com/ubuntu/pool/universe/v/virtualbox-ose/virtualbox-ose-guest-x11_4.0.4-dfsg-1ubuntu4_i386.deb -P skeleton/archive/; dpkg -x skeleton/archive/virtualbox-ose-guest-x11_4.0.4-dfsg-1ubuntu4_i386.deb / ; fi;
 
 [binary]
 
@@ -28,10 +26,6 @@ if [ ! -e skeleton/archive/virtualbox-ose-guest-x11_4.0.4-dfsg-1ubuntu4_i386.deb
 
 /usr/bin/cpp
 
-# for vbox with vboxvideo/drm
-/usr/bin/VBoxClient
-/usr/sbin/VBoxService
-
 [data]
 
 /etc/X11
@@ -39,17 +33,8 @@ if [ ! -e skeleton/archive/virtualbox-ose-guest-x11_4.0.4-dfsg-1ubuntu4_i386.deb
 
 #/usr/lib/dri
 # copy only basic GLX modules
-#/usr/lib/dri/i915_dri.so
-#/usr/lib/dri/swrast_dri.so
-
-/usr/lib/dri/vboxvideo_dri.so
-/usr/lib/VBoxOGL.so
-/usr/lib/VBoxOGLarrayspu.so
-/usr/lib/VBoxOGLcrutil.so
-/usr/lib/VBoxOGLerrorspu.so
-/usr/lib/VBoxOGLfeedbackspu.so
-/usr/lib/VBoxOGLpackspu.so
-/usr/lib/VBoxOGLpassthroughspu.so
+/usr/lib/i386-linux-gnu/dri/i915_dri.so
+#/usr/lib/i386-linux-gnu/dri/swrast_dri.so
 
 /usr/share/X11/locale
 /usr/share/X11/rgb.txt

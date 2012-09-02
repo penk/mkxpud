@@ -15,7 +15,7 @@ alsa-utils
 [data]
 /usr/share/alsa
 /usr/share/alsa-base
-/usr/lib/alsa-lib
+/usr/lib/i386-linux-gnu/alsa-lib
 
 [config]
 /etc/asound.conf

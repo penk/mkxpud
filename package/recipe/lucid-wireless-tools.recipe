@@ -23,10 +23,10 @@ linux-firmware
 
 [data]
 # FIXME: without theese libs (from libc6 package) udevd gives errors, maybe they should be moved to core recipe?
-/lib/libnss_dns.so.2
-/lib/libnss_dns-2.12.1.so
-/lib/libnss_files.so.2
-/lib/libnss_files-2.12.1.so
+/lib/i386-linux-gnu/libnss_files-2.15.so
+/lib/i386-linux-gnu/libnss_files.so.2
+/lib/i386-linux-gnu/libnss_files-2.15.so
+/lib/i386-linux-gnu/libnss_dns.so.2
 
 /lib/firmware/iwlwifi-3945-2.ucode
 /lib/firmware/iwlwifi-4965-2.ucode

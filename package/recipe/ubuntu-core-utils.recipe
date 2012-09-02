@@ -6,23 +6,19 @@ core-utils
 #---------------------------
 
 [package]
-
 # tools for mkxpud
 squashfs-tools
 #aufs-tools
-
 genisoimage
 upx-ucl
 wget 
-gnome-icon-theme
 nsis
-powertop
 
 libxss1
 busybox-static
 ntfs-3g
 kexec-tools
-dmidecode 
+#dmidecode
 grub
 os-prober
 parted
@@ -32,14 +28,26 @@ acpid
 acpi-support
 bc
 findutils
+powertop
+udisks
 
 #---------------------------
 
 [action]
 
+
+[post_action]
+rm -vf $MKXPUD_TARGET/etc/udev/rules.d/60-*
+# FIXME:
+# remove this rules when host system is VBox.
+# 70-persistent-net.rules occupies the eth0 with Vbox nic MAC.
+rm -vf $MKXPUD_TARGET/etc/udev/rules.d/70-*
+
 #---------------------------
 
 [binary]
+
+#/usr/bin/nslookup
 
 /bin/cpio
 /bin/mount
@@ -70,7 +78,7 @@ findutils
 /usr/bin/os-prober
 /usr/bin/perl
 
-/usr/sbin/dmidecode
+#/usr/sbin/dmidecode
 /usr/sbin/grub
 /usr/sbin/grub-set-default
 /sbin/cfdisk
@@ -83,48 +91,43 @@ findutils
 
 /usr/bin/file
 
+/usr/bin/udisks
+/sbin/umount.udisks
+
 #---------------------------
 
 [data]
 
 /usr/share/misc
-/usr/share/file/magic.mime
+/usr/share/file/magic.mgc
 /usr/share/file/magic
-
 
 /usr/share/os-prober
 /usr/lib/linux-boot-probes
 /usr/lib/os-probes
-/usr/lib/pango
+/usr/lib/i386-linux-gnu/pango
 /usr/lib/grub
 
-## FIXME: /lib/udev
-/lib/udev/alsa-utils
-#/lib/udev/modem-probe
-#/lib/udev/vol_id
-/lib/udev/write_cd_rules
-/lib/udev/modem-modeswitch
-/lib/udev/cdrom_id
-/lib/udev/edd_id
-/lib/udev/create_floppy_devices
-/lib/udev/rules.d
-/lib/udev/scsi_id
-/lib/udev/collect
-/lib/udev/usb_id
-/lib/udev/write_net_rules
-/lib/udev/path_id
-/lib/udev/fstab_import
-/lib/udev/rule_generator.functions
-/lib/udev/ata_id
-#/lib/udev/usbdev_id
-/lib/udev/firmware.sh
+/lib/udev
 
 /etc/udev
 
-/usr/lib/libXss.so.1
-/usr/lib/libXss.so.1.0.0
-/lib/libresolv.so.2
-/lib/libresolv-2.10.1.so
+/etc/ld.so.cache
+
+/usr/lib/udisks/
+
+/lib/i386-linux-gnu/libnss_compat-2.13.so  
+/lib/i386-linux-gnu/libnss_files-2.13.so   
+/lib/i386-linux-gnu/libnss_nis-2.13.so
+/lib/i386-linux-gnu/libnss_compat.so.2     
+/lib/i386-linux-gnu/libnss_files.so.2      
+/lib/i386-linux-gnu/libnss_nis.so.2
+/lib/i386-linux-gnu/libnss_dns-2.13.so     
+/lib/i386-linux-gnu/libnss_hesiod-2.13.so  
+/lib/i386-linux-gnu/libnss_nisplus-2.13.so
+/lib/i386-linux-gnu/libnss_dns.so.2        
+/lib/i386-linux-gnu/libnss_hesiod.so.2     
+/lib/i386-linux-gnu/libnss_nisplus.so.2
 
 #---------------------------
 
@@ -137,8 +140,6 @@ findutils
 /etc/shells
 
 #/etc/modules
-
-#/etc/xpud-backup.conf
 
 /etc/acpi/
 
